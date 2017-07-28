@@ -12,5 +12,6 @@ Imports:
     dplyr (>= 0.7.2),
     magrittr (>= 1.5),
     RCurl (>= 1.95-4.8),
-    readr (>= 1.1.1)
+    readr (>= 1.1.1),
+    tidyr (>= 0.6.3)
 RoxygenNote: 6.0.1
