@@ -1,0 +1,14 @@
+Package: c14databases
+Title: What the Package Does (one line, title case)
+Version: 0.0.0.9000
+Authors@R: person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph"))
+Description: What the package does (one paragraph).
+Depends: R (>= 3.4.1)
+License: GPL-2 | file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    magrittr (>= 1.5),
+    readr (>= 1.1.1),
+    dplyr (>= 0.7.2)
+RoxygenNote: 6.0.1
