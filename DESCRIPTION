@@ -8,7 +8,9 @@ License: GPL-2 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+    curl (>= 2.7),
+    dplyr (>= 0.7.2),
     magrittr (>= 1.5),
-    readr (>= 1.1.1),
-    dplyr (>= 0.7.2)
+    RCurl (>= 1.95-4.8),
+    readr (>= 1.1.1)
 RoxygenNote: 6.0.1

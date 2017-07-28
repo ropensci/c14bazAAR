@@ -14,10 +14,14 @@
 get_CALPAL <- function() {
 
   # URL
-  calpal_url <- "https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_14C-Database.csv"
+  db_url <- "https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_14C-Database.csv"
+
+  # check connection
+  if (!curl::has_internet()) {stop("No internet connection.")}
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available."))}
 
   # read data
-  CALPAL <- calpal_url %>%
+  CALPAL <- db_url %>%
     readr::read_csv(
       col_types = readr::cols(
         ID = readr::col_integer(),
