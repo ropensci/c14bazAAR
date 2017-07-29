@@ -3,6 +3,7 @@
 S3method(format,c14_date_list)
 S3method(print,c14_date_list)
 export(get_CALPAL)
+export(get_CONTEXT)
 export(get_EUROEVOL)
 export(get_RADON)
 export(get_aDRAC)
