@@ -93,7 +93,10 @@ get_EUROEVOL <- function() {
       sitetype = .data[["Type"]]
     ) %>%
     # add class attribute
-    `class<-`(c("c14_date_list", class(.)))
+    `class<-`(
+      c("c14_date_list", class(.))
+    ) %>%
+    c14databases::order_variables()
 
   return(EUROEVOL)
 }

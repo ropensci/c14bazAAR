@@ -75,7 +75,10 @@ get_RADON <- function() {
     # add fullref column
     dplyr::mutate(fullref = NA_character_ ) %>%
     # add class attribute
-    `class<-`(c("c14_date_list", class(.)))
+    `class<-`(
+      c("c14_date_list", class(.))
+    ) %>%
+    c14databases::order_variables()
 
   return(RADON)
 }

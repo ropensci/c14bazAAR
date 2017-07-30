@@ -68,7 +68,10 @@ get_CALPAL <- function() {
       comment = .data[["NOTICE"]]
     ) %>%
     dplyr::mutate(fullref = NA_character_) %>%
-      `class<-`(c("c14_date_list", class(.)))
+    `class<-`(
+        c("c14_date_list", class(.))
+    ) %>%
+    c14databases::order_variables()
 
   return(CALPAL)
 }

@@ -62,7 +62,7 @@ get_CONTEXT <- function() {
       -.data[["GR"]], -.data[["MAR"]]
     ) %>%
     # rename
-    dplyr::rename_(
+    dplyr::rename(
       id = .data[["ID"]],
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
@@ -85,7 +85,10 @@ get_CONTEXT <- function() {
       shortref = .data[["REFERENCE"]]
     ) %>%
     # add class attribute
-    `class<-`(c("c14_date_list", class(.)))
+    `class<-`(
+      c("c14_date_list", class(.))
+    ) %>%
+    c14databases::order_variables()
 
   return(CONTEXT)
 }

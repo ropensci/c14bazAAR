@@ -52,7 +52,10 @@ get_aDRAC <- function() {
       shortref = .data[["SOURCE"]]
     ) %>%
     # add class attribute
-    `class<-`(c("c14_date_list", class(.)))
+    `class<-`(
+      c("c14_date_list", class(.))
+    ) %>%
+    c14databases::order_variables()
 
   return(aDRAC)
 }
