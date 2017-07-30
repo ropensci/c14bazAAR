@@ -9,11 +9,11 @@
 \arguments{
 \item{x}{a c14_date_list}
 
-\item{...}{further arguments passed to or from other methods.}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-A string representation of the c14_date_list.
+A string representation of the c14_date_list
 }
 \description{
-Format an c14_date_list for pretty printing.
+Format an c14_date_list for pretty printing
 }

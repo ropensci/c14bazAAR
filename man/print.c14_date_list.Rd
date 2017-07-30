@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{a c14_date_list}
 
-\item{...}{further arguments passed to or from other methods.}
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Print a c14_date_list according to the format.c14_date_list
