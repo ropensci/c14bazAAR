@@ -19,8 +19,8 @@ get_CONTEXT <- function() {
 
   # download, unzip and read data
   temp <- tempfile()
-  download.file(db_url, temp, quiet = TRUE)
-  con <- unzip(temp, "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv")
+  utils::download.file(db_url, temp, quiet = TRUE)
+  con <- utils::unzip(temp, "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv")
   CONTEXT_raw <- readr::read_delim(
     "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv",
     delim = ";",
@@ -58,31 +58,31 @@ get_CONTEXT <- function() {
   # rename
   CONTEXT <- CONTEXT_raw %>%
     # remove strange columns
-    dplyr::select_(
-      quote(-GR), quote(-MAR)
+    dplyr::select(
+      -.data[["GR"]], -.data[["MAR"]]
     ) %>%
     # rename
     dplyr::rename_(
-      id = "ID",
-      labnr = "LABNR",
-      c14age = "C14AGE",
-      c14std = "C14STD",
-      c13val = "C13",
-      country = "COUNTRY",
-      site = "SITE",
-      material = "MATERIAL",
-      species = "SPECIES",
-      phase = "PHASE",
-      locus = "LOCUS",
-      sample = "SAMPLE",
-      culture = "CULTURE",
-      period = "PERIOD",
-      calage68 = "calBC68",
-      calage95 = "calBC95",
-      region = "REGION",
-      lat = "LATITUDE",
-      lon = "LONGITUDE",
-      shortref = "REFERENCE"
+      id = .data[["ID"]],
+      labnr = .data[["LABNR"]],
+      c14age = .data[["C14AGE"]],
+      c14std = .data[["C14STD"]],
+      c13val = .data[["C13"]],
+      country = .data[["COUNTRY"]],
+      site = .data[["SITE"]],
+      material = .data[["MATERIAL"]],
+      species = .data[["SPECIES"]],
+      phase = .data[["PHASE"]],
+      locus = .data[["LOCUS"]],
+      sample = .data[["SAMPLE"]],
+      culture = .data[["CULTURE"]],
+      period = .data[["PERIOD"]],
+      calage68 = .data[["calBC68"]],
+      calage95 = .data[["calBC95"]],
+      region = .data[["REGION"]],
+      lat = .data[["LATITUDE"]],
+      lon = .data[["LONGITUDE"]],
+      shortref = .data[["REFERENCE"]]
     ) %>%
     # add class attribute
     `class<-`(c("c14_date_list", class(.)))

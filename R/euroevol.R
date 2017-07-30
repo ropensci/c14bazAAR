@@ -62,7 +62,9 @@ get_EUROEVOL <- function() {
         Type = readr::col_character()
       )
     ) %>%
-    dplyr::select_(quote(-Period), quote(-SiteID))
+    dplyr::select(
+      -.data[["Period"]], -.data[["SiteID"]]
+    )
 
   # merge and prepare
   EUROEVOL <- dates %>%
@@ -70,23 +72,25 @@ get_EUROEVOL <- function() {
     dplyr::left_join(sites, by = "SiteID") %>%
     dplyr::left_join(phases, by = "PhaseCode") %>%
     # remove unnecessary variables
-    dplyr::select_(quote(-PhaseCode), quote(-SiteID)) %>%
+    dplyr::select(
+      -.data[["PhaseCode"]], -.data[["SiteID"]]
+    ) %>%
     # rename variables
-    dplyr::rename_(
-      id = "C14ID",
-      labnr = "LabCode",
-      c14age = "C14Age",
-      c14std = "C14SD",
-      material = "Material",
-      species = "MaterialSpecies",
-      country = "Country",
-      lat = "Latitude",
-      lon = "Longitude",
-      site = "SiteName",
-      period = "Period",
-      culture = "Culture",
-      subculture = "Subculture",
-      sitetype = "Type"
+    dplyr::rename(
+      id = .data[["C14ID"]],
+      labnr = .data[["LabCode"]],
+      c14age = .data[["C14Age"]],
+      c14std = .data[["C14SD"]],
+      material = .data[["Material"]],
+      species = .data[["MaterialSpecies"]],
+      country = .data[["Country"]],
+      lat = .data[["Latitude"]],
+      lon = .data[["Longitude"]],
+      site = .data[["SiteName"]],
+      period = .data[["Period"]],
+      culture = .data[["Culture"]],
+      subculture = .data[["Subculture"]],
+      sitetype = .data[["Type"]]
     ) %>%
     # add class attribute
     `class<-`(c("c14_date_list", class(.)))

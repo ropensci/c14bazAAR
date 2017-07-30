@@ -37,19 +37,19 @@ get_aDRAC <- function() {
       )
       # rename variables
     ) %>%
-    dplyr::rename_(
-      labnr = "LABNR",
-      c14age = "C14AGE",
-      c14std = "C14STD",
-      c13val = "C13",
-      material = "MATERIAL",
-      site = "SITE",
-      country = "COUNTRY",
-      feature = "FEATURE",
-      featuredescription = "FEATURE_DESC",
-      lat = "LAT",
-      lon = "LONG",
-      shortref = "SOURCE"
+    dplyr::rename(
+      labnr = .data[["LABNR"]],
+      c14age = .data[["C14AGE"]],
+      c14std = .data[["C14STD"]],
+      c13val = .data[["C13"]],
+      material = .data[["MATERIAL"]],
+      site = .data[["SITE"]],
+      country = .data[["COUNTRY"]],
+      feature = .data[["FEATURE"]],
+      featuredescription = .data[["FEATURE_DESC"]],
+      lat = .data[["LAT"]],
+      lon = .data[["LONG"]],
+      shortref = .data[["SOURCE"]]
     ) %>%
     # add class attribute
     `class<-`(c("c14_date_list", class(.)))

@@ -8,8 +8,6 @@
 #'   CALPAL <- get_CALPAL()
 #' }
 #'
-#' @importFrom magrittr "%>%"
-#'
 #' @export
 get_CALPAL <- function() {
 
@@ -47,29 +45,29 @@ get_CALPAL <- function() {
       )
     # rename variables
     ) %>%
-    dplyr::rename_(
-      id = "ID",
-      labnr = "LABNR",
-      c14age = "C14AGE",
-      c14std = "C14STD",
-      c13val = "C13",
-      material = "MATERIAL",
-      species = "SPECIES",
-      country = "COUNTRY",
-      site = "SITE",
-      period = "PERIOD",
-      culture = "CULTURE",
-      phase = "PHASE",
-      locus = "LOCUS",
-      lat = "LATITUDE",
-      lon = "LONGITUDE",
-      method = "METHOD",
-      calage = "CALAGE",
-      calstd = "CALSTD",
-      shortref = "REFERENCE",
-      comment = "NOTICE"
+    dplyr::rename(
+      id = .data[["ID"]],
+      labnr = .data[["LABNR"]],
+      c14age = .data[["C14AGE"]],
+      c14std = .data[["C14STD"]],
+      c13val = .data[["C13"]],
+      material = .data[["MATERIAL"]],
+      species = .data[["SPECIES"]],
+      country = .data[["COUNTRY"]],
+      site = .data[["SITE"]],
+      period = .data[["PERIOD"]],
+      culture = .data[["CULTURE"]],
+      phase = .data[["PHASE"]],
+      locus = .data[["LOCUS"]],
+      lat = .data[["LATITUDE"]],
+      lon = .data[["LONGITUDE"]],
+      method = .data[["METHOD"]],
+      calage = .data[["CALAGE"]],
+      calstd = .data[["CALSTD"]],
+      shortref = .data[["REFERENCE"]],
+      comment = .data[["NOTICE"]]
     ) %>%
-    dplyr::mutate(fullref = NA_character_ ) %>%
+    dplyr::mutate(fullref = NA_character_) %>%
       `class<-`(c("c14_date_list", class(.)))
 
   return(CALPAL)
