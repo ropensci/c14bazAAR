@@ -190,30 +190,56 @@ calibrate.c14_date_list <- function(x) {
   x$calage[outofrange] <- x$c14age[outofrange]
   x$calstd[outofrange] <- x$c14std[outofrange]
 
-  # increment progress bar
-  utils::setTxtProgressBar(pb, 5)
-
   # 2sigma range probability threshold
   threshold <- (1 - 0.9545) / 2
 
-  # calibration
-  interval95 <- Bchron::BchronCalibrate(
-      ages      = x$c14age[-outofrange],
-      ageSds    = x$c14std[-outofrange],
-      calCurves = rep("intcal13", nrow(x[-outofrange, ])),
-      eps       = 1e-06
-    ) %>%
-    # extract border ages of the 2sigma range
-    plyr::ldply(., function(x) {
-        x$densities            %>% cumsum -> a      # cumulated density
-        which(a <= threshold)  %>% max    -> my_min # lower border
-        which(a > 1-threshold) %>% min    -> my_max # upper border
-        x$ageGrid[c(my_min, my_max)]
-      }
-    )
+  # extract dates which are not out of range
+  calibrateable <- x[-outofrange, ]
+
+  # create empty calibration result data.frame
+  interval95 <- data.frame(
+    .id = rep(NA, nrow(calibrateable)),
+    V1 = NA,
+    V2 = NA
+  )
+
+  # determine amount of calibration loop iteration to work through the data in stacks of 200 dates
+  # -> artificial stacks
+  step_width <- 200
+  amount_of_iterations <- ceiling(nrow(calibrateable)/step_width)
 
   # increment progress bar
-  utils::setTxtProgressBar(pb, 95)
+  utils::setTxtProgressBar(pb, 5)
+
+  # calibration loop -- loop only for progress bar :-( -- code was much simpler without this
+  for (i in 1:amount_of_iterations) {
+
+    # define step sequence for this step
+    step_seq <- (step_width * (i - 1) + 1):if (i == amount_of_iterations)
+      {nrow(calibrateable)} else {(step_width * i)}
+
+    # separate data in stacks of size step_width
+    calibrateable_step <- calibrateable[step_seq,]
+
+    # calibration
+    interval95[step_seq,] <- Bchron::BchronCalibrate(
+        ages      = calibrateable_step$c14age,
+        ageSds    = calibrateable_step$c14std,
+        calCurves = rep("intcal13", nrow(calibrateable_step)),
+        eps       = 1e-06
+      ) %>%
+      # extract border ages of the 2sigma range
+      plyr::ldply(., function(x) {
+          x$densities            %>% cumsum -> a      # cumulated density
+          which(a <= threshold)  %>% max    -> my_min # lower border
+          which(a > 1-threshold) %>% min    -> my_max # upper border
+          x$ageGrid[c(my_min, my_max)]
+        }
+      )
+
+    # increment progress bar
+    utils::setTxtProgressBar(pb, 5 + 90 * i/amount_of_iterations)
+  }
 
   # take the mean of the borders as CALAGE and the distance
   # of CALAGE to the upper and lower 95.45% interval as CALSTD
