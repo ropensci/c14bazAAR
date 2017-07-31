@@ -144,6 +144,30 @@ thesaurify.default <- function(x) {
 #' @export
 thesaurify.c14_date_list <- function(x) {
 
+  # whitespaces
+  x <- x %>%
+    dplyr::mutate_if(
+      is.character,
+      stringr::str_trim
+    )
+  message("Removed leading and trailing whitespaces in all character columns.")
+
+  # add or empty columns calage and calstd
+  if (c("country_cor", "material_cor") %in% colnames(x) %>% all) {
+    x$country_cor <- NA
+    x$material_cor <- NA
+  } else {
+    x <- x %>%
+      tibble::add_column(
+        country_cor = NA,
+        .after = "country"
+      ) %>%
+      tibble::add_column(
+        material_cor = NA,
+        .after = "material"
+      )
+  }
+
   # apply thesauri and create new columns
   x <- x %>%
     dplyr::mutate(
