@@ -95,34 +95,20 @@ order_variables.default <- function(x) {
 #' @export
 order_variables.c14_date_list <- function(x) {
 
-  # apply ordering key but consider special case calage & calstd
-  if (c("calage", "calstd") %in% colnames(x) %>% all) {
-    x <- x %>%
-      dplyr::select(
-        .data[["labnr"]],
-        .data[["site"]],
-        .data[["c14age"]],
-        .data[["c14std"]],
-        .data[["calage"]],
-        .data[["calstd"]],
-        .data[["material"]],
-        .data[["lat"]],
-        .data[["lon"]],
-        dplyr::everything()
-      )
-  } else {
-    x <- x %>%
-      dplyr::select(
-        .data[["labnr"]],
-        .data[["site"]],
-        .data[["c14age"]],
-        .data[["c14std"]],
-        .data[["material"]],
-        .data[["lat"]],
-        .data[["lon"]],
-        dplyr::everything()
-      )
-  }
+  # apply ordering key
+  x <- x %>%
+    dplyr::select(
+      .data[["labnr"]],
+      .data[["site"]],
+      .data[["c14age"]],
+      .data[["c14std"]],
+      dplyr::contains("calage"),
+      dplyr::contains("calstd"),
+      .data[["material"]],
+      .data[["lat"]],
+      .data[["lon"]],
+      dplyr::everything()
+    )
 
   return(x)
 }
