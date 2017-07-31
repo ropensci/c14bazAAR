@@ -105,10 +105,60 @@ order_variables.c14_date_list <- function(x) {
       dplyr::contains("calage"),
       dplyr::contains("calstd"),
       .data[["material"]],
+      dplyr::contains("material_cor"),
+      .data[["country"]],
+      dplyr::contains("country_cor"),
       .data[["lat"]],
       .data[["lon"]],
       dplyr::everything()
     )
+
+  return(x)
+}
+
+#### thesaurify ####
+
+#' @name thesaurify
+#' @title Apply thesaurus
+#'
+#' @description Add columns country_cor & material_cor with simplified and unified terms
+#'
+#' @param x an object of class c14_date_list
+#'
+#' @return an object of class c14_date_list
+#' @export
+#'
+#' @rdname thesaurify
+#'
+thesaurify <- function(x) {
+  UseMethod("thesaurify")
+}
+
+#' @rdname thesaurify
+#' @export
+thesaurify.default <- function(x) {
+  stop("x is not an object of class c14_date_list")
+}
+
+#' @rdname thesaurify
+#' @export
+thesaurify.c14_date_list <- function(x) {
+
+  # apply thesauri and create new columns
+  x <- x %>%
+    dplyr::mutate(
+      country_cor = ifelse(
+        .$country %in% c14databases::country_thesaurus$var,
+        c14databases::country_thesaurus$cor[match(.$country, c14databases::country_thesaurus$var)],
+        .$country
+      ),
+      material_cor = ifelse(
+        .$material %in% c14databases::material_thesaurus$var,
+        c14databases::material_thesaurus$cor[match(.$material, c14databases::material_thesaurus$var)],
+        .$material
+      )
+    ) %>%
+    `class<-`(c("c14_date_list", class(.)))
 
   return(x)
 }
@@ -158,9 +208,8 @@ clean.c14_date_list <- function(x) {
   message("Removed coordinate values which are out of bounds.")
 
   # add class again -- gets lost in in mutate_if :-(
-  x <- x %>% `class<-`(
-    c("c14_date_list", class(.))
-  )
+  x <- x %>%
+    `class<-`(c("c14_date_list", class(.)))
 
   return(x)
 }
