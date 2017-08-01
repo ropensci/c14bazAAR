@@ -25,6 +25,7 @@ get_EUROEVOL <- function() {
   # read dates data
   dates <- db_url1 %>%
     readr::read_csv(
+      na = c("NULL"),
       col_types = readr::cols(
         C14ID = readr::col_integer(),
         Period = readr::col_character(),
@@ -40,8 +41,11 @@ get_EUROEVOL <- function() {
 
   # read site data
   sites <- db_url2 %>%
-    readr::read_csv(
-        col_types = readr::cols(
+    readr::read_delim(
+      delim = ",",
+      escape_backslash = TRUE,
+      escape_double = FALSE,
+      col_types = readr::cols(
         Country = readr::col_character(),
         Latitude = readr::col_double(),
         Longitude = readr::col_double(),
@@ -53,6 +57,7 @@ get_EUROEVOL <- function() {
   # read phases data
   phases <- db_url3 %>%
     readr::read_csv(
+      na = c("NULL"),
       col_types = readr::cols(
         Culture = readr::col_character(),
         Subculture = readr::col_character(),

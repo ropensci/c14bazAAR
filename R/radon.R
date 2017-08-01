@@ -21,6 +21,9 @@ get_RADON <- function() {
   # read data
   RADON <- db_url %>%
     readr::read_tsv(
+      na = c("", "n/a", "n.a."),
+      quote = "",
+      quoted_na = TRUE,
       col_types = readr::cols(
         ID = readr::col_integer(),
         LABNR = readr::col_character(),
@@ -41,7 +44,7 @@ get_RADON <- function() {
         PAGES = readr::col_character()
       )
     ) %>%
-    dplyr::rename_(
+    dplyr::rename(
       id = .data[["ID"]],
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
@@ -69,7 +72,7 @@ get_RADON <- function() {
       shortref = replace(.$shortref, which(.$shortref == ", "), NA)
     ) %>%
     dplyr::mutate(
-      shortref = replace(.$shortref, grep("[,]+[[:space:]]$", .$shortref), "")
+      shortref = gsub("[,]+[[:space:]]$", "", .$shortref)
     ) %>%
     `class<-`(c("c14_date_list", class(.))) %>%
     c14databases::order_variables()
