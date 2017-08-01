@@ -187,6 +187,48 @@ thesaurify.c14_date_list <- function(x) {
   return(x)
 }
 
+#### rm_doubles ####
+
+#' @name rm_doubles
+#' @title Removes doubles
+#'
+#' @description Removes double entries in a c14_date_list by comparing the Labcodes
+#'
+#' @param x an object of class c14_date_list
+#'
+#' @return an object of class c14_date_list
+#' @export
+#'
+#' @rdname rm_doubles
+#'
+rm_doubles <- function(x) {
+  UseMethod("rm_doubles")
+}
+
+#' @rdname rm_doubles
+#' @export
+rm_doubles.default <- function(x) {
+  stop("x is not an object of class c14_date_list")
+}
+
+#' @rdname rm_doubles
+#' @export
+rm_doubles.c14_date_list <- function(x) {
+
+  # x <- x[1:1000,]
+  # # search for double occurences
+  # doubles <- sapply(
+  #   x[["labnr"]],
+  #   function(y){
+  #     grep(tolower(y), tolower(x[["labnr"]])) %>%
+  #       length(.) > 1 %>%
+  #       return()
+  #   }
+  # ) %>% which
+
+  return(x)
+}
+
 #### clean ####
 
 #' @name clean
