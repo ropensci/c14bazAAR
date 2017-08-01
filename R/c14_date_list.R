@@ -341,10 +341,10 @@ calibrate.c14_date_list <- function(x) {
       ) %>%
       # extract border ages of the 2sigma range
       plyr::ldply(., function(x) {
-          x$densities            %>% cumsum -> a      # cumulated density
+          x[["densities"]]            %>% cumsum -> a      # cumulated density
           which(a <= threshold)  %>% max    -> my_min # lower border
           which(a > 1-threshold) %>% min    -> my_max # upper border
-          x$ageGrid[c(my_min, my_max)]
+          x[["ageGrid"]][c(my_min, my_max)]
         }
       )
 
