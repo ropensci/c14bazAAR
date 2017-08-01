@@ -75,7 +75,6 @@ get_EUROEVOL <- function() {
     dplyr::select(
       -.data[["PhaseCode"]], -.data[["SiteID"]]
     ) %>%
-    # rename variables
     dplyr::rename(
       id = .data[["C14ID"]],
       labnr = .data[["LabCode"]],
@@ -92,10 +91,7 @@ get_EUROEVOL <- function() {
       subculture = .data[["Subculture"]],
       sitetype = .data[["Type"]]
     ) %>%
-    # add class attribute
-    `class<-`(
-      c("c14_date_list", class(.))
-    ) %>%
+    `class<-`(c("c14_date_list", class(.))) %>%
     c14databases::order_variables()
 
   return(EUROEVOL)

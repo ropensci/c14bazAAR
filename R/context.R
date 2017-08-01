@@ -57,11 +57,10 @@ get_CONTEXT <- function() {
 
   # rename
   CONTEXT <- CONTEXT_raw %>%
-    # remove strange columns
+    # remove unnecessary variables
     dplyr::select(
       -.data[["GR"]], -.data[["MAR"]]
     ) %>%
-    # rename
     dplyr::rename(
       id = .data[["ID"]],
       labnr = .data[["LABNR"]],
@@ -84,10 +83,7 @@ get_CONTEXT <- function() {
       lon = .data[["LONGITUDE"]],
       shortref = .data[["REFERENCE"]]
     ) %>%
-    # add class attribute
-    `class<-`(
-      c("c14_date_list", class(.))
-    ) %>%
+    `class<-`(c("c14_date_list", class(.))) %>%
     c14databases::order_variables()
 
   return(CONTEXT)

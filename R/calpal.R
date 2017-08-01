@@ -43,7 +43,6 @@ get_CALPAL <- function() {
         REFERENCE = readr::col_character(),
         NOTICE = readr::col_character()
       )
-    # rename variables
     ) %>%
     dplyr::rename(
       id = .data[["ID"]],
@@ -67,10 +66,7 @@ get_CALPAL <- function() {
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
     ) %>%
-    dplyr::mutate(fullref = NA_character_) %>%
-    `class<-`(
-        c("c14_date_list", class(.))
-    ) %>%
+    `class<-`(c("c14_date_list", class(.))) %>%
     c14databases::order_variables()
 
   return(CALPAL)

@@ -35,7 +35,6 @@ get_aDRAC <- function() {
         LONG = readr::col_double(),
         SOURCE = readr::col_character()
       )
-      # rename variables
     ) %>%
     dplyr::rename(
       labnr = .data[["LABNR"]],
@@ -51,10 +50,7 @@ get_aDRAC <- function() {
       lon = .data[["LONG"]],
       shortref = .data[["SOURCE"]]
     ) %>%
-    # add class attribute
-    `class<-`(
-      c("c14_date_list", class(.))
-    ) %>%
+    `class<-`(c("c14_date_list", class(.))) %>%
     c14databases::order_variables()
 
   return(aDRAC)

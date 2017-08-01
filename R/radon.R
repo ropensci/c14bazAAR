@@ -40,7 +40,6 @@ get_RADON <- function() {
         REFERENCE = readr::col_character(),
         PAGES = readr::col_character()
       )
-    # rename variables
     ) %>%
     dplyr::rename_(
       id = .data[["ID"]],
@@ -72,12 +71,7 @@ get_RADON <- function() {
     dplyr::mutate(
       shortref = replace(.$shortref, grep("[,]+[[:space:]]$", .$shortref), "")
     ) %>%
-    # add fullref column
-    dplyr::mutate(fullref = NA_character_ ) %>%
-    # add class attribute
-    `class<-`(
-      c("c14_date_list", class(.))
-    ) %>%
+    `class<-`(c("c14_date_list", class(.))) %>%
     c14databases::order_variables()
 
   return(RADON)
