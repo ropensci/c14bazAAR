@@ -215,16 +215,73 @@ rm_doubles.default <- function(x) {
 #' @export
 rm_doubles.c14_date_list <- function(x) {
 
-  # x <- x[1:1000,]
+  x <- x[1:1000,]
+
   # # search for double occurences
-  # doubles <- sapply(
-  #   x[["labnr"]],
-  #   function(y){
-  #     grep(tolower(y), tolower(x[["labnr"]])) %>%
-  #       length(.) > 1 %>%
-  #       return()
-  #   }
-  # ) %>% which
+  # doubles <- x %>%
+  #   dplyr::select(
+  #     .data[["labnr"]]
+  #   ) %>%
+  #   dplyr::mutate(
+  #     # artificial id
+  #     aid = 1:nrow(.),
+  #     # equality partners
+  #     partners = lapply(
+  #       .data[["labnr"]],
+  #       function(y){
+  #         if(!is.na(y)){
+  #           grep(tolower(y), tolower(x[["labnr"]])) %>%
+  #             return()
+  #         } else {
+  #           NA
+  #         }
+  #       }
+  #     )
+  #   ) %>%
+  #   dplyr::mutate(
+  #     # which dates are possible doubles
+  #     doubles = sapply(
+  #       .data[["partners"]],
+  #       function(y){
+  #         length(y) > 1 %>%
+  #           return()
+  #       }
+  #     )
+  #   )
+  #
+  # hu <- list()
+  # for (i in 1:nrow(doubles)) {
+  #   dvec <- doubles[["partners"]][[i]]
+  #   hu[[i]] <- doubles[dvec, ]
+  # }
+
+
+
+#
+#   doubles_selected <- doubles_found_and_marked %>%
+#     dplyr::filter(
+#       doubles == TRUE
+#     ) %>%
+#     tidyr::unnest(., partners = .data[["partners"]]) %>%
+#     dplyr::filter(
+#       aid != partners
+#     ) %>%
+#     dplyr::group_by(.dots=c("aid","partners"))
+#
+#
+#
+#     dplyr::group_by(aid = .data[["aid"]]) %>%
+#     #dplyr::arrange(.data[["c14age"]]) %>%
+#     dplyr::slice(1) %>%
+#     dplyr::ungroup() %>%
+#     dplyr::group_by(partners = .data[["partners"]]) %>%
+#     dplyr::arrange(.data[["c14age"]]) %>%
+#     dplyr::slice(1)
+#
+#     hu[c("aid","partners", "doubles")] -> bu
+
+
+
 
   return(x)
 }
