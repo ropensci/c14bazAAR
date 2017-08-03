@@ -102,6 +102,7 @@ rm_doubles.c14_date_list <- function(x) {
         # if labnr equal, throw away the one with less essential info
         if (length(unique(y[["labnr"]])) == 1) {
           better <- which.min(apply(y[, essential_vars], 1, function(x){sum(is.na(x))}))
+
           y[["aid"]][-better]
         }
         # everything else, don't touch

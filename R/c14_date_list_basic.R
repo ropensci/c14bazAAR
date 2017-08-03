@@ -1,16 +1,40 @@
 #### is ####
 
-#' Check if a variable is of class c14_date_list
+#' Check if an object is of class c14_date_list
 #'
-#' Check if a variable is of class c14_date_list
+#' Check if an object is of class c14_date_list
 #'
-#' @param x a variable
+#' @param x an object
 #' @param ... further arguments passed to or from other methods
 #'
 #' @return true if x is a c14_date_list, false otherwise
 #'
 #' @export
 is.c14_date_list <- function(x, ...) {"c14_date_list" %in% class(x)}
+
+##### as ####
+
+#' Convert an object of class data.frame or tibble to class c14_date_list
+#'
+#' If an object is of class data.frame or tibble (tbl & tbl_df), it can be
+#' converted to an object of class c14_date_list
+#'
+#' @param x a variable
+#' @param ... further arguments passed to or from other methods
+#'
+#' @return an object of class c14_date_list
+#'
+#' @export
+as.c14_date_list <- function(x, ...) {
+
+  if("data.frame" %in% class(x) | all(c("tbl", "tbl_df") %in% class(x))){
+    x %>% `class<-`(c("c14_date_list", class(.))) %>% return()
+  } else {
+    stop("x is not an object of class data.frame or tibble")
+  }
+
+}
+
 
 #### format ####
 
