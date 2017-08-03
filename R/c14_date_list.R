@@ -215,75 +215,93 @@ rm_doubles.default <- function(x) {
 #' @export
 rm_doubles.c14_date_list <- function(x) {
 
-  x <- x[1:1000,]
+  if (nrow(x) > 1000) {
+    message("This may take several minutes...")
+  }
 
-  # # search for double occurences
-  # doubles <- x %>%
-  #   dplyr::select(
-  #     .data[["labnr"]]
-  #   ) %>%
-  #   dplyr::mutate(
-  #     # artificial id
-  #     aid = 1:nrow(.),
-  #     # equality partners
-  #     partners = lapply(
-  #       .data[["labnr"]],
-  #       function(y){
-  #         if(!is.na(y)){
-  #           grep(tolower(y), tolower(x[["labnr"]])) %>%
-  #             return()
-  #         } else {
-  #           NA
-  #         }
-  #       }
-  #     )
-  #   ) %>%
-  #   dplyr::mutate(
-  #     # which dates are possible doubles
-  #     doubles = sapply(
-  #       .data[["partners"]],
-  #       function(y){
-  #         length(y) > 1 %>%
-  #           return()
-  #       }
-  #     )
-  #   )
-  #
-  # hu <- list()
-  # for (i in 1:nrow(doubles)) {
-  #   dvec <- doubles[["partners"]][[i]]
-  #   hu[[i]] <- doubles[dvec, ]
-  # }
+  # setup progress bar
+  pb <- utils::txtProgressBar(
+    max = 100,
+    style = 3
+  )
 
+  # add artificial id
+  x <- x %>%
+    dplyr::mutate(
+      aid = 1:nrow(.)
+    )
 
+  utils::setTxtProgressBar(pb, 1)
 
-#
-#   doubles_selected <- doubles_found_and_marked %>%
-#     dplyr::filter(
-#       doubles == TRUE
-#     ) %>%
-#     tidyr::unnest(., partners = .data[["partners"]]) %>%
-#     dplyr::filter(
-#       aid != partners
-#     ) %>%
-#     dplyr::group_by(.dots=c("aid","partners"))
-#
-#
-#
-#     dplyr::group_by(aid = .data[["aid"]]) %>%
-#     #dplyr::arrange(.data[["c14age"]]) %>%
-#     dplyr::slice(1) %>%
-#     dplyr::ungroup() %>%
-#     dplyr::group_by(partners = .data[["partners"]]) %>%
-#     dplyr::arrange(.data[["c14age"]]) %>%
-#     dplyr::slice(1)
-#
-#     hu[c("aid","partners", "doubles")] -> bu
+  # search for double occurences
+  doubles <- x %>%
+    dplyr::select(
+      .data[["labnr"]], .data[["aid"]]
+    ) %>%
+    dplyr::mutate(
+      # equality partners
+      partners = lapply(
+        .data[["labnr"]],
+        function(y){
+          if(!is.na(y)){
+            grep(tolower(y), tolower(x[["labnr"]]))
+          } else {
+            NA
+          }
+        }
+      )
+    ) %>%
+    dplyr::mutate(
+      # which dates are possible doubles
+      doubles = sapply(
+        .data[["partners"]],
+        function(y){
+          length(y) > 1
+        }
+      )
+    )
 
+  utils::setTxtProgressBar(pb, 80)
 
+  doubles_selected <- doubles %>%
+    # focus on doubles
+    dplyr::filter(
+      doubles == TRUE
+    ) %>%
+    # extract complete data for double groups
+    dplyr::mutate(
+      partners_df = lapply(
+        .data[["partners"]],
+        function(y) {
+          x[y, ]
+        }
+      )
+    )
 
+  utils::setTxtProgressBar(pb, 85)
 
-  return(x)
+  essential_vars <- c("labnr", "site", "c14age", "c14std", "material", "country", "lat", "lon")
+
+  # make decision for every double group
+  to_be_removed <- doubles_selected %>% .[["partners_df"]] %>%
+    lapply(
+      function(y) {
+        # if completly equal, throw away all but one
+        if(nrow(unique(y)) == 1) {y[["aid"]][-1]}
+        # if labnr equal, throw away the one with less essential info
+        if (length(unique(y[["labnr"]])) == 1) {
+          better <- which.min(apply(y[, essential_vars], 1, function(x){sum(is.na(x))}))
+          y[["aid"]][-better]
+        }
+        # everything else, don't touch
+      }
+    ) %>% unlist %>% unique
+
+  utils::setTxtProgressBar(pb, 100)
+  close(pb)
+
+  x[-to_be_removed, ] %>%
+    return()
 }
 
 #### clean ####
