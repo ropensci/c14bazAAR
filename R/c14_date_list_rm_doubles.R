@@ -110,16 +110,29 @@ rm_doubles.c14_date_list <- function(x) {
       function(y) {
         # if dates in group completly equal, throw away all but one
         if(nrow(unique(y)) == 1) {y[["aid"]][-1]}
-        # if labnr equal, throw away the one with less essential info
+        # if labnr equal:
         if (length(unique(y[["labnr"]])) == 1) {
           # search for dates with the most essential info
-          better <- which.min(
-            apply(y[, essential_vars], 1, function(x){sum(is.na(x))})
+          missing_essential <- apply(
+            y[, essential_vars], 1, function(x){sum(is.na(x))}
           )
-
+          better <- which(missing_essential == min(missing_essential))
+          # if no differences in amount of essential info,
+          # then look at non essential info
+          if(length(better) >= 1) {
+            missing_non_essential <- apply(
+              y[, !names(y) %in% essential_vars], 1, function(x){sum(is.na(x))}
+            )
+            better <- which(missing_non_essential == min(missing_non_essential))
+          }
+          # if still no difference, keep the first date
+          if(length(better) >= 1) {
+            better <- 1
+            # not implemented idea: merge dates - NA for contradictory values
+          }
           y[["aid"]][-better]
         }
-        # everything else, don't touch
+        # everything else (labnr not exactly equal), don't touch
       }
     ) %>% unlist %>% unique
 
