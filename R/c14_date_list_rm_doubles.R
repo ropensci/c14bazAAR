@@ -31,20 +31,14 @@ rm_doubles.c14_date_list <- function(x) {
     message("This may take several minutes...")
   }
 
-  # setup progress bar
-  pb <- utils::txtProgressBar(
-    max = 100,
-    style = 3
-  )
-
   # add artificial id for later subsetting
   x <- x %>%
     dplyr::mutate(
       aid = 1:nrow(.)
     )
 
-  utils::setTxtProgressBar(pb, 1)
-
+  labnr_low <- tolower(x[["labnr"]])
+  message("Search for accordances in Lab Codes...")
   # search for double occurences
   doubles <- x %>%
     dplyr::select(
@@ -52,13 +46,13 @@ rm_doubles.c14_date_list <- function(x) {
     ) %>%
     dplyr::mutate(
       # search for equality partners of labnr
-      partners = lapply(
-        .data[["labnr"]],
+      partners = pbapply::pblapply(
+        tolower(.data[["labnr"]]),
         function(y){
           if(!is.na(y)){
             # core algorithm: search for dates which contain the
             # labnr string of another one
-            grep(tolower(y), tolower(x[["labnr"]]))
+            grep(y, labnr_low)
           } else {
             NA
           }
@@ -77,8 +71,6 @@ rm_doubles.c14_date_list <- function(x) {
       )
     )
 
-  utils::setTxtProgressBar(pb, 80)
-
   doubles_selected <- doubles %>%
     # reduce date selection to the ones with lists of equality
     # partners
@@ -96,17 +88,16 @@ rm_doubles.c14_date_list <- function(x) {
       )
     )
 
-  utils::setTxtProgressBar(pb, 85)
-
   # define vector with colnames of essential variables
   essential_vars <- c(
     "labnr", "site", "c14age", "c14std",
     "material", "country", "lat", "lon"
   )
 
+  message("Decide which values can be removed...")
   # make decision for every double group
   to_be_removed <- doubles_selected %>% .[["partners_df"]] %>%
-    lapply(
+    pbapply::pblapply(
       function(y) {
         # if dates in group completly equal, throw away all but one
         if(nrow(unique(y[, !names(y) %in% c("aid")])) == 1) {
@@ -137,9 +128,6 @@ rm_doubles.c14_date_list <- function(x) {
         # everything else (labnr not exactly equal), don't touch
       }
     ) %>% unlist %>% unique
-
-  utils::setTxtProgressBar(pb, 100)
-  close(pb)
 
   # execute selection
   x[-to_be_removed, ] %>%
