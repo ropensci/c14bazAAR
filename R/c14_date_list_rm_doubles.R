@@ -109,7 +109,9 @@ rm_doubles.c14_date_list <- function(x) {
     lapply(
       function(y) {
         # if dates in group completly equal, throw away all but one
-        if(nrow(unique(y)) == 1) {y[["aid"]][-1]}
+        if(nrow(unique(y[, !names(y) %in% c("aid")])) == 1) {
+          return(y[["aid"]][-1])
+        }
         # if labnr equal:
         if (length(unique(y[["labnr"]])) == 1) {
           # search for dates with the most essential info
@@ -141,6 +143,8 @@ rm_doubles.c14_date_list <- function(x) {
 
   # execute selection
   x[-to_be_removed, ] %>%
+    # get rid of column aid
+    dplyr::select(-.data[["aid"]]) %>%
     as.c14_date_list() %>%
     return()
 }
