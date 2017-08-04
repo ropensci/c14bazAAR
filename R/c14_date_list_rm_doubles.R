@@ -3,7 +3,8 @@
 #' @name rm_doubles
 #' @title Removes doubles
 #'
-#' @description Removes double entries in a c14_date_list by comparing the Labcodes
+#' @description Removes double entries in a c14_date_list by
+#' comparing the Labcodes
 #'
 #' @param x an object of class c14_date_list
 #'
@@ -36,7 +37,7 @@ rm_doubles.c14_date_list <- function(x) {
     style = 3
   )
 
-  # add artificial id
+  # add artificial id for later subsetting
   x <- x %>%
     dplyr::mutate(
       aid = 1:nrow(.)
@@ -50,11 +51,13 @@ rm_doubles.c14_date_list <- function(x) {
       .data[["labnr"]], .data[["aid"]]
     ) %>%
     dplyr::mutate(
-      # equality partners
+      # search for equality partners of labnr
       partners = lapply(
         .data[["labnr"]],
         function(y){
           if(!is.na(y)){
+            # core algorithm: search for dates which contain the
+            # labnr string of another one
             grep(tolower(y), tolower(x[["labnr"]]))
           } else {
             NA
@@ -63,7 +66,9 @@ rm_doubles.c14_date_list <- function(x) {
       )
     ) %>%
     dplyr::mutate(
-      # which dates are possible doubles
+      # logical vector: which dates are possible doubles
+      # (TRUE only for the dates, whose labnr string appears
+      # within another one)
       doubles = sapply(
         .data[["partners"]],
         function(y){
@@ -75,11 +80,13 @@ rm_doubles.c14_date_list <- function(x) {
   utils::setTxtProgressBar(pb, 80)
 
   doubles_selected <- doubles %>%
-    # focus on doubles
+    # reduce date selection to the ones with lists of equality
+    # partners
     dplyr::filter(
       doubles == TRUE
     ) %>%
-    # extract complete data for double groups
+    # add a list column with data.frames:
+    # complete info about the equality group dates
     dplyr::mutate(
       partners_df = lapply(
         .data[["partners"]],
@@ -91,17 +98,24 @@ rm_doubles.c14_date_list <- function(x) {
 
   utils::setTxtProgressBar(pb, 85)
 
-  essential_vars <- c("labnr", "site", "c14age", "c14std", "material", "country", "lat", "lon")
+  # define vector with colnames of essential variables
+  essential_vars <- c(
+    "labnr", "site", "c14age", "c14std",
+    "material", "country", "lat", "lon"
+  )
 
   # make decision for every double group
   to_be_removed <- doubles_selected %>% .[["partners_df"]] %>%
     lapply(
       function(y) {
-        # if completly equal, throw away all but one
+        # if dates in group completly equal, throw away all but one
         if(nrow(unique(y)) == 1) {y[["aid"]][-1]}
         # if labnr equal, throw away the one with less essential info
         if (length(unique(y[["labnr"]])) == 1) {
-          better <- which.min(apply(y[, essential_vars], 1, function(x){sum(is.na(x))}))
+          # search for dates with the most essential info
+          better <- which.min(
+            apply(y[, essential_vars], 1, function(x){sum(is.na(x))})
+          )
 
           y[["aid"]][-better]
         }
@@ -112,6 +126,7 @@ rm_doubles.c14_date_list <- function(x) {
   utils::setTxtProgressBar(pb, 100)
   close(pb)
 
+  # execute selection
   x[-to_be_removed, ] %>%
     as.c14_date_list() %>%
     return()
