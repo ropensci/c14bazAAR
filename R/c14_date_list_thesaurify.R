@@ -34,7 +34,7 @@ thesaurify.c14_date_list <- function(x) {
     )
   message("Removed leading and trailing whitespaces in all character columns.")
 
-  # add or empty columns calage and calstd
+  # add or empty columns country_cor and material_cor
   if (c("country_cor", "material_cor") %in% colnames(x) %>% all) {
     x$country_cor <- NA
     x$material_cor <- NA

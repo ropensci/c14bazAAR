@@ -1,15 +1,9 @@
-country_thesaurus <- read.table(
+country_thesaurus <- readr::read_csv(
   "data-raw/country_thesaurus.csv",
-  header = TRUE,
-  stringsAsFactors = FALSE,
-  sep = ","
 )
 devtools::use_data(country_thesaurus, overwrite = TRUE)
 
-material_thesaurus <- read.table(
+material_thesaurus <- readr::read_csv(
   "data-raw/material_thesaurus.csv",
-  header = TRUE,
-  stringsAsFactors = FALSE,
-  sep = ","
 )
 devtools::use_data(material_thesaurus, overwrite = TRUE)
