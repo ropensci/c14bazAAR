@@ -113,5 +113,6 @@ rm_doubles.c14_date_list <- function(x) {
   close(pb)
 
   x[-to_be_removed, ] %>%
+    as.c14_date_list() %>%
     return()
 }

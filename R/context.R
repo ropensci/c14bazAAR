@@ -84,7 +84,7 @@ get_CONTEXT <- function() {
       lon = .data[["LONGITUDE"]],
       shortref = .data[["REFERENCE"]]
     ) %>%
-    `class<-`(c("c14_date_list", class(.))) %>%
+    as.c14_date_list() %>%
     c14databases::order_variables()
 
   return(CONTEXT)

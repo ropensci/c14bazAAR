@@ -74,7 +74,7 @@ get_RADON <- function() {
     dplyr::mutate(
       shortref = gsub("[,]+[[:space:]]$", "", .$shortref)
     ) %>%
-    `class<-`(c("c14_date_list", class(.))) %>%
+    as.c14_date_list() %>%
     c14databases::order_variables()
 
   return(RADON)

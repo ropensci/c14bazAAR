@@ -64,7 +64,7 @@ thesaurify.c14_date_list <- function(x) {
         .$material
       )
     ) %>%
-    `class<-`(c("c14_date_list", class(.)))
+    as.c14_date_list()
 
   return(x)
 }
