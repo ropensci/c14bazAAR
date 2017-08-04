@@ -52,7 +52,7 @@ rm_doubles.c14_date_list <- function(x) {
           if(!is.na(y)){
             # core algorithm: search for dates which contain the
             # labnr string of another one
-            grep(y, labnr_low)
+            grep(y, labnr_low, fixed = T, useBytes = T)
           } else {
             NA
           }
