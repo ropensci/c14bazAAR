@@ -6,7 +6,17 @@
 
 R package to query different C14 date databases. Allows basic data cleaning, calibration and merging. This package simplifies the data collection from different openly accessible source databases. 
 
-# Installation
+# Databases
 
+* `get_aDRAC()` [aDRAC](https://github.com/dirkseidensticker/aDRAC): Archives des datations radiocarbone d'Afrique centrale by **Dirk Seidensticker**.
+* `get_CALPAL()` [CALPAL](https://uni-koeln.academia.edu/BernhardWeninger/CalPal): Radiocarbon Database of the [CalPal software package](http://monrepos-rgzm.de/forschung/ausstattung.html#calpal) by **Bernhard Weninger**. See [nevrome/CalPal-Database](https://github.com/nevrome/CalPal-Database) for an interface.
+* `get_CONTEXT()` [CONTEXT](http://context-database.uni-koeln.de/): Collection of radiocarbon dates from sites in the Near East and neighboring regions (20.000 - 5.000 calBC) by **Utz Böhner** and **Daniel Schyle**.
+* `get_EUROEVOL()` [EUROEVOL](http://discovery.ucl.ac.uk/1469811/): Cultural Evolution of Neolithic Europe Dataset by [**Katie Manning**, **Sue Colledge**, **Enrico Crema**, **Stephen Shennan** and **Adrian Timpson**](http://openarchaeologydata.metajnl.com/articles/10.5334/joad.40/).
+* `get_RADON()` [RADON](http://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, **Martin Hinz**, Johannes Müller, **Christoph Rinne**, Karl-Göran Sjögren und Hans-Peter Wotzka](http://www.jna.uni-kiel.de/index.php/jna/article/view/65).
+
+# Installation
+```
 # install.packages("devtools")
 devtools::install_github("nevrome/c14databases")
+```
+
