@@ -1,8 +1,8 @@
 Package: c14databases
-Title: What the Package Does (one line, title case)
+Title: Download and Prepare C14 Dates from Different Source Databases
 Version: 0.0.0.9000
 Authors@R: person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph"))
-Description: What the package does (one paragraph).
+Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
 Depends: R (>= 3.4.1)
 License: GPL-2 | file LICENSE
 Encoding: UTF-8

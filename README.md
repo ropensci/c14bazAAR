@@ -3,3 +3,10 @@
 [![license](https://img.shields.io/badge/license-GPL%202-B50B82.svg)](https://www.r-project.org/Licenses/GPL-2)
 
 # c14databases
+
+R package to query different C14 date databases. Allows basic data cleaning, calibration and merging. This package simplifies the data collection from different openly accessible source databases. 
+
+# Installation
+
+# install.packages("devtools")
+devtools::install_github("nevrome/c14databases")
