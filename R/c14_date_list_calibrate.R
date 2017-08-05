@@ -33,7 +33,9 @@ calibrate.c14_date_list <- function(x) {
   # setup progress bar
   pb <- utils::txtProgressBar(
     max = 100,
-    style = 3
+    style = 3,
+    width = 50,
+    char = "+"
   )
 
   # add or empty columns calage and calstd

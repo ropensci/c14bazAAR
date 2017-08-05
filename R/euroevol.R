@@ -96,7 +96,7 @@ get_EUROEVOL <- function() {
       subculture = .data[["Subculture"]],
       sitetype = .data[["Type"]]
     ) %>%
-    `class<-`(c("c14_date_list", class(.))) %>%
+    as.c14_date_list() %>%
     c14databases::order_variables()
 
   return(EUROEVOL)

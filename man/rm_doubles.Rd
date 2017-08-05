@@ -19,5 +19,6 @@ rm_doubles(x)
 an object of class c14_date_list
 }
 \description{
-Removes double entries in a c14_date_list by comparing the Labcodes
+Removes double entries in a c14_date_list by
+comparing the Labcodes
 }

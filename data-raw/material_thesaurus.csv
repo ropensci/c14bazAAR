@@ -34,7 +34,7 @@ ceramics,vegetable temper
 charcoal,charcoal
 charcoal,charcol
 charcoal,charred wood
-charcoal,charcoal 
+charcoal,charcoal
 charcoal,charoal
 charcoal,charcoak
 charcoal,charcoalE
@@ -100,8 +100,8 @@ plant remains,Gilbertiodendron d.
 plant remains,grain
 plant remains,grass
 plant remains,reed
-plant remains,reed+twig  
-plant remains,straw+reed 
+plant remains,reed+twig
+plant remains,straw+reed
 plant remains,grass
 plant remains,grass+straw
 plant remains,grape
@@ -126,7 +126,7 @@ plant remains,nuts or peas
 plant remains,nut
 plant remains,nutshell
 plant remains,gerste
-plant remains,grain 
+plant remains,grain
 plant remains,"grain, chickpeas"
 plant remains,Lolium sp.
 plant remains,straw
@@ -135,7 +135,7 @@ plant remains,papyrus
 plant remains,linen
 plant remains,moss
 plant remains,olive stone
-plant remains,grain  
+plant remains,grain
 plant remains,cereals
 plant remains,fruit/seeds
 plant remains,charred fruit
@@ -168,7 +168,7 @@ soil,humic acid
 soil,humic acids
 soil,humic
 soil,soil
-soil,soil 
+soil,soil
 soil,Peat
 soil,peat
 soil,gyttja
@@ -188,48 +188,48 @@ teeth,tooth
 teeth,dentin
 tissue,tissue
 tissue,skin
-unknown,k. A.
-unknown,n/a
-unknown,
-unknown,---
-unknown,nd
-unknown, nd
-unknown,n.d.
-unknown,miscellaneous
-unknown,charcoal?
-unknown,NULL
-unknown,AH
-unknown,B
-unknown,bd
-unknown,Br
-unknown,bone?
-unknown,c
-unknown,Er
-unknown,Fl
-unknown,Ln
-unknown,Ln
-unknown,Sn
-unknown,see
-unknown,short-lived
-unknown,other
-unknown,carbonised residue
-unknown,carbonate
-unknown,organic residue
-unknown,organic matter
-unknown,organic substance
-unknown,organic
-unknown,organic material
-unknown,tar
-unknown,lump of tar
-unknown,lens
-unknown,humates
-unknown,residue
-unknown,leister prong
-unknown,charcoal or shell
-unknown,Hearth
-unknown,hearth
-unknown,"tand, ko"
-unknown,carbon
+NA,k. A.
+NA,n/a
+NA,
+NA,---
+NA,nd
+NA, nd
+NA,n.d.
+NA,miscellaneous
+NA,charcoal?
+NA,NULL
+NA,AH
+NA,B
+NA,bd
+NA,Br
+NA,bone?
+NA,c
+NA,Er
+NA,Fl
+NA,Ln
+NA,Ln
+NA,Sn
+NA,see
+NA,short-lived
+NA,other
+NA,carbonised residue
+NA,carbonate
+NA,organic residue
+NA,organic matter
+NA,organic substance
+NA,organic
+NA,organic material
+NA,tar
+NA,lump of tar
+NA,lens
+NA,humates
+NA,residue
+NA,leister prong
+NA,charcoal or shell
+NA,Hearth
+NA,hearth
+NA,"tand, ko"
+NA,carbon
 wood,wood
 wood,carbonised wood/ash
 wood,carbonised wood
