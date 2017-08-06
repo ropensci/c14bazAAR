@@ -40,14 +40,6 @@ thesaurify.c14_date_list <- function(
   material_thesaurus_table = c14databases::material_thesaurus
 ) {
 
-  # whitespaces
-  x <- x %>%
-    dplyr::mutate_if(
-      is.character,
-      stringr::str_trim
-    )
-  message("Removed leading and trailing whitespaces in all character columns.")
-
   # add or empty columns country_cor and material_cor
   if (c("country_cor", "material_cor") %in% colnames(x) %>% all) {
     x$country_cor <- NA

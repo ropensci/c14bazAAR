@@ -26,14 +26,6 @@ clean.default <- function(x) {
 #' @export
 clean.c14_date_list <- function(x) {
 
-  # whitespaces
-  x <- x %>%
-    dplyr::mutate_if(
-      is.character,
-      stringr::str_trim
-    )
-  message("Removed leading and trailing whitespaces in all character columns.")
-
   # lat&lon not available but zero
   x[which(x[["lon"]] == 0 & x[["lat"]] == 0), c("lon", "lat")] <- NA
   message("Made missing coordinate values explicit. 0/0 -> NA/NA.")

@@ -21,6 +21,7 @@ get_RADON <- function() {
   # read data
   RADON <- db_url %>%
     readr::read_tsv(
+      trim_ws = TRUE,
       na = c("", "n/a", "n.a."),
       quote = "",
       quoted_na = TRUE,

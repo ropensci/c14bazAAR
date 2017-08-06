@@ -21,6 +21,7 @@ get_aDRAC <- function() {
   # read data
   aDRAC <- db_url %>%
     readr::read_csv(
+      trim_ws = TRUE,
       col_types = readr::cols(
         LABNR = readr::col_character(),
         C14AGE = readr::col_integer(),

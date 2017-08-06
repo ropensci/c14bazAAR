@@ -21,6 +21,7 @@ get_CALPAL <- function() {
   # read data
   CALPAL <- db_url %>%
     readr::read_csv(
+      trim_ws = TRUE,
       na = c("", "nd", "--"),
       col_types = readr::cols(
         ID = readr::col_integer(),

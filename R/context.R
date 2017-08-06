@@ -24,6 +24,7 @@ get_CONTEXT <- function() {
   CONTEXT_raw <- readr::read_delim(
     "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv",
     delim = ";",
+    trim_ws = TRUE,
     na = c("-", "--", "---", "", "NA", "n.d.", "?"),
     locale = readr::locale(decimal_mark = ","),
     col_types = readr::cols(
