@@ -34,6 +34,14 @@ calibrate.c14_date_list <- function(x) {
     )
   }
 
+  # check if package plyr is available
+  if (!requireNamespace("Bchron", quietly = TRUE)) {
+    stop(
+      "R package 'plyr' needed for this function to work. Please install it.",
+      call. = FALSE
+    )
+  }
+
   # duration message
   if (nrow(x) > 1000) {
     message("This may take several minutes...")
