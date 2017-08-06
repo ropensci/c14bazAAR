@@ -38,9 +38,11 @@ order_variables.c14_date_list <- function(x) {
       .data[["material"]],
       dplyr::contains("material_cor"),
       .data[["country"]],
+      dplyr::contains("country_coord"),
       dplyr::contains("country_cor"),
       .data[["lat"]],
       .data[["lon"]],
+      dplyr::contains("spatial_quality"),
       dplyr::everything()
     )
 
