@@ -14,8 +14,7 @@ get_CONTEXT <- function() {
   db_url <- "http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip"
 
   # check connection
-  if (!curl::has_internet()) {stop("No internet connection.")}
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available."))}
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
 
   # download, unzip and read data
   temp <- tempfile()

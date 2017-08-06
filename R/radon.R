@@ -15,8 +15,7 @@ get_RADON <- function() {
   db_url <- "http://134.245.38.100/radondownload/radondaily.txt"
 
   # check connection
-  if (!curl::has_internet()) {stop("No internet connection.")}
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available."))}
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
 
   # read data
   RADON <- db_url %>%

@@ -15,8 +15,7 @@ get_aDRAC <- function() {
   db_url <- "https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/data/aDRAC.csv"
 
   # check connection
-  if (!curl::has_internet()) {stop("No internet connection.")}
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available."))}
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
 
   # read data
   aDRAC <- db_url %>%

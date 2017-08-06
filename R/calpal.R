@@ -15,8 +15,7 @@ get_CALPAL <- function() {
   db_url <- "https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_14C-Database.csv"
 
   # check connection
-  if (!curl::has_internet()) {stop("No internet connection.")}
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available."))}
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
 
   # read data
   CALPAL <- db_url %>%

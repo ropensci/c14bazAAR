@@ -17,8 +17,7 @@ get_EUROEVOL <- function() {
   db_url3 <- "http://discovery.ucl.ac.uk/1469811/8/EUROEVOL09-07-201516-34_CommonPhases.csv"
 
   # check connection
-  if (!curl::has_internet()) {stop("No internet connection.")}
-  if (!RCurl::url.exists(db_url1)) {stop(paste(db_url1, "is not available."))}
+  if (!RCurl::url.exists(db_url1)) {stop(paste(db_url1, "is not available. No internet connection?"))}
   if (!RCurl::url.exists(db_url2)) {stop(paste(db_url2, "is not available."))}
   if (!RCurl::url.exists(db_url3)) {stop(paste(db_url3, "is not available."))}
 
