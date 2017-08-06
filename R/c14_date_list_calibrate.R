@@ -26,18 +26,14 @@ calibrate.default <- function(x) {
 #' @export
 calibrate.c14_date_list <- function(x) {
 
-  # check if package Bchron is available
-  if (!requireNamespace("Bchron", quietly = TRUE)) {
+  # check if packages Bchron and plyr are available
+  if (
+    c("Bchron", "plyr") %>%
+    sapply(function(x) {requireNamespace(x, quietly = TRUE)}) %>%
+    all %>% `!`
+  ) {
     stop(
-      "R package 'Bchron' needed for this function to work. Please install it.",
-      call. = FALSE
-    )
-  }
-
-  # check if package plyr is available
-  if (!requireNamespace("Bchron", quietly = TRUE)) {
-    stop(
-      "R package 'plyr' needed for this function to work. Please install it.",
+      "R packages 'Bchron' and 'plyr' needed for this function to work. Please install it.",
       call. = FALSE
     )
   }
