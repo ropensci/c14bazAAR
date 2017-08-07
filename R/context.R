@@ -83,6 +83,8 @@ get_CONTEXT <- function() {
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
       shortref = .data[["REFERENCE"]]
+    ) %>% dplyr::mutate(
+      sourcedb = "CONTEXT"
     ) %>%
     as.c14_date_list() %>%
     c14databases::order_variables()

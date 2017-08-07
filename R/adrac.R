@@ -49,6 +49,8 @@ get_aDRAC <- function() {
       lat = .data[["LAT"]],
       lon = .data[["LONG"]],
       shortref = .data[["SOURCE"]]
+    ) %>% dplyr::mutate(
+      sourcedb = "aDRAC"
     ) %>%
     as.c14_date_list() %>%
     c14databases::order_variables()

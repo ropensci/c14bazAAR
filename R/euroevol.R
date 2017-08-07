@@ -97,6 +97,8 @@ get_EUROEVOL <- function() {
       culture = .data[["Culture"]],
       subculture = .data[["Subculture"]],
       sitetype = .data[["Type"]]
+    ) %>% dplyr::mutate(
+      sourcedb = "EUROEVOL"
     ) %>%
     as.c14_date_list() %>%
     c14databases::order_variables()

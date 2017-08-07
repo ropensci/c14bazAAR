@@ -66,6 +66,8 @@ get_CALPAL <- function() {
       calstd = .data[["CALSTD"]],
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
+    ) %>% dplyr::mutate(
+      sourcedb = "CALPAL"
     ) %>%
     as.c14_date_list() %>%
     c14databases::order_variables()

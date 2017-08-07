@@ -73,6 +73,8 @@ get_RADON <- function() {
     ) %>%
     dplyr::mutate(
       shortref = gsub("[,]+[[:space:]]$", "", .$shortref)
+    ) %>% dplyr::mutate(
+      sourcedb = "RADON"
     ) %>%
     as.c14_date_list() %>%
     c14databases::order_variables()
