@@ -33,3 +33,6 @@ vignettes/*.pdf
 *.knit.md
 
 .Rproj.user
+
+# data export in playground
+playground/dates.RData
