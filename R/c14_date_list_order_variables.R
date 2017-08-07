@@ -34,16 +34,17 @@ order_variables.c14_date_list <- function(x) {
       .data[["site"]],
       .data[["c14age"]],
       .data[["c14std"]],
-      dplyr::contains("calage"),
-      dplyr::contains("calstd"),
+      dplyr::matches("^calage$"),
+      dplyr::matches("^calstd$"),
       .data[["material"]],
-      dplyr::contains("material_cor"),
+      dplyr::matches("^material_cor$"),
+      dplyr::matches("^species$"),
       .data[["country"]],
-      dplyr::contains("country_coord"),
-      dplyr::contains("country_cor"),
+      dplyr::matches("^country_coord$"),
+      dplyr::matches("^country_cor$"),
       .data[["lat"]],
       .data[["lon"]],
-      dplyr::contains("spatial_quality"),
+      dplyr::matches("spatial_quality"),
       dplyr::everything()
     )
 
