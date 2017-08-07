@@ -3,7 +3,7 @@
 #' @name thesaurify
 #' @title Apply thesaurus
 #'
-#' @description Add columns country_cor & material_cor with simplified and unified terms
+#' @description Add columns country_thes & material_thes with simplified and unified terms
 #'
 #' @param x an object of class c14_date_list
 #' @param country_thesaurus_table a thesaurus table (default: c14databases::country_thesaurus)
@@ -40,18 +40,18 @@ thesaurify.c14_date_list <- function(
   material_thesaurus_table = c14databases::material_thesaurus
 ) {
 
-  # add or empty columns country_cor and material_cor
-  if (c("country_cor", "material_cor") %in% colnames(x) %>% all) {
-    x$country_cor <- NA
-    x$material_cor <- NA
+  # add or empty columns country_thes and material_thes
+  if (c("country_thes", "material_thes") %in% colnames(x) %>% all) {
+    x$country_thes <- NA
+    x$material_thes <- NA
   } else {
     x <- x %>%
       tibble::add_column(
-        country_cor = NA,
+        country_thes = NA,
         .after = "country"
       ) %>%
       tibble::add_column(
-        material_cor = NA,
+        material_thes = NA,
         .after = "material"
       )
   }
@@ -59,12 +59,12 @@ thesaurify.c14_date_list <- function(
   # apply thesauri and create new columns
   x <- x %>%
     dplyr::mutate(
-      country_cor = ifelse(
+      country_thes = ifelse(
         .$country %in% country_thesaurus_table$var,
         country_thesaurus_table$cor[match(.$country, country_thesaurus_table$var)],
         .$country
       ),
-      material_cor = ifelse(
+      material_thes = ifelse(
         .$material %in% material_thesaurus_table$var,
         material_thesaurus_table$cor[match(.$material, material_thesaurus_table$var)],
         .$material

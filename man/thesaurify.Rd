@@ -28,5 +28,5 @@ thesaurify(x, country_thesaurus_table = c14databases::country_thesaurus,
 an object of class c14_date_list
 }
 \description{
-Add columns country_cor & material_cor with simplified and unified terms
+Add columns country_thes & material_thes with simplified and unified terms
 }
