@@ -132,7 +132,6 @@ estimate_spatial_quality.c14_date_list <- function(x, country_thesaurus_table = 
     # yes: stop and store country name determined from coords + "possibly correct"
     # no: go on
     if (is.na(dbcountry)) {
-      x[["country"]][i] <- coordcountry
       x[["spatial_quality"]][i] <- "possibly correct"
       next()
     }
@@ -158,9 +157,8 @@ estimate_spatial_quality.c14_date_list <- function(x, country_thesaurus_table = 
     # test, if the initial country value is equal to the country name determined
     # from coords
     # yes: ok, go on
-    # no: stop and store country name determined from coords + "doubtful correct"
+    # no: stop and store "doubtful coords"
     if (!(coordcountry %in% dbcountrysyn)) {
-      x[["country"]][i] <- coordcountry
       x[["spatial_quality"]][i] <- "doubtful coords"
       next()
       # else (initial country value is equal to the country name determined from coords)
