@@ -17,7 +17,29 @@ a7 <- a6 %>% order_variables()
 
 save(a1, a2, a3, a4, a5, a6, a7, file = "playground/dates.RData")
 
-a7 %>%
+a8 <- a7 %>%
+  dplyr::mutate_if(is.character, dplyr::funs(iconv(., "UTF-8", "UTF-8", sub = '')))
+
+indicators_material <- c("grain", "gerste", "wheat", "bean", "cereal", "linsen", "lenses")
+indicators_species <- c("ovis", "capra")
+
+hu <- a8 %>%
   dplyr::filter(
-    is.na(country_thes) & !is.na(country)
-  ) -> hu
+    .,
+    grepl(paste(indicators_material, collapse = "|"), material, ignore.case = TRUE) |
+      grepl(paste(indicators_species, collapse = "|"), species, ignore.case = TRUE)
+  )
+
+
+library(mapview)
+library(sp)
+
+mu <- hu
+mu <- mu %>% dplyr::filter(
+  !is.na(lat) & !is.na(lon)
+)
+
+sp::coordinates(mu) <- ~lon+lat
+sp::proj4string(mu) <- "+proj=longlat +datum=WGS84 +no_defs"
+
+mapView(mu)
