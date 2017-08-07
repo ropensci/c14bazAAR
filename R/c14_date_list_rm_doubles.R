@@ -37,7 +37,6 @@ rm_doubles.c14_date_list <- function(x) {
       aid = 1:nrow(.)
     )
 
-  labnr_low <- tolower(x[["labnr"]])
   message("Search for accordances in Lab Codes...")
   # search for double occurences
   doubles <- x %>%
@@ -47,12 +46,12 @@ rm_doubles.c14_date_list <- function(x) {
     dplyr::mutate(
       # search for equality partners of labnr
       partners = pbapply::pblapply(
-        tolower(.data[["labnr"]]),
+        .data[["labnr"]],
         function(y){
           if(!is.na(y)){
             # core algorithm: search for dates which contain the
             # labnr string of another one
-            grep(y, labnr_low, fixed = T, useBytes = T)
+            grep(y, x[["labnr"]], fixed = T, useBytes = T)
           } else {
             NA
           }
