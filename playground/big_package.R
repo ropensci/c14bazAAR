@@ -6,6 +6,7 @@ a1 <- get_all_dates()
 a2 <- a1 %>% order_variables()
 
 a3 <- a2 %>% rm_doubles()
+#a3 <- a2 %>% rm_doubles(mark = T)
 
 a4 <- a3 %>% calibrate()
 

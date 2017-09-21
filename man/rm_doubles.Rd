@@ -6,14 +6,18 @@
 \alias{rm_doubles.c14_date_list}
 \title{Removes doubles}
 \usage{
-rm_doubles(x)
+rm_doubles(x, mark = FALSE)
 
-\method{rm_doubles}{default}(x)
+\method{rm_doubles}{default}(x, mark = FALSE)
 
-\method{rm_doubles}{c14_date_list}(x)
+\method{rm_doubles}{c14_date_list}(x, mark = FALSE)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
+
+\item{mark}{should the low quality elements of a double entry
+collection only be marked in a new column \code{low_qual} instead
+of being removed? Default: FALSE}
 }
 \value{
 an object of class c14_date_list

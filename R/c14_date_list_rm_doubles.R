@@ -7,25 +7,28 @@
 #' comparing the Labcodes
 #'
 #' @param x an object of class c14_date_list
+#' @param mark should the low quality elements of a double entry
+#' collection only be marked in a new column \code{low_qual} instead
+#' of being removed? Default: FALSE
 #'
 #' @return an object of class c14_date_list
 #' @export
 #'
 #' @rdname rm_doubles
 #'
-rm_doubles <- function(x) {
+rm_doubles <- function(x, mark = FALSE) {
   UseMethod("rm_doubles")
 }
 
 #' @rdname rm_doubles
 #' @export
-rm_doubles.default <- function(x) {
+rm_doubles.default <- function(x, mark = FALSE) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname rm_doubles
 #' @export
-rm_doubles.c14_date_list <- function(x) {
+rm_doubles.c14_date_list <- function(x, mark = FALSE) {
 
   if (nrow(x) > 1000) {
     message("This may take several minutes...")
@@ -129,9 +132,20 @@ rm_doubles.c14_date_list <- function(x) {
     ) %>% unlist %>% unique
 
   # execute selection
-  x[-to_be_removed, ] %>%
-    # get rid of column aid
-    dplyr::select(-.data[["aid"]]) %>%
-    as.c14_date_list() %>%
-    return()
+  if (mark) {
+    x %>%
+      # get rid of column aid
+      dplyr::select(-.data[["aid"]]) %>%
+      dplyr::mutate(
+        low_qual_doubles = 1:nrow(x) %in% to_be_removed
+      ) %>%
+      as.c14_date_list() %>%
+      return()
+  } else {
+    x[-to_be_removed, ] %>%
+      # get rid of column aid
+      dplyr::select(-.data[["aid"]]) %>%
+      as.c14_date_list() %>%
+      return()
+  }
 }
