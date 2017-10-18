@@ -6,23 +6,23 @@
 \alias{thesaurify.c14_date_list}
 \title{Apply thesaurus}
 \usage{
-thesaurify(x, country_thesaurus_table = c14databases::country_thesaurus,
-  material_thesaurus_table = c14databases::material_thesaurus)
+thesaurify(x, country_thesaurus_table = c14bazAAR::country_thesaurus,
+  material_thesaurus_table = c14bazAAR::material_thesaurus)
 
 \method{thesaurify}{default}(x,
-  country_thesaurus_table = c14databases::country_thesaurus,
-  material_thesaurus_table = c14databases::material_thesaurus)
+  country_thesaurus_table = c14bazAAR::country_thesaurus,
+  material_thesaurus_table = c14bazAAR::material_thesaurus)
 
 \method{thesaurify}{c14_date_list}(x,
-  country_thesaurus_table = c14databases::country_thesaurus,
-  material_thesaurus_table = c14databases::material_thesaurus)
+  country_thesaurus_table = c14bazAAR::country_thesaurus,
+  material_thesaurus_table = c14bazAAR::material_thesaurus)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
-\item{country_thesaurus_table}{a thesaurus table (default: c14databases::country_thesaurus)}
+\item{country_thesaurus_table}{a thesaurus table (default: c14bazAAR::country_thesaurus)}
 
-\item{material_thesaurus_table}{a thesaurus table (default: c14databases::material_thesaurus)}
+\item{material_thesaurus_table}{a thesaurus table (default: c14bazAAR::material_thesaurus)}
 }
 \value{
 an object of class c14_date_list

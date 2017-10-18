@@ -77,7 +77,7 @@ get_RADON <- function() {
       sourcedb = "RADON"
     ) %>%
     as.c14_date_list() %>%
-    c14databases::order_variables()
+    c14bazAAR::order_variables()
 
   return(RADON)
 }

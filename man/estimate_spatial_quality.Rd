@@ -7,18 +7,18 @@
 \title{Estimate quality of coordinate information}
 \usage{
 estimate_spatial_quality(x,
-  country_thesaurus_table = c14databases::country_thesaurus)
+  country_thesaurus_table = c14bazAAR::country_thesaurus)
 
 \method{estimate_spatial_quality}{default}(x,
-  country_thesaurus_table = c14databases::country_thesaurus)
+  country_thesaurus_table = c14bazAAR::country_thesaurus)
 
 \method{estimate_spatial_quality}{c14_date_list}(x,
-  country_thesaurus_table = c14databases::country_thesaurus)
+  country_thesaurus_table = c14bazAAR::country_thesaurus)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
-\item{country_thesaurus_table}{a thesaurus table (default: c14databases::country_thesaurus)}
+\item{country_thesaurus_table}{a thesaurus table (default: c14bazAAR::country_thesaurus)}
 }
 \value{
 an object of class c14_date_list

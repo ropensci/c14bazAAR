@@ -6,26 +6,26 @@
 #' @description Estimate quality of coordinates with a set of tests
 #'
 #' @param x an object of class c14_date_list
-#' @param country_thesaurus_table a thesaurus table (default: c14databases::country_thesaurus)
+#' @param country_thesaurus_table a thesaurus table (default: c14bazAAR::country_thesaurus)
 #'
 #' @return an object of class c14_date_list
 #' @export
 #'
 #' @rdname estimate_spatial_quality
 #'
-estimate_spatial_quality <- function(x, country_thesaurus_table = c14databases::country_thesaurus) {
+estimate_spatial_quality <- function(x, country_thesaurus_table = c14bazAAR::country_thesaurus) {
   UseMethod("estimate_spatial_quality")
 }
 
 #' @rdname estimate_spatial_quality
 #' @export
-estimate_spatial_quality.default <- function(x, country_thesaurus_table = c14databases::country_thesaurus) {
+estimate_spatial_quality.default <- function(x, country_thesaurus_table = c14bazAAR::country_thesaurus) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname estimate_spatial_quality
 #' @export
-estimate_spatial_quality.c14_date_list <- function(x, country_thesaurus_table = c14databases::country_thesaurus) {
+estimate_spatial_quality.c14_date_list <- function(x, country_thesaurus_table = c14bazAAR::country_thesaurus) {
 
   # check if packages sp, rworldmap and rworldxtra are available
   if (

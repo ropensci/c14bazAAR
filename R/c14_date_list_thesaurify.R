@@ -6,8 +6,8 @@
 #' @description Add columns country_thes & material_thes with simplified and unified terms
 #'
 #' @param x an object of class c14_date_list
-#' @param country_thesaurus_table a thesaurus table (default: c14databases::country_thesaurus)
-#' @param material_thesaurus_table a thesaurus table (default: c14databases::material_thesaurus)
+#' @param country_thesaurus_table a thesaurus table (default: c14bazAAR::country_thesaurus)
+#' @param material_thesaurus_table a thesaurus table (default: c14bazAAR::material_thesaurus)
 #'
 #' @return an object of class c14_date_list
 #' @export
@@ -16,8 +16,8 @@
 #'
 thesaurify <- function(
   x,
-  country_thesaurus_table = c14databases::country_thesaurus,
-  material_thesaurus_table = c14databases::material_thesaurus
+  country_thesaurus_table = c14bazAAR::country_thesaurus,
+  material_thesaurus_table = c14bazAAR::material_thesaurus
 ) {
   UseMethod("thesaurify")
 }
@@ -26,8 +26,8 @@ thesaurify <- function(
 #' @export
 thesaurify.default <- function(
   x,
-  country_thesaurus_table = c14databases::country_thesaurus,
-  material_thesaurus_table = c14databases::material_thesaurus
+  country_thesaurus_table = c14bazAAR::country_thesaurus,
+  material_thesaurus_table = c14bazAAR::material_thesaurus
 ) {
   stop("x is not an object of class c14_date_list")
 }
@@ -36,8 +36,8 @@ thesaurify.default <- function(
 #' @export
 thesaurify.c14_date_list <- function(
   x,
-  country_thesaurus_table = c14databases::country_thesaurus,
-  material_thesaurus_table = c14databases::material_thesaurus
+  country_thesaurus_table = c14bazAAR::country_thesaurus,
+  material_thesaurus_table = c14bazAAR::material_thesaurus
 ) {
 
   # add or empty columns country_thes and material_thes

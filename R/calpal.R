@@ -70,7 +70,7 @@ get_CALPAL <- function() {
       sourcedb = "CALPAL"
     ) %>%
     as.c14_date_list() %>%
-    c14databases::order_variables()
+    c14bazAAR::order_variables()
 
   return(CALPAL)
 }

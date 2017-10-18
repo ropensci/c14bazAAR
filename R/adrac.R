@@ -53,7 +53,7 @@ get_aDRAC <- function() {
       sourcedb = "aDRAC"
     ) %>%
     as.c14_date_list() %>%
-    c14databases::order_variables()
+    c14bazAAR::order_variables()
 
   return(aDRAC)
 }

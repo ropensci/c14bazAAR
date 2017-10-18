@@ -87,7 +87,7 @@ get_CONTEXT <- function() {
       sourcedb = "CONTEXT"
     ) %>%
     as.c14_date_list() %>%
-    c14databases::order_variables()
+    c14bazAAR::order_variables()
 
   return(CONTEXT)
 }

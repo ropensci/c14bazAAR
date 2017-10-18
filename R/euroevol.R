@@ -101,7 +101,7 @@ get_EUROEVOL <- function() {
       sourcedb = "EUROEVOL"
     ) %>%
     as.c14_date_list() %>%
-    c14databases::order_variables()
+    c14bazAAR::order_variables()
 
   return(EUROEVOL)
 }

@@ -81,7 +81,7 @@ get_14SEA <- function() {
     #   sourcedb = "RADON"
     # ) %>%
     # as.c14_date_list() %>%
-    # c14databases::order_variables()
+    # c14bazAAR::order_variables()
 
     # delete temporary file
     unlink(tempo)

@@ -11,13 +11,13 @@
 #' @export
 get_all_dates <- function() {
 
-  aDRAC <- c14databases::get_aDRAC()
-  CALPAL <- c14databases::get_CALPAL()
-  CONTEXT <- c14databases::get_CONTEXT()
-  EUROEVOL <- c14databases::get_EUROEVOL()
-  RADON <- c14databases::get_RADON()
+  aDRAC <- c14bazAAR::get_aDRAC()
+  CALPAL <- c14bazAAR::get_CALPAL()
+  CONTEXT <- c14bazAAR::get_CONTEXT()
+  EUROEVOL <- c14bazAAR::get_EUROEVOL()
+  RADON <- c14bazAAR::get_RADON()
 
-  all_dates <- c14databases::fuse(
+  all_dates <- c14bazAAR::fuse(
     aDRAC,
     CALPAL,
     CONTEXT,
