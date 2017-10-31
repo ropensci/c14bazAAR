@@ -3,10 +3,6 @@ load("playground/dates.RData")
 library(magrittr)
 library(SPARQL)
 
-a7$culture %>% unique
-a7$period %>% unique
-a7$phase %>% unique
-
 a8 <- a7 %>%
   dplyr::transmute(
     per = period,
@@ -18,7 +14,39 @@ a8 <- a7 %>%
 
 endpoint <- "http://vocab.getty.edu/sparql.xml"
 
-total <- 20
+search_att <- function(word) {
+
+  # 300019332: European Neolithic (culture or period)
+  # 300106924: Aegean Neolithic periods
+  # 300107633: Levantine Neolithic periods
+
+  q <- paste0(
+    "select ?Subject ?Term ?Parents ?ScopeNote ?Parent where {
+      ?Subject a skos:Concept;
+                 luc:term '", word, "'; ",
+                "skos:inScheme aat: ;
+                 gvp:prefLabelGVP [xl:literalForm ?Term].
+      ?Subject gvp:broaderPreferred ?Parent;
+      optional {?Subject gvp:parentStringAbbrev ?Parents}
+      optional {?Subject skos:scopeNote [dct:language gvp_lang:en; rdf:value ?ScopeNote]}
+      filter (
+        ?Parent in (
+        aat:300019332, aat:300266481, aat:30010763, aat:300106924
+      ))
+    }"
+  ) %>% gsub("[\n]", "", .) %>%
+    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl=TRUE)
+
+  res <- tryCatch(
+    {invisible(SPARQL(url = endpoint, query = q)$results)},
+    error = function(cond) {NULL}
+  )
+
+  return(res)
+}
+
+
+total <- 5
 pb <- txtProgressBar(min = 0, max = total, style = 3)
 
 hu <- list()
@@ -26,7 +54,7 @@ for (i in 1:total) {
 
   for (p2 in 3:1) {
     knupp <- search_att(a8[i, p2])
-    if (!is.null(knupp)) {
+    if (nrow(knupp) > 0) {
       hu[[i]] <- knupp
       break;
     }
@@ -37,22 +65,3 @@ for (i in 1:total) {
 }
 close(pb)
 
-search_att <- function(word) {
-  q <- paste0(
-    "select ?Subject ?Term ?Parents ?ScopeNote {
-  ?Subject a skos:Concept; luc:term '",
-    word,
-    "'; skos:inScheme aat: ;
-     gvp:prefLabelGVP [xl:literalForm ?Term].
-  optional {?Subject gvp:parentStringAbbrev ?Parents}
-  optional {?Subject skos:scopeNote [dct:language gvp_lang:en; rdf:value ?ScopeNote]}
-} order by asc(lcase(str(?Term)))"
-  )
-
-  res <- tryCatch(
-    {invisible(capture.output(SPARQL(url = endpoint, query = q)$results))},
-    error = function(cond) {NULL}
-  )
-
-  return(res)
-}
