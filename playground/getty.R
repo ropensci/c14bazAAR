@@ -28,12 +28,13 @@ search_att <- function(word) {
                  gvp:prefLabelGVP [xl:literalForm ?Term].
       ?Subject gvp:broaderPreferred ?Parent;
       optional {?Subject gvp:parentStringAbbrev ?Parents}
-      optional {?Subject skos:scopeNote [dct:language gvp_lang:en; rdf:value ?ScopeNote]}
-      filter (
-        ?Parent in (
+      optional {?Subject skos:scopeNote [dct:language gvp_lang:en; rdf:value ?ScopeNote]}"
+    ,
+    "filter (
+      ?Parent in (
         aat:300019332, aat:300266481, aat:30010763, aat:300106924
-      ))
-    }"
+      ))",
+    "}"
   ) %>% gsub("[\n]", "", .) %>%
     gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl=TRUE)
 
@@ -42,11 +43,16 @@ search_att <- function(word) {
     error = function(cond) {NULL}
   )
 
+  # res_only_periods <- res %>%
+  #   dplyr::filter(
+  #     grepl("Styles and Periods Facet", Parents)
+  #   )
+
   return(res)
 }
 
 
-total <- 5
+total <- 50
 pb <- txtProgressBar(min = 0, max = total, style = 3)
 
 hu <- list()
