@@ -15,17 +15,30 @@
 #' @export
 get_KITEeastAfrica <- function() {
 
-  Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
+  library(tidyr)
+  library(dataverse)
+  library(RCurl)
 
-  writeBin(get_file("CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ"), "data-raw/KITE_EastAfrica.csv")
+  # URL
+  db_url <- "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ"
+
+  # check connection
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+
+  # download data to temporary file
+  tempo <- tempfile()
+
+  Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
+  writeBin(get_file("CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ"), tempo)
 
   # read data
-  KITEeastafrica <- readr::read_csv("data-raw/KITE_EastAfrica.csv",
+  KITEeastafrica <- tempo %>%
+    readr::read_csv("data-raw/KITE_EastAfrica.csv",
       skip = 3,
       trim_ws = TRUE,
       col_types = list(
-        'Field Number'='_',
-        'Taxa Dated'= '_',
+        'Field Number' = '_',
+        'Taxa Dated' = '_',
         'Type of Date'= '_',
         'Locality' = '_',
         'Map Sheet' = '_',
