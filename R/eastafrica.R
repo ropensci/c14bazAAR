@@ -15,10 +15,6 @@
 #' @export
 get_KITEeastAfrica <- function() {
 
-  library(tidyr)
-  library(dataverse)
-  library(RCurl)
-
   # URL
   db_url <- "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ"
 
@@ -32,13 +28,12 @@ get_KITEeastAfrica <- function() {
   writeBin(get_file("CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ"), tempo)
 
   # read data
-  KITEeastafrica <- tempo %>%
-    readr::read_csv("data-raw/KITE_EastAfrica.csv",
+  KITEeastafrica <- readr::read_csv("data-raw/KITE_EastAfrica.csv",
       skip = 3,
       trim_ws = TRUE,
       col_types = list(
-        'Field Number' = '_',
-        'Taxa Dated' = '_',
+        'Field Number'='_',
+        'Taxa Dated'= '_',
         'Type of Date'= '_',
         'Locality' = '_',
         'Map Sheet' = '_',
