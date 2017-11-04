@@ -1,50 +1,55 @@
-c14bazAAR,definition,priority,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUROEVOL,RADON
-,,0,,,ADSID,ID,ID,C14ID,ID
-labnr,,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR
-c14age ,,2,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE
-c14std,,2,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD
-c13val,,1,δ13C,C13,,C13,C13,,C13
-material,,1,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL
-species,,1,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES
-country,,1,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY
-site,,1,Site,SITE,SITE,SITE,SITE,SiteName,SITE
-period,,1,Period,,,PERIOD,PERIOD,Period,
-culture,,1,,,,CULTURE,CULTURE,Culture,CULTURE
-,,0,,,,PHASE,,PhaseCode,PERIOD
-,,0,,,,LOCUS,LOCUS,,
-lat,,1,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
-lon,,1,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
-method,,1,,,METHOD,METHOD,,,
-calage,,1,,,,CALAGE,,,
-calstd,,1,,,,CALSTD,,,
-shortref,,1,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES]
-comment ,,1,Comment,,NOTES,NOTICE,NOTICE,,
-,,0,Subregion,,IBRA_REGION,,REGION,,
-,,0,Subregion no.,,,,,,
-,,0,calBC 1σ (from),,,,,,
-,,0,calBC 1σ (to),,,,,,
-,,0,Level,,,,,,
-feature,,1,Provenance,FEATURE,CONTEXT,,,,FEATURETYPE
-,,0,,FEATURE_DESC,,,,,
-,,0,,,SITE_TYPE,,,Type,
-,,0,,,C13_AGE,,,,
-,,0,,,C13_ERROR,,,,
-,,0,,,MATERIAL_TOP_LEVEL,,,,
-,,0,,,DEPTH_FROM_SURFACE_CM,,,,
-,,0,,,TECHNIQUE,,,,
-,,0,,,Data pertinent for time-series analysis or calibration,,,,
-,,0,,,Open or Closed Site,,,,
-,,0,,,Directly Related to occupation? Yes/Unknown,,,,
-,,0,,,RECORD_SOURCE,,,,
-,,0,,,DATE_ISSUES,,,,
-,,0,,,AGE_NORM,,,,
-,,0,,,ADDITIONAL_DATA_ISSUES,,,,
-,,0,,,,,GR,,
-,,0,,,,,MAR,,
-,,0,,,,,SAMPLE,,
-,,0,,,,,calBC68,,
-,,0,,,,,calBC95,,
-,,0,,,,,INCONGR,,
-,,0,,,,,PHASE,,
-,,0,,,,,,Subculture,
-,,0,,,,,,,FEATURETYPE
+c14bazAAR,definition,priority,order,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUROEVOL,RADON
+sourcedb,# TODO,,0,,,,,,,
+,,0,,,,ADSID,ID,ID,C14ID,ID
+labnr,# TODO,2,1,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR
+c14age ,# TODO,2,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE
+c14std,# TODO,2,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD
+c13val,# TODO,1,,δ13C,C13,,C13,C13,,C13
+material,# TODO,1,6,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL
+material_the,# TODO,0,7,,,,,,,
+species,# TODO,1,8,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES
+country,# TODO,1,9,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY
+country_coord,# TODO,0,10,,,,,,,
+country_the,# TODO,0,11,,,,,,,
+site,# TODO,1,2,Site,SITE,SITE,SITE,SITE,SiteName,SITE
+period,# TODO,1,,Period,,,PERIOD,PERIOD,Period,
+culture,# TODO,1,,,,,CULTURE,CULTURE,Culture,CULTURE
+,,0,,,,,PHASE,,PhaseCode,PERIOD
+,,0,,,,,LOCUS,LOCUS,,
+lat,# TODO,1,12,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
+lon,# TODO,1,13,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
+spatial_quality,# TODO,0,14,,,,,,,
+method,# TODO,1,,,,METHOD,METHOD,,,
+calage,# TODO,1,5,,,,CALAGE,,,
+calstd,# TODO,1,6,,,,CALSTD,,,
+shortref,# TODO,1,,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES]
+comment ,# TODO,1,,Comment,,NOTES,NOTICE,NOTICE,,
+,,0,,Subregion,,IBRA_REGION,,REGION,,
+,,0,,Subregion no.,,,,,,
+,,0,,calBC 1σ (from),,,,,,
+,,0,,calBC 1σ (to),,,,,,
+,,0,,Level,,,,,,
+feature,# TODO,1,,Provenance,FEATURE,CONTEXT,,,,FEATURETYPE
+,,0,,,FEATURE_DESC,,,,,
+,,0,,,,SITE_TYPE,,,Type,
+,,0,,,,C13_AGE,,,,
+,,0,,,,C13_ERROR,,,,
+,,0,,,,MATERIAL_TOP_LEVEL,,,,
+,,0,,,,DEPTH_FROM_SURFACE_CM,,,,
+,,0,,,,TECHNIQUE,,,,
+,,0,,,,Data pertinent for time-series analysis or calibration,,,,
+,,0,,,,Open or Closed Site,,,,
+,,0,,,,Directly Related to occupation? Yes/Unknown,,,,
+,,0,,,,RECORD_SOURCE,,,,
+,,0,,,,DATE_ISSUES,,,,
+,,0,,,,AGE_NORM,,,,
+,,0,,,,ADDITIONAL_DATA_ISSUES,,,,
+,,0,,,,,,GR,,
+,,0,,,,,,MAR,,
+,,0,,,,,,SAMPLE,,
+,,0,,,,,,calBC68,,
+,,0,,,,,,calBC95,,
+,,0,,,,,,INCONGR,,
+,,0,,,,,,PHASE,,
+,,0,,,,,,,Subculture,
+,,0,,,,,,,,FEATURETYPE
