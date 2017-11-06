@@ -6,5 +6,10 @@ cache: packages
 r_packages:
   - covr
 
+addons:
+  apt:
+    packages:
+    - libudunits2-dev
+
 after_success:
   - Rscript -e 'library(covr); codecov()'

@@ -38,9 +38,9 @@ as.sf.c14_date_list <- function(x) {
     )
   }
 
-  x_sf <- sf::st_sfc(st_multipoint(as.matrix(x[,c('lon','lat')])), crs = st_crs(4326)) %>%
-    st_cast("POINT") %>%
-    st_sf(data = x, geom = .)
+  x_sf <- sf::st_sfc(sf::st_multipoint(as.matrix(x[,c('lon','lat')])), crs = sf::st_crs(4326)) %>%
+    sf::st_cast("POINT") %>%
+    sf::st_sf(data = x, geom = .)
 
   return(x_sf)
 }
