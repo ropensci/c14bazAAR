@@ -11,5 +11,10 @@ Query different C14 date databases and apply basic data cleaning, merging and ca
 \author{
 \strong{Maintainer}: Clemens Schmid \email{clemens@nevrome.de} [copyright holder]
 
+Authors:
+\itemize{
+  \item Dirk Seidensticker \email{dirk.seidensticker@gmial.com}
+}
+
 }
 \keyword{internal}

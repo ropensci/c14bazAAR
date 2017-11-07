@@ -13,6 +13,9 @@ R package to query different C14 date databases (formerly known as c14databases)
 * `get_CONTEXT()` [CONTEXT](http://context-database.uni-koeln.de/): Collection of radiocarbon dates from sites in the Near East and neighboring regions (20.000 - 5.000 calBC) by **Utz Böhner** and **Daniel Schyle**.
 * `get_EUROEVOL()` [EUROEVOL](http://discovery.ucl.ac.uk/1469811/): Cultural Evolution of Neolithic Europe Dataset by [**Katie Manning**, **Sue Colledge**, **Enrico Crema**, **Stephen Shennan** and **Adrian Timpson**](http://openarchaeologydata.metajnl.com/articles/10.5334/joad.40/).
 * `get_RADON()` [RADON](http://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, **Martin Hinz**, Johannes Müller, **Christoph Rinne**, Karl-Göran Sjögren und Hans-Peter Wotzka](http://www.jna.uni-kiel.de/index.php/jna/article/view/65).
+* `get_KITEeastAfrica()` [CARD Upload Template - KITE East Africa v2.1](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ): Radiocarbon dates from eastern Africa in the CARD2.0 format by [**Colin Courtney Mustaphi**, Rob Marchant](https://www.openquaternary.com/articles/10.5334/oq.22/)
+* `get_AustArch()` [AustArch](http://archaeologydataservice.ac.uk/archives/view/austarch_na_2014/): A Database of 14C and Luminescence Ages from Archaeological Sites in Australia by [**Alan N. Williams**, Sean Ulm, Mike Smith, Jill Reid](http://intarch.ac.uk/journal/issue36/6/williams.html)
+
 
 # Installation
 ```

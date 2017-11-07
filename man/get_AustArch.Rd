@@ -2,17 +2,19 @@
 % Please edit documentation in R/austarch.R
 \name{get_AustArch}
 \alias{get_AustArch}
-\title{get current AustArch-Database}
+\title{get AustArch: A Database of 14C and Luminescence Ages from Archaeological Sites in Australia}
 \usage{
 get_AustArch()
 }
 \description{
-Downloads the current version of the AustArch-Database from \url{http://archaeologydataservice.ac.uk/archives/view/austarch_na_2014/}.
+See:
+- AustArch: A Database of 14C and Non-14C Ages from Archaeological Sites in Australia - Composition, Compilation and Review (Data Paper) http://intarch.ac.uk/journal/issue36/6/williams.html
+- AustArch: A Database of 14C and Luminescence Ages from Archaeological Sites in Australia http://archaeologydataservice.ac.uk/archives/view/austarch_na_2014/
 }
 \examples{
 
 \dontrun{
-  CARD <- get_CARD()
+  AustArch <- get_AustArch()
 }
 
 }
