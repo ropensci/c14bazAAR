@@ -3,7 +3,7 @@ Title: Download and Prepare C14 Dates from Different Source Databases
 Version: 0.0.0.9000
 Authors@R: c(
   person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph")),
-  person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmial.com", role = c("aut"))
+  person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut"))
   )
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
 Depends: R (>= 3.4.1)
