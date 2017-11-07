@@ -51,7 +51,7 @@ get_AustArch <- function() {
         AGE_NORM = readr::col_integer(),
         ADDITIONAL_DATA_ISSUES = readr::col_character()
       )
-    ) %>%
+    ) %>% dplyr::select(-c(X27)) %>% # removing additonal column that get's added due to trailing comma
     dplyr::rename(
       labnr = .data[["LAB_CODE"]],
       c14age = .data[["AGE"]],

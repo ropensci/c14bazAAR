@@ -25,7 +25,7 @@ get_KITEeastAfrica <- function() {
   tempo <- tempfile()
 
   Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
-  writeBin(get_file("CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ"), tempo)
+  writeBin(dataverse::get_file("CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ"), tempo)
 
   # read data
   KITEeastafrica <- tempo %>%
@@ -34,7 +34,7 @@ get_KITEeastAfrica <- function() {
       trim_ws = TRUE,
       col_types = readr::cols(
         'Lab Number' = readr::col_character(),
-        'Field Number' = '_',
+        'Field Number' = '_', # `= '_'` removes the column
         'Material Dated' = readr::col_character(),
         'Taxa Dated' = '_',
         'Type of Date' = readr::col_character(),
