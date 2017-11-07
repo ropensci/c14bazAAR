@@ -16,13 +16,17 @@ get_all_dates <- function() {
   CONTEXT <- c14bazAAR::get_CONTEXT()
   EUROEVOL <- c14bazAAR::get_EUROEVOL()
   RADON <- c14bazAAR::get_RADON()
+  AustArch <- c14bazAAR::get_AustArch()
+  KITEeastafrica <- c14bazAAR::get_KITEeastAfrica()
 
   all_dates <- c14bazAAR::fuse(
     aDRAC,
     CALPAL,
     CONTEXT,
     EUROEVOL,
-    RADON
+    RADON,
+    AustArch,
+    KITEeastafrica
   )
 
   return(all_dates)
