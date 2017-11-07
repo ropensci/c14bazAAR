@@ -47,41 +47,40 @@ get_14SEA <- function() {
         "Reference 3" = "text",
         "Reference 4" = "text"
       )
-    )# %>%
-    # dplyr::rename(
-    #   id = .data[["ID"]],
-    #   labnr = .data[["LABNR"]],
-    #   c14age = .data[["C14AGE"]],
-    #   c14std = .data[["C14STD"]],
-    #   c13val = .data[["C13"]],
-    #   material = .data[["MATERIAL"]],
-    #   species = .data[["SPECIES"]],
-    #   country = .data[["COUNTRY"]],
-    #   site = .data[["SITE"]],
-    #   period = .data[["PERIOD"]],
-    #   culture = .data[["CULTURE"]],
-    #   featuretype = .data[["FEATURETYPE"]],
-    #   feature = .data[["FEATURE"]],
-    #   lat = .data[["LATITUDE"]],
-    #   lon = .data[["LONGITUDE"]],
-    #   shortref = .data[["REFERENCE"]],
-    #   pages = .data[["PAGES"]]
-    # ) %>%
-    # # unite shortref & pages (if not NA)
-    # tidyr::replace_na(list(shortref = "", pages = "")) %>%
-    # tidyr::unite_(
-    #   ., "shortref", c("shortref", "pages"), sep = ", ", remove = TRUE
-    # ) %>%
-    # dplyr::mutate(
-    #   shortref = replace(.$shortref, which(.$shortref == ", "), NA)
-    # ) %>%
-    # dplyr::mutate(
-    #   shortref = gsub("[,]+[[:space:]]$", "", .$shortref)
-    # ) %>% dplyr::mutate(
-    #   sourcedb = "RADON"
-    # ) %>%
-    # as.c14_date_list() %>%
-    # c14bazAAR::order_variables()
+    ) %>%
+    dplyr::transmute(
+      labnr = .data[["Lab. no."]],
+      c14age = as.numeric(.data[["Date BP"]]),
+      c14std = as.numeric(.data[["\u00B1"]]),
+      c13val = as.numeric(.data[["\u03B413C"]]),
+      material = .data[["Material"]],
+      country = .data[["Country"]],
+      region = .data[["Subregion"]],
+      site = .data[["Site"]],
+      lat = NA,
+      lon = NA,
+      period = .data[["Period"]],
+      level = .data[["Level"]],
+      feature = .data[["Provenance"]],
+      shortref = {
+        combined_ref <- paste0(
+          ifelse(!is.na(.data[["Reference 1"]]), .data[["Reference 1"]], ""),
+          ifelse(!is.na(.data[["Reference 1"]]) & !is.na(.data[["Reference 2"]]), ", ", ""),
+          ifelse(!is.na(.data[["Reference 2"]]), .data[["Reference 2"]], ""),
+          ifelse(!is.na(.data[["Reference 2"]]) & !is.na(.data[["Reference 3"]]), ", ", ""),
+          ifelse(!is.na(.data[["Reference 3"]]), .data[["Reference 3"]], ""),
+          ifelse(!is.na(.data[["Reference 3"]]) & !is.na(.data[["Reference 4"]]), ", ", ""),
+          ifelse(!is.na(.data[["Reference 4"]]), .data[["Reference 4"]], "")
+        )
+        ifelse(nchar(combined_ref) == 0, NA, combined_ref)
+      },
+      comment = .data[["Comment"]]
+    ) %>%
+    dplyr::mutate(
+      sourcedb = "14SEA"
+    ) %>%
+    as.c14_date_list() %>%
+    c14bazAAR::order_variables()
 
     # delete temporary file
     unlink(tempo)

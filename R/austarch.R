@@ -86,5 +86,4 @@ get_AustArch <- function() {
     c14bazAAR::order_variables()
 
   return(AustArch)
-
 }
