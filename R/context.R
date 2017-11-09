@@ -28,29 +28,29 @@ get_CONTEXT <- function(db_url = "http://context-database.uni-koeln.de/download/
     locale = readr::locale(decimal_mark = ","),
     col_types = readr::cols(
       LABNR = readr::col_character(),
-      GR = readr::col_character(),
+      GR = "_",
       C14AGE = readr::col_character(),
       C14STD = readr::col_character(),
       C13 = readr::col_character(),
       COUNTRY = readr::col_character(),
       SITE = readr::col_character(),
-      MAR = readr::col_character(),
+      MAR = "_",
       MATERIAL = readr::col_character(),
       SPECIES = readr::col_character(),
-      PHASE = readr::col_character(),
-      LOCUS = readr::col_character(),
-      SAMPLE = readr::col_character(),
+      PHASE = "_",
+      LOCUS = "_",
+      SAMPLE = "_",
       CULTURE = readr::col_character(),
       PERIOD = readr::col_character(),
-      calBC68 = readr::col_character(),
-      calBC95 = readr::col_character(),
+      calBC68 = "_",
+      calBC95 = "_",
       REGION = readr::col_character(),
       LATITUDE = readr::col_character(),
       LONGITUDE = readr::col_character(),
-      INCONGR = readr::col_character(),
+      INCONGR = "_",
       NOTICE = readr::col_character(),
       REFERENCE = readr::col_character(),
-      ID = readr::col_character()
+      ID = "_"
     )
   )
   unlink(temp)
