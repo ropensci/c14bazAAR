@@ -24,14 +24,14 @@ calage,integer,# TODO,1,5,,,,CALAGE,,,
 calstd,integer,# TODO,1,6,,,,CALSTD,,,
 shortref,character,# TODO,1,21,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES]
 comment ,character,# TODO,1,22,Comment,,NOTES,NOTICE,NOTICE,,
-,,,0,,Subregion,,IBRA_REGION,,REGION,,
+region,character,# TODO,1,14.5,Subregion,,IBRA_REGION,,REGION,,
 ,,,0,,Subregion no.,,,,,,
 ,,,0,,calBC 1σ (from),,,,,,
 ,,,0,,calBC 1σ (to),,,,,,
 ,,,0,,Level,,,,,,
 feature,character,# TODO,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE
 ,,,0,,,FEATURE_DESC,,,,,
-,,,0,,,,SITE_TYPE,,,Type,
+sitetype,character,# TODO,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE
 ,,,0,,,,C13_AGE,,,,
 ,,,0,,,,C13_ERROR,,,,
 ,,,0,,,,MATERIAL_TOP_LEVEL,,,,
@@ -52,4 +52,3 @@ feature,character,# TODO,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE
 ,,,0,,,,,,INCONGR,,
 ,,,0,,,,,,PHASE,,
 ,,,0,,,,,,,Subculture,
-,,,0,,,,,,,,FEATURETYPE
