@@ -2,9 +2,9 @@ c14bazAAR,type,definition,priority,order,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUR
 sourcedb,character,# TODO,,0,,,,,,,
 ,,,0,,,,ADSID,ID,ID,C14ID,ID
 labnr,character,# TODO,2,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR
-c14age ,numeric,# TODO,2,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE
-c14std,numeric,# TODO,2,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD
-c13val,numeric,# TODO,1,7,δ13C,C13,,C13,C13,,C13
+c14age ,integer,# TODO,2,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE
+c14std,integer,# TODO,2,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD
+c13val,double,# TODO,1,7,δ13C,C13,,C13,C13,,C13
 material,character,# TODO,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL
 material_the,character,# TODO,0,13,,,,,,,
 species,character,# TODO,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES
@@ -16,12 +16,12 @@ period,character,# TODO,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD
 culture,character,# TODO,1,11,,,,CULTURE,CULTURE,Culture,CULTURE
 ,,,0,,,,,PHASE,,PhaseCode,
 ,,,0,,,,,LOCUS,LOCUS,,
-lat,numeric,# TODO,1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
-lon,numeric,# TODO,1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
+lat,double,# TODO,1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
+lon,double,# TODO,1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
 spatial_quality,character,# TODO,0,20,,,,,,,
 method,character,# TODO,1,1,,,METHOD,METHOD,,,
-calage,numeric,# TODO,1,5,,,,CALAGE,,,
-calstd,numeric,# TODO,1,6,,,,CALSTD,,,
+calage,integer,# TODO,1,5,,,,CALAGE,,,
+calstd,integer,# TODO,1,6,,,,CALSTD,,,
 shortref,character,# TODO,1,21,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES]
 comment ,character,# TODO,1,22,Comment,,NOTES,NOTICE,NOTICE,,
 ,,,0,,Subregion,,IBRA_REGION,,REGION,,
