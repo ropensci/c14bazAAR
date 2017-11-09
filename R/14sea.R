@@ -2,6 +2,8 @@
 #'
 #' Downloads the current version of the 14SEA-Database from \url{http:///www.14sea.org/}.
 #'
+#' @param db_url string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -9,10 +11,7 @@
 #' }
 #'
 #' @export
-get_14SEA <- function() {
-
-  # URL
-  db_url <- "http://www.14sea.org/img/14SEA_Full_Dataset_2017-01-29.xlsx"
+get_14SEA <- function(db_url = "http://www.14sea.org/img/14SEA_Full_Dataset_2017-01-29.xlsx") {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
@@ -60,7 +59,6 @@ get_14SEA <- function() {
       lat = NA,
       lon = NA,
       period = .data[["Period"]],
-      level = .data[["Level"]],
       feature = .data[["Provenance"]],
       shortref = {
         combined_ref <- paste0(
@@ -80,7 +78,8 @@ get_14SEA <- function() {
       sourcedb = "14SEA"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    c14bazAAR::enforce_types()
 
     # delete temporary file
     unlink(tempo)
