@@ -4,7 +4,10 @@
 \alias{get_RADON}
 \title{get current RADON-Database}
 \usage{
-get_RADON()
+get_RADON(db_url = "http://134.245.38.100/radondownload/radondaily.txt")
+}
+\arguments{
+\item{db_url}{string with weblink to c14 archive file}
 }
 \description{
 Downloads the current version of the RADON-Database from \url{http://radon.ufg.uni-kiel.de/}.

@@ -2,6 +2,8 @@
 #'
 #' Downloads the current version of the RADON-Database from \url{http://radon.ufg.uni-kiel.de/}.
 #'
+#' @param db_url string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -9,10 +11,7 @@
 #' }
 #'
 #' @export
-get_RADON <- function() {
-
-  # URL
-  db_url <- "http://134.245.38.100/radondownload/radondaily.txt"
+get_RADON <- function(db_url = "http://134.245.38.100/radondownload/radondaily.txt") {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
@@ -44,8 +43,7 @@ get_RADON <- function() {
         PAGES = readr::col_character()
       )
     ) %>%
-    dplyr::rename(
-      id = .data[["ID"]],
+    dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
       c14std = .data[["C14STD"]],
@@ -56,7 +54,7 @@ get_RADON <- function() {
       site = .data[["SITE"]],
       period = .data[["PERIOD"]],
       culture = .data[["CULTURE"]],
-      featuretype = .data[["FEATURETYPE"]],
+      sitetype = .data[["FEATURETYPE"]],
       feature = .data[["FEATURE"]],
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
@@ -77,7 +75,8 @@ get_RADON <- function() {
       sourcedb = "RADON"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    c14bazAAR::enforce_types()
 
   return(RADON)
 }

@@ -2,6 +2,10 @@
 #'
 #' Downloads the current version of the EUROEVOL-Database from \url{http://discovery.ucl.ac.uk/1469811/}.
 #'
+#' @param db_url1 string with weblink to c14 archive file
+#' @param db_url2 string with weblink to c14 archive file
+#' @param db_url3 string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -9,12 +13,11 @@
 #' }
 #'
 #' @export
-get_EUROEVOL <- function() {
-
-  # URL
-  db_url1 <- "http://discovery.ucl.ac.uk/1469811/7/EUROEVOL09-07-201516-34_C14Samples.csv"
-  db_url2 <- "http://discovery.ucl.ac.uk/1469811/9/EUROEVOL09-07-201516-34_CommonSites.csv"
-  db_url3 <- "http://discovery.ucl.ac.uk/1469811/8/EUROEVOL09-07-201516-34_CommonPhases.csv"
+get_EUROEVOL <- function(
+  db_url1 = "http://discovery.ucl.ac.uk/1469811/7/EUROEVOL09-07-201516-34_C14Samples.csv",
+  db_url2 = "http://discovery.ucl.ac.uk/1469811/9/EUROEVOL09-07-201516-34_CommonSites.csv",
+  db_url3 = "http://discovery.ucl.ac.uk/1469811/8/EUROEVOL09-07-201516-34_CommonPhases.csv"
+) {
 
   # check connection
   if (!RCurl::url.exists(db_url1)) {stop(paste(db_url1, "is not available. No internet connection?"))}
@@ -62,15 +65,12 @@ get_EUROEVOL <- function() {
       na = c("NULL"),
       col_types = readr::cols(
         Culture = readr::col_character(),
-        Subculture = readr::col_character(),
+        Subculture = "_",
         Period = readr::col_character(),
         PhaseCode = readr::col_character(),
         SiteID = readr::col_character(),
         Type = readr::col_character()
       )
-    ) %>%
-    dplyr::select(
-      -.data[["Period"]], -.data[["SiteID"]]
     )
 
   # merge and prepare
@@ -78,12 +78,7 @@ get_EUROEVOL <- function() {
     # merge
     dplyr::left_join(sites, by = "SiteID") %>%
     dplyr::left_join(phases, by = "PhaseCode") %>%
-    # remove unnecessary variables
-    dplyr::select(
-      -.data[["PhaseCode"]], -.data[["SiteID"]]
-    ) %>%
-    dplyr::rename(
-      id = .data[["C14ID"]],
+    dplyr::transmute(
       labnr = .data[["LabCode"]],
       c14age = .data[["C14Age"]],
       c14std = .data[["C14SD"]],
@@ -95,13 +90,13 @@ get_EUROEVOL <- function() {
       site = .data[["SiteName"]],
       period = .data[["Period"]],
       culture = .data[["Culture"]],
-      subculture = .data[["Subculture"]],
       sitetype = .data[["Type"]]
     ) %>% dplyr::mutate(
       sourcedb = "EUROEVOL"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    c14bazAAR::enforce_types()
 
   return(EUROEVOL)
 }
