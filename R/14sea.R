@@ -49,9 +49,9 @@ get_14SEA <- function(db_url = "http://www.14sea.org/img/14SEA_Full_Dataset_2017
     ) %>%
     dplyr::transmute(
       labnr = .data[["Lab. no."]],
-      c14age = as.numeric(.data[["Date BP"]]),
-      c14std = as.numeric(.data[["\u00B1"]]),
-      c13val = as.numeric(.data[["\u03B413C"]]),
+      c14age = .data[["Date BP"]],
+      c14std = .data[["\u00B1"]],
+      c13val = .data[["\u03B413C"]],
       material = .data[["Material"]],
       country = .data[["Country"]],
       region = .data[["Subregion"]],
