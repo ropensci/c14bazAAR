@@ -4,7 +4,11 @@
 \alias{get_KITEeastAfrica}
 \title{get KITE East Africa v2.1.csv from ...}
 \usage{
-get_KITEeastAfrica()
+
+  get_KITEeastAfrica(db_url = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ")
+}
+\arguments{
+\item{db_url}{string with weblink to c14 archive file}
 }
 \description{
 See:

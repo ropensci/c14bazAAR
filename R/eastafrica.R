@@ -32,36 +32,36 @@ get_KITEeastAfrica <- function(db_url = "https://dataverse.harvard.edu/dataset.x
       skip = 3,
       trim_ws = TRUE,
       col_types = readr::cols(
-        'Lab Number' = readr::col_character(),
-        'Field Number' = '_', # `= '_'` removes the column
-        'Material Dated' = readr::col_character(),
-        'Taxa Dated' = '_',
-        'Type of Date' = readr::col_character(),
-        'Locality' = '_',
-        'Latitude' = readr::col_double(),
-        'Longitude' = readr::col_double(),
-        'Map Sheet' = '_',
-        'Elevation     (m ASL)' = readr::col_integer(),
-        'Submitter' = '_',
-        'Date Submitted' = '_',
-        'Collector' = readr::col_character(),
-        'Date Collected' = '_',
-        'Updater' = readr::col_character(),
-        'Date Updated' = readr::col_date(format = "%d/%m/%Y"),
-        'Measured Age' = '_',
-        'MA Sigma' = '_',
-        'Normalized Age' = readr::col_integer(),
-        'NA Sigma' = readr::col_integer(),
-        'Delta 13C (per mil)' = readr::col_double(),
-        'Delta 13 C Source' = readr::col_character(),
-        'Significance' = '_',
-        'Site Identifier' = readr::col_character(),
-        'Site Name' = readr::col_character(),
-        'Stratigraphic Component' = '_',
-        'Context' = '_',
-        'Associated Taxa' = readr::col_character(),
-        'Additional Information' = readr::col_character(),
-        'Comments' = readr::col_character()
+        "Lab Number" = readr::col_character(),
+        "Field Number" = "_", # `= "_"` removes/skips the column
+        "Material Dated" = readr::col_character(),
+        "Taxa Dated" = "_",
+        "Type of Date" = readr::col_character(),
+        "Locality" = "_",
+        "Latitude" = readr::col_double(),
+        "Longitude" = readr::col_double(),
+        "Map Sheet" = "_",
+        "Elevation     (m ASL)" = readr::col_integer(),
+        "Submitter" = "_",
+        "Date Submitted" = "_",
+        "Collector" = readr::col_character(),
+        "Date Collected" = "_",
+        "Updater" = readr::col_character(),
+        "Date Updated" = readr::col_date(format = "%d/%m/%Y"),
+        "Measured Age" = "_",
+        "MA Sigma" = "_",
+        "Normalized Age" = readr::col_integer(),
+        "NA Sigma" = readr::col_integer(),
+        "Delta 13C (per mil)" = readr::col_double(),
+        "Delta 13 C Source" = readr::col_character(),
+        "Significance" = "_",
+        "Site Identifier" = readr::col_character(),
+        "Site Name" = readr::col_character(),
+        "Stratigraphic Component" = "_",
+        "Context" = "_",
+        "Associated Taxa" = readr::col_character(),
+        "Additional Information" = readr::col_character(),
+        "Comments" = readr::col_character()
       )
     ) %>%
     dplyr::rename(
@@ -89,7 +89,7 @@ get_KITEeastAfrica <- function(db_url = "https://dataverse.harvard.edu/dataset.x
     ) %>%
     as.c14_date_list() %>%
     c14bazAAR::order_variables() %>%
-    enforce_types()
+    c14bazAAR::enforce_types()
 
   return(KITEeastafrica)
 
