@@ -30,10 +30,10 @@ get_EUROEVOL <- function(
       trim_ws = TRUE,
       na = c("NULL"),
       col_types = readr::cols(
-        C14ID = readr::col_integer(),
+        C14ID = readr::col_character(),
         Period = readr::col_character(),
-        C14Age = readr::col_integer(),
-        C14SD = readr::col_integer(),
+        C14Age = readr::col_character(),
+        C14SD = readr::col_character(),
         LabCode = readr::col_character(),
         PhaseCode = readr::col_character(),
         SiteID = readr::col_character(),
@@ -51,8 +51,8 @@ get_EUROEVOL <- function(
       escape_double = FALSE,
       col_types = readr::cols(
         Country = readr::col_character(),
-        Latitude = readr::col_double(),
-        Longitude = readr::col_double(),
+        Latitude = readr::col_character(),
+        Longitude = readr::col_character(),
         SiteID = readr::col_character(),
         SiteName = readr::col_character()
       )
@@ -71,7 +71,8 @@ get_EUROEVOL <- function(
         SiteID = readr::col_character(),
         Type = readr::col_character()
       )
-    )
+    ) %>%
+    dplyr::select(-.data[["Period"]], -.data[["SiteID"]])
 
   # merge and prepare
   EUROEVOL <- dates %>%
