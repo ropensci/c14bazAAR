@@ -4,7 +4,7 @@ sourcedb,character,# TODO,,0,,,,,,,
 labnr,character,# TODO,2,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR
 c14age ,integer,# TODO,2,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE
 c14std,integer,# TODO,2,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD
-c13val,double,# TODO,1,7,δ13C,C13,,C13,C13,,C13
+c13val,double,# TODO,1,7,δ13C,C13,C13_AGE,C13,C13,,C13
 material,character,# TODO,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL
 material_the,character,# TODO,0,13,,,,,,,
 species,character,# TODO,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES
@@ -32,7 +32,6 @@ region,character,# TODO,1,14.5,Subregion,,IBRA_REGION,,REGION,,
 feature,character,# TODO,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE
 ,,,0,,,FEATURE_DESC,,,,,
 sitetype,character,# TODO,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE
-,,,0,,,,C13_AGE,,,,
 ,,,0,,,,C13_ERROR,,,,
 ,,,0,,,,MATERIAL_TOP_LEVEL,,,,
 ,,,0,,,,DEPTH_FROM_SURFACE_CM,,,,
