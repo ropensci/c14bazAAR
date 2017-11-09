@@ -2,6 +2,8 @@
 #'
 #' Downloads the current version of the aDRAC-Database from \url{https://github.com/dirkseidensticker/aDRAC/}.
 #'
+#' @param db_url string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -9,10 +11,7 @@
 #' }
 #'
 #' @export
-get_aDRAC <- function() {
-
-  # URL
-  db_url <- "https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/data/aDRAC.csv"
+get_aDRAC <- function(db_url = "https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/data/aDRAC.csv") {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
@@ -23,20 +22,20 @@ get_aDRAC <- function() {
       trim_ws = TRUE,
       col_types = readr::cols(
         LABNR = readr::col_character(),
-        C14AGE = readr::col_integer(),
-        C14STD = readr::col_integer(),
-        C13 = readr::col_double(),
+        C14AGE = readr::col_character(),
+        C14STD = readr::col_character(),
+        C13 = readr::col_character(),
         MATERIAL = readr::col_character(),
         SITE = readr::col_character(),
         COUNTRY = readr::col_character(),
         FEATURE = readr::col_character(),
         FEATURE_DESC = readr::col_character(),
-        LAT = readr::col_double(),
-        LONG = readr::col_double(),
+        LAT = readr::col_character(),
+        LONG = readr::col_character(),
         SOURCE = readr::col_character()
       )
     ) %>%
-    dplyr::rename(
+    dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
       c14std = .data[["C14STD"]],
@@ -45,7 +44,6 @@ get_aDRAC <- function() {
       site = .data[["SITE"]],
       country = .data[["COUNTRY"]],
       feature = .data[["FEATURE"]],
-      featuredescription = .data[["FEATURE_DESC"]],
       lat = .data[["LAT"]],
       lon = .data[["LONG"]],
       shortref = .data[["SOURCE"]]
@@ -53,7 +51,8 @@ get_aDRAC <- function() {
       sourcedb = "aDRAC"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    c14bazAAR::enforce_types()
 
   return(aDRAC)
 }
