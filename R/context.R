@@ -11,7 +11,7 @@
 #' }
 #'
 #' @export
-get_CONTEXT <- function(db_url = "http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip") {
+get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}

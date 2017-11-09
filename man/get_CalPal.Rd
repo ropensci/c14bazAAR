@@ -4,8 +4,7 @@
 \alias{get_CalPal}
 \title{get current CALPAL-Database}
 \usage{
-
-  get_CalPal(db_url = "https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_14C-Database.csv")
+get_CalPal(db_url = get_db_url("CalPal"))
 }
 \arguments{
 \item{db_url}{string with weblink to c14 archive file}

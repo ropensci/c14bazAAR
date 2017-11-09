@@ -4,8 +4,7 @@
 \alias{get_14SEA}
 \title{get current 14SEA-Database}
 \usage{
-
-  get_14SEA(db_url = "http://www.14sea.org/img/14SEA_Full_Dataset_2017-01-29.xlsx")
+get_14SEA(db_url = get_db_url("14SEA"))
 }
 \arguments{
 \item{db_url}{string with weblink to c14 archive file}

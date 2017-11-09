@@ -11,7 +11,7 @@
 #' }
 #'
 #' @export
-get_14SEA <- function(db_url = "http://www.14sea.org/img/14SEA_Full_Dataset_2017-01-29.xlsx") {
+get_14SEA <- function(db_url = get_db_url("14SEA")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}

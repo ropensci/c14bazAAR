@@ -11,7 +11,7 @@
 #' }
 #'
 #' @export
-get_aDRAC <- function(db_url = "https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/data/aDRAC.csv") {
+get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}

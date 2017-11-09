@@ -11,7 +11,7 @@
 #' }
 #'
 #' @export
-get_CalPal <- function(db_url = "https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_14C-Database.csv") {
+get_CalPal <- function(db_url = get_db_url("CalPal")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}

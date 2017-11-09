@@ -11,7 +11,7 @@
 #' }
 #'
 #' @export
-get_RADON <- function(db_url = "http://134.245.38.100/radondownload/radondaily.txt") {
+get_RADON <- function(db_url = get_db_url("RADON")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}

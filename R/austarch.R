@@ -13,7 +13,7 @@
 #' }
 #'
 #' @export
-get_AustArch <- function(db_url = "http://archaeologydataservice.ac.uk/catalogue/adsdata/arch-1661-1/dissemination/csv/Austarch_1-3_and_IDASQ_28Nov13-1.csv") {
+get_AustArch <- function(db_url = get_db_url("AustArch")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
