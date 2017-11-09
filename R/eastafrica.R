@@ -6,6 +6,8 @@
 #'
 #' The dataset is stored within https://dataverse.harvard.edu that requires the dataverse-package (see https://cran.r-project.org/web/packages/dataverse/vignettes/C-retrieval.html)
 #'
+#' @param db_url string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -13,10 +15,7 @@
 #' }
 #'
 #' @export
-get_KITEeastAfrica <- function() {
-
-  # URL
-  db_url <- "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ"
+get_KITEeastAfrica <- function(db_url = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ") {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
@@ -89,7 +88,8 @@ get_KITEeastAfrica <- function() {
       sourcedb = "KITEeastafrica"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    enforce_types()
 
   return(KITEeastafrica)
 

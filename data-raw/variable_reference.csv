@@ -14,7 +14,7 @@ country_the,character,# TODO,0,17,,,,,,,
 site,character,# TODO,1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE
 period,character,# TODO,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD
 culture,character,# TODO,1,11,,,,CULTURE,CULTURE,Culture,CULTURE
-,,,0,,,,,PHASE,,PhaseCode,
+,,,0,,,,,PHASE,PHASE,PhaseCode,
 ,,,0,,,,,LOCUS,LOCUS,,
 lat,double,# TODO,1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
 lon,double,# TODO,1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
@@ -49,5 +49,4 @@ sitetype,character,# TODO,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE
 ,,,0,,,,,,calBC68,,
 ,,,0,,,,,,calBC95,,
 ,,,0,,,,,,INCONGR,,
-,,,0,,,,,,PHASE,,
 ,,,0,,,,,,,Subculture,

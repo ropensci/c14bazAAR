@@ -4,7 +4,11 @@
 \alias{get_CONTEXT}
 \title{get current CONTEXT-Database}
 \usage{
-get_CONTEXT()
+
+  get_CONTEXT(db_url = "http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip")
+}
+\arguments{
+\item{db_url}{string with weblink to c14 archive file}
 }
 \description{
 Downloads the current version of the CONTEXT-Database from \url{http://context-database.uni-koeln.de/}.

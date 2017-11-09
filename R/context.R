@@ -2,6 +2,8 @@
 #'
 #' Downloads the current version of the CONTEXT-Database from \url{http://context-database.uni-koeln.de/}.
 #'
+#' @param db_url string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -9,9 +11,7 @@
 #' }
 #'
 #' @export
-get_CONTEXT <- function() {
-
-  db_url <- "http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip"
+get_CONTEXT <- function(db_url = "http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip") {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
@@ -29,9 +29,9 @@ get_CONTEXT <- function() {
     col_types = readr::cols(
       LABNR = readr::col_character(),
       GR = readr::col_character(),
-      C14AGE = readr::col_integer(),
-      C14STD = readr::col_integer(),
-      C13 = readr::col_double(),
+      C14AGE = readr::col_character(),
+      C14STD = readr::col_character(),
+      C13 = readr::col_character(),
       COUNTRY = readr::col_character(),
       SITE = readr::col_character(),
       MAR = readr::col_character(),
@@ -45,12 +45,12 @@ get_CONTEXT <- function() {
       calBC68 = readr::col_character(),
       calBC95 = readr::col_character(),
       REGION = readr::col_character(),
-      LATITUDE = readr::col_double(),
-      LONGITUDE = readr::col_double(),
+      LATITUDE = readr::col_character(),
+      LONGITUDE = readr::col_character(),
       INCONGR = readr::col_character(),
       NOTICE = readr::col_character(),
       REFERENCE = readr::col_character(),
-      ID = readr::col_integer()
+      ID = readr::col_character()
     )
   )
   unlink(temp)
@@ -58,12 +58,7 @@ get_CONTEXT <- function() {
 
   # rename
   CONTEXT <- CONTEXT_raw %>%
-    # remove unnecessary variables
-    dplyr::select(
-      -.data[["GR"]], -.data[["MAR"]]
-    ) %>%
-    dplyr::rename(
-      id = .data[["ID"]],
+    dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
       c14std = .data[["C14STD"]],
@@ -72,22 +67,19 @@ get_CONTEXT <- function() {
       site = .data[["SITE"]],
       material = .data[["MATERIAL"]],
       species = .data[["SPECIES"]],
-      phase = .data[["PHASE"]],
-      locus = .data[["LOCUS"]],
-      sample = .data[["SAMPLE"]],
       culture = .data[["CULTURE"]],
       period = .data[["PERIOD"]],
-      calage68 = .data[["calBC68"]],
-      calage95 = .data[["calBC95"]],
       region = .data[["REGION"]],
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
-      shortref = .data[["REFERENCE"]]
+      shortref = .data[["REFERENCE"]],
+      comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
       sourcedb = "CONTEXT"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    c14bazAAR::enforce_types()
 
   return(CONTEXT)
 }
