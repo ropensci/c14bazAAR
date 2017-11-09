@@ -12,7 +12,7 @@
 get_all_dates <- function() {
 
   aDRAC <- c14bazAAR::get_aDRAC()
-  CALPAL <- c14bazAAR::get_CALPAL()
+  CALPAL <- c14bazAAR::get_CalPal()
   CONTEXT <- c14bazAAR::get_CONTEXT()
   EUROEVOL <- c14bazAAR::get_EUROEVOL()
   RADON <- c14bazAAR::get_RADON()
