@@ -1,35 +1,35 @@
 c14bazAAR,definition,priority,order,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUROEVOL,RADON
 sourcedb,# TODO,,0,,,,,,,
 ,,0,,,,ADSID,ID,ID,C14ID,ID
-labnr,# TODO,2,1,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR
+labnr,# TODO,2,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR
 c14age ,# TODO,2,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE
 c14std,# TODO,2,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD
-c13val,# TODO,1,,δ13C,C13,,C13,C13,,C13
-material,# TODO,1,6,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL
-material_the,# TODO,0,7,,,,,,,
-species,# TODO,1,8,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES
-country,# TODO,1,9,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY
-country_coord,# TODO,0,10,,,,,,,
-country_the,# TODO,0,11,,,,,,,
-site,# TODO,1,2,Site,SITE,SITE,SITE,SITE,SiteName,SITE
-period,# TODO,1,,Period,,,PERIOD,PERIOD,Period,
-culture,# TODO,1,,,,,CULTURE,CULTURE,Culture,CULTURE
-,,0,,,,,PHASE,,PhaseCode,PERIOD
+c13val,# TODO,1,7,δ13C,C13,,C13,C13,,C13
+material,# TODO,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL
+material_the,# TODO,0,13,,,,,,,
+species,# TODO,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES
+country,# TODO,1,15,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY
+country_coord,# TODO,0,16,,,,,,,
+country_the,# TODO,0,17,,,,,,,
+site,# TODO,1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE
+period,# TODO,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD
+culture,# TODO,1,11,,,,CULTURE,CULTURE,Culture,CULTURE
+,,0,,,,,PHASE,,PhaseCode,
 ,,0,,,,,LOCUS,LOCUS,,
-lat,# TODO,1,12,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
-lon,# TODO,1,13,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
-spatial_quality,# TODO,0,14,,,,,,,
-method,# TODO,1,,,,METHOD,METHOD,,,
+lat,# TODO,1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE
+lon,# TODO,1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE
+spatial_quality,# TODO,0,20,,,,,,,
+method,# TODO,1,1,,,METHOD,METHOD,,,
 calage,# TODO,1,5,,,,CALAGE,,,
 calstd,# TODO,1,6,,,,CALSTD,,,
-shortref,# TODO,1,,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES]
-comment ,# TODO,1,,Comment,,NOTES,NOTICE,NOTICE,,
+shortref,# TODO,1,21,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES]
+comment ,# TODO,1,22,Comment,,NOTES,NOTICE,NOTICE,,
 ,,0,,Subregion,,IBRA_REGION,,REGION,,
 ,,0,,Subregion no.,,,,,,
 ,,0,,calBC 1σ (from),,,,,,
 ,,0,,calBC 1σ (to),,,,,,
 ,,0,,Level,,,,,,
-feature,# TODO,1,,Provenance,FEATURE,CONTEXT,,,,FEATURETYPE
+feature,# TODO,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE
 ,,0,,,FEATURE_DESC,,,,,
 ,,0,,,,SITE_TYPE,,,Type,
 ,,0,,,,C13_AGE,,,,
