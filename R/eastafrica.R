@@ -23,8 +23,13 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
   # download data to temporary file
   tempo <- tempfile()
 
-  Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
-  writeBin(dataverse::get_file("CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ"), tempo)
+  writeBin(
+    dataverse::get_file(
+      "CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ",
+      server = "dataverse.harvard.edu"
+    ),
+    tempo
+  )
 
   # read data
   KITEeastafrica <- tempo %>%
