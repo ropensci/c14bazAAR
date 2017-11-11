@@ -2,6 +2,8 @@
 #'
 #' Downloads the current version of the 14SEA-Database from \url{http:///www.14sea.org/}.
 #'
+#' @param db_url string with weblink to c14 archive file
+#'
 #' @examples
 #'
 #' \dontrun{
@@ -9,10 +11,7 @@
 #' }
 #'
 #' @export
-get_14SEA <- function() {
-
-  # URL
-  db_url <- "http://www.14sea.org/img/14SEA_Full_Dataset_2017-01-29.xlsx"
+get_14SEA <- function(db_url = get_db_url("14SEA")) {
 
   # check connection
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
@@ -29,14 +28,14 @@ get_14SEA <- function() {
       col_types = c(
         "Site" = "text",
         "Subregion" = "text",
-        "Subregion no." = "text",
+        "Subregion no." = "skip",
         "Country" = "text",
         "Lab. no." = "text",
         "Date BP" = "text",
         "\u00B1" = "text",
         "\u03B413C" = "text",
-        "calBC 1\u03C3 (from)" = "text",
-        "calBC 1\u03C3 (to)" = "text",
+        "calBC 1\u03C3 (from)" = "skip",
+        "calBC 1\u03C3 (to)" = "skip",
         "Material" = "text",
         "Level" = "text",
         "Provenance" = "text",
@@ -50,9 +49,9 @@ get_14SEA <- function() {
     ) %>%
     dplyr::transmute(
       labnr = .data[["Lab. no."]],
-      c14age = as.numeric(.data[["Date BP"]]),
-      c14std = as.numeric(.data[["\u00B1"]]),
-      c13val = as.numeric(.data[["\u03B413C"]]),
+      c14age = .data[["Date BP"]],
+      c14std = .data[["\u00B1"]],
+      c13val = .data[["\u03B413C"]],
       material = .data[["Material"]],
       country = .data[["Country"]],
       region = .data[["Subregion"]],
@@ -60,7 +59,6 @@ get_14SEA <- function() {
       lat = NA,
       lon = NA,
       period = .data[["Period"]],
-      level = .data[["Level"]],
       feature = .data[["Provenance"]],
       shortref = {
         combined_ref <- paste0(
@@ -80,7 +78,8 @@ get_14SEA <- function() {
       sourcedb = "14SEA"
     ) %>%
     as.c14_date_list() %>%
-    c14bazAAR::order_variables()
+    c14bazAAR::order_variables() %>%
+    c14bazAAR::enforce_types()
 
     # delete temporary file
     unlink(tempo)

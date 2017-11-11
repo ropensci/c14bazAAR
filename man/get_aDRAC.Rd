@@ -4,7 +4,10 @@
 \alias{get_aDRAC}
 \title{get current aDRAC-Database}
 \usage{
-get_aDRAC()
+get_aDRAC(db_url = get_db_url("aDRAC"))
+}
+\arguments{
+\item{db_url}{string with weblink to c14 archive file}
 }
 \description{
 Downloads the current version of the aDRAC-Database from \url{https://github.com/dirkseidensticker/aDRAC/}.

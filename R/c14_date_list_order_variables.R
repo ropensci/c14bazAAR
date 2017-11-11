@@ -30,21 +30,31 @@ order_variables.c14_date_list <- function(x) {
   x <- x %>%
     dplyr::select(
       .data[["sourcedb"]],
+      dplyr::matches("^method$"),
       .data[["labnr"]],
-      .data[["site"]],
       .data[["c14age"]],
       .data[["c14std"]],
       dplyr::matches("^calage$"),
       dplyr::matches("^calstd$"),
-      .data[["material"]],
+      dplyr::matches("^c13val$"),
+      dplyr::matches("^site$"),
+      dplyr::matches("^sitetype$"),
+      dplyr::matches("^feature$"),
+      dplyr::matches("^period$"),
+      dplyr::matches("^culture$"),
+      dplyr::matches("^material$"),
       dplyr::matches("^material_thes$"),
       dplyr::matches("^species$"),
+      dplyr::matches("^region$"),
       dplyr::matches("country$"),
       dplyr::matches("^country_coord$"),
       dplyr::matches("^country_thes$"),
-      .data[["lat"]],
-      .data[["lon"]],
-      dplyr::matches("spatial_quality"),
+      dplyr::matches("^lat$"),
+      dplyr::matches("^lon$"),
+      dplyr::matches("^spatial_quality$"),
+      dplyr::matches("^shortref$"),
+      dplyr::matches("^comment$"),
+      # if there somehow are more variables:
       dplyr::everything()
     )
 

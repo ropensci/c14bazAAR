@@ -61,13 +61,13 @@ format.c14_date_list <- function(x, ...) {
   if("c14age" %in% colnames(x)) {
     out_str$range_uncal <- paste0(
       "\t", "uncalBP", "\t", "\t",
-      round(max(x[["c14age"]]), -2), " \u2015 ", round(min(x[["c14age"]]), -2)
+      round(max(x[["c14age"]], na.rm = TRUE), -2), " \u2015 ", round(min(x[["c14age"]], na.rm = TRUE), -2)
     )
   }
   if("calage" %in% colnames(x)) {
     out_str$range_cal <- paste0(
       "\t", "calBP", "\t", "\t",
-      round(max(x[["calage"]]), -2), " \u2015 ", round(min(x[["calage"]]), -2)
+      round(max(x[["calage"]], na.rm = TRUE), -2), " \u2015 ", round(min(x[["calage"]], na.rm = TRUE), -2)
     )
   }
   return_value <- paste(out_str, collapse = "\n", sep = "")

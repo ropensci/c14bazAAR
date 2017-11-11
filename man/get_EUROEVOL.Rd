@@ -4,7 +4,10 @@
 \alias{get_EUROEVOL}
 \title{get current EUROEVOL-Database}
 \usage{
-get_EUROEVOL()
+get_EUROEVOL(db_urls = get_db_url("EUROEVOL"))
+}
+\arguments{
+\item{db_urls}{vector of strings with weblinks to c14 archive files}
 }
 \description{
 Downloads the current version of the EUROEVOL-Database from \url{http://discovery.ucl.ac.uk/1469811/}.

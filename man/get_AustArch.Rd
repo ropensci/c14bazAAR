@@ -4,7 +4,10 @@
 \alias{get_AustArch}
 \title{get AustArch: A Database of 14C and Luminescence Ages from Archaeological Sites in Australia}
 \usage{
-get_AustArch()
+get_AustArch(db_url = get_db_url("AustArch"))
+}
+\arguments{
+\item{db_url}{string with weblink to c14 archive file}
 }
 \description{
 See:
