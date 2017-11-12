@@ -8,7 +8,7 @@
 get_db_url <- function(db_name) {
 
   # URL
-  ref_url <- "https://raw.githubusercontent.com/ISAAKiel/c14bazAAR/AddingSources/data-raw/url_reference.csv"
+  ref_url <- "https://raw.githubusercontent.com/ISAAKiel/c14bazAAR/master/data-raw/url_reference.csv"
 
   # check connection
   if (!RCurl::url.exists(ref_url)) {stop(paste(ref_url, "is not available. No internet connection?"))}
