@@ -77,9 +77,7 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     ) %>% dplyr::mutate(
       sourcedb = "CONTEXT"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
   return(CONTEXT)
 }

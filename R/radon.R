@@ -74,9 +74,7 @@ get_RADON <- function(db_url = get_db_url("RADON")) {
     ) %>% dplyr::mutate(
       sourcedb = "RADON"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
   return(RADON)
 }

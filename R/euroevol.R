@@ -93,9 +93,7 @@ get_EUROEVOL <- function(db_urls = get_db_url("EUROEVOL")) {
     ) %>% dplyr::mutate(
       sourcedb = "EUROEVOL"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
   return(EUROEVOL)
 }

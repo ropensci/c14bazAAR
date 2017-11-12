@@ -50,9 +50,7 @@ get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
     ) %>% dplyr::mutate(
       sourcedb = "aDRAC"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
   return(aDRAC)
 }

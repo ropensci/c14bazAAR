@@ -76,9 +76,7 @@ get_AustArch <- function(db_url = get_db_url("AustArch")) {
     ) %>% dplyr::mutate(
       sourcedb = "AustArch"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
   return(AustArch)
 }

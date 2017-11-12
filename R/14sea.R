@@ -77,9 +77,7 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
     dplyr::mutate(
       sourcedb = "14SEA"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
     # delete temporary file
     unlink(tempo)

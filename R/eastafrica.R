@@ -86,9 +86,7 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
     ) %>% dplyr::mutate(
       sourcedb = "KITEeastafrica"
     ) %>%
-    as.c14_date_list() %>%
-    c14bazAAR::order_variables() %>%
-    c14bazAAR::enforce_types()
+    as.c14_date_list()
 
   return(KITEeastafrica)
 
