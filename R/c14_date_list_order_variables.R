@@ -29,9 +29,9 @@ order_variables.c14_date_list <- function(x) {
   # apply ordering key
   x <- x %>%
     dplyr::select(
-      .data[["sourcedb"]],
+      dplyr::matches("^sourcedb$"),
       dplyr::matches("^method$"),
-      .data[["labnr"]],
+      dplyr::matches("^labnr$"),
       .data[["c14age"]],
       .data[["c14std"]],
       dplyr::matches("^calage$"),

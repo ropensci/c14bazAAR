@@ -41,7 +41,7 @@ enforce_types.c14_date_list <- function(x) {
     dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
     dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
     dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
-    as.c14_date_list()
+    `class<-`(c("c14_date_list", class(.)))
 
   return(x)
 }

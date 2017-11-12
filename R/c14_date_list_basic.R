@@ -27,8 +27,26 @@ is.c14_date_list <- function(x, ...) {"c14_date_list" %in% class(x)}
 #' @export
 as.c14_date_list <- function(x, ...) {
 
+  # define expectations
+  necessary_vars <- c("c14age","c14std")
+
+  # check input data type
   if("data.frame" %in% class(x) | all(c("tbl", "tbl_df") %in% class(x))){
-    x %>% `class<-`(c("c14_date_list", class(.))) %>% return()
+    # check if necessary vals are present
+    present <- necessary_vars %in% colnames(x)
+    if (all(present)) {
+      # do the actual conversion!
+      x %>%
+        `class<-`(c("c14_date_list", class(.))) %>%
+        c14bazAAR::order_variables() %>%
+        c14bazAAR::enforce_types() %>%
+        return()
+    } else {
+      stop(
+        "The following variables (columns) are missing: ",
+        paste(necessary_vars[!present], collapse = ", ")
+      )
+    }
   } else {
     stop("x is not an object of class data.frame or tibble")
   }
