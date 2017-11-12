@@ -13,7 +13,7 @@ Query different C14 date databases and apply basic data cleaning, merging and ca
 
 Authors:
 \itemize{
-  \item Dirk Seidensticker \email{dirk.seidensticker@gmial.com}
+  \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com}
 }
 
 }
