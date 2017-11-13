@@ -6,11 +6,11 @@ c14age ,integer,Carbon-14 Age [uncalibrated age BP],3,3,Date BP,C14AGE,AGE,C14AG
 c14std,integer,Standard deviation [1 sigma devitation range],3,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD,NA Sigma
 c13val,double,Carbon-13 amount [ppm],1,7,δ13C,C13,C13_AGE,C13,C13,,C13,Delta 13C (per mil)
 material,character,Dated material,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL,Material Dated
-material_the,character,Dated material (result of thesaurification),0,13,,,,,,,,
+material_thes,character,Dated material (result of thesaurification),0,13,,,,,,,,
 species,character,Species of dated material,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES,Taxa Dated
 country,character,Country,1,15,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY,
 country_coord,character,Country (determined by coordinates),0,16,,,,,,,,
-country_the,character,Country (result of thesaurification),0,17,,,,,,,,
+country_thes,character,Country (result of thesaurification),0,17,,,,,,,,
 site,character,Site [Name],1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE,Site Identifier
 period,character,Historico-cultural period of sample context,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD,
 culture,character,Archaeological culture of sample context,1,11,,,,CULTURE,CULTURE,Culture,CULTURE,
