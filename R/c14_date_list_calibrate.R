@@ -38,6 +38,9 @@ calibrate.c14_date_list <- function(x) {
     )
   }
 
+  # start message:
+  message("Calibration:")
+
   # duration message
   if (nrow(x) > 1000) {
     message("This may take several minutes...")

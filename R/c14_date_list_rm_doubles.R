@@ -30,6 +30,10 @@ rm_doubles.default <- function(x, mark = FALSE) {
 #' @export
 rm_doubles.c14_date_list <- function(x, mark = FALSE) {
 
+  # start message:
+  message("Remove or mark bad doubles:")
+
+  # duration message
   if (nrow(x) > 1000) {
     message("This may take several minutes...")
   }
