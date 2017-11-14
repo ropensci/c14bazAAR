@@ -38,6 +38,9 @@ calibrate.c14_date_list <- function(x) {
     )
   }
 
+  # start message:
+  message("Calibration:")
+
   # duration message
   if (nrow(x) > 1000) {
     message("This may take several minutes...")
@@ -68,9 +71,10 @@ calibrate.c14_date_list <- function(x) {
   }
 
   # determine dates that are out of the range of the calcurve can not be calibrated
+  toona <- which(is.na(x$c14age) | is.na(x$c14std))
   toosmall <- which(x$c14age < 100)
   toobig <- which(x$c14age > 45000)
-  outofrange <- c(toosmall, toobig) %>% unique
+  outofrange <- c(toona, toosmall, toobig) %>% unique
 
   # copy these dates without calibration
   x$calage[outofrange] <- x$c14age[outofrange]
