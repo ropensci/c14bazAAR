@@ -25,7 +25,6 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     delim = ";",
     trim_ws = TRUE,
     na = c("-", "--", "---", "", "NA", "n.d.", "?"),
-    locale = readr::locale(decimal_mark = ","),
     col_types = readr::cols(
       LABNR = readr::col_character(),
       GR = "_",
@@ -45,8 +44,8 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       calBC68 = "_",
       calBC95 = "_",
       REGION = readr::col_character(),
-      LATITUDE = readr::col_double(),
-      LONGITUDE = readr::col_double(),
+      LATITUDE = readr::col_character(),
+      LONGITUDE = readr::col_character(),
       INCONGR = "_",
       NOTICE = readr::col_character(),
       REFERENCE = readr::col_character(),
@@ -76,8 +75,8 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
       sourcedb = "CONTEXT",
-      lat = replace(lat, lat==0, NA),
-      lon = replace(lon, lon==0, NA)
+      lat = gsub(",", ".", lat),
+      lon = gsub(",", ".", lon)
     ) %>%
     as.c14_date_list()
 
