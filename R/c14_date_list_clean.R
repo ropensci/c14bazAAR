@@ -36,7 +36,7 @@ clean.c14_date_list <- function(x) {
 
   # add class again -- gets lost in in mutate_if :-(
   x <- x %>%
-    as.c14_date_list()
+    `class<-`(c("c14_date_list", class(.)))
 
   return(x)
 }
