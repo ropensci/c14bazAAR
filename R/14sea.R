@@ -18,7 +18,7 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
 
   # download data to temporary file
   tempo <- tempfile()
-  utils::download.file(db_url, tempo)
+  utils::download.file(db_url, tempo, mode="wb")
 
   # read data
   SEA14 <- tempo %>%
@@ -26,32 +26,32 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
       trim_ws = TRUE,
       na = c("Combination fails", "nd", "-"),
       col_types = c(
-        "Site" = "text",
-        "Subregion" = "text",
-        "Subregion no." = "skip",
-        "Country" = "text",
-        "Lab. no." = "text",
-        "Date BP" = "text",
-        "\u00B1" = "text",
-        "\u03B413C" = "text",
-        "calBC 1\u03C3 (from)" = "skip",
-        "calBC 1\u03C3 (to)" = "skip",
-        "Material" = "text",
-        "Level" = "text",
-        "Provenance" = "text",
-        "Comment" = "text",
-        "Period" = "text",
-        "Reference 1" = "text",
-        "Reference 2" = "text",
-        "Reference 3" = "text",
-        "Reference 4" = "text"
+        "text", # "Site"
+        "text", # "Subregion"
+        "skip", # "Subregion no."
+        "text", # "Country"
+        "text", # "Lab. no."
+        "text", # "Date BP"
+        "text", # "\u00B1"
+        "text", # "\u03B413C"
+        "skip", # "calBC 1\u03C3 (from)"
+        "skip", # "calBC 1\u03C3 (to)"
+        "text", # "Material"
+        "text", # "Level"
+        "text", # "Provenance"
+        "text", # "Comment"
+        "text", # "Period"
+        "text", # "Reference 1"
+        "text", # "Reference 2"
+        "text", # "Reference 3"
+        "text"  # "Reference 4"
       )
     ) %>%
     dplyr::transmute(
       labnr = .data[["Lab. no."]],
       c14age = .data[["Date BP"]],
-      c14std = .data[["\u00B1"]],
-      c13val = .data[["\u03B413C"]],
+      c14std = .[[6]], # minus skiped gitSubregion no. = 6th column in original XLSX
+      c13val = .[[7]], # minus skiped Subregion no. = 7th column in original XLSX
       material = .data[["Material"]],
       country = .data[["Country"]],
       region = .data[["Subregion"]],
@@ -79,8 +79,8 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
     ) %>%
     as.c14_date_list()
 
-    # delete temporary file
-    unlink(tempo)
+  # delete temporary file
+  unlink(tempo)
 
-    return(SEA14)
+  return(SEA14)
 }
