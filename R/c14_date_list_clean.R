@@ -26,10 +26,6 @@ clean.default <- function(x) {
 #' @export
 clean.c14_date_list <- function(x) {
 
-  # remove entries without date
-  x <- x[-which(is.na(x[["c14age"]]) | is.na(x[["c14std"]])), ]
-  message("Removed entries with missing c14age or c14std.")
-
   # lat&lon not available but zero
   x[which(x[["lon"]] == 0 & x[["lat"]] == 0), c("lon", "lat")] <- NA
   message("Made missing coordinate values explicit. 0/0 -> NA/NA.")
