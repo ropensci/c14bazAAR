@@ -50,7 +50,7 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
     dplyr::transmute(
       labnr = .data[["Lab. no."]],
       c14age = .data[["Date BP"]],
-      c14std = .[[6]], # minus skiped gitSubregion no. = 6th column in original XLSX
+      c14std = .[[6]], # minus skiped Subregion no. = 6th column in original XLSX
       c13val = .[[7]], # minus skiped Subregion no. = 7th column in original XLSX
       material = .data[["Material"]],
       country = .data[["Country"]],
