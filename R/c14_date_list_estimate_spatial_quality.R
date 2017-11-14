@@ -39,6 +39,9 @@ estimate_spatial_quality.c14_date_list <- function(x, country_thesaurus_table = 
     )
   }
 
+  # start message:
+  message("Estimate spatial information quality:")
+
   # duration message
   if (nrow(x) > 1000) {
     message("This may take several minutes...")

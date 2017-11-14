@@ -82,7 +82,7 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
       lon = .data[["Longitude"]],
       shortref = .data[["References"]],
       feature = .data[["Site Name"]],
-      comments = paste0(.data[["Comments"]], ",", .data[["Additional Information"]])
+      comment = paste0(.data[["Comments"]], ",", .data[["Additional Information"]])
     ) %>% dplyr::mutate(
       sourcedb = "KITEeastafrica"
     ) %>%
