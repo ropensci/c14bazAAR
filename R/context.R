@@ -25,7 +25,6 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     delim = ";",
     trim_ws = TRUE,
     na = c("-", "--", "---", "", "NA", "n.d.", "?"),
-    locale = readr::locale(decimal_mark = ","),
     col_types = readr::cols(
       LABNR = readr::col_character(),
       GR = "_",
@@ -75,7 +74,9 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
-      sourcedb = "CONTEXT"
+      sourcedb = "CONTEXT",
+      lat = gsub(",", ".", lat),
+      lon = gsub(",", ".", lon)
     ) %>%
     as.c14_date_list()
 
