@@ -26,25 +26,25 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
       trim_ws = TRUE,
       na = c("Combination fails", "nd", "-"),
       col_types = c(
-        "text", # "Site"
-        "text", # "Subregion"
-        "skip", # "Subregion no."
-        "text", # "Country"
-        "text", # "Lab. no."
-        "text", # "Date BP"
-        "text", # "\u00B1"
-        "text", # "\u03B413C"
-        "skip", # "calBC 1\u03C3 (from)"
-        "skip", # "calBC 1\u03C3 (to)"
-        "text", # "Material"
-        "text", # "Level"
-        "text", # "Provenance"
-        "text", # "Comment"
-        "text", # "Period"
-        "text", # "Reference 1"
-        "text", # "Reference 2"
-        "text", # "Reference 3"
-        "text"  # "Reference 4"
+        "Site" = "text",
+        "Subregion" = "text",
+        "Subregion no." = "skip",
+        "Country" = "text",
+        "Lab. no." = "text",
+        "Date BP" = "text",
+        "\u00B1" = "text",
+        "\u03B413C" = "text",
+        "calBC 1\u03C3 (from)" = "skip",
+        "calBC 1\u03C3 (to)" = "skip",
+        "Material" = "text",
+        "Level" = "text",
+        "Provenance" = "text",
+        "Comment" = "text",
+        "Period" = "text",
+        "Reference 1" = "text",
+        "Reference 2" = "text",
+        "Reference 3" = "text",
+        "Reference 4" = "text"
       )
     ) %>%
     dplyr::transmute(
