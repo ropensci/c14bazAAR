@@ -87,8 +87,8 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
       sourcedb = "CONTEXT",
-      lat = gsub(",", ".", lat),
-      lon = gsub(",", ".", lon)
+      lat = gsub(",", ".", .data[["lat"]]),
+      lon = gsub(",", ".", .data[["lon"]])
     ) %>%
     as.c14_date_list()
 
