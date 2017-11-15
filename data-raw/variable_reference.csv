@@ -1,69 +1,69 @@
-c14bazAAR,type,definition,priority,order,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUROEVOL,RADON,KITEEASTAFRICA
-sourcedb,character,# TODO,2,0,,,,,,,,
-,,,0,,,,ADSID,ID,ID,C14ID,ID,
-labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],2,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR,Lab Number
-c14age ,integer,Carbon-14 Age [uncalibrated age BP],3,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE,Normalized Age
-c14std,integer,Standard deviation [1 sigma devitation range],3,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD,NA Sigma
-c13val,double,Carbon-13 amount [ppm],1,7,δ13C,C13,C13_AGE,C13,C13,,C13,Delta 13C (per mil)
-material,character,Dated material,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL,Material Dated
-material_thes,character,Dated material (result of thesaurification),0,13,,,,,,,,
-species,character,Species of dated material,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES,Taxa Dated
-country,character,Country,1,15,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY,
-country_coord,character,Country (determined by coordinates),0,16,,,,,,,,
-country_thes,character,Country (result of thesaurification),0,17,,,,,,,,
-site,character,Site [Name],1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE,Site Identifier
-period,character,Historico-cultural period of sample context,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD,
-culture,character,Archaeological culture of sample context,1,11,,,,CULTURE,CULTURE,Culture,CULTURE,
-,,,0,,,,,PHASE,PHASE,PhaseCode,,
-,,,0,,,,,LOCUS,LOCUS,,,
-lat,double,Latitude of site position [decimal degrees],1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE,Latitude
-lon,double,Longitude of site position [decimal degrees],1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE,Longitude
-spatial_quality,character,(result of spatial quality estimation),0,20,,,,,,,,
-method,character,Radiocarbon date measurement method,1,1,,,METHOD,METHOD,,,,
-calage,integer,Carbon-14 Age [calibrated age BP],1,5,,,,CALAGE,,,,
-calstd,integer,Standard deviation [1 sigma devitation range],1,6,,,,CALSTD,,,,
-shortref,character,Literature source of the dataset information,1,21,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES],References
-comment ,character,Free text with additional information,1,22,Comment,,NOTES,NOTICE,NOTICE,,,[Additional Information + Comments]
-region,character,Geographical makro region,1,14.5,Subregion,,IBRA_REGION,,REGION,,,
-,,,0,,Subregion no.,,,,,,,
-,,,0,,calBC 1σ (from),,,,,,,
-,,,0,,calBC 1σ (to),,,,,,,
-,,,0,,Level,,,,,,,
-feature,character,Name or description of the sample context within the site,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE,Site Name
-,,,0,,,FEATURE_DESC,,,,,,
-sitetype,character,Site type classification,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE,
-,,,0,,,,C13_ERROR,,,,,
-,,,0,,,,MATERIAL_TOP_LEVEL,,,,,
-,,,0,,,,DEPTH_FROM_SURFACE_CM,,,,,
-,,,0,,,,TECHNIQUE,,,,,
-,,,0,,,,Data pertinent for time-series analysis or calibration,,,,,
-,,,0,,,,Open or Closed Site,,,,,
-,,,0,,,,Directly Related to occupation? Yes/Unknown,,,,,
-,,,0,,,,RECORD_SOURCE,,,,,
-,,,0,,,,DATE_ISSUES,,,,,
-,,,0,,,,AGE_NORM,,,,,
-,,,0,,,,ADDITIONAL_DATA_ISSUES,,,,,
-,,,0,,,,,,GR,,,
-,,,0,,,,,,MAR,,,
-,,,0,,,,,,SAMPLE,,,
-,,,0,,,,,,calBC68,,,
-,,,0,,,,,,calBC95,,,
-,,,0,,,,,,INCONGR,,,
-,,,0,,,,,,,Subculture,,
-,,,0,,,,,,,,,Field Number
-,,,0,,,,,,,,,Locality
-,,,0,,,,,,,,,Map Sheet
-,,,0,,,,,,,,,Elevation (m ASL)
-,,,0,,,,,,,,,Submitter
-,,,0,,,,,,,,,Date Submitted
-,,,0,,,,,,,,,Collector
-,,,0,,,,,,,,,Date Collected
-,,,0,,,,,,,,,Updater
-,,,0,,,,,,,,,Date Updated
-,,,0,,,,,,,,,Measured Age
-,,,0,,,,,,,,,MA Sigma
-,,,0,,,,,,,,,Delta 13C Source
-,,,0,,,,,,,,,Significance
-,,,0,,,,,,,,,Stratigraphic Component
-,,,0,,,,,,,,,Context
-,,,0,,,,,,,,,Associated Taxa
+c14bazAAR,type,definition,priority,order,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUROEVOL,RADON,RADONB,KITEEASTAFRICA
+sourcedb,character,# TODO,2,0,,,,,,,,,
+,,,0,,,,ADSID,ID,ID,C14ID,ID,ID,
+labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],2,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR,LABNR,Lab Number
+c14age ,integer,Carbon-14 Age [uncalibrated age BP],3,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE,C14AGE,Normalized Age
+c14std,integer,Standard deviation [1 sigma devitation range],3,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD,C14STD,NA Sigma
+c13val,double,Carbon-13 amount [ppm],1,7,δ13C,C13,C13_AGE,C13,C13,,C13,C13,Delta 13C (per mil)
+material,character,Dated material,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL,MATERIAL,Material Dated
+material_thes,character,Dated material (result of thesaurification),0,13,,,,,,,,,
+species,character,Species of dated material,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES,SPECIES,Taxa Dated
+country,character,Country,1,15,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY,COUNTRY,
+country_coord,character,Country (determined by coordinates),0,16,,,,,,,,,
+country_thes,character,Country (result of thesaurification),0,17,,,,,,,,,
+site,character,Site [Name],1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE,SITE,Site Identifier
+period,character,Historico-cultural period of sample context,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD,PERIOD,
+culture,character,Archaeological culture of sample context,1,11,,,,CULTURE,CULTURE,Culture,CULTURE,CULTURE,
+,,,0,,,,,PHASE,PHASE,PhaseCode,,,
+,,,0,,,,,LOCUS,LOCUS,,,,
+lat,double,Latitude of site position [decimal degrees],1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE,LATITUDE,Latitude
+lon,double,Longitude of site position [decimal degrees],1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE,LONGITUDE,Longitude
+spatial_quality,character,(result of spatial quality estimation),0,20,,,,,,,,,
+method,character,Radiocarbon date measurement method,1,1,,,METHOD,METHOD,,,,,
+calage,integer,Carbon-14 Age [calibrated age BP],1,5,,,,CALAGE,,,,,
+calstd,integer,Standard deviation [1 sigma devitation range],1,6,,,,CALSTD,,,,,
+shortref,character,Literature source of the dataset information,1,21,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES],[REFERENCE + PAGES],References
+comment ,character,Free text with additional information,1,22,Comment,,NOTES,NOTICE,NOTICE,,,,[Additional Information + Comments]
+region,character,Geographical makro region,1,14.5,Subregion,,IBRA_REGION,,REGION,,,,
+,,,0,,Subregion no.,,,,,,,,
+,,,0,,calBC 1σ (from),,,,,,,,
+,,,0,,calBC 1σ (to),,,,,,,,
+,,,0,,Level,,,,,,,,
+feature,character,Name or description of the sample context within the site,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE,FEATURE,Site Name
+,,,0,,,FEATURE_DESC,,,,,,,
+sitetype,character,Site type classification,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE,FEATURETYPE,
+,,,0,,,,C13_ERROR,,,,,,
+,,,0,,,,MATERIAL_TOP_LEVEL,,,,,,
+,,,0,,,,DEPTH_FROM_SURFACE_CM,,,,,,
+,,,0,,,,TECHNIQUE,,,,,,
+,,,0,,,,Data pertinent for time-series analysis or calibration,,,,,,
+,,,0,,,,Open or Closed Site,,,,,,
+,,,0,,,,Directly Related to occupation? Yes/Unknown,,,,,,
+,,,0,,,,RECORD_SOURCE,,,,,,
+,,,0,,,,DATE_ISSUES,,,,,,
+,,,0,,,,AGE_NORM,,,,,,
+,,,0,,,,ADDITIONAL_DATA_ISSUES,,,,,,
+,,,0,,,,,,GR,,,,
+,,,0,,,,,,MAR,,,,
+,,,0,,,,,,SAMPLE,,,,
+,,,0,,,,,,calBC68,,,,
+,,,0,,,,,,calBC95,,,,
+,,,0,,,,,,INCONGR,,,,
+,,,0,,,,,,,Subculture,,,
+,,,0,,,,,,,,,,Field Number
+,,,0,,,,,,,,,,Locality
+,,,0,,,,,,,,,,Map Sheet
+,,,0,,,,,,,,,,Elevation (m ASL)
+,,,0,,,,,,,,,,Submitter
+,,,0,,,,,,,,,,Date Submitted
+,,,0,,,,,,,,,,Collector
+,,,0,,,,,,,,,,Date Collected
+,,,0,,,,,,,,,,Updater
+,,,0,,,,,,,,,,Date Updated
+,,,0,,,,,,,,,,Measured Age
+,,,0,,,,,,,,,,MA Sigma
+,,,0,,,,,,,,,,Delta 13C Source
+,,,0,,,,,,,,,,Significance
+,,,0,,,,,,,,,,Stratigraphic Component
+,,,0,,,,,,,,,,Context
+,,,0,,,,,,,,,,Associated Taxa
