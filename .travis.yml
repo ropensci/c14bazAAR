@@ -14,8 +14,5 @@ before_install:
   # sf dependencies:
   - sudo apt-get install --yes libproj-dev libgeos-dev libgdal-dev
 
-after_script:
-  - Rscript -e 'library(magrittr); c14bazAAR::get_all_dates() %>% dplyr::sample_n(200) %>% c14bazAAR::calibrate() %>% c14bazAAR::estimate_spatial_quality() %>% c14bazAAR::rm_doubles(mark = TRUE) %>% c14bazAAR::thesaurify()'
-
 after_success:
   - Rscript -e 'library(covr); codecov()'
