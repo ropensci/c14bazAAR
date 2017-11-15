@@ -26,6 +26,7 @@ get_all_dates <- function() {
     c14bazAAR::get_CONTEXT,
     c14bazAAR::get_EUROEVOL,
     c14bazAAR::get_RADON,
+    c14bazAAR::get_RADONB,
     c14bazAAR::get_AustArch,
     c14bazAAR::get_KITEeastAfrica
   )
