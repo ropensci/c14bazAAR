@@ -19,9 +19,16 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
   # download, unzip and read data
   temp <- tempfile()
   utils::download.file(db_url, temp, quiet = TRUE)
-  con <- utils::unzip(temp, "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv")
-  CONTEXT_raw <- readr::read_delim(
+  con <- utils::unzip(
+    temp,
     "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv",
+    exdir = tempdir()
+  )
+  CONTEXT_raw <- readr::read_delim(
+    paste0(
+      tempdir(),
+      "/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
+    ),
     delim = ";",
     trim_ws = TRUE,
     na = c("-", "--", "---", "", "NA", "n.d.", "?"),
@@ -53,7 +60,12 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     )
   )
   unlink(temp)
-  file.remove("Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv")
+  file.remove(
+    paste0(
+      tempdir(),
+      "/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
+    )
+  )
 
   # rename
   CONTEXT <- CONTEXT_raw %>%
@@ -75,8 +87,8 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
       sourcedb = "CONTEXT",
-      lat = gsub(",", ".", lat),
-      lon = gsub(",", ".", lon)
+      lat = gsub(",", ".", .data[["lat"]]),
+      lon = gsub(",", ".", .data[["lon"]])
     ) %>%
     as.c14_date_list()
 
