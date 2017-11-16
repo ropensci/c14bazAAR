@@ -33,8 +33,8 @@ clean.c14_date_list <- function(x) {
   x[which(x[["lon"]] > 180 | x[["lon"]] < -180 | x[["lat"]] > 90 | x[["lat"]] < -90), c("lon", "lat")] <- NA
 
   # add class again -- gets lost in in mutate_if :-(
-  x <- x %>%
-    `class<-`(c("c14_date_list", class(.)))
+  #x <- x %>%
+  #  `class<-`(c("c14_date_list", class(.)))
 
   return(x)
 }
