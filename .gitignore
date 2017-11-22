@@ -36,3 +36,6 @@ vignettes/*.pdf
 
 # data export in playground
 playground/dates.RData
+
+# Emacs backups
+*~
