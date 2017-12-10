@@ -37,11 +37,19 @@ enforce_types.c14_date_list <- function(x) {
   dbl_cols <- c("c13val", "lat", "lon")
 
   # transform (invalid values become NA)
-  x <- x %>%
-    dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
-    dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
-    dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
-    `class<-`(c("c14_date_list", class(.)))
+  withCallingHandlers({
+    x <- x %>%
+      dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
+      dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
+      dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
+      `class<-`(c("c14_date_list", class(.)))
+    },
+    warning = function(w){
+      if(grepl("NAs introduced by coercion", w$message)){
+        warning("There are bad values in this database (e.g. text in a number field). They are replaced by NA:")
+      }
+    }
+  )
 
   return(x)
 }
