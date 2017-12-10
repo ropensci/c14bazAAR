@@ -46,7 +46,7 @@ enforce_types.c14_date_list <- function(x) {
     },
     warning = function(w){
       if(grepl("NAs introduced by coercion", w$message)){
-        message("There are bad values in this database (e.g. text in a number field). They are replaced by NA:")
+        warning("There are bad values in this database (e.g. text in a number field). They are replaced by NA:")
       }
     }
   )

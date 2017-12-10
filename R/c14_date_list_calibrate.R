@@ -39,12 +39,7 @@ calibrate.c14_date_list <- function(x) {
   }
 
   # start message:
-  message("Calibration:")
-
-  # duration message
-  if (nrow(x) > 1000) {
-    message("This may take several minutes...")
-  }
+  message(paste0("Calibration... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
 
   # setup progress bar
   pb <- utils::txtProgressBar(
