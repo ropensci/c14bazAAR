@@ -52,44 +52,39 @@ calibrate.c14_date_list <- function(x) {
     char = "+"
   )
 
-  # add or empty columns calage and calstd
-  if (c("calage", "calstd") %in% colnames(x) %>% all) {
-    x$calage <- NA
-    x$calstd <- NA
+  # add or replace empty integer column calage
+  if ("calage" %in% colnames(x) %>% all) {
+    x$calage <- NA_integer_
   } else {
     x <- x %>%
       tibble::add_column(
-        calage = NA,
+        calage = NA_integer_,
         .after = "c14std"
-      ) %>%
+      )
+  }
+
+  # add or replace empty list column filled with empty data.frames calprobdistr
+  if ("calprobdistr" %in% colnames(x) %>% all) {
+    x$calprobdistr <- I(replicate(nrow(x), data.frame()))
+  } else {
+    x <- x %>%
       tibble::add_column(
-        calstd = NA,
+        calprobdistr = I(replicate(nrow(x), data.frame())),
         .after = "calage"
       )
   }
 
   # determine dates that are out of the range of the calcurve can not be calibrated
   toona <- which(is.na(x$c14age) | is.na(x$c14std))
-  toosmall <- which(x$c14age < min(intcal13[,1]))
-  toobig <- which(x$c14age > max(intcal13[,1]))
+  toosmall <- which(x$c14age < min(intcal13[,2]))
+  toobig <- which(x$c14age > max(intcal13[,2]))
   outofrange <- c(toona, toosmall, toobig) %>% unique
-
-  # copy these dates without calibration
-  x$calage[outofrange] <- x$c14age[outofrange]
-  x$calstd[outofrange] <- x$c14std[outofrange]
-
-  # 2sigma range probability threshold
-  threshold <- (1 - 0.9545) / 2
 
   # extract dates which are not out of range
   calibrateable <- x[-outofrange, ]
 
-  # create empty calibration result data.frame
-  interval95 <- data.frame(
-    .id = rep(NA, nrow(calibrateable)),
-    V1 = NA,
-    V2 = NA
-  )
+  # create empty calibration result data.frame list
+  calibrateable_prodistr <- replicate(nrow(calibrateable), data.frame())
 
   # determine amount of calibration loop iteration to work through the data in stacks of 200 dates
   # -> artificial stacks
@@ -110,33 +105,34 @@ calibrate.c14_date_list <- function(x) {
     calibrateable_step <- calibrateable[step_seq,]
 
     # calibration
-    interval95[step_seq,] <- Bchron::BchronCalibrate(
+    calibrateable_prodistr[step_seq] <- Bchron::BchronCalibrate(
       ages      = calibrateable_step$c14age,
       ageSds    = calibrateable_step$c14std,
       calCurves = rep("intcal13", nrow(calibrateable_step)),
       eps       = 1e-06
     ) %>%
       # extract border ages of the 2sigma range
-      plyr::ldply(., function(x) {
-        x[["densities"]]            %>% cumsum -> a      # cumulated density
-        which(a <= threshold)  %>% max    -> my_min # lower border
-        which(a > 1-threshold) %>% min    -> my_max # upper border
-        x[["ageGrid"]][c(my_min, my_max)]
-      }
+      lapply(
+        function(x) {
+          data.frame(calage = x[["ageGrid"]], density = x[["densities"]])
+        }
       )
 
     # increment progress bar
     utils::setTxtProgressBar(pb, 5 + 90 * i/amount_of_iterations)
   }
 
-  # take the mean of the borders as CALAGE and the distance
-  # of CALAGE to the upper and lower 95.45% interval as CALSTD
-  top <- round(interval95[, 3])
-  amean <- apply(interval95[, 2:3], 1, function(x){round(mean(x))})
+  # determine calage
+  calage_vector <- calibrateable_prodistr %>%
+    lapply(
+      function(x) {
+        x$calage[which.max(x$density)]
+      }
+    ) %>% unlist
 
   # write result back into x
-  x$calage[-outofrange] <- amean
-  x$calstd[-outofrange] <- top - amean
+  x$calage[-outofrange] <- calage_vector
+  x$calprobdistr[-outofrange] <- calibrateable_prodistr
 
   # increment progress bar
   utils::setTxtProgressBar(pb, 100)
