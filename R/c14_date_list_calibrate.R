@@ -38,6 +38,9 @@ calibrate.c14_date_list <- function(x) {
     )
   }
 
+  # load intcal13 data from Bchron
+  utils::data("intcal13", package = "Bchron")
+
   # start message:
   message(paste0("Calibration... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
 
@@ -67,8 +70,8 @@ calibrate.c14_date_list <- function(x) {
 
   # determine dates that are out of the range of the calcurve can not be calibrated
   toona <- which(is.na(x$c14age) | is.na(x$c14std))
-  toosmall <- which(x$c14age < 100)
-  toobig <- which(x$c14age > 45000)
+  toosmall <- which(x$c14age < min(intcal13[,1]))
+  toobig <- which(x$c14age > max(intcal13[,1]))
   outofrange <- c(toona, toosmall, toobig) %>% unique
 
   # copy these dates without calibration
