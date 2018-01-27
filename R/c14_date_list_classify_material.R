@@ -38,7 +38,6 @@ classify_material.c14_date_list <- function(
 
   x %<>% add_or_replace_column_in_df("material_thes", NA, .after = "material")
 
-  # apply thesauri and create new columns
   x %<>%
     dplyr::mutate(
       material_thes = lookup_in_thesaurus_table(.$material, material_thesaurus_df)
