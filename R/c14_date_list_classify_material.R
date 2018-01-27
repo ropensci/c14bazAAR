@@ -1,6 +1,6 @@
-#### material_classification ####
+#### classify_material ####
 
-#' @name material_classification
+#' @name classify_material
 #' @title Apply material classification
 #'
 #' @description Add column material_thes with simplified and unified terms
@@ -11,27 +11,27 @@
 #' @return an object of class c14_date_list
 #' @export
 #'
-#' @rdname material_classification
+#' @rdname classify_material
 #'
-material_classification <- function(
+classify_material <- function(
   x,
   material_thesaurus_df = c14bazAAR::material_thesaurus
 ) {
-  UseMethod("material_classification")
+  UseMethod("classify_material")
 }
 
-#' @rdname material_classification
+#' @rdname classify_material
 #' @export
-material_classification.default <- function(
+classify_material.default <- function(
   x,
   material_thesaurus_df = c14bazAAR::material_thesaurus
 ) {
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname material_classification
+#' @rdname classify_material
 #' @export
-material_classification.c14_date_list <- function(
+classify_material.c14_date_list <- function(
   x,
   material_thesaurus_df = c14bazAAR::material_thesaurus
 ) {
