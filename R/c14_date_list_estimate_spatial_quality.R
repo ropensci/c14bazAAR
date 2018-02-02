@@ -40,12 +40,7 @@ estimate_spatial_quality.c14_date_list <- function(x, country_thesaurus_table = 
   }
 
   # start message:
-  message("Estimate spatial information quality:")
-
-  # duration message
-  if (nrow(x) > 1000) {
-    message("This may take several minutes...")
-  }
+  message(paste0("Estimate spatial information quality... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
 
   # setup progress bar
   pb <- utils::txtProgressBar(
