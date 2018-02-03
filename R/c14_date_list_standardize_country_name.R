@@ -8,6 +8,7 @@
 #' @param x an object of class c14_date_list
 #' @param codesets which country codesets should be searched beyond "country.name.en".
 #' See \code{?countrycode::codelist} for more information
+#' @param manual_attribution named vector. correct country names and the wrong values in country column
 #' @param quiet suppress printed output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
 #' \code{stringdist()} is used for fuzzy string matching of the country names
@@ -20,6 +21,7 @@
 standardize_country_name <- function(
   x,
   codesets = c("country.name.de", "iso3c"),
+  manual_attribution = c(),
   quiet = FALSE,
   ...
 ) {
@@ -31,6 +33,7 @@ standardize_country_name <- function(
 standardize_country_name.default <- function(
   x,
   codesets = c("country.name.de", "iso3c"),
+  manual_attribution = c(),
   quiet = FALSE,
   ...
 ) {
@@ -42,6 +45,7 @@ standardize_country_name.default <- function(
 standardize_country_name.c14_date_list <- function(
   x,
   codesets = c("country.name.de", "iso3c"),
+  manual_attribution = c(),
   quiet = FALSE,
   ...
 ) {
@@ -50,7 +54,7 @@ standardize_country_name.c14_date_list <- function(
 
   x %<>%
     dplyr::mutate(
-      country_thes = lookup_in_countrycode_codelist(.$country, codesets, ...)
+      country_thes = lookup_in_countrycode_codelist(.$country, codesets, manual_attribution, ...)
     ) %>%
     as.c14_date_list()
 
@@ -69,10 +73,11 @@ standardize_country_name.c14_date_list <- function(
 #'
 #' @param x vector of country codes to look up in countrycode codelist
 #' @param codesets which country codesets should be searched beyond "country.name.en"
+#' @param manual_attribution named vector. correct country names and the wrong values in country column
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a vector with the correct english country names
-lookup_in_countrycode_codelist <- function(x, codesets, ...){
+lookup_in_countrycode_codelist <- function(x, codesets, manual_attribution, ...){
 
   check_if_packages_are_available(c("countrycode", "stringdist"))
 
@@ -81,8 +86,11 @@ lookup_in_countrycode_codelist <- function(x, codesets, ...){
 
   x %>% pbapply::pbsapply(
     FUN = function(db_word) {
+      # if a manual attribution is supplied then use this
+      if (db_word %in% manual_attribution) {
+        names(manual_attribution[db_word == manual_attribution])
       # if country name is NA or already the correct english term then store NA
-      if(db_word %in% c(NA, country_df$country.name.en)) {
+      } else if(db_word %in% c(NA, country_df$country.name.en)) {
         NA
       # else determine correct english term based on stringdist
       } else {
@@ -131,6 +139,7 @@ print_lookup_decisions <- function(x) {
   for(i in 1:nrow(changes)) {
     message(changes$country[i], " -> ", changes$country_thes[i])
   }
+  message("\ ")
 }
 
 #' find_lookup_decisions
