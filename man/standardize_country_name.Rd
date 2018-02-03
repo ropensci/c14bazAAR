@@ -6,22 +6,28 @@
 \alias{standardize_country_name.c14_date_list}
 \title{Apply country name standardization}
 \usage{
-standardize_country_name(x, codesets = c("country.name.de", "iso3c"), ...)
+standardize_country_name(x, codesets = c("country.name.de", "iso3c"),
+  manual_attribution = c(), quiet = FALSE, ...)
 
 \method{standardize_country_name}{default}(x, codesets = c("country.name.de",
-  "iso3c"), ...)
+  "iso3c"), manual_attribution = c(), quiet = FALSE, ...)
 
 \method{standardize_country_name}{c14_date_list}(x,
-  codesets = c("country.name.de", "iso3c"), ...)
+  codesets = c("country.name.de", "iso3c"), manual_attribution = c(),
+  quiet = FALSE, ...)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
 \item{codesets}{which country codesets should be searched beyond "country.name.en".
-See \code{?countrycode::codelist} for more information.}
+See \code{?countrycode::codelist} for more information}
+
+\item{manual_attribution}{named vector. correct country names and the wrong values in country column}
+
+\item{quiet}{suppress printed output}
 
 \item{...}{additional arguments are passed to \code{stringdist::stringdist()}.
-\code{stringdist()} is used for fuzzy string matching of the country names.}
+\code{stringdist()} is used for fuzzy string matching of the country names}
 }
 \value{
 an object of class c14_date_list

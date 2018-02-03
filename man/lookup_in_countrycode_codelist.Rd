@@ -4,12 +4,14 @@
 \alias{lookup_in_countrycode_codelist}
 \title{lookup_in_countrycode_codelist}
 \usage{
-lookup_in_countrycode_codelist(x, codesets, ...)
+lookup_in_countrycode_codelist(x, codesets, manual_attribution, ...)
 }
 \arguments{
 \item{x}{vector of country codes to look up in countrycode codelist}
 
 \item{codesets}{which country codesets should be searched beyond "country.name.en"}
+
+\item{manual_attribution}{named vector. correct country names and the wrong values in country column}
 
 \item{...}{additional arguments are passed to stringdist::stringdist()}
 }
