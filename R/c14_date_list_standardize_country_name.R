@@ -50,6 +50,8 @@ standardize_country_name.c14_date_list <- function(
   ...
 ) {
 
+  x %>% check_if_columns_are_present("country")
+
   x %<>% add_or_replace_column_in_df("country_thes", NA, .after = "country")
 
   x %<>%

@@ -41,3 +41,22 @@ add_or_replace_column_in_df <- function(x, column_name_s, column_content_mi, ...
   }
   return(x)
 }
+
+#' check_if_columns_are_present
+#'
+#' @param x c14_date_list
+#' @param columns name of columns column
+#'
+#' @return NULL - called for side effect stop()
+check_if_columns_are_present <- function(x, columns) {
+  if(columns %in% colnames(x) %>% all %>% `!`) {
+    stop(
+      paste0(
+        "Columns ",
+        paste(columns, collapse = ", "),
+        " needed in your c14_date_list for this function to work."
+      ),
+      call. = FALSE
+    )
+  }
+}
