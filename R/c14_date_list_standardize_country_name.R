@@ -7,9 +7,10 @@
 #'
 #' @param x an object of class c14_date_list
 #' @param codesets which country codesets should be searched beyond "country.name.en".
-#' See \code{?countrycode::codelist} for more information.
+#' See \code{?countrycode::codelist} for more information
+#' @param quiet suppress printed output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
-#' \code{stringdist()} is used for fuzzy string matching of the country names.
+#' \code{stringdist()} is used for fuzzy string matching of the country names
 #'
 #' @return an object of class c14_date_list
 #' @export
@@ -19,6 +20,7 @@
 standardize_country_name <- function(
   x,
   codesets = c("country.name.de", "iso3c"),
+  quiet = FALSE,
   ...
 ) {
   UseMethod("standardize_country_name")
@@ -29,6 +31,7 @@ standardize_country_name <- function(
 standardize_country_name.default <- function(
   x,
   codesets = c("country.name.de", "iso3c"),
+  quiet = FALSE,
   ...
 ) {
   stop("x is not an object of class c14_date_list")
@@ -39,6 +42,7 @@ standardize_country_name.default <- function(
 standardize_country_name.c14_date_list <- function(
   x,
   codesets = c("country.name.de", "iso3c"),
+  quiet = FALSE,
   ...
 ) {
 
@@ -49,6 +53,10 @@ standardize_country_name.c14_date_list <- function(
       country_thes = lookup_in_countrycode_codelist(.$country, codesets, ...)
     ) %>%
     as.c14_date_list()
+
+  if(!quiet) {
+    print_lookup_decisions(x)
+  }
 
   return(x)
 }
@@ -73,12 +81,12 @@ lookup_in_countrycode_codelist <- function(x, codesets, ...){
 
   x %>% pbapply::pbsapply(
     FUN = function(db_word) {
-      # if word is already the correct english term, then store NA
-      if(db_word %in% country_df$country.name.en) {
+      # if country name is NA or already the correct english term then store NA
+      if(db_word %in% c(NA, country_df$country.name.en)) {
         NA
       # else determine correct english term based on stringdist
       } else {
-        find_correct_name_by_stringdist_comparison(db_word, country_df, ...)
+        find_correct_name_by_stringdist_comparison(db_word, country_df, codes, ...)
       }
     }
   )
@@ -89,10 +97,11 @@ lookup_in_countrycode_codelist <- function(x, codesets, ...){
 #'
 #' @param db_word individual term for which to find a better name
 #' @param country_df reference table
+#' @param codes which country codesets are included in country_df
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
-#' @return a vector with the correct english country names
-find_correct_name_by_stringdist_comparison <- function(db_word, country_df, ...) {
+#' @return a correct english country name
+find_correct_name_by_stringdist_comparison <- function(db_word, country_df, codes, ...) {
   country_df %>%
     dplyr::mutate_all(
       dplyr::funs(
@@ -109,4 +118,31 @@ find_correct_name_by_stringdist_comparison <- function(db_word, country_df, ...)
     ) %>%
     magrittr::extract2("country.name.en") %>%
     magrittr::extract(1)
+}
+
+#' print_lookup_decisions
+#'
+#' @param x a c14_date_list with country and country_thes
+#'
+#' @return NULL, called for the print side effect
+print_lookup_decisions <- function(x) {
+  changes <- find_lookup_decisions(x)
+  message("The following decisions were made: \n")
+  for(i in 1:nrow(changes)) {
+    message(changes$country[i], " -> ", changes$country_thes[i])
+  }
+}
+
+#' find_lookup_decisions
+#'
+#' @param x a c14_date_list with country and country_thes
+#'
+#' @return a tibble with the country names and the new country_thes names
+#' found by \code{find_correct_name_by_stringdist_comparison()}
+find_lookup_decisions <- function(x) {
+  x %>%
+    dplyr::select(.data$country, .data$country_thes) %>%
+    dplyr::filter(!is.na(.data$country_thes)) %>%
+    unique %>%
+    dplyr::arrange(.data$country)
 }
