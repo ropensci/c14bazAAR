@@ -26,6 +26,7 @@ get_thesaurus <- function(url) {
     col_types = readr::cols(
       cor = readr::col_character(),
       var = readr::col_character()
-    )
+    ),
+    trim_ws = TRUE
   )
 }
