@@ -6,9 +6,9 @@
 #' @description Add column country_thes with standardized country names
 #'
 #' @param x an object of class c14_date_list
+#' @param country_thesaurus data.frame with correct and variants of country names
 #' @param codesets which country codesets should be searched beyond "country.name.en".
 #' See \code{?countrycode::codelist} for more information
-#' @param manual_attribution named vector. correct country names and the wrong values in country column
 #' @param quiet suppress printed output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
 #' \code{stringdist()} is used for fuzzy string matching of the country names
@@ -20,8 +20,8 @@
 #'
 standardize_country_name <- function(
   x,
+  country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
-  manual_attribution = c(),
   quiet = FALSE,
   ...
 ) {
@@ -32,8 +32,8 @@ standardize_country_name <- function(
 #' @export
 standardize_country_name.default <- function(
   x,
+  country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
-  manual_attribution = c(),
   quiet = FALSE,
   ...
 ) {
@@ -44,8 +44,8 @@ standardize_country_name.default <- function(
 #' @export
 standardize_country_name.c14_date_list <- function(
   x,
+  country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
-  manual_attribution = c(),
   quiet = FALSE,
   ...
 ) {
@@ -56,12 +56,12 @@ standardize_country_name.c14_date_list <- function(
 
   x %<>%
     dplyr::mutate(
-      country_thes = lookup_in_countrycode_codelist(.$country, codesets, manual_attribution, ...)
+      country_thes = lookup_in_countrycode_codelist(.$country, country_thesaurus, codesets, ...)
     ) %>%
     as.c14_date_list()
 
   if(!quiet) {
-    print_lookup_decisions(x)
+    print_lookup_decisions(x, country_thesaurus)
   }
 
   return(x)
@@ -74,12 +74,12 @@ standardize_country_name.c14_date_list <- function(
 #' lookup_in_countrycode_codelist
 #'
 #' @param x vector of country codes to look up in countrycode codelist
+#' @param country_thesaurus data.frame with correct and variants of country names
 #' @param codesets which country codesets should be searched beyond "country.name.en"
-#' @param manual_attribution named vector. correct country names and the wrong values in country column
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a vector with the correct english country names
-lookup_in_countrycode_codelist <- function(x, codesets, manual_attribution, ...){
+lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 
   check_if_packages_are_available(c("countrycode", "stringdist"))
 
@@ -89,8 +89,8 @@ lookup_in_countrycode_codelist <- function(x, codesets, manual_attribution, ...)
   x %>% pbapply::pbsapply(
     FUN = function(db_word) {
       # if a manual attribution is supplied then use this
-      if (db_word %in% manual_attribution) {
-        names(manual_attribution[db_word == manual_attribution])
+      if (db_word %in% country_thesaurus$var) {
+        country_thesaurus$cor[db_word == country_thesaurus$var]
       # if country name is NA or already the correct english term then store NA
       } else if(db_word %in% c(NA, country_df$country.name.en)) {
         NA
@@ -133,13 +133,22 @@ find_correct_name_by_stringdist_comparison <- function(db_word, country_df, code
 #' print_lookup_decisions
 #'
 #' @param x a c14_date_list with country and country_thes
+#' @param country_thesaurus data.frame with correct and variants of country names
 #'
 #' @return NULL, called for the print side effect
-print_lookup_decisions <- function(x) {
-  changes <- find_lookup_decisions(x)
+print_lookup_decisions <- function(x, country_thesaurus) {
+  changes <- find_lookup_decisions(x, country_thesaurus)
   message("The following decisions were made: \n")
   for(i in 1:nrow(changes)) {
-    message(changes$country[i], " -> ", changes$country_thes[i])
+    message(
+      ifelse(
+        changes$thesaurus[i],
+        crayon::green("thesaurus:   "),
+        crayon::yellow("string match:")
+      ),
+      " ",
+      changes$country[i], " -> ", changes$country_thes[i]
+    )
   }
   message("\ ")
 }
@@ -147,13 +156,18 @@ print_lookup_decisions <- function(x) {
 #' find_lookup_decisions
 #'
 #' @param x a c14_date_list with country and country_thes
+#' @param country_thesaurus data.frame with correct and variants of country names
 #'
 #' @return a tibble with the country names and the new country_thes names
 #' found by \code{find_correct_name_by_stringdist_comparison()}
-find_lookup_decisions <- function(x) {
+find_lookup_decisions <- function(x, country_thesaurus) {
   x %>%
     dplyr::select(.data$country, .data$country_thes) %>%
     dplyr::filter(!is.na(.data$country_thes)) %>%
     unique %>%
-    dplyr::arrange(.data$country)
+    dplyr::arrange(.data$country) %>%
+    # check if decision was based on thesaurus entry
+    dplyr::mutate(
+      thesaurus = .data$country %in% country_thesaurus$var
+    )
 }

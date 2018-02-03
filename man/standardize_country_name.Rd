@@ -6,23 +6,24 @@
 \alias{standardize_country_name.c14_date_list}
 \title{Apply country name standardization}
 \usage{
-standardize_country_name(x, codesets = c("country.name.de", "iso3c"),
-  manual_attribution = c(), quiet = FALSE, ...)
+standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
+  codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
 
-\method{standardize_country_name}{default}(x, codesets = c("country.name.de",
-  "iso3c"), manual_attribution = c(), quiet = FALSE, ...)
+\method{standardize_country_name}{default}(x,
+  country_thesaurus = get_country_thesaurus(),
+  codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
 
 \method{standardize_country_name}{c14_date_list}(x,
-  codesets = c("country.name.de", "iso3c"), manual_attribution = c(),
-  quiet = FALSE, ...)
+  country_thesaurus = get_country_thesaurus(),
+  codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
+\item{country_thesaurus}{data.frame with correct and variants of country names}
+
 \item{codesets}{which country codesets should be searched beyond "country.name.en".
 See \code{?countrycode::codelist} for more information}
-
-\item{manual_attribution}{named vector. correct country names and the wrong values in country column}
 
 \item{quiet}{suppress printed output}
 

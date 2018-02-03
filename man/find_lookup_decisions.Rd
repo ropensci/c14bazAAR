@@ -4,10 +4,12 @@
 \alias{find_lookup_decisions}
 \title{find_lookup_decisions}
 \usage{
-find_lookup_decisions(x)
+find_lookup_decisions(x, country_thesaurus)
 }
 \arguments{
 \item{x}{a c14_date_list with country and country_thes}
+
+\item{country_thesaurus}{data.frame with correct and variants of country names}
 }
 \value{
 a tibble with the country names and the new country_thes names

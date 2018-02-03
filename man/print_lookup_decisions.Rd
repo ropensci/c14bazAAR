@@ -4,10 +4,12 @@
 \alias{print_lookup_decisions}
 \title{print_lookup_decisions}
 \usage{
-print_lookup_decisions(x)
+print_lookup_decisions(x, country_thesaurus)
 }
 \arguments{
 \item{x}{a c14_date_list with country and country_thes}
+
+\item{country_thesaurus}{data.frame with correct and variants of country names}
 }
 \value{
 NULL, called for the print side effect
