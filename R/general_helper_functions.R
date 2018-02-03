@@ -13,7 +13,8 @@ check_if_packages_are_available <- function(packages_ch) {
       paste0(
         "R packages ",
         paste(packages_ch, collapse = ", "),
-        " needed for this function to work. Please install."
+        " needed for this function to work. Please install with ",
+        "install.packages(c('", paste(packages_ch, collapse = "', '"), "'))"
       ),
       call. = FALSE
     )
