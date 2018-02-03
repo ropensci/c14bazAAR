@@ -53,6 +53,10 @@ standardize_country_name.c14_date_list <- function(
   return(x)
 }
 
+######################################################################################
+# helper functions
+######################################################################################
+
 #' lookup_in_countrycode_codelist
 #'
 #' @param x vector of country codes to look up in countrycode codelist
@@ -69,21 +73,40 @@ lookup_in_countrycode_codelist <- function(x, codesets, ...){
 
   x %>% pbapply::pbsapply(
     FUN = function(db_word) {
-      country_df %>%
-        dplyr::mutate_all(
-          dplyr::funs(stringdist = stringdist::stringdist(db_word, ., ...))
-        ) %>%
-        tidyr::gather(
-          key = "code_type",
-          value = "dist",
-          -codes
-        ) %>%
-        dplyr::slice(
-          which.min(.data$dist)
-        ) %>%
-        magrittr::extract2("country.name.en") %>%
-        magrittr::extract(1)
+      # if word is already the correct english term, then store NA
+      if(db_word %in% country_df$country.name.en) {
+        NA
+      # else determine correct english term based on stringdist
+      } else {
+        find_correct_name_by_stringdist_comparison(db_word, country_df, ...)
+      }
     }
   )
 
+}
+
+#' find_correct_name_by_stringdist_comparison
+#'
+#' @param db_word individual term for which to find a better name
+#' @param country_df reference table
+#' @param ... additional arguments are passed to stringdist::stringdist()
+#'
+#' @return a vector with the correct english country names
+find_correct_name_by_stringdist_comparison <- function(db_word, country_df, ...) {
+  country_df %>%
+    dplyr::mutate_all(
+      dplyr::funs(
+        stringdist = stringdist::stringdist(db_word, ., ...)
+      )
+    ) %>%
+    tidyr::gather(
+      key = "code_type",
+      value = "dist",
+      -codes
+    ) %>%
+    dplyr::slice(
+      which.min(.data$dist)
+    ) %>%
+    magrittr::extract2("country.name.en") %>%
+    magrittr::extract(1)
 }
