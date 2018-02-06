@@ -82,6 +82,18 @@ calibrate.c14_date_list <- function(x) {
   x$calage[-outofrange] <- calage_vector
   x$calprobdistr[-outofrange] <- calibrateable_prodistr
 
+  # TODO put this into the parameter
+  my_sigma <- 2
+
+  my_prob_vector <- c(0.6827, 0.9545, 0.9974)
+
+  x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calage")
+  x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
+
+  x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange],hdr, prob = my_prob_vector[my_sigma])
+
+  x$sigma <- my_sigma
+
   # increment progress bar
   utils::setTxtProgressBar(pb, 100)
 
@@ -176,14 +188,14 @@ hdr <- function(calprobdistr, prob = 0.95) {
   breaks = diff(good_ag)>1
   where_breaks = which(diff(good_ag)>1)
   n_breaks = sum(breaks) + 1
+
   # Store output
-  out = vector('list', length = n_breaks)
+  out = data.frame(dens = double(), from=integer(), to=integer())
   low_seq = 1
   high_seq = ifelse(length(where_breaks)==0, length(breaks), where_breaks[1])
   for(i in 1:n_breaks) {
-    out[[i]] = c(good_ag[low_seq], good_ag[high_seq])
     curr_dens = round(100*sum(de[o][seq(good_cu[low_seq], good_cu[high_seq])]),1)
-    names(out)[[i]] = paste0(as.character(curr_dens),'%')
+    out[i,] = c(curr_dens, good_ag[low_seq], good_ag[high_seq])
     low_seq = high_seq + 1
     high_seq = ifelse(i<n_breaks-1, where_breaks[i+1], length(breaks))
   }
