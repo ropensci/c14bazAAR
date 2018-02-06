@@ -13,7 +13,8 @@ check_if_packages_are_available <- function(packages_ch) {
       paste0(
         "R packages ",
         paste(packages_ch, collapse = ", "),
-        " needed for this function to work. Please install."
+        " needed for this function to work. Please install with ",
+        "install.packages(c('", paste(packages_ch, collapse = "', '"), "'))"
       ),
       call. = FALSE
     )
@@ -35,8 +36,27 @@ add_or_replace_column_in_df <- function(x, column_name_s, column_content_mi, ...
     x <- x %>%
       tibble::add_column(
         !!(column_name_s) := column_content_mi,
-        .after = "c14std"
+        ...
       )
   }
   return(x)
+}
+
+#' check_if_columns_are_present
+#'
+#' @param x c14_date_list
+#' @param columns name of columns column
+#'
+#' @return NULL - called for side effect stop()
+check_if_columns_are_present <- function(x, columns) {
+  if(columns %in% colnames(x) %>% all %>% `!`) {
+    stop(
+      paste0(
+        "Columns ",
+        paste(columns, collapse = ", "),
+        " needed in your c14_date_list for this function to work."
+      ),
+      call. = FALSE
+    )
+  }
 }

@@ -11,6 +11,8 @@ globalVariables("intcal13")
 #'
 #' @importFrom rlang .data
 #' @importFrom magrittr "%>%"
+#' @importFrom magrittr "%<>%"
+#' @importFrom rlang ":="
 #'
 #' @keywords internal
 #'
