@@ -146,3 +146,46 @@ determine_calage_from_probability_distribution <- function(x) {
     unlist %>%
     return()
 }
+
+#' Calculate highest density regions for Bchron calibrated ages
+#'
+#' A function for computing highest density regions (HDRs). Adopted from the Bchron package
+#'
+#' @details The output of this function is a list of contiguous ranges which cover the probability interval requested. A highest density region might have multiple such ranges if the calibrated date is multi-modal. These differ from credible intervals, which are always contiguous but will not be a good representation of a multi-modal probability distribution.
+#'
+#' @param calprobdistr the probability distribution
+#' @param prob The desired probability interval, in the range(0, 1)
+#'
+#' @return a dataframe containing the hdr
+hdr <- function(calprobdistr, prob = 0.95) {
+
+  if(findInterval(prob, c(0, 1))!=1) stop('prob value outside (0,1).')
+
+  ag <- calprobdistr$calage
+  de <- calprobdistr$density
+
+  # Put the probabilities in order
+  o = order(de)
+  cu = cumsum(de[o])
+
+  # Find which ones are above the threshold
+  good_cu = which(cu>1-prob)
+  good_ag = sort(ag[o][good_cu])
+
+  # Pick out the extremes of each range
+  breaks = diff(good_ag)>1
+  where_breaks = which(diff(good_ag)>1)
+  n_breaks = sum(breaks) + 1
+  # Store output
+  out = vector('list', length = n_breaks)
+  low_seq = 1
+  high_seq = ifelse(length(where_breaks)==0, length(breaks), where_breaks[1])
+  for(i in 1:n_breaks) {
+    out[[i]] = c(good_ag[low_seq], good_ag[high_seq])
+    curr_dens = round(100*sum(de[o][seq(good_cu[low_seq], good_cu[high_seq])]),1)
+    names(out)[[i]] = paste0(as.character(curr_dens),'%')
+    low_seq = high_seq + 1
+    high_seq = ifelse(i<n_breaks-1, where_breaks[i+1], length(breaks))
+  }
+  return(out)
+}
