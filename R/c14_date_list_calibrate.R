@@ -87,7 +87,7 @@ calibrate.c14_date_list <- function(x) {
 
   my_prob_vector <- c(0.6827, 0.9545, 0.9974)
 
-  x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calage")
+  x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calprobdistr")
   x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
 
   x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange],hdr, prob = my_prob_vector[my_sigma])
