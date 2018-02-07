@@ -30,23 +30,30 @@ finalize_country_name.c14_date_list <- function(x) {
   
   # check if the columns country_coord and country_thes are present
   necessary_vars <- c("country_coord", "country_thes")
-  x %>% check_if_columns_are_present(necessary_vars)
+  present <- necessary_vars %in% colnames(x)
   
-  # add the column country_final
-  x %<>% add_or_replace_column_in_df("country_final", NA, .after = "country_thes")
-  
-  # pick the most likely result hierarchically from country_coord, country_thes
-  # and the original input data
-  x %<>%
-    dplyr::mutate(
-      if (country_coord != NA) {
-        country_final = country_coord
-      } else if (country_thes ! NA) {
-        country_final = country_thes
-      } else {
-        country_final = country
-      }    ) %>%
-    as.c14_date_list()
-  
-  return(x)
+  if (all(present)) {
+    # add the column country_final
+    x %<>% add_or_replace_column_in_df("country_final", NA, .after = "country_thes")
+    
+    # pick the most likely result hierarchically from country_coord, country_thes
+    # and the original input data
+    x %<>%
+      dplyr::mutate(
+        if (country_coord != NA) {
+          country_final = country_coord
+        } else if (country_thes ! NA) {
+          country_final = country_thes
+        } else {
+          country_final = country
+        }    ) %>%
+      as.c14_date_list()
+    return(x)
+    
+  } else {
+    stop(
+      "The following variables (columns) are missing: ",
+      paste(necessary_vars[!present], collapse = ", ")
+    )
+    
 }
