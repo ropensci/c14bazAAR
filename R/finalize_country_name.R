@@ -42,7 +42,7 @@ finalize_country_name.c14_date_list <- function(x) {
       dplyr::mutate(
         if (country_coord != NA) {
           country_final = country_coord
-        } else if (country_thes ! NA) {
+        } else if (country_thes != NA) {
           country_final = country_thes
         } else {
           country_final = country
