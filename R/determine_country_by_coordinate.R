@@ -60,8 +60,8 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
     dplyr::bind_rows(., sf_x) %>%
     dplyr::arrange(ID) %>%
     dplyr::select(-ID) %>%
-    as.c14_date_list()
-
+    as.c14_date_list() %>%
+    coordinate_precision()
 
   return(sf_x)
 }

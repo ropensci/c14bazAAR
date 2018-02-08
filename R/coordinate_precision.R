@@ -25,7 +25,15 @@ coordinate_precision.default <- function(x) {
 #' @rdname coordinate_precision
 #' @export
 coordinate_precision.c14_date_list <- function(x) {
-
+  lat <- x$lat %>%
+    individual_precision(mode = "lat")
+  lon <- x$lon %>%
+    individual_precision(mode = "lon")
+  x <- add_or_replace_column_in_df(x,
+                              column_name_s = "coord_precision",
+                              column_content_mi = apply(cbind(lat,lon), 1, mean),
+                              .after = "country_coord")
+  return(x)
 }
 
 
@@ -39,7 +47,7 @@ circumference_calculator <- function(x, mode, ...) {
     circumference <- (2 * pi) * 6378137 # Following WGS84
   }
   if(mode == "lon") {
-    circumferencen <- (2* pi) * 6356752.3142
+    circumference <- (2* pi) * 6356752.3142
   }
 
   output <- circumference * cos((x * pi) / 180)
@@ -66,8 +74,8 @@ digits_counter <- function(x, ...) {
 #' @param x vector of latitude
 #'
 #' @return vecor with precision in meters
-latitude_precision <- function(x, ...) {
-  output <- circumference_calculator(x) / (360 * 10^digits_counter(x))
+individual_precision <- function(x, ...) {
+  output <- circumference_calculator(x, ...) / (360 * 10^digits_counter(x))
   return(output)
 }
 
