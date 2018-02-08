@@ -4,12 +4,16 @@
 \alias{print_lookup_decisions}
 \title{print_lookup_decisions}
 \usage{
-print_lookup_decisions(x, country_thesaurus)
+print_lookup_decisions(x, variants_column, corrected_column, thesaurus)
 }
 \arguments{
 \item{x}{a c14_date_list with country and country_thes}
 
-\item{country_thesaurus}{data.frame with correct and variants of country names}
+\item{variants_column}{name of the column with heterogeneous values}
+
+\item{corrected_column}{name of the column with the corrected values}
+
+\item{thesaurus}{data.frame with correct and variants of country names}
 }
 \value{
 NULL, called for the print side effect
