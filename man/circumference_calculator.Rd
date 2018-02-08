@@ -7,7 +7,7 @@
 circumference_calculator(x, mode, ...)
 }
 \arguments{
-\item{x}{vector of latitude}
+\item{x}{vector of latitude or longitude coordinates}
 
 \item{mode}{lat or lon}
 }

@@ -2,16 +2,16 @@
 % Please edit documentation in R/coordinate_precision.R
 \name{individual_precision}
 \alias{individual_precision}
-\title{latitude_precision}
+\title{individual_precision}
 \usage{
 individual_precision(x, ...)
 }
 \arguments{
-\item{x}{vector of latitude}
+\item{x}{vector of coordinates (latitude or longitude)}
 }
 \value{
 vecor with precision in meters
 }
 \description{
-latitude_precision
+individual_precision
 }
