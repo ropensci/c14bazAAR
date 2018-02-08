@@ -9,16 +9,17 @@ material,character,Dated material,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATER
 material_thes,character,Dated material (result of thesaurification),0,13,,,,,,,,,
 species,character,Species of dated material,1,14,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES,SPECIES,Taxa Dated
 country,character,Country,1,15,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY,COUNTRY,
-country_coord,character,Country (determined by coordinates),0,16,,,,,,,,,
-country_thes,character,Country (result of thesaurification),0,17,,,,,,,,,
+country_coord,character,Country (determined by coordinates),0,17,,,,,,,,,
+coord_precision,double,Precision of the sample coordinates,,18,,,,,,,,,
+country_thes,character,Country (result of thesaurification),0,16,,,,,,,,,
 site,character,Site [Name],1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE,SITE,Site Identifier
 period,character,Historico-cultural period of sample context,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD,PERIOD,
 culture,character,Archaeological culture of sample context,1,11,,,,CULTURE,CULTURE,Culture,CULTURE,CULTURE,
 ,,,0,,,,,PHASE,PHASE,PhaseCode,,,
 ,,,0,,,,,LOCUS,LOCUS,,,,
-lat,double,Latitude of site position [decimal degrees],1,18,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE,LATITUDE,Latitude
-lon,double,Longitude of site position [decimal degrees],1,19,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE,LONGITUDE,Longitude
-spatial_quality,character,(result of spatial quality estimation),0,20,,,,,,,,,
+lat,double,Latitude of site position [decimal degrees],1,19,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE,LATITUDE,Latitude
+lon,double,Longitude of site position [decimal degrees],1,20,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE,LONGITUDE,Longitude
+spatial_quality,character,(result of spatial quality estimation),0,21,,,,,,,,,
 method,character,Radiocarbon date measurement method,1,1,,,METHOD,METHOD,,,,,
 calage,integer,Carbon-14 Age [calibrated age BP],1,5,,,,CALAGE,,,,,
 calstd,integer,Standard deviation [1 sigma devitation range],1,6,,,,CALSTD,,,,,
