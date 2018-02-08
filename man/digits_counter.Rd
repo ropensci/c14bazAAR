@@ -7,11 +7,11 @@
 digits_counter(x, ...)
 }
 \arguments{
-\item{x}{vector}
+\item{x}{vector of coordinate values}
 }
 \value{
 vecor with numer of digits
 }
 \description{
-digits_counter
+counts the digits of the given coordinates
 }
