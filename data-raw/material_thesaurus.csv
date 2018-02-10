@@ -6,22 +6,22 @@ NA,nd
 NA,---
 plant remains,(Acacia?) roots
 NA,>125 micron organic material
-undefined,Acanthopleura sp.
+shell,Acanthopleura sp.
 plant remains,acorn
 plant remains,acorns
 plant remains,Acorns
 bone,aegilops (saiga)
 NA,AH
 undefined,alkaline insoluble
-undefined,Anadara antiquata
-undefined,Anadara granosa shell
-undefined,Anadara sp. shell
-undefined,"Anadara sp., Tapes hiantina"
-undefined,Anadara trapezia shell
+shell,Anadara antiquata
+shell,Anadara granosa shell
+shell,Anadara sp. shell
+shell,"Anadara sp., Tapes hiantina"
+shell,Anadara trapezia shell
 bone,animal bone
 bone,Animal Bone
 hair,animal hair
-undefined,antler
+antler,antler
 plant remains,apple
 aragonite,aragonite
 aragonite,aragonte
@@ -32,11 +32,11 @@ ash,ashy soil
 undefined,Austomylitus rostratus shell
 wood,Axtschaft
 NA,B
-undefined,Baked clay from hearth
-undefined,Barbatia helbingi
-undefined,Barbatia sp. Shell
+ceramics,Baked clay from hearth
+shell,Barbatia helbingi
+shell,Barbatia sp. Shell
 bark,bark
-undefined,Bark
+bark,Bark
 plant remains,barley
 NA,bd
 plant remains,bean
@@ -44,31 +44,31 @@ plant remains,beans
 plant remains,been
 undefined,Beeswax
 plant remains,bine
-undefined,Bird eggshell
+calcium carbonate,Bird eggshell
 bone,bone
 bone,Bone
-undefined,Bone (apatite fraction)
+bone,Bone (apatite fraction)
 bone,bone (Bos taurus)
-undefined,Bone (collagen not removed)
-undefined,Bone (collagen)
-undefined,Bone (extracted organic material)
-undefined,Bone (free carbonate)
-undefined,Bone (gelatin)
-undefined,Bone (insoluble residue)
-undefined,Bone (Macropus rufogriseus)
-undefined,Bone (non-apatite fraction)
-undefined,Bone (non-humic fraction)
-undefined,Bone (organic carbon)
-undefined,Bone (organic fraction)
-undefined,Bone (organics)
-undefined,Bone (re-precipitated alkali soluble fraction)
-undefined,Bone (residue)
+bone,Bone (collagen not removed)
+bone,Bone (collagen)
+bone,Bone (extracted organic material)
+bone,Bone (free carbonate)
+bone,Bone (gelatin)
+bone,Bone (insoluble residue)
+bone,Bone (Macropus rufogriseus)
+bone,Bone (non-apatite fraction)
+bone,Bone (non-humic fraction)
+bone,Bone (organic carbon)
+bone,Bone (organic fraction)
+bone,Bone (organics)
+bone,Bone (re-precipitated alkali soluble fraction)
+bone,Bone (residue)
 bone,bone (Sus domestica)
 bone,bone (Sus scrofa)
-undefined,Bone (Vombatus ursinus)
-undefined,Bone apatite
-undefined,Bone apatite/carbonate
-undefined,Bone carbonate
+bone,Bone (Vombatus ursinus)
+bone,Bone apatite
+bone,Bone apatite/carbonate
+bone,Bone carbonate
 bone,"bone, rib"
 NA,bone?
 bone,bone/apatit
@@ -76,12 +76,12 @@ bone,bone/collagen
 bone,bones
 bone,bos
 NA,Br
-undefined,Brachidontes rostratus shell
-brain,brain
-brain,brain tissue
+shell,Brachidontes rostratus shell
+tissue,brain
+tissue,brain tissue
 food,bread
-undefined,Bulk
-undefined,bulk
+NA,Bulk
+NA,bulk
 undefined,Bulk organic fraction
 undefined,bulk organic matter
 undefined,bulk organic mud
@@ -91,10 +91,10 @@ undefined,Bulk sediments
 undefined,Bulk soil
 undefined,Burnt earth from hearth
 plant remains,burnt plants
-undefined,Burnt wood
+plant remains,Burnt wood
 NA,c
-undefined,Cabesatana sp. shell
-undefined,Calcium carbonate
+shell,Cabesatana sp. shell
+calcium carbonate,Calcium carbonate
 undefined,Calcrete nodule
 plant remains,Canarium s.
 NA,carbon
@@ -109,33 +109,33 @@ NA,carbonised residue
 wood,carbonised wood
 undefined,Carbonised wood
 wood,carbonised wood/ash
-undefined,Cellana and Subinella sp. shell
-undefined,Cellana solida shell
-undefined,Cellana sp. shell
-undefined,Cellana tramoserica shell
-undefined,Celtis seed
-undefined,ceramic
+shell,Cellana and Subinella sp. shell
+shell,Cellana solida shell
+shell,Cellana sp. shell
+shell,Cellana tramoserica shell
+plant remains,Celtis seed
+ceramics,ceramic
 ceramics,ceramics
-food,cereal
+plant remains,cereal
 plant remains,cereals
-undefined,Cerithidea reidi shell
+shell,Cerithidea reidi shell
 charcoal,charcoak
 charcoal,charcoal
 charcoal,charcoal
 charcoal,Charcoal
-undefined,Charcoal (<125 microns)
-undefined,Charcoal (>125 + <125 microns)
-undefined,Charcoal (>125 microns)
-undefined,charcoal (wood)
+charcoal,Charcoal (<125 microns)
+charcoal,Charcoal (>125 + <125 microns)
+charcoal,Charcoal (>125 microns)
+charcoal,charcoal (wood)
 undefined,Charcoal and burnt earth
 undefined,Charcoal and soil
-undefined,Charcoal from grave
-undefined,Charcoal from grave fill
-undefined,Charcoal from hearth
-undefined,Charcoal from hearths
-undefined,Charcoal from midden
-undefined,Charcoal from oven
-undefined,Charcoal from stone pile
+charcoal,Charcoal from grave
+charcoal,Charcoal from grave fill
+charcoal,Charcoal from hearth
+charcoal,Charcoal from hearths
+charcoal,Charcoal from midden
+charcoal,Charcoal from oven
+charcoal,Charcoal from stone pile
 undefined,Charcoal lense
 NA,charcoal or shell
 charcoal,"charcoal, charred plant macrofossils"
@@ -144,9 +144,9 @@ charcoal,charcoal/roots
 charcoal,charcoalE
 charcoal,charcol
 charcoal,charoal
-food,charred food residue
+undefined,charred food residue
 plant remains,charred fruit
-charcoal,charred material
+undefined,charred material
 plant remains,charred plant macrofossils
 plant remains,charred reed
 plant remains,charred seed
@@ -154,43 +154,43 @@ plant remains,charred seeds
 plant remains,Charred twig
 plant remains,charred twigs
 charcoal,charred wood
-undefined,Charred wood
-undefined,Chiton sp. Shell
-undefined,"Chitons, limpets and Subinella sp. Shell"
+charcoal,Charred wood
+shell,Chiton sp. Shell
+shell,"Chitons, limpets and Subinella sp. Shell"
 undefined,Clayball from hearth
 fabric,cloth
 undefined,Coal
 bone,collagen
 bone,"collagen, bone"
 shell,coquille
-undefined,Cordarge (wood fibres from Acacia sp.)
+plant remains,Cordarge (wood fibres from Acacia sp.)
 plant remains,Cornus mas
-undefined,Corymbia sp. (Bloodwood)
-undefined,Crassostera commercialis shell
-undefined,"Crassostraea sp., Terebralia sp., Telescopium sp., Anadara sp."
+plant remains,Corymbia sp. (Bloodwood)
+shell,Crassostera commercialis shell
+shell,"Crassostraea sp., Terebralia sp., Telescopium sp., Anadara sp."
 bone,cremated bones
 undefined,Crustal salts
 wood,Dendro
 teeth,dentin
-undefined,Dicatgaus orbita shell
-undefined,Dicathais sp. shell
-undefined,Dicathais textilosa shell
+shell,Dicatgaus orbita shell
+shell,Dicathais sp. shell
+shell,Dicathais textilosa shell
 undefined,Diffuse Charcoal
-undefined,Donax deltoides shell
-undefined,Donax sp. shell
-undefined,Dosinia juvenilis shell
-undefined,Dosinia sp. shell
-undefined,Dugong bone
+shell,Donax deltoides shell
+shell,Donax sp. shell
+shell,Dosinia juvenilis shell
+shell,Dosinia sp. shell
+bone,Dugong bone
 faeces,dung
-undefined,Dung
-shell,eggshell
+faeces,Dung
+calcium carbonate,eggshell
 plant remains,eichelbruch
 plant remains,Eicheln
 plant remains,Eicheln and grain
 plant remains,Elaeis guineensis
-undefined,Emu eggshell
+calcium carbonate,Emu eggshell
 NA,Er
-shell,Escargotière
+snail,Escargotière
 faeces,excrement
 plant remains,fabacae
 fabric,fabric
@@ -200,15 +200,15 @@ food,food
 food,food remains
 food,food residue
 undefined,Foraminifera
-undefined,Freshwater mollusc shell
-undefined,Freshwater mussel (Unio sp.)
-undefined,Freshwater mussel (Velesunio ambiguus sp.)
-undefined,Freshwater mussel shell
-undefined,Freshwater shell
-undefined,Freshwater shell (Unio protovittatus)
-undefined,Freshwater shell (Unionid sp.)
-undefined,Freshwater shell (Velesunio sp.)
-food,fruit
+freshwater shell,Freshwater mollusc shell
+freshwater shell,Freshwater mussel (Unio sp.)
+freshwater shell,Freshwater mussel (Velesunio ambiguus sp.)
+freshwater shell,Freshwater mussel shell
+freshwater shell,Freshwater shell
+freshwater shell,Freshwater shell (Unio protovittatus)
+freshwater shell,Freshwater shell (Unionid sp.)
+freshwater shell,Freshwater shell (Velesunio sp.)
+plant remains,fruit
 plant remains,fruit/seeds
 undefined,Gafrarium tumidum shell
 undefined,Gastropod shell
@@ -222,11 +222,11 @@ plant remains,grain
 plant remains,"grain, chickpeas"
 plant remains,"grain, lenses, peas"
 plant remains,grape
-food,grapes
+plant remains,grapes
 undefined,Graphite
 plant remains,grass
 plant remains,grass
-undefined,grass cuticle
+plant remains,grass cuticle
 plant remains,grass+straw
 soil,gyttja
 soil,Gyttja
@@ -241,44 +241,44 @@ NA,hearth
 horn,hjorthorn
 wood,Holz
 food,Honey
-horn,horn
+antler,horn
 bone,hueso
-bone,human
-undefined,Human blood protein
+NA,human
+NA,Human blood protein
 bone,human bone
-undefined,Human bone
-undefined,Human bone (water soluble fraction)
-undefined,Human bone apatite
-undefined,Human bone carbonate
-undefined,Human bone collagen
-undefined,Human bone collagen amino acids
-undefined,Human bone humic acid
-undefined,Human bone insolubles
+bone,Human bone
+bone,Human bone (water soluble fraction)
+bone,Human bone apatite
+bone,Human bone carbonate
+bone,Human bone collagen
+bone,Human bone collagen amino acids
+bone,Human bone humic acid
+bone,Human bone insolubles
 NA,humates
 soil,humic
-soil,humic acid
+undefined,humic acid
 undefined,Humic acid extraction
-soil,humic acids
+undefined,humic acids
 undefined,Humic fraction
 undefined,Humics
 undefined,Humics from ANUA-33
 undefined,Humics from CAMS-2873
 undefined,Humics from NZA-194
 soil,humus
-undefined,Hyotissa sp. shell
+shell,Hyotissa sp. shell
 undefined,insect remain
 NA,k. A.
-undefined,Landsnail shell
-fabric,leather
-food,legume
-food,legumes
+snail,Landsnail shell
+undefined,leather
+plant remains,legume
+plant remains,legumes
 NA,leister prong
 NA,lens
 plant remains,lenses
-undefined,Lichen
+plant remains,Lichen
 wood,lieg.wood
 undefined,Limestone flowstone
-wood,lindbast
+plant remains,lindbast
 plant remains,linen
 plant remains,linsen
 NA,Ln
@@ -286,22 +286,22 @@ NA,Ln
 plant remains,Lolium sp.
 NA,lump of tar
 undefined,Macrofossils
-undefined,Macropod tooth enamel
+teeth,Macropod tooth enamel
 undefined,Mactra abbreviata
-undefined,Mammal bone calcite
-undefined,Mammal bone collagen
-undefined,Mammal bone from midden
+bone,Mammal bone calcite
+bone,Mammal bone collagen
+bone,Mammal bone from midden
 undefined,Mangrove gastropod
-undefined,Mangrove shell
-undefined,Marcia hiantina shell
-undefined,Marcia sp. Shell
+shell,Mangrove shell
+shell,Marcia hiantina shell
+shell,Marcia sp. Shell
 undefined,Marine coral
 shell,marine mollusks
-undefined,Marine shell
-undefined,Marine shell (oyster)
+shell,Marine shell
+shell,Marine shell (oyster)
 fabric,mat
 undefined,Melo amphora
-undefined,Melo sp. Shell
+shell,Melo sp. Shell
 NA,miscellaneous
 shell,mollusc
 shell,molluscs
@@ -312,37 +312,37 @@ NA,n.d.
 NA,n/a
 plant remains,Nauclea sp.
 NA,nd
-undefined,Nerita atramentosa shell
-undefined,Nerita sp. shell
+shell,Nerita atramentosa shell
+shell,Nerita sp. shell
 plant remains,notenschelpen (verkoold)
-undefined,Notohaliotus ruber shell
-undefined,Nucella orbita shell
+shell,Notohaliotus ruber shell
+shell,Nucella orbita shell
 NA,NULL
 plant remains,nut
 plant remains,nuts or peas
 plant remains,nutshell
-undefined,Nutshell
+plant remains,Nutshell
 plant remains,olive stone
 NA,organic
-undefined,Organic
+NA,Organic
 undefined,Organic Carbon
 undefined,Organic clay
 undefined,organic concentrate
 NA,organic material
-undefined,Organic material (from rock varnishes)
+NA,Organic material (from rock varnishes)
 NA,organic matter
-undefined,Organic matter
+NA,Organic matter
 NA,organic residue
 soil,organic sediment
 NA,organic substance
 undefined,Organic swamp deposit
 ceramics,organic temper
-undefined,Organics
-undefined,Organics from hearth
-undefined,Ostrea angasi shell
-undefined,Ostrea sp. shell
-shell,ostrich egg
-shell,ostrich eggs
+NA,Organics
+NA,Organics from hearth
+shell,Ostrea angasi shell
+shell,Ostrea sp. shell
+calcium carbonate,ostrich egg
+calcium carbonate,ostrich eggs
 NA,other
 undefined,Otolith
 undefined,Oxalate Carbon Crust
@@ -365,11 +365,11 @@ plant remains,plant matter
 plant remains,plant Remains
 plant remains,plant remains
 plant remains,plant Remains
-undefined,Plant Remains
-undefined,plant seed
+plant remains,Plant Remains
+plant remains,plant seed
 plant remains,plantenvezels
 plant remains,plants
-undefined,Plebidonax deltoides shell
+shell,Plebidonax deltoides shell
 undefined,Pollen (<5 microns)
 undefined,Pollen (10-25 microns)
 undefined,Pollen (45-90 microns)
@@ -377,8 +377,8 @@ undefined,Pollen (5-10 microns)
 undefined,Polymesoda erosa shell
 wood,Populus sp.
 ceramics,pottery
-undefined,Pyrazus ebeninus shell
-undefined,Pyrazus sp. Shell
+shell,Pyrazus ebeninus shell
+shell,Pyrazus sp. Shell
 undefined,Quartz
 undefined,Quartz ('sand size')
 undefined,Quartz (180-212 microns)
@@ -389,20 +389,20 @@ faeces,rat dropping
 plant remains,reed
 plant remains,reed+twig
 NA,residue
-undefined,residue (on ceramic)
+NA,residue (on ceramic)
 wood,resin
 bark,riinde
 bark,Rinde
 soil,rotlehm
 soil,Rotlehm
-undefined,Saccostrea commercialis & Pyrazus ebininus shell
-undefined,Saccostrea cucullata shell
-undefined,Saccostrea sp. shell
+shell,Saccostrea commercialis & Pyrazus ebininus shell
+shell,Saccostrea cucullata shell
+shell,Saccostrea sp. shell
 soil,Sand
-undefined,Scattered Anadara sp. Shell
-undefined,Scattered charcoal
-undefined,Scattered marine shell
-undefined,Scattered wood charcoal
+shell,Scattered Anadara sp. Shell
+charcoal,Scattered charcoal
+shell,Scattered marine shell
+charcoal,Scattered wood charcoal
 wood,schors (verkoold)
 shell,seashell
 soil,sediment
@@ -410,14 +410,14 @@ soil,Sediment
 NA,see
 plant remains,seed
 plant remains,Seed
-undefined,seed (pip of fruit)
-undefined,Seed Fragment
+plant remains,seed (pip of fruit)
+plant remains,Seed Fragment
 plant remains,seed/fruit
 plant remains,seeds
 plant remains,seeds/fruit
-undefined,Septifer bilocularis shell
+shell,Septifer bilocularis shell
 shell,shell
-undefined,Shell
+shell,Shell
 shell,Shell (Land)
 shell,Shell (River/Ocean)
 shell,shells
@@ -425,22 +425,22 @@ NA,short-lived
 undefined,Silica/paint
 tissue,skin
 NA,Sn
-undefined,Snail carbonate
+snail,Snail carbonate
 soil,soil
 soil,soil
-undefined,Soil
-undefined,Soil carbonate
-undefined,Soil organic matter
+soil,Soil
+soil,Soil carbonate
+soil,Soil organic matter
 undefined,soot
 food,Speisereste
 undefined,Spinifex resin
 soil,stones
 plant remains,straw
 plant remains,straw+reed
-undefined,Subninella undulata shell
-undefined,Subninella undulata shell-aragonite layer
-undefined,Subninella undulata shell-calcite layer
-undefined,Syrinx aruanus shell
+shell,Subninella undulata shell
+shell,Subninella undulata shell-aragonite layer
+shell,Subninella undulata shell-calcite layer
+shell,Syrinx aruanus shell
 plant remains,T.dicoccum
 NA,"tand, ko"
 plant remains,Tannenreisig I
@@ -448,39 +448,39 @@ plant remains,Tannenreisig II
 plant remains,Tannenreisig III
 undefined,Tapes hiantini shell
 NA,tar
-undefined,Tectus pyramis shell
+shell,Tectus pyramis shell
 teeth,teeth
-undefined,Telescopium telescopium shell
-undefined,Terebralia palustris shell
-undefined,Terebralia sp. shell
+shell,Telescopium telescopium shell
+shell,Terebralia palustris shell
+shell,Terebralia sp. shell
 undefined,Termite nest used in hearth
-undefined,Terrestrial
-undefined,terrestrial plant macrofossils
+NA,Terrestrial
+plant remains,terrestrial plant macrofossils
 fabric,textile
 fabric,thread
 tissue,tissue
 teeth,tooth
-undefined,Tooth dentine
-undefined,Tooth enamel
+teeth,Tooth dentine
+teeth,Tooth enamel
 soil,torv
 wood,tree
 plant remains,triticum
 soil,tuf
-undefined,Turban sp. shell
-undefined,Turbo cinereus shell
-undefined,Turbo cinereus/Monodonta labio shell
-undefined,Turbo cinereus/Nerita sp. shell
-undefined,Turbo intercostalis shell
-undefined,Turbo sp and Ostrea sp. shell
-undefined,Turbo sp. shell
-undefined,Turbo torquatus operculum shell
-undefined,Turbo undulata shell
-undefined,Turbo undulatus and Haliotis rubra shell
-undefined,Turtle carapace
+shell,Turban sp. shell
+shell,Turbo cinereus shell
+shell,Turbo cinereus/Monodonta labio shell
+shell,Turbo cinereus/Nerita sp. shell
+shell,Turbo intercostalis shell
+shell,Turbo sp and Ostrea sp. shell
+shell,Turbo sp. shell
+shell,Turbo torquatus operculum shell
+shell,Turbo undulata shell
+shell,Turbo undulatus and Haliotis rubra shell
+bone,Turtle carapace
 wood,twig
 wood,twigs
 NA,UNKNOWN
-undefined,Unknown
+NE,Unknown
 bone,Ur
 soil,veen
 undefined,Vegetable matter lining grave
@@ -490,15 +490,15 @@ plant remains,"wheat, chickpeas"
 wood,wicker
 wood,wood
 wood,Wood
-undefined,Wood
-undefined,Wood (Casuarina sp.)
-undefined,Wood (Eucalyptus camaldulensis)
-undefined,Wood (Juncus sp.)
-undefined,Wood (Melaleuca sp.)
-undefined,Wood (Xanthorrhoea sp.)
-undefined,Wood and charcoal
-undefined,Wood cellulose
-undefined,Wood charcoal
-undefined,Wood fragment
+wood,Wood
+wood,Wood (Casuarina sp.)
+wood,Wood (Eucalyptus camaldulensis)
+wood,Wood (Juncus sp.)
+wood,Wood (Melaleuca sp.)
+wood,Wood (Xanthorrhoea sp.)
+wood,Wood and charcoal
+wood,Wood cellulose
+charcoal,Wood charcoal
+wood,Wood fragment
 fabric,wool
 NA,
