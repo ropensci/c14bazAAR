@@ -8,6 +8,8 @@ individual_precision(x, ...)
 }
 \arguments{
 \item{x}{vector of coordinates (latitude or longitude)}
+
+\item{...}{further arguments indicating the `mode` of the coordinates (whether these are lat or lon)}
 }
 \value{
 vecor with precision in meters

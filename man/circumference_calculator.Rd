@@ -4,12 +4,12 @@
 \alias{circumference_calculator}
 \title{circumference_calculator}
 \usage{
-circumference_calculator(x, mode, ...)
+circumference_calculator(x, mode)
 }
 \arguments{
 \item{x}{vector of latitude or longitude coordinates}
 
-\item{mode}{lat or lon}
+\item{mode}{a character "lat" or "lon"}
 }
 \value{
 vecor with circumference values at specific latitudes

@@ -4,10 +4,10 @@
 \alias{digits_counter}
 \title{digits_counter}
 \usage{
-digits_counter(x, ...)
+digits_counter(x)
 }
 \arguments{
-\item{x}{vector of coordinate values}
+\item{x}{vector of coordinate values#'}
 }
 \value{
 vecor with numer of digits
