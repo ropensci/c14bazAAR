@@ -20,16 +20,7 @@ get_all_dates <- function() {
   )
 
   # define list of parser functions
-  parser_functions <- c(
-    c14bazAAR::get_aDRAC,
-    c14bazAAR::get_CalPal,
-    c14bazAAR::get_CONTEXT,
-    c14bazAAR::get_EUROEVOL,
-    c14bazAAR::get_RADON,
-    c14bazAAR::get_RADONB,
-    c14bazAAR::get_AustArch,
-    c14bazAAR::get_KITEeastAfrica
-  )
+  parser_functions <- get_all_parser_functions()
 
   # loop to call all parser functions
   date_lists <- list()
@@ -48,4 +39,22 @@ get_all_dates <- function() {
   close(pb)
 
   return(all_dates)
+}
+
+#' get_all_parser_functions
+#'
+#' @return vector with all parser functions in c14bazAAR
+#'
+get_all_parser_functions <- function() {
+  c(
+    c14bazAAR::get_aDRAC,
+    c14bazAAR::get_CalPal,
+    c14bazAAR::get_CONTEXT,
+    c14bazAAR::get_EUROEVOL,
+    c14bazAAR::get_RADON,
+    c14bazAAR::get_RADONB,
+    c14bazAAR::get_AustArch,
+    c14bazAAR::get_KITEeastAfrica
+  ) %>%
+    return()
 }

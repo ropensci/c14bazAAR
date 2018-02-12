@@ -10,6 +10,8 @@ globalVariables(".")
 #'
 #' @importFrom rlang .data
 #' @importFrom magrittr "%>%"
+#' @importFrom magrittr "%<>%"
+#' @importFrom rlang ":="
 #'
 #' @keywords internal
 #'

@@ -31,12 +31,7 @@ rm_doubles.default <- function(x, mark = FALSE) {
 rm_doubles.c14_date_list <- function(x, mark = FALSE) {
 
   # start message:
-  message("Remove or mark bad doubles:")
-
-  # duration message
-  if (nrow(x) > 1000) {
-    message("This may take several minutes...")
-  }
+  message(paste0("Remove or mark bad doubles... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
 
   # add artificial id for later subsetting
   x <- x %>%
@@ -44,7 +39,7 @@ rm_doubles.c14_date_list <- function(x, mark = FALSE) {
       aid = 1:nrow(.)
     )
 
-  message("Search for accordances in Lab Codes...")
+  message("-> Search for accordances in Lab Codes...")
   # search for double occurences
   doubles <- x %>%
     dplyr::select(
@@ -100,7 +95,7 @@ rm_doubles.c14_date_list <- function(x, mark = FALSE) {
     "material", "country", "lat", "lon"
   )
 
-  message("Decide which values can be removed...")
+  message("-> Decide which values can be removed...")
   # make decision for every double group
   to_be_removed <- doubles_selected %>% .[["partners_df"]] %>%
     pbapply::pblapply(
