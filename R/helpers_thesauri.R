@@ -20,6 +20,13 @@ get_material_thesaurus <- function() {
     return()
 }
 
+#' get_thesaurus
+#'
+#' helper function to download thesaurus files
+#'
+#' @param url
+#'
+#' @return thesaurus data.frame
 get_thesaurus <- function(url) {
   readr::read_csv(
     url,
