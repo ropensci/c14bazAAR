@@ -61,15 +61,13 @@ standardize_country_name.c14_date_list <- function(
     as.c14_date_list()
 
   if(!quiet) {
-    print_lookup_decisions(x, country_thesaurus)
+    print_lookup_decisions(x, "country", "country_thes", country_thesaurus)
   }
 
   return(x)
 }
 
-######################################################################################
-# helper functions
-######################################################################################
+#### helper functions ####
 
 #' lookup_in_countrycode_codelist
 #'
@@ -128,46 +126,4 @@ find_correct_name_by_stringdist_comparison <- function(db_word, country_df, code
     ) %>%
     magrittr::extract2("country.name.en") %>%
     magrittr::extract(1)
-}
-
-#' print_lookup_decisions
-#'
-#' @param x a c14_date_list with country and country_thes
-#' @param country_thesaurus data.frame with correct and variants of country names
-#'
-#' @return NULL, called for the print side effect
-print_lookup_decisions <- function(x, country_thesaurus) {
-  changes <- find_lookup_decisions(x, country_thesaurus)
-  message("The following decisions were made: \n")
-  for(i in 1:nrow(changes)) {
-    message(
-      ifelse(
-        changes$thesaurus[i],
-        crayon::green("thesaurus:   "),
-        crayon::yellow("string match:")
-      ),
-      " ",
-      changes$country[i], " -> ", changes$country_thes[i]
-    )
-  }
-  message("\ ")
-}
-
-#' find_lookup_decisions
-#'
-#' @param x a c14_date_list with country and country_thes
-#' @param country_thesaurus data.frame with correct and variants of country names
-#'
-#' @return a tibble with the country names and the new country_thes names
-#' found by \code{find_correct_name_by_stringdist_comparison()}
-find_lookup_decisions <- function(x, country_thesaurus) {
-  x %>%
-    dplyr::select(.data$country, .data$country_thes) %>%
-    dplyr::filter(!is.na(.data$country_thes)) %>%
-    unique %>%
-    dplyr::arrange(.data$country) %>%
-    # check if decision was based on thesaurus entry
-    dplyr::mutate(
-      thesaurus = .data$country %in% country_thesaurus$var
-    )
 }
