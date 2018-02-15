@@ -7,7 +7,7 @@
 get_thesaurus(url)
 }
 \arguments{
-\item{url}{}
+\item{url}{url of thesusaurus csv file}
 }
 \value{
 thesaurus data.frame
