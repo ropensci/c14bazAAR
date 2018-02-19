@@ -57,6 +57,39 @@
     * what happens with "burned" or "charred" samples? 
     * Is a marine snail (mangrove gastropod) different to a terrestrial snail (e.g. reservoir-effect)? 
     * can "leather" be categorized as "tissue"?
+    * where to put: 
+        * coal, graphite
+        * clayball from hearth, mud-brick wall (ceramics?)
+        * marine coral 
 
 
+## defined classes (as of 19.2.2018)
 
+* antler
+* aragonite
+* ash
+* bark
+* beeswax
+* bone
+* calcium carbonate
+* ceramics
+* charcoal
+* fabric
+* faeces
+* food
+* freshwater shell
+* glass
+* hair
+* humic acid
+* micro organism
+* other
+* plant remains
+* pollen
+* quartz
+* shell
+* snail
+* soil
+* teeth
+* tissue
+* unknown
+* wood
