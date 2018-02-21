@@ -63,5 +63,6 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
     ) %>%
     as.c14_date_list()
 
+
   return(CALPAL)
 }
