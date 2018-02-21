@@ -6,32 +6,29 @@
 #' @description Calibrate all valid dates in a c14_date_list
 #'
 #' @param x an object of class c14_date_list
-#'
-#' @param ... Arguments to be passed to methods for c14_date_list
+#' @param choices whether the result should include the full calibrated probability dataframe ('probdist')
+#' or the sigma range ('sigmarange'). Both arguments may be given at the same time.
+#' @param sigma the desired sigma value (1,2,3) for the calibrated sigma ranges
+#' @param ... passed to Bchron::BchronCalibrate()
 #'
 #' @return an object of class c14_date_list
 #' @export
 #'
 #' @rdname calibrate
 #'
-calibrate <- function(x, ...) {
+calibrate <- function(x, choices = c("sigmarange"), sigma = 2, ...) {
   UseMethod("calibrate")
 }
 
 #' @rdname calibrate
 #' @export
-calibrate.default <- function(x, ...) {
+calibrate.default <- function(x, choices = c("sigmarange"), sigma = 2, ...) {
   stop("x is not an object of class c14_date_list")
 }
 
-#' @param choices whether the result should include the full calibrated probability dataframe ('probdist')
-#' or the sigma range ('sigmarange'). Both arguments may be given at the same time.
-#'
-#' @param sigma the desired sigma value (1,2,3) for the calibrated sigma ranges
-#'
 #' @rdname calibrate
 #' @export
-calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma=2, ...) {
+calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...) {
 
   choices <- match.arg(choices,
                        c("probdist", "sigmarange"),
@@ -78,7 +75,8 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma=2, ...) 
     # calibration in stacks of size step_width
     calibrateable_prodistr[step_seq] <- calibrate_to_probability_distribution(
       calibrateable[step_seq, ],
-      eps = 1e-06
+      eps = 1e-06,
+      ...
     )
 
     # increment progress bar
