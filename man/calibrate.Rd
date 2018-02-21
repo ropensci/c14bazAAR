@@ -6,14 +6,22 @@
 \alias{calibrate.c14_date_list}
 \title{Calibrate dates}
 \usage{
-calibrate(x)
+calibrate(x, choices = c("sigmarange"), sigma = 2, ...)
 
-\method{calibrate}{default}(x)
+\method{calibrate}{default}(x, choices = c("sigmarange"), sigma = 2, ...)
 
-\method{calibrate}{c14_date_list}(x)
+\method{calibrate}{c14_date_list}(x, choices = c("sigmarange"), sigma = 2,
+  ...)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
+
+\item{choices}{whether the result should include the full calibrated probability dataframe ('probdist')
+or the sigma range ('sigmarange'). Both arguments may be given at the same time.}
+
+\item{sigma}{the desired sigma value (1,2,3) for the calibrated sigma ranges}
+
+\item{...}{passed to Bchron::BchronCalibrate()}
 }
 \value{
 an object of class c14_date_list

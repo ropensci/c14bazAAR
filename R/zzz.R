@@ -4,8 +4,6 @@
 globalVariables(".")
 
 
-
-
 #' Dummy
 #'
 #' @importFrom rlang .data
