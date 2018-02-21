@@ -107,6 +107,9 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
     x$calprobdistr <- NULL
   }
 
+  # turning x back into a c14_date_list
+  x %<>% as.c14_date_list()
+
   # increment progress bar
   utils::setTxtProgressBar(pb, 100)
 
