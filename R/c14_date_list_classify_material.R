@@ -6,7 +6,8 @@
 #' @description Add column material_thes with simplified and unified terms
 #'
 #' @param x an object of class c14_date_list
-#' @param material_thesaurus_df a thesaurus table (default: c14bazAAR::material_thesaurus)
+#' @param material_thesaurus a thesaurus table (default: c14bazAAR::material_thesaurus)
+#' @param quiet suppress printed output
 #'
 #' @return an object of class c14_date_list
 #' @export
@@ -15,7 +16,8 @@
 #'
 classify_material <- function(
   x,
-  material_thesaurus_df = c14bazAAR::material_thesaurus
+  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  quiet = FALSE
 ) {
   UseMethod("classify_material")
 }
@@ -24,7 +26,8 @@ classify_material <- function(
 #' @export
 classify_material.default <- function(
   x,
-  material_thesaurus_df = c14bazAAR::material_thesaurus
+  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  quiet = FALSE
 ) {
   stop("x is not an object of class c14_date_list")
 }
@@ -33,16 +36,21 @@ classify_material.default <- function(
 #' @export
 classify_material.c14_date_list <- function(
   x,
-  material_thesaurus_df = c14bazAAR::material_thesaurus
+  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  quiet = FALSE
 ) {
 
-  x %<>% add_or_replace_column_in_df("material_thes", NA, .after = "material")
+  x %<>% add_or_replace_column_in_df("material_thes", NA_character_, .after = "material")
 
   x %<>%
     dplyr::mutate(
-      material_thes = lookup_in_thesaurus_table(.$material, material_thesaurus_df)
+      material_thes = lookup_in_thesaurus_table(.$material, material_thesaurus)
     ) %>%
     as.c14_date_list()
+
+  if(!quiet) {
+    print_lookup_decisions(x, "material", "material_thes", material_thesaurus)
+  }
 
   return(x)
 }
