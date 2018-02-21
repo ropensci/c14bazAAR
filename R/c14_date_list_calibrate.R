@@ -125,7 +125,9 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma=2, ...) 
 #' @return indizes of dates in c14_date_list which are out of calcurve range
 determine_dates_out_of_range_of_calcurve <- function(x) {
   # load intcal13 data from Bchron
-  intcal13 <- get("intcal13", asNamespace('Bchron'))
+  intcal13 <- NA
+  utils::data("intcal13", package = "Bchron", envir = environment())
+  if(!is.data.frame(intcal13)) stop("Problems loading intcal13 dataset from package Bchron.")
 
   toona <- which(is.na(x$c14age) | is.na(x$c14std))
   toosmall <- which(x$c14age < min(intcal13[,2]))
