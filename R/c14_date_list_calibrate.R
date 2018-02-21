@@ -101,10 +101,12 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma=2, ...) 
   x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange],hdr, prob = my_prob_vector[sigma])
 
   x$sigma <- sigma
+  } else {
+    x$calrange <- x$sigma <- NULL
   }
 
   if (!("probdist" %in% choices)) {
-    x$calprobdistr <- NA
+    x$calprobdistr <- NULL
   }
 
   # increment progress bar
