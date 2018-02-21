@@ -38,6 +38,8 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
         LATITUDE = readr::col_character(),
         LONGITUDE = readr::col_character(),
         METHOD = readr::col_character(),
+        CALAGE = readr::col_character(),
+        CALSTD = readr::col_character(),
         REFERENCE = readr::col_character(),
         NOTICE = readr::col_character()
       )
@@ -56,13 +58,14 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
       method = .data[["METHOD"]],
+      calage = .data[["CALAGE"]],
+      calstd = .data[["CALSTD"]],
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
       sourcedb = "CALPAL"
     ) %>%
     as.c14_date_list()
-
 
   return(CALPAL)
 }
