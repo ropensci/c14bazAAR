@@ -7,24 +7,35 @@
 #'
 #' @param x an object of class c14_date_list
 #'
+#' @param ... Arguments to be passed to methods for c14_date_list
+#'
 #' @return an object of class c14_date_list
 #' @export
 #'
 #' @rdname calibrate
 #'
-calibrate <- function(x) {
+calibrate <- function(x, ...) {
   UseMethod("calibrate")
 }
 
 #' @rdname calibrate
 #' @export
-calibrate.default <- function(x) {
+calibrate.default <- function(x, ...) {
   stop("x is not an object of class c14_date_list")
 }
 
+#' @param choices whether the result should include the full calibrated probability dataframe ('probdist')
+#' or the sigma range ('sigmarange'). Both arguments may be given at the same time.
+#'
+#' @param sigma the desired sigma value (1,2,3) for the calibrated sigma ranges
+#'
 #' @rdname calibrate
 #' @export
-calibrate.c14_date_list <- function(x) {
+calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma=2, ...) {
+
+  choices <- match.arg(choices,
+                       c("probdist", "sigmarange"),
+            several.ok = TRUE)
 
   check_if_packages_are_available(c("Bchron", "plyr"))
 
@@ -39,9 +50,8 @@ calibrate.c14_date_list <- function(x) {
     char = "+"
   )
 
-  # add empty columns "calage" and "calprobdistr"
-  x %<>% add_or_replace_column_in_df("calage",  NA_integer_, .after = "c14std")
-  x %<>% add_or_replace_column_in_df("calprobdistr",  I(replicate(nrow(x), data.frame())), .after = "calage")
+  # add empty column "calprobdistr"
+  x %<>% add_or_replace_column_in_df("calprobdistr",  I(replicate(nrow(x), data.frame())), .after = "c14std")
 
   # extract dates which are not out of range of calcurve
   outofrange <- x %>% determine_dates_out_of_range_of_calcurve()
@@ -79,20 +89,23 @@ calibrate.c14_date_list <- function(x) {
   calage_vector <- determine_calage_from_probability_distribution(calibrateable_prodistr)
 
   # write result back into x
-  x$calage[-outofrange] <- calage_vector
   x$calprobdistr[-outofrange] <- calibrateable_prodistr
 
-  # TODO put this into the parameter
-  my_sigma <- 2
-
+  # vector of probabilities for 1, 2 and 3 sigma
   my_prob_vector <- c(0.6827, 0.9545, 0.9974)
 
   x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calprobdistr")
   x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
 
-  x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange],hdr, prob = my_prob_vector[my_sigma])
+  if ("sigmarange" %in% choices) {
+  x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange],hdr, prob = my_prob_vector[sigma])
 
-  x$sigma <- my_sigma
+  x$sigma <- sigma
+  }
+
+  if (!("probdist" %in% choices)) {
+    x$calprobdistr <- NA
+  }
 
   # increment progress bar
   utils::setTxtProgressBar(pb, 100)
@@ -110,7 +123,7 @@ calibrate.c14_date_list <- function(x) {
 #' @return indizes of dates in c14_date_list which are out of calcurve range
 determine_dates_out_of_range_of_calcurve <- function(x) {
   # load intcal13 data from Bchron
-  utils::data("intcal13", package = "Bchron")
+  intcal13 <- get("intcal13", asNamespace('Bchron'))
 
   toona <- which(is.na(x$c14age) | is.na(x$c14std))
   toosmall <- which(x$c14age < min(intcal13[,2]))

@@ -34,7 +34,6 @@ order_variables.c14_date_list <- function(x) {
       dplyr::matches("^labnr$"),
       .data[["c14age"]],
       .data[["c14std"]],
-      dplyr::matches("^calage$"),
       dplyr::matches("^calprobdistr$"),
       dplyr::matches("^sigma$"),
       dplyr::matches("^c13val$"),
