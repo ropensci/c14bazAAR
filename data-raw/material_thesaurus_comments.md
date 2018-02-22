@@ -1,3 +1,91 @@
+# Changes (21.2.2018)
+
+* applied some of Martin's suggestions (see github 21.2.2018):
+    * aragonite, ash, glass and quartz are now __"other"__. 
+* Martin suggested to differentiate between human and animal bone. This would lead to three categories, since some bones are not described in more detail: e.g. "human bone", "animal bone", "bone"?
+    * I don't know how important it is to differentiate between them. But in my opinion it would make the whole thing less easy to understand and work with? This is similar to the differentiation between "seawater shell" and "freshwater shell", which you, @MartinHinz, opted for to discard.
+    *   for consistency reasons I suggest to either summarize all bones under the category "bone" and all shells under the category "shell", or to break them both down into smaller, more precise categories.
+        * __categorized all kinds of shell as "shell"__
+
+* "Baked clay from heart", "mud-brick wall", "Clayball from hearth"
+    * as __"burnt clay"__
+* "calcium carbonate" (eggs) as __"other"__
+* charred fruit, reed, seeds, (vekoold), etc. are now __"charcoal"__
+
+## defined classes (as of 21.2.2018)
+
+* antler
+* bark
+* beeswax
+* bone
+* burnt clay
+* ceramics
+* charcoal
+* fabric
+* faeces
+* food
+* hair
+* humic acid
+* micro organism
+* other
+* plant remains
+* pollen
+* shell
+* snail
+* soil
+* teeth
+* tissue
+* unknown
+* wood
+
+
+# Changes (19.2.2018)
+
+* applied Clemens' suggestions (see github: 15.2.18: _"...Right now we have two different values for missing/bad/unclear information: NA and undefined. I suggest to replace undefined with other and NA with unknown. other: We have an information, but it's too strange/unique/specific to add it to the other established categories. unkown: We don't have any infomation."_)
+* new categories: beeswax, quartz, glass, pollen, humic acid, 
+* open questions: 
+    * what happens with "burned" or "charred" samples? 
+    * Is a marine snail (mangrove gastropod) different to a terrestrial snail (e.g. reservoir-effect)? 
+    * can "leather" be categorized as "tissue"?
+    * where to put: 
+        * coal, graphite
+        * clayball from hearth, mud-brick wall (ceramics?)
+        * marine coral 
+
+
+## defined classes (as of 19.2.2018)
+
+* antler
+* aragonite
+* ash
+* bark
+* beeswax
+* bone
+* calcium carbonate
+* ceramics
+* charcoal
+* fabric
+* faeces
+* food
+* freshwater shell
+* glass
+* hair
+* humic acid
+* micro organism
+* other
+* plant remains
+* pollen
+* quartz
+* shell
+* snail
+* soil
+* teeth
+* tissue
+* unknown
+* wood
+
+# Changes (10.2.2018)
+
 ## defined classes (as of 10.2.2018)
 
 * ash
@@ -49,47 +137,4 @@
 
 
 
-# Changes (19.2.2018)
 
-* applied Clemens' suggestions (see github: 15.2.18: _"...Right now we have two different values for missing/bad/unclear information: NA and undefined. I suggest to replace undefined with other and NA with unknown. other: We have an information, but it's too strange/unique/specific to add it to the other established categories. unkown: We don't have any infomation."_)
-* new categories: beeswax, quartz, glass, pollen, humic acid, 
-* open questions: 
-    * what happens with "burned" or "charred" samples? 
-    * Is a marine snail (mangrove gastropod) different to a terrestrial snail (e.g. reservoir-effect)? 
-    * can "leather" be categorized as "tissue"?
-    * where to put: 
-        * coal, graphite
-        * clayball from hearth, mud-brick wall (ceramics?)
-        * marine coral 
-
-
-## defined classes (as of 19.2.2018)
-
-* antler
-* aragonite
-* ash
-* bark
-* beeswax
-* bone
-* calcium carbonate
-* ceramics
-* charcoal
-* fabric
-* faeces
-* food
-* freshwater shell
-* glass
-* hair
-* humic acid
-* micro organism
-* other
-* plant remains
-* pollen
-* quartz
-* shell
-* snail
-* soil
-* teeth
-* tissue
-* unknown
-* wood

@@ -2,10 +2,6 @@ cor,var
 antler,antler
 antler,horn
 antler,hjorthorn
-aragonite,aragonite
-aragonite,aragonte
-ash,ash
-ash,ashy soil
 bark,bark
 bark,Bark
 bark,riinde
@@ -64,13 +60,9 @@ bone,pig
 bone,Turtle carapace
 bone,Ur
 bone,Carbon from charred bone
-calcium carbonate,Bird eggshell
-calcium carbonate,Calcium carbonate
-calcium carbonate,eggshell
-calcium carbonate,Emu eggshell
-calcium carbonate,ostrich egg
-calcium carbonate,ostrich eggs
-ceramics,Baked clay from hearth
+burnt clay,Baked clay from hearth
+burnt clay,Clayball from hearth
+burnt clay,mud-brick wall
 ceramics,ceramic
 ceramics,ceramics
 ceramics,organic temper
@@ -103,6 +95,22 @@ charcoal,Scattered wood charcoal
 charcoal,Wood charcoal
 charcoal,carbon
 charcoal,Diffuse Charcoal
+charcoal,Carbonised wood
+charcoal,Burnt wood
+charcoal,carbonised wood
+charcoal,carbonised wood/ash
+charcoal,Carbon
+charcoal,Carbonised Eucalypt sp.
+charcoal,Carbonised nodule
+charcoal,Carbonised plant material
+charcoal,charred fruit
+charcoal,charred plant macrofossils
+charcoal,charred reed
+charcoal,charred seed
+charcoal,charred seeds
+charcoal,Charred twig
+charcoal,charred twigs
+charcoal,notenschelpen (verkoold)
 fabric,cloth
 fabric,fabric
 fabric,mat
@@ -122,15 +130,6 @@ food,Honey
 food,Speisereste
 food,voedselrest
 food,charred food residue
-freshwater shell,Freshwater mollusc shell
-freshwater shell,Freshwater mussel (Unio sp.)
-freshwater shell,Freshwater mussel (Velesunio ambiguus sp.)
-freshwater shell,Freshwater mussel shell
-freshwater shell,Freshwater shell
-freshwater shell,Freshwater shell (Unio protovittatus)
-freshwater shell,Freshwater shell (Unionid sp.)
-freshwater shell,Freshwater shell (Velesunio sp.)
-glass,Glass
 hair,animal hair
 hair,hair
 humic acid,humic acid
@@ -142,6 +141,17 @@ humic acid,Humics from ANUA-33
 humic acid,Humics from CAMS-2873
 humic acid,Humics from NZA-194
 micro organism,Foraminifera
+other,Bird eggshell
+other,Calcium carbonate
+other,eggshell
+other,Emu eggshell
+other,ostrich egg
+other,ostrich eggs
+other,aragonite
+other,aragonte
+other,ash
+other,ashy soil
+other,Glass
 other,alkaline insoluble
 other,Ash and charcoal
 other,Ash and shell
@@ -149,28 +159,20 @@ other,Bulk organic fraction
 other,bulk organic matter
 other,bulk organic mud
 other,Calcrete nodule
-other,Carbon
 other,Carbonate
-other,Carbonised Eucalypt sp.
-other,Carbonised nodule
-other,Carbonised plant material
-other,Carbonised wood
 other,Charcoal and burnt earth
 other,Charcoal and soil
 other,Charcoal lense
 other,charred material
-other,Clayball from hearth
 other,Coal
 other,Crustal salts
 other,Graphite
 other,insect remain
-other,leather
 other,Limestone flowstone
 other,Macrofossils
 other,Mactra abbreviata
 other,Marine coral
 other,Melo amphora
-other,mud-brick wall
 other,Mylitus planulatus shell
 other,Organic Carbon
 other,organic concentrate
@@ -182,6 +184,15 @@ other,Silica/paint
 other,soot
 other,Spinifex resin
 other,Termite nest used in hearth
+other,Quartz
+other,Quartz ('sand size')
+other,Quartz (180-212 microns)
+other,Quartz (90-125 microns)
+other,Quatrz
+other,Quatrz (90-125 micron)
+other,Austomylitus rostratus shell
+other,stones
+other,Human blood protein
 plant remains,grass cuticle
 plant remains,(Acacia?) roots
 plant remains,acorn
@@ -194,18 +205,10 @@ plant remains,beans
 plant remains,been
 plant remains,bine
 plant remains,burnt plants
-plant remains,Burnt wood
 plant remains,Canarium s.
 plant remains,Celtis seed
 plant remains,cereal
 plant remains,cereals
-plant remains,charred fruit
-plant remains,charred plant macrofossils
-plant remains,charred reed
-plant remains,charred seed
-plant remains,charred seeds
-plant remains,Charred twig
-plant remains,charred twigs
 plant remains,Cordarge (wood fibres from Acacia sp.)
 plant remains,Cornus mas
 plant remains,Corymbia sp. (Bloodwood)
@@ -243,7 +246,6 @@ plant remains,linsen
 plant remains,Lolium sp.
 plant remains,moss
 plant remains,Nauclea sp.
-plant remains,notenschelpen (verkoold)
 plant remains,nut
 plant remains,nuts or peas
 plant remains,nutshell
@@ -286,12 +288,14 @@ pollen,Pollen (<5 microns)
 pollen,Pollen (10-25 microns)
 pollen,Pollen (45-90 microns)
 pollen,Pollen (5-10 microns)
-quartz,Quartz
-quartz,Quartz ('sand size')
-quartz,Quartz (180-212 microns)
-quartz,Quartz (90-125 microns)
-quartz,Quatrz
-quartz,Quatrz (90-125 micron)
+shell,Freshwater mollusc shell
+shell,Freshwater mussel (Unio sp.)
+shell,Freshwater mussel (Velesunio ambiguus sp.)
+shell,Freshwater mussel shell
+shell,Freshwater shell
+shell,Freshwater shell (Unio protovittatus)
+shell,Freshwater shell (Unionid sp.)
+shell,Freshwater shell (Velesunio sp.)
 shell,Paphies sp. Shell
 shell,Patella laticostata shell
 shell,Polymesoda erosa shell
@@ -372,7 +376,6 @@ shell,Turbo sp. shell
 shell,Turbo torquatus operculum shell
 shell,Turbo undulata shell
 shell,Turbo undulatus and Haliotis rubra shell
-shell,Austomylitus rostratus shell
 shell,Gafrarium tumidum shell
 shell,Gastropod shell
 shell,Geloina coaxans shell
@@ -402,7 +405,6 @@ soil,soil
 soil,Soil
 soil,Soil carbonate
 soil,Soil organic matter
-soil,stones
 soil,torv
 soil,tuf
 soil,veen
@@ -417,6 +419,7 @@ teeth,teeth
 teeth,tooth
 teeth,Tooth dentine
 teeth,Tooth enamel
+tissue,leather
 tissue,brain
 tissue,brain tissue
 tissue,skin
@@ -441,7 +444,6 @@ unknown,Fl
 unknown,Hearth
 unknown,hearth
 unknown,human
-unknown,Human blood protein
 unknown,humates
 unknown,k. A.
 unknown,leister prong
@@ -477,8 +479,6 @@ unknown,UNKNOWN
 unknown,
 unknown,Unknown
 wood,Axtschaft
-wood,carbonised wood
-wood,carbonised wood/ash
 wood,Dendro
 wood,Haselzweig
 wood,Holz
