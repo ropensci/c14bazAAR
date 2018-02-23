@@ -41,8 +41,8 @@ coordinate_precision.c14_date_list <- function(x) {
 #' @param ... further arguments indicating the `mode` of the coordinates (whether these are lat or lon)
 #'
 #' @return vecor with precision in meters
-individual_precision <- function(x, ...) {
-  output <- circumference_calculator(x) / (360 * 10^digits_counter(x))
+individual_precision <- function(x, mode) {
+  output <- circumference_calculator(x, mode) / (360 * 10^digits_counter(x))
   return(output)
 }
 
