@@ -4,7 +4,7 @@
 \alias{individual_precision}
 \title{individual_precision}
 \usage{
-individual_precision(x, ...)
+individual_precision(x, mode)
 }
 \arguments{
 \item{x}{vector of coordinates (latitude or longitude)}
