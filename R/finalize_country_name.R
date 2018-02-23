@@ -40,13 +40,11 @@ finalize_country_name.c14_date_list <- function(x) {
     # and the original input data
     x %<>%
       dplyr::mutate(
-        if (country_coord != NA) {
-          country_final = country_coord
-        } else if (country_thes != NA) {
-          country_final = country_thes
-        } else {
-          country_final = country
-        }    ) %>%
+        country_final = ifelse(test = !is.na(country_coord),
+                               yes = country_coord,
+                               no = ifelse(test = !is.na(country_thes),
+                                           yes = country_thes,
+                                           no = country))) %>%
       as.c14_date_list()
     return(x)
 
