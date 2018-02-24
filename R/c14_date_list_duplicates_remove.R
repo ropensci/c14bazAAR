@@ -68,6 +68,11 @@ remove_duplicates.c14_date_list <- function(x) {
 
 #### helper functions ####
 
+#' stringify_data_frame
+#'
+#' @param x a data.frame
+#'
+#' @return a vector of strings describing the data.frame
 stringify_data_frame <- function(x) {
   # remove all columns that are not character or numeric
   y <- x[, sapply(x, class) %in% c("character", "numeric", "double", "integer", "factor")]
@@ -79,6 +84,11 @@ stringify_data_frame <- function(x) {
     return()
 }
 
+#' compare_and_combine
+#'
+#' @param x a data.frame
+#'
+#' @return a version of the data.frame where all inequalities are replaced by NA
 compare_and_combine <- function(x) {
   # remove NA values
   y <- x[!is.na(x)]
