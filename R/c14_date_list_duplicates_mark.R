@@ -36,8 +36,9 @@ mark_duplicates.c14_date_list <- function(x) {
   message("-> Writing duplicate groups...")
   x %<>% add_equality_group_number_based_on_equality_partner_list(partners)
 
-  return(x)
-
+  x %>%
+    as.c14_date_list() %>%
+    return()
 }
 
 #### helper functions ####

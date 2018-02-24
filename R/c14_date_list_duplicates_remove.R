@@ -63,7 +63,9 @@ remove_duplicates.c14_date_list <- function(x) {
   final_without_duplicates <- not_duplicates %>%
     rbind(summarised_duplicates)
 
-  return(final_without_duplicates)
+  final_without_duplicates %>%
+    as.c14_date_list() %>%
+    return()
 }
 
 #### helper functions ####
