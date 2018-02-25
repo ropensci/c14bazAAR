@@ -4,7 +4,7 @@
 \alias{remove_duplicates}
 \alias{remove_duplicates.default}
 \alias{remove_duplicates.c14_date_list}
-\title{remove duplicates}
+\title{Remove duplicates from a \strong{c14_date_list}}
 \usage{
 remove_duplicates(x)
 
@@ -16,8 +16,20 @@ remove_duplicates(x)
 \item{x}{an object of class c14_date_list}
 }
 \value{
-an object of class c14_date_list with the additional column duplicate_remove_log
+an object of class c14_date_list with the additional
+column \strong{duplicate_remove_log}
 }
 \description{
-remove double entries in a c14_date_list
+While \code{c14bazAAR::mark_duplicates()} finds duplicates,
+this function removes them by merging all dates in a \strong{duplicate_group}.
+All non-equal variables in the duplicate group are turned to \code{NA}. A new
+column \strong{duplicate_remove_log} documents the variety of entries initially
+provided (and partially lost by this hard merging operation).
+}
+\examples{
+library(magrittr)
+example_c14_date_list \%>\%
+  mark_duplicates() \%>\%
+  remove_duplicates()
+
 }

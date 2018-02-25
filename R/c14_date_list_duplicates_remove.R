@@ -1,13 +1,25 @@
 #### remove_duplicates ####
 
 #' @name remove_duplicates
-#' @title remove duplicates
+#' @title Remove duplicates from a \strong{c14_date_list}
 #'
-#' @description remove double entries in a c14_date_list
+#' @description While \code{c14bazAAR::mark_duplicates()} finds duplicates,
+#' this function removes them by merging all dates in a \strong{duplicate_group}.
+#' All non-equal variables in the duplicate group are turned to \code{NA}. A new
+#' column \strong{duplicate_remove_log} documents the variety of entries initially
+#' provided (and partially lost by this hard merging operation).
 #'
 #' @param x an object of class c14_date_list
 #'
-#' @return an object of class c14_date_list with the additional column duplicate_remove_log
+#' @return an object of class c14_date_list with the additional
+#' column \strong{duplicate_remove_log}
+#'
+#' @examples
+#' library(magrittr)
+#' example_c14_date_list %>%
+#'   mark_duplicates() %>%
+#'   remove_duplicates()
+#'
 #' @export
 #'
 #' @rdname remove_duplicates
@@ -52,7 +64,7 @@ remove_duplicates.c14_date_list <- function(x) {
   summarised_duplicates <- duplicates %>%
     dplyr::group_by(.data$duplicate_group) %>%
     dplyr::summarise_all(
-      .funs = dplyr::funs(compare_and_combine(.))
+      .funs = dplyr::funs(compare_and_combine_data_frame_values(.))
     ) %>%
     dplyr::mutate(
       duplicate_remove_log = stringified_differences
@@ -75,6 +87,8 @@ remove_duplicates.c14_date_list <- function(x) {
 #' @param x a data.frame
 #'
 #' @return a vector of strings describing the data.frame
+#'
+#' @keywords internal
 stringify_data_frame <- function(x) {
   # remove all columns that are not character or numeric
   y <- x[, sapply(x, class) %in% c("character", "numeric", "double", "integer", "factor")]
@@ -86,12 +100,14 @@ stringify_data_frame <- function(x) {
     return()
 }
 
-#' compare_and_combine
+#' compare_and_combine_data_frame_values
 #'
 #' @param x a data.frame
 #'
 #' @return a version of the data.frame where all inequalities are replaced by NA
-compare_and_combine <- function(x) {
+#'
+#' @keywords internal
+compare_and_combine_data_frame_values <- function(x) {
   # remove NA values
   y <- x[!is.na(x)]
   # if only NA, than return NA

@@ -2,7 +2,7 @@
 % Please edit documentation in R/c14_date_list_duplicates_mark.R
 \name{add_equality_group_number}
 \alias{add_equality_group_number}
-\title{add column with equality group number to c14_date_list}
+\title{add_equality_group_number}
 \usage{
 add_equality_group_number(x, partner_list)
 }
@@ -15,5 +15,6 @@ add_equality_group_number(x, partner_list)
 c14_date_list with additional column duplicate_group
 }
 \description{
-add column with equality group number to c14_date_list
+add_equality_group_number
 }
+\keyword{internal}

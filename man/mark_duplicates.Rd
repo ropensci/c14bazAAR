@@ -4,7 +4,7 @@
 \alias{mark_duplicates}
 \alias{mark_duplicates.default}
 \alias{mark_duplicates.c14_date_list}
-\title{mark duplicates}
+\title{Mark duplicates in a \strong{c14_date_list}}
 \usage{
 mark_duplicates(x)
 
@@ -16,9 +16,17 @@ mark_duplicates(x)
 \item{x}{an object of class c14_date_list}
 }
 \value{
-an object of class c14_date_list with the additional column duplicate_group
+an object of class c14_date_list with the additional
+column \strong{duplicate_group}
 }
 \description{
-mark double entries in a c14_date_list by
-comparing the Labcodes
+Duplicates are found by comparision of \strong{labnr}s.
+Only dates with exactly equal \strong{labnr}s are considered duplicates.
+Duplicate groups are numbered (from 0) and these numbers linked to
+the individual dates in the new column \strong{duplicate_group}.
+Duplicates can be removed with \code{c14bazAAR::remove_duplicates()}.
+}
+\examples{
+mark_duplicates(example_c14_date_list)
+
 }
