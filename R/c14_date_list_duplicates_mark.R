@@ -34,7 +34,7 @@ mark_duplicates.c14_date_list <- function(x) {
   partners <- x[["labnr"]] %>% generate_list_of_equality_partners()
 
   message("-> Writing duplicate groups...")
-  x %<>% add_equality_group_number_based_on_equality_partner_list(partners)
+  x %<>% add_equality_group_number(partners)
 
   x %>%
     as.c14_date_list() %>%
@@ -73,7 +73,7 @@ generate_list_of_equality_partners <- function(x) {
 #' @param partner_list partner list produced by generate_list_of_equality_partners()
 #'
 #' @return c14_date_list with additional column duplicate_group
-add_equality_group_number_based_on_equality_partner_list <- function(x, partner_list) {
+add_equality_group_number <- function(x, partner_list) {
   amount_duplicate_groups <- length(partner_list)
   pb <- utils::txtProgressBar(min = 1, max = amount_duplicate_groups, style = 3)
   group_counter = 0
