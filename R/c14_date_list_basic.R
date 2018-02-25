@@ -2,8 +2,6 @@
 
 #' Check if an object is of class c14_date_list
 #'
-#' Check if an object is of class c14_date_list
-#'
 #' @param x an object
 #' @param ... further arguments passed to or from other methods
 #'
