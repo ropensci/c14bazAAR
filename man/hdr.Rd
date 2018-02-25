@@ -25,3 +25,4 @@ have multiple such ranges if the calibrated date is multi-modal. These
 differ from credible intervals, which are always contiguous but will not
 be a good representation of a multi-modal probability distribution.
 }
+\keyword{internal}

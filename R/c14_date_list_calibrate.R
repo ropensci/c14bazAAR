@@ -137,6 +137,8 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
 #' @param x c14_date_list
 #'
 #' @return indizes of dates in c14_date_list which are out of calcurve range
+#'
+#' @keywords internal
 determine_dates_out_of_range_of_calcurve <- function(x) {
   # load intcal13 data from Bchron
   intcal13 <- NA
@@ -157,6 +159,8 @@ determine_dates_out_of_range_of_calcurve <- function(x) {
 #' @param ... passed to Bchron::BchronCalibrate()
 #'
 #' @return list with probability distribution data frames
+#'
+#' @keywords internal
 calibrate_to_probability_distribution <- function(x, ...) {
   Bchron::BchronCalibrate(
     ages      = x$c14age,
@@ -179,6 +183,8 @@ calibrate_to_probability_distribution <- function(x, ...) {
 #' @param x c14_date_list
 #'
 #' @return vector of calages
+#'
+#' @keywords internal
 determine_calage_from_probability_distribution <- function(x) {
   x %>%
     lapply(
@@ -205,6 +211,8 @@ determine_calage_from_probability_distribution <- function(x) {
 #' @param prob The desired probability interval, in the range(0, 1)
 #'
 #' @return a dataframe containing the hdr
+#'
+#' @keywords internal
 hdr <- function(calprobdistr, prob = 0.95) {
 
   if(findInterval(prob, c(0, 1))!=1) stop('prob value outside (0,1).')
