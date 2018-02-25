@@ -70,11 +70,15 @@ check_if_columns_are_present <- function(x, columns) {
 #' @return an object of class c14_date_list
 clean_latlon <- function(x) {
 
-  # lat&lon not available but zero
-  x[which(x[["lon"]] == 0 & x[["lat"]] == 0), c("lon", "lat")] <- NA
+  if(all(c("lat", "lon") %in% colnames(x))) {
 
-  # lat&long not on this earth
-  x[which(x[["lon"]] > 180 | x[["lon"]] < -180 | x[["lat"]] > 90 | x[["lat"]] < -90), c("lon", "lat")] <- NA
+    # lat&lon not available but zero
+    x[which(x[["lon"]] == 0 & x[["lat"]] == 0), c("lon", "lat")] <- NA
+
+    # lat&long not on this earth
+    x[which(x[["lon"]] > 180 | x[["lon"]] < -180 | x[["lat"]] > 90 | x[["lat"]] < -90), c("lon", "lat")] <- NA
+
+  }
 
   return(x)
 }
