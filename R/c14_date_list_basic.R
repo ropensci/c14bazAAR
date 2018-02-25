@@ -40,7 +40,7 @@ as.c14_date_list <- function(x, ...) {
         `class<-`(c("c14_date_list", class(.))) %>%
         c14bazAAR::order_variables() %>%
         c14bazAAR::enforce_types() %>%
-        c14bazAAR::clean() %>%
+        clean_latlon() %>%
         return()
     } else {
       stop(
