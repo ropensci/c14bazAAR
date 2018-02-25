@@ -4,7 +4,7 @@
 \alias{as.sf}
 \alias{as.sf.default}
 \alias{as.sf.c14_date_list}
-\title{convert a c14_date_list to a sf object}
+\title{Convert a \strong{c14_date_list} to a sf object}
 \usage{
 as.sf(x)
 
@@ -19,5 +19,18 @@ as.sf(x)
 an object of class sf
 }
 \description{
-convert a c14_date_list to a sf object
+Most 14C dates have point position information in
+the coordinates columns \strong{lat} and \strong{lon}. This allows
+them to be converted to a spatial simple feature collection as provided
+by the \code{sf} package. This simplifies for example mapping of the
+dates.
+}
+\examples{
+sf_c14 <- as.sf(example_c14_date_list)
+
+\dontrun{
+library(mapview)
+mapview(sf_c14$geom)
+}
+
 }
