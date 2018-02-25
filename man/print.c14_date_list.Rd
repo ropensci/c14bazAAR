@@ -12,5 +12,11 @@
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Print a c14_date_list according to the format.c14_date_list
+Print a c14_date_list according to \code{format.c14_date_list}.
+The function uses the tibble print function and adds a custom
+header for c14_date_lists.
+}
+\examples{
+print(example_c14_date_list)
+
 }

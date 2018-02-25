@@ -2,7 +2,7 @@
 % Please edit documentation in R/c14_date_list_basic.R
 \name{format.c14_date_list}
 \alias{format.c14_date_list}
-\title{Encode a c14_date_list in a Common Format}
+\title{Encode a c14_date_list in a common format}
 \usage{
 \method{format}{c14_date_list}(x, ...)
 }
@@ -12,8 +12,8 @@
 \item{...}{further arguments passed to or from other methods}
 }
 \value{
-A string representation of the c14_date_list
+A string representation of a c14_date_list
 }
 \description{
-Format an c14_date_list for pretty printing
+Format an c14_date_list for pretty printing.
 }

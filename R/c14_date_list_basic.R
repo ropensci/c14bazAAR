@@ -75,17 +75,16 @@ as.c14_date_list <- function(x, ...) {
 
 }
 
-
 #### format ####
 
-#' Encode a c14_date_list in a Common Format
+#' Encode a c14_date_list in a common format
 #'
-#' Format an c14_date_list for pretty printing
+#' Format an c14_date_list for pretty printing.
 #'
 #' @param x a c14_date_list
 #' @param ... further arguments passed to or from other methods
 #'
-#' @return A string representation of the c14_date_list
+#' @return A string representation of a c14_date_list
 #'
 #' @export
 format.c14_date_list <- function(x, ...) {
@@ -118,10 +117,15 @@ format.c14_date_list <- function(x, ...) {
 
 #' Print a c14_date_list
 #'
-#' Print a c14_date_list according to the format.c14_date_list
+#' Print a c14_date_list according to \code{format.c14_date_list}.
+#' The function uses the tibble print function and adds a custom
+#' header for c14_date_lists.
 #'
 #' @param x a c14_date_list
 #' @param ... further arguments passed to or from other methods
+#'
+#' @examples
+#' print(example_c14_date_list)
 #'
 #' @export
 print.c14_date_list <- function(x, ...) {
