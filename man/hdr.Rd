@@ -15,8 +15,13 @@ hdr(calprobdistr, prob = 0.95)
 a dataframe containing the hdr
 }
 \description{
-A function for computing highest density regions (HDRs). Adopted from the Bchron package
+A function for computing highest density regions (HDRs).
+Adopted from the Bchron package.
 }
 \details{
-The output of this function is a list of contiguous ranges which cover the probability interval requested. A highest density region might have multiple such ranges if the calibrated date is multi-modal. These differ from credible intervals, which are always contiguous but will not be a good representation of a multi-modal probability distribution.
+The output of this function is a list of contiguous ranges which
+cover the probability interval requested. A highest density region might
+have multiple such ranges if the calibrated date is multi-modal. These
+differ from credible intervals, which are always contiguous but will not
+be a good representation of a multi-modal probability distribution.
 }
