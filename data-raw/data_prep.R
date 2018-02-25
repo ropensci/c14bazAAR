@@ -20,7 +20,7 @@ variable_reference <- readr::read_csv(
   "data-raw/variable_reference.csv",
   na = c("NA")
 )
-devtools::use_data(material_thesaurus, overwrite = TRUE)
+devtools::use_data(variable_reference, overwrite = TRUE)
 
 #### example_c14_date_list ####
 
