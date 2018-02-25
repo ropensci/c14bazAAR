@@ -1,15 +1,20 @@
 #### classify_material ####
 
 #' @name classify_material
-#' @title Apply material classification
+#' @title Apply material classification on a \strong{c14_date_list}
 #'
-#' @description Add column material_thes with simplified and unified terms
+#' @description Add column \strong{material_thes} with simplified and unified terms for
+#' material categories. The classification is manually curated and therefore maybe not
+#' up-to-date. It's stored in c14bazAAR::material_thesaurus, but to be more independent
+#' of CRAN update cycles the current version of the classification list is downloaded
+#' directly from github with \code{c14bazAAR::get_material_thesaurus()}. With this setup
+#' you can also easily apply own thesaurus tables.
 #'
 #' @param x an object of class c14_date_list
-#' @param material_thesaurus a thesaurus table (default: c14bazAAR::material_thesaurus)
+#' @param material_thesaurus a thesaurus table
 #' @param quiet suppress printed output
 #'
-#' @return an object of class c14_date_list
+#' @return an object of class c14_date_list with the additional column \strong{material_thes}
 #' @export
 #'
 #' @rdname classify_material
@@ -61,6 +66,8 @@ classify_material.c14_date_list <- function(
 #' @param thesaurus_df reference table that contains variants and correct values
 #'
 #' @return a vector with the correct values
+#'
+#' @keywords internal
 lookup_in_thesaurus_table <- function(x, thesaurus_df){
   ifelse(
     x %in% thesaurus_df$var,

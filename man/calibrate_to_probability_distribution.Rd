@@ -9,7 +9,7 @@ calibrate_to_probability_distribution(x, ...)
 \arguments{
 \item{x}{c14_date_list}
 
-\item{...}{passed to Bchron::BchronCalibrate()}
+\item{...}{further arguments passed to Bchron::BchronCalibrate()}
 }
 \value{
 list with probability distribution data frames

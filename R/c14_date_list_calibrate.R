@@ -156,7 +156,7 @@ determine_dates_out_of_range_of_calcurve <- function(x) {
 #' calibrate_to_probability_distribution
 #'
 #' @param x c14_date_list
-#' @param ... passed to Bchron::BchronCalibrate()
+#' @param ... further arguments passed to Bchron::BchronCalibrate()
 #'
 #' @return list with probability distribution data frames
 #'
