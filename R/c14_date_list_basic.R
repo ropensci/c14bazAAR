@@ -1,6 +1,8 @@
 #### is ####
 
-#' Check if an object is of class c14_date_list
+#' Check if an object is of class \strong{c14_date_list}
+#'
+#' Only checks if the string "c14_date_list" is in the classes vector of the object.
 #'
 #' @param x an object
 #' @param ... further arguments passed to or from other methods
@@ -12,12 +14,16 @@ is.c14_date_list <- function(x, ...) {"c14_date_list" %in% class(x)}
 
 ##### as ####
 
-#' Convert an object of class data.frame or tibble to class c14_date_list
+#' Convert an object of class data.frame or tibble to class \strong{c14_date_list}
 #'
 #' If an object is of class data.frame or tibble (tbl & tbl_df), it can be
-#' converted to an object of class c14_date_list
+#' converted to an object of class \strong{c14_date_list}. The only requirement
+#' is that it contains the essential columns \strong{c14age} and \strong{c14std}.
+#' The function adds the string "c14_date_list" to the classes vector of the
+#' object and applies \code{order_variables()}, \code{enforce_types()} and
+#' the helper function \code{clean_latlon()} to it.
 #'
-#' @param x a variable
+#' @param x an object
 #' @param ... further arguments passed to or from other methods
 #'
 #' @return an object of class c14_date_list

@@ -2,7 +2,7 @@
 % Please edit documentation in R/c14_date_list_basic.R
 \name{is.c14_date_list}
 \alias{is.c14_date_list}
-\title{Check if an object is of class c14_date_list}
+\title{Check if an object is of class \strong{c14_date_list}}
 \usage{
 is.c14_date_list(x, ...)
 }
@@ -15,5 +15,5 @@ is.c14_date_list(x, ...)
 true if x is a c14_date_list, false otherwise
 }
 \description{
-Check if an object is of class c14_date_list
+Only checks if the string "c14_date_list" is in the classes vector of the object.
 }

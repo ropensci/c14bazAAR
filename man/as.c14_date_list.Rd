@@ -2,12 +2,12 @@
 % Please edit documentation in R/c14_date_list_basic.R
 \name{as.c14_date_list}
 \alias{as.c14_date_list}
-\title{Convert an object of class data.frame or tibble to class c14_date_list}
+\title{Convert an object of class data.frame or tibble to class \strong{c14_date_list}}
 \usage{
 as.c14_date_list(x, ...)
 }
 \arguments{
-\item{x}{a variable}
+\item{x}{an object}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -16,5 +16,9 @@ an object of class c14_date_list
 }
 \description{
 If an object is of class data.frame or tibble (tbl & tbl_df), it can be
-converted to an object of class c14_date_list
+converted to an object of class \strong{c14_date_list}. The only requirement
+is that it contains the essential columns \strong{c14age} and \strong{c14std}.
+The function adds the string "c14_date_list" to the classes vector of the
+object and applies \code{order_variables()}, \code{enforce_types()} and
+the helper function \code{clean_latlon()} to it.
 }
