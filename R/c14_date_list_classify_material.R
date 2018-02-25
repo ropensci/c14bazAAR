@@ -45,6 +45,8 @@ classify_material.c14_date_list <- function(
   quiet = FALSE
 ) {
 
+  x %>% check_if_columns_are_present("material")
+
   x %<>% add_or_replace_column_in_df("material_thes", NA_character_, .after = "material")
 
   x %<>%

@@ -51,6 +51,10 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
 
   check_if_packages_are_available(c("Bchron", "plyr"))
 
+  # this would actually not be necessary, because a c14_date_list has
+  # those columns per definition
+  x %>% check_if_columns_are_present(c("c14age", "c14std"))
+
   # start message:
   message(paste0("Calibration... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
 
