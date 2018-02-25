@@ -55,6 +55,8 @@ order_variables.c14_date_list <- function(x) {
       dplyr::matches("^spatial_quality$"),
       dplyr::matches("^shortref$"),
       dplyr::matches("^comment$"),
+      dplyr::matches("^duplicate_group$"),
+      dplyr::matches("^duplicate_remove_log$"),
       # if there somehow are more variables:
       dplyr::everything()
     )

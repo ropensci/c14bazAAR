@@ -31,9 +31,9 @@ enforce_types.c14_date_list <- function(x) {
     "sourcedb", "method", "labnr", "site", "sitetype", "feature", "period",
     "culture", "material", "material_the", "species", "region", "country",
     "country_coord", "country_the", "spatial_quality", "shortref",
-    "comment"
+    "comment", "duplicate_remove_log"
   )
-  int_cols <- c("c14age", "c14std", "calage", "calstd")
+  int_cols <- c("c14age", "c14std", "calage", "calstd", "duplicate_group")
   dbl_cols <- c("c13val", "lat", "lon")
 
   # transform (invalid values become NA)

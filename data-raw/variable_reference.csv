@@ -35,6 +35,8 @@ region,character,Geographical makro region,1,14.5,Subregion,,IBRA_REGION,,REGION
 feature,character,Name or description of the sample context within the site,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE,FEATURE,Site Name
 ,,,0,,,FEATURE_DESC,,,,,,,
 sitetype,character,Site type classification,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE,FEATURETYPE,
+duplicate_group,integer,Number of duplicate group,1,23,,,,,,,,,
+duplicate_remove_log,character,Description of variation in duplicate group,1,24,,,,,,,,,
 ,,,0,,,,C13_ERROR,,,,,,
 ,,,0,,,,MATERIAL_TOP_LEVEL,,,,,,
 ,,,0,,,,DEPTH_FROM_SURFACE_CM,,,,,,
