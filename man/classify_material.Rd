@@ -33,3 +33,10 @@ of CRAN update cycles the current version of the classification list is download
 directly from github with \code{c14bazAAR::get_material_thesaurus()}. With this setup
 you can also easily apply own thesaurus tables.
 }
+\examples{
+classify_material(
+  example_c14_date_list,
+  quiet = TRUE
+)
+
+}

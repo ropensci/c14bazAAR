@@ -43,3 +43,11 @@ a data.frame with the columns \strong{calage} and \strong{density}. \cr
 requested for the individual date. For each date there's a data.frame with the
 columns \strong{dens} and \strong{from} and \strong{to}.
 }
+\examples{
+calibrate(
+  example_c14_date_list,
+  choices = c("probdist", "sigmarange"),
+  sigma = 1
+)
+
+}

@@ -15,6 +15,13 @@
 #' @param quiet suppress printed output
 #'
 #' @return an object of class c14_date_list with the additional column \strong{material_thes}
+#'
+#' @examples
+#' classify_material(
+#'   example_c14_date_list,
+#'   quiet = TRUE
+#' )
+#'
 #' @export
 #'
 #' @rdname classify_material
@@ -48,6 +55,8 @@ classify_material.c14_date_list <- function(
   x %>% check_if_columns_are_present("material")
 
   x %<>% add_or_replace_column_in_df("material_thes", NA_character_, .after = "material")
+
+  message(paste0("Material classification... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
 
   x %<>%
     dplyr::mutate(

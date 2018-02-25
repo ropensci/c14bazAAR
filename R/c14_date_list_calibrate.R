@@ -27,6 +27,13 @@
 #' @return an object of class c14_date_list with the additional columns
 #' \strong{calprobdistr} or \strong{calrange} and \strong{sigma}
 #'
+#' @examples
+#' calibrate(
+#'   example_c14_date_list,
+#'   choices = c("probdist", "sigmarange"),
+#'   sigma = 1
+#' )
+#'
 #' @export
 #'
 #' @rdname calibrate
