@@ -22,3 +22,4 @@ found by \code{find_correct_name_by_stringdist_comparison()}
 \description{
 find_lookup_decisions
 }
+\keyword{internal}

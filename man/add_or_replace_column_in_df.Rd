@@ -21,3 +21,4 @@ data.frame with new column
 \description{
 add_or_replace_column_in_df
 }
+\keyword{internal}

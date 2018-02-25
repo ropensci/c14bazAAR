@@ -15,3 +15,4 @@ an object of class c14_date_list
 \description{
 Apply some data cleaning steps to a c14_date_list
 }
+\keyword{internal}
