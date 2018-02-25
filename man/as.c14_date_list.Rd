@@ -22,3 +22,17 @@ The function adds the string "c14_date_list" to the classes vector of the
 object and applies \code{order_variables()}, \code{enforce_types()} and
 the helper function \code{clean_latlon()} to it.
 }
+\examples{
+# c14_date_list can be crafted manually:
+as.c14_date_list(data.frame(c14age = c(2000, 2500), c14std = c(30, 35)))
+
+# The c14_date_list class is stripped if
+# you apply functions to a c14_date_list
+# that return tibbles or data.frames.
+# You have to add the class again afterwards:
+library(magrittr)
+example_c14_date_list \%>\%
+  dplyr::filter(sourcedb == "CALPAL") \%>\%
+  as.c14_date_list()
+
+}

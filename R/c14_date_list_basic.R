@@ -9,6 +9,10 @@
 #'
 #' @return true if x is a c14_date_list, false otherwise
 #'
+#' @examples
+#' is.c14_date_list(5) # FALSE
+#' is.c14_date_list(example_c14_date_list) # TRUE
+#'
 #' @export
 is.c14_date_list <- function(x, ...) {"c14_date_list" %in% class(x)}
 
@@ -27,6 +31,19 @@ is.c14_date_list <- function(x, ...) {"c14_date_list" %in% class(x)}
 #' @param ... further arguments passed to or from other methods
 #'
 #' @return an object of class c14_date_list
+#'
+#' @examples
+#' # c14_date_list can be crafted manually:
+#' as.c14_date_list(data.frame(c14age = c(2000, 2500), c14std = c(30, 35)))
+#'
+#' # The c14_date_list class is stripped if
+#' # you apply functions to a c14_date_list
+#' # that return tibbles or data.frames.
+#' # You have to add the class again afterwards:
+#' library(magrittr)
+#' example_c14_date_list %>%
+#'   dplyr::filter(sourcedb == "CALPAL") %>%
+#'   as.c14_date_list()
 #'
 #' @export
 as.c14_date_list <- function(x, ...) {

@@ -17,3 +17,8 @@ true if x is a c14_date_list, false otherwise
 \description{
 Only checks if the string "c14_date_list" is in the classes vector of the object.
 }
+\examples{
+is.c14_date_list(5) # FALSE
+is.c14_date_list(example_c14_date_list) # TRUE
+
+}
