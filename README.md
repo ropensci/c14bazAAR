@@ -6,14 +6,35 @@
 
 c14bazAAR (formerly known as c14databases) is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. In the future it will serve as the backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). 
 
+## Table of Contents
+
+- [Installation](#installation)
+- [How to use](#how-to-use)
+  - [`calibrate()`](#calibrate)
+- [Databases](#databases)
+
+### Installation
+
+c14bazAAR is not on CRAN yet, but you can install it from github:
+
+```
+# install.packages("devtools")
+devtools::install_github("ISAAKiel/c14bazAAR")
+```
+
+### How to use
+
 The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around [tibble](http://tibble.tidyverse.org/). 
 
 The class `c14_date_list` has some methods to clean and modify the date collections:
 
-- `calibrate()`
-- `estimate_spatial_quality()`
-- `rm_doubles()`
-- `thesaurify()`
+#### 1. [`calibrate()`](R/c14_date_list_calibrate.R)
+
+- The functio calibrates all valid dates in a \strong{c14_date_list} with \code{Bchron::BchronCalibrate()}.
+
+2. `estimate_spatial_quality()`
+3. `rm_doubles()`
+4. `thesaurify()`
 
 Beyond that there are some small helpers to combine (`fuse()`), structure (`order_variables()`, `enforce_types()`) or convert (`as.sf()`, ...) `c14_date_list`s.
 
@@ -31,12 +52,4 @@ Beyond that there are some small helpers to combine (`fuse()`), structure (`orde
 
 All databases can be queried at once with `get_all_dates()`.
 
-### Installation
-
-c14bazAAR is not on CRAN yet, but you can install it from github:
-
-```
-# install.packages("devtools")
-devtools::install_github("ISAAKiel/c14bazAAR")
-```
 
