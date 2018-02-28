@@ -1,17 +1,4 @@
-#' get AustArch: A Database of 14C and Luminescence Ages from Archaeological Sites in Australia
-#'
-#' See:
-#' - AustArch: A Database of 14C and Non-14C Ages from Archaeological Sites in Australia - Composition, Compilation and Review (Data Paper) http://intarch.ac.uk/journal/issue36/6/williams.html
-#' - AustArch: A Database of 14C and Luminescence Ages from Archaeological Sites in Australia http://archaeologydataservice.ac.uk/archives/view/austarch_na_2014/
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   AustArch <- get_AustArch()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_AustArch <- function(db_url = get_db_url("AustArch")) {
 

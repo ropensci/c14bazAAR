@@ -1,15 +1,4 @@
-#' get current EUROEVOL-Database
-#'
-#' Downloads the current version of the EUROEVOL-Database from \url{http://discovery.ucl.ac.uk/1469811/}.
-#'
-#' @param db_urls vector of strings with weblinks to c14 archive files
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   EUROEVOL <- get_EUROEVOL()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_EUROEVOL <- function(db_urls = get_db_url("EUROEVOL")) {
 

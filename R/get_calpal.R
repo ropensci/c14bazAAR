@@ -1,15 +1,4 @@
-#' get current CALPAL-Database
-#'
-#' Downloads an (actually old) version of the CALPAL-Database from \url{https://github.com/nevrome/CalPal-Database}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   CALPAL <- get_CALPAL()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_CalPal <- function(db_url = get_db_url("CalPal")) {
 

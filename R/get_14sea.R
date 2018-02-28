@@ -1,15 +1,4 @@
-#' get current 14SEA-Database
-#'
-#' Downloads the current version of the 14SEA-Database from \url{http:///www.14sea.org/}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   14SEA <- get_14SEA()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_14SEA <- function(db_url = get_db_url("14SEA")) {
 

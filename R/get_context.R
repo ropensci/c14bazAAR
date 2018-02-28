@@ -1,15 +1,4 @@
-#' get current CONTEXT-Database
-#'
-#' Downloads the current version of the CONTEXT-Database from \url{http://context-database.uni-koeln.de/}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   CONTEXT <- get_CONTEXT()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
 

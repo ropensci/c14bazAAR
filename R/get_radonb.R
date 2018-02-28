@@ -1,15 +1,4 @@
-#' get current RADONB-Database
-#'
-#' Downloads the current version of the RADON-Database from \url{http://radon-b.ufg.uni-kiel.de/}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   RADONB <- get_RADONB()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_RADONB <- function(db_url = get_db_url("RADON-B")) {
 

@@ -1,15 +1,4 @@
-#' get current aDRAC-Database
-#'
-#' Downloads the current version of the aDRAC-Database from \url{https://github.com/dirkseidensticker/aDRAC/}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   aDRAC <- get_aDRAC()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
 
