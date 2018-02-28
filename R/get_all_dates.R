@@ -58,6 +58,8 @@ get_all_dates <- function() {
 #' get_all_parser_functions
 #'
 #' @return vector with all parser functions in c14bazAAR
+#'
+#' @keywords internal
 get_all_parser_functions <- function() {
   c(
     c14bazAAR::get_aDRAC,
