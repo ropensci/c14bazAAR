@@ -1,10 +1,14 @@
 #' get db url
 #'
-#' Downloads db urls
+#' Downloads URLs of c14 source databases from a reference table
+#' on github.
 #'
 #' @param db_name name of the database
 #'
-#' @export
+#' @examples
+#' get_db_url("RADON")
+#'
+#' @keywords internal
 get_db_url <- function(db_name) {
 
   # URL
