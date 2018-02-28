@@ -90,3 +90,14 @@ clean_latlon <- function(x) {
 
   return(x)
 }
+
+#' check_connection_to_url
+#'
+#' @param db_url url string
+#'
+#' @return logical
+#'
+#' @keywords internal
+check_connection_to_url <- function(db_url) {
+  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+}

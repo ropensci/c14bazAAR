@@ -2,8 +2,7 @@
 #' @export
 get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
 
-  # check connection
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+  check_connection_to_url(db_url)
 
   # download data to temporary file
   tempo <- tempfile()

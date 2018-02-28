@@ -6,10 +6,9 @@ get_EUROEVOL <- function(db_urls = get_db_url("EUROEVOL")) {
   db_url2 <- db_urls[2]
   db_url3 <- db_urls[3]
 
-  # check connection
-  if (!RCurl::url.exists(db_url1)) {stop(paste(db_url1, "is not available. No internet connection?"))}
-  if (!RCurl::url.exists(db_url2)) {stop(paste(db_url2, "is not available."))}
-  if (!RCurl::url.exists(db_url3)) {stop(paste(db_url3, "is not available."))}
+  check_connection_to_url(db_url1)
+  check_connection_to_url(db_url2)
+  check_connection_to_url(db_url3)
 
   # read dates data
   dates <- db_url1 %>%
