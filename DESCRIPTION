@@ -16,7 +16,6 @@ Imports:
     dplyr (>= 0.7.2),
     magrittr (>= 1.5),
     pbapply (>= 1.3-3),
-    purrr (>= 0.2.4),
     RCurl (>= 1.95-4.8),
     readr (>= 1.1.1),
     rlang (>= 0.1.1),

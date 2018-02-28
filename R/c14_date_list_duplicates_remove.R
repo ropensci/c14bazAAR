@@ -36,7 +36,8 @@ remove_duplicates.c14_date_list <- function(x) {
   # stringify variation in duplicates: log string
   stringified_differences <- duplicates %>%
     plyr::dlply("duplicate_group") %>%
-    purrr::map_chr(.f = stringify_data_frame)
+    lapply(FUN = stringify_data_frame) %>%
+    unlist
 
   # combine the duplicates and add the log string
   summarised_duplicates <- duplicates %>%
@@ -102,3 +103,4 @@ compare_and_combine_data_frame_values <- function(x) {
     }
   }
 }
+
