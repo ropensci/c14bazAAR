@@ -1,6 +1,9 @@
-#' Download radiocarbon source databases and convert them to a \strong{c14_date_list}
+#### get_all_dates ####
+
+# name (get_dates) of documentation group has to be adjusted in alphabetically first element get_14SEA()
+#' @title Download radiocarbon source databases and convert them to a \strong{c14_date_list}
 #'
-#' This functions download source databases and adjust their variables to conform to the
+#' @description This functions download source databases and adjust their variables to conform to the
 #' definition in \code{c14bazAAR::variable_reference}. That includes renaming and arranging
 #' the variables (with \code{c14bazAAR::order_variables()}) as well as type conversion
 #' (with \code{c14bazAAR::enforce_types()}) -- so all the steps undertaken by

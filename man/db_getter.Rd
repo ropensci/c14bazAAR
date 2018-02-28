@@ -2,7 +2,8 @@
 % Please edit documentation in R/get_14sea.R, R/get_adrac.R, R/get_all_dates.R,
 %   R/get_austarch.R, R/get_calpal.R, R/get_context.R, R/get_eastafrica.R,
 %   R/get_euroevol.R, R/get_radon.R, R/get_radonb.R
-\name{get_14SEA}
+\name{get_dates}
+\alias{get_dates}
 \alias{get_14SEA}
 \alias{get_aDRAC}
 \alias{get_all_dates}

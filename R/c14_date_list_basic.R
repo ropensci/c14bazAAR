@@ -1,8 +1,10 @@
 ##### as ####
 
-#' \strong{c14_date_list}
+#' @name c14_date_list
 #'
-#' The \strong{c14_date_list} is the central data structure of the
+#' @title \strong{c14_date_list}
+#'
+#' @description The \strong{c14_date_list} is the central data structure of the
 #' \code{c14bazAAR} package. It's a tibble with set of custom methods and
 #' variables. Please see \code{c14bazAAR::variable_reference} for a describtion
 #' of the variables. Further available variables are ignored. \cr
