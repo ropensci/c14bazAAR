@@ -76,6 +76,11 @@ get_AustArch <- function(db_url = get_db_url("AustArch")) {
     ) %>% dplyr::mutate(
       sourcedb = "AustArch"
     ) %>%
+    # AustArch also contains dates from other dating
+    # methods (OSL, TL, U-Series, etc.)
+    dplyr::filter(
+      .data$method == "Radiocarbon"
+    ) %>%
     as.c14_date_list()
 
   return(AustArch)
