@@ -85,6 +85,8 @@ standardize_country_name.c14_date_list <- function(
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a vector with the correct english country names
+#'
+#' @keywords internal
 lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 
   check_if_packages_are_available(c("countrycode", "stringdist"))
@@ -117,6 +119,8 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a correct english country name
+#'
+#' @keywords internal
 find_correct_name_by_stringdist_comparison <- function(db_word, country_df, codes, ...) {
   country_df %>%
     dplyr::mutate_all(
