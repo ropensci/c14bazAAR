@@ -30,7 +30,7 @@ get_CONTEXT(db_url = get_db_url("CONTEXT"))
 
 get_KITEeastAfrica(db_url = get_db_url("KITEeastAfrica"))
 
-get_EUROEVOL(db_urls = get_db_url("EUROEVOL"))
+get_EUROEVOL(db_url = get_db_url("EUROEVOL"))
 
 get_RADON(db_url = get_db_url("RADON"))
 

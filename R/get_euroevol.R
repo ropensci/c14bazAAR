@@ -1,10 +1,10 @@
 #' @rdname db_getter
 #' @export
-get_EUROEVOL <- function(db_urls = get_db_url("EUROEVOL")) {
+get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
 
-  db_url1 <- db_urls[1]
-  db_url2 <- db_urls[2]
-  db_url3 <- db_urls[3]
+  db_url1 <- db_url[1]
+  db_url2 <- db_url[2]
+  db_url3 <- db_url[3]
 
   check_connection_to_url(db_url1)
   check_connection_to_url(db_url2)
