@@ -13,8 +13,4 @@ get_db_url(db_name)
 Downloads URLs of c14 source databases from a reference table
 on github.
 }
-\examples{
-get_db_url("RADON")
-
-}
 \keyword{internal}

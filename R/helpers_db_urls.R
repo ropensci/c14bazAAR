@@ -5,9 +5,6 @@
 #'
 #' @param db_name name of the database
 #'
-#' @examples
-#' get_db_url("RADON")
-#'
 #' @keywords internal
 get_db_url <- function(db_name) {
 
