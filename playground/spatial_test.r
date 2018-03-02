@@ -17,6 +17,8 @@ test3 <- c14bazAAR::standardize_country_name(test2)
 test3[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision")]
 test4 <- c14bazAAR::finalize_country_name(test3)
 test4[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision","country_final")]
+no_country <- nrow(test4[,c("lat","lon","country","country_coord")][is.na(test4$country_coord) & !is.na(test4$lat),])
+paste("no country although there are coordinates?", no_country , "times. I.e. ", round((no_country / nrow(test4)) * 100, 2) , "%")
 
 ## CalPal
 test <- c14bazAAR::get_CalPal()
@@ -27,6 +29,8 @@ test3 <- c14bazAAR::standardize_country_name(test2)
 test3[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision")]
 test4 <- c14bazAAR::finalize_country_name(test3)
 test4[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision","country_final")]
+no_country <- nrow(test4[,c("lat","lon","country","country_coord")][is.na(test4$country_coord) & !is.na(test4$lat),])
+paste("no country although there are coordinates?", no_country , "times. I.e. ", round((no_country / nrow(test4)) * 100, 2) , "%")
 
 ## CONTEXT
 test <- c14bazAAR::get_CONTEXT()
@@ -37,6 +41,8 @@ test3 <- c14bazAAR::standardize_country_name(test2)
 test3[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision")]
 test4 <- c14bazAAR::finalize_country_name(test3)
 test4[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision","country_final")]
+no_country <- nrow(test4[,c("lat","lon","country","country_coord")][is.na(test4$country_coord) & !is.na(test4$lat),])
+paste("no country although there are coordinates?", no_country , "times. I.e. ", round((no_country / nrow(test4)) * 100, 2) , "%")
 
 ## RADONB
 test <- c14bazAAR::get_RADONB()
@@ -47,6 +53,8 @@ test3 <- c14bazAAR::standardize_country_name(test2)
 test3[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision")]
 test4 <- c14bazAAR::finalize_country_name(test3)
 test4[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision","country_final")]
+no_country <- nrow(test4[,c("lat","lon","country","country_coord")][is.na(test4$country_coord) & !is.na(test4$lat),])
+paste("no country although there are coordinates?", no_country , "times. I.e. ", round((no_country / nrow(test4)) * 100, 2) , "%")
 
 ## EUROEVOL
 test <- c14bazAAR::get_EUROEVOL()
@@ -57,6 +65,8 @@ test3 <- c14bazAAR::standardize_country_name(test2)
 test3[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision")]
 test4 <- c14bazAAR::finalize_country_name(test3)
 test4[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision","country_final")]
+no_country <- nrow(test4[,c("lat","lon","country","country_coord")][is.na(test4$country_coord) & !is.na(test4$lat),])
+paste("no country although there are coordinates?", no_country , "times. I.e. ", round((no_country / nrow(test4)) * 100, 2) , "%")
 
 ## RADON 
 test <- c14bazAAR::get_RADON()
@@ -67,6 +77,8 @@ test3 <- c14bazAAR::standardize_country_name(test2)
 test3[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision")]
 test4 <- c14bazAAR::finalize_country_name(test3)
 test4[1:5, c("lat","lon","country","country_thes","country_coord","coord_precision","country_final")]
+no_country <- nrow(test4[,c("lat","lon","country","country_coord")][is.na(test4$country_coord) & !is.na(test4$lat),])
+paste("no country although there are coordinates?", no_country , "times. I.e. ", round((no_country / nrow(test4)) * 100, 2) , "%")
 
 ## FAILS
 ## ==================================================
