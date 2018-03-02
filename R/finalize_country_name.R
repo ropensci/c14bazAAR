@@ -36,28 +36,26 @@ finalize_country_name.c14_date_list <- function(x) {
     x %<>% dplyr::mutate(ID=seq(1,nrow(x),1))
 
     sf_x_problem <- x %>%
-      dplyr::filter(is.na(country_coord), !is.na(lat), !is.na(lon)) %>%    
+      dplyr::filter(is.na(country_coord), !is.na(lat), !is.na(lon)) %>%
       sf::st_as_sf(coords = c("lon","lat"),
                    remove = FALSE,
                    crs = 4326) %>%
       sf::st_buffer(dist = .5) %>%
       sf::st_join(y = world) %>%
-      dplyr::select(c(names(x)[-"country_coord"], geometry), country_coord = ADMIN.1) %>%
+      dplyr::select(c(names(x)[which(names(x)!="country_coord")]), country_coord = ADMIN.1) %>%
       dplyr::mutate(country_coord = as.character(country_coord))
 
-    sf::st_geometry(sf_x_problem) <- NULL
-
-    sf_x_problem <- sf_x_problem[which(sf_x_problem$country_coord == sf_x_problem$country_thes),]  
+    sf_x_problem <- sf_x_problem[which(sf_x_problem$country_coord == sf_x_problem$country_thes),]
 
     x <- x %>%
       dplyr::filter(!is.element(ID, sf_x_problem$ID)) %>%
       dplyr::bind_rows(., sf_x_problem) %>%
       dplyr::arrange(ID) %>%
       dplyr::select(-ID) %>%
-      as.c14_date_list()      
-    }
-  
-  if (all(present)) {    
+      as.c14_date_list()
+  }
+
+  if (all(present)) {
     # add the column country_final
     x %<>% add_or_replace_column_in_df("country_final", NA, .after = "country_thes")
 
