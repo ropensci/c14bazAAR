@@ -2,7 +2,7 @@
 % Please edit documentation in R/c14_date_list_duplicates_mark.R
 \name{generate_list_of_equality_partners}
 \alias{generate_list_of_equality_partners}
-\title{search for equality partners in vector}
+\title{generate_list_of_equality_partners}
 \usage{
 generate_list_of_equality_partners(x)
 }
@@ -13,5 +13,6 @@ generate_list_of_equality_partners(x)
 list of unique partners
 }
 \description{
-search for equality partners in vector
+generate_list_of_equality_partners
 }
+\keyword{internal}

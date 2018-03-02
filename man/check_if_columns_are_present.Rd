@@ -17,3 +17,4 @@ NULL - called for side effect stop()
 \description{
 check_if_columns_are_present
 }
+\keyword{internal}

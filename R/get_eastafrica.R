@@ -1,24 +1,8 @@
-#' get KITE East Africa v2.1.csv from ...
-#'
-#' See:
-#' - A Database of Radiocarbon Dates for Palaeoenvironmental Research in Eastern Africa: https://www.openquaternary.com/articles/10.5334/oq.22/
-#' - Radiocarbon dates from eastern Africa in the CARD2.0 format: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ
-#'
-#' The dataset is stored within https://dataverse.harvard.edu that requires the dataverse-package (see https://cran.r-project.org/web/packages/dataverse/vignettes/C-retrieval.html)
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   KITEeastAfrica <- get_KITEeastAfrica()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
 
-  # check connection
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+  check_connection_to_url(db_url)
 
   # download data to temporary file
   tempo <- tempfile()

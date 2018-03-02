@@ -4,7 +4,7 @@
 \alias{calibrate}
 \alias{calibrate.default}
 \alias{calibrate.c14_date_list}
-\title{Calibrate dates}
+\title{Calibrate all valid dates in a \strong{c14_date_list}}
 \usage{
 calibrate(x, choices = c("sigmarange"), sigma = 2, ...)
 
@@ -16,16 +16,38 @@ calibrate(x, choices = c("sigmarange"), sigma = 2, ...)
 \arguments{
 \item{x}{an object of class c14_date_list}
 
-\item{choices}{whether the result should include the full calibrated probability dataframe ('probdist')
-or the sigma range ('sigmarange'). Both arguments may be given at the same time.}
+\item{choices}{whether the result should include the full calibrated
+probability dataframe ('probdist') or the sigma range ('sigmarange').
+Both arguments may be given at the same time.}
 
 \item{sigma}{the desired sigma value (1,2,3) for the calibrated sigma ranges}
 
 \item{...}{passed to Bchron::BchronCalibrate()}
 }
 \value{
-an object of class c14_date_list
+an object of class c14_date_list with the additional columns
+\strong{calprobdistr} or \strong{calrange} and \strong{sigma}
 }
 \description{
-Calibrate all valid dates in a c14_date_list
+Calibrate all dates in a \strong{c14_date_list} with
+\code{Bchron::BchronCalibrate()}. The function provides two different
+kinds of output variables that are added as new list columns to the input
+\strong{c14_date_list}: \strong{calprobdistr} and \strong{calrange}.
+\strong{calrange} is accompanied by \strong{sigma}. See
+\code{?Bchron::BchronCalibrate} and \code{?c14bazAAR:::hdr} for some more
+information. \cr
+\strong{calprobdistr}: The probability distribution of the individual date
+for all ages with an individual probability >= 1e-06. For each date there's
+a data.frame with the columns \strong{calage} and \strong{density}. \cr
+\strong{calrange}: The contiguous ranges which cover the probability interval
+requested for the individual date. For each date there's a data.frame with the
+columns \strong{dens} and \strong{from} and \strong{to}.
+}
+\examples{
+calibrate(
+  example_c14_date_list,
+  choices = c("probdist", "sigmarange"),
+  sigma = 1
+)
+
 }

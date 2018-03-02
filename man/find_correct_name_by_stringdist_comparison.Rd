@@ -21,3 +21,4 @@ a correct english country name
 \description{
 find_correct_name_by_stringdist_comparison
 }
+\keyword{internal}

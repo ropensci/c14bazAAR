@@ -15,3 +15,4 @@ NULL - called for side effect stop()
 \description{
 check_if_packages_are_available
 }
+\keyword{internal}

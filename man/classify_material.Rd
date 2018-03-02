@@ -4,7 +4,7 @@
 \alias{classify_material}
 \alias{classify_material.default}
 \alias{classify_material.c14_date_list}
-\title{Apply material classification}
+\title{Apply material classification on a \strong{c14_date_list}}
 \usage{
 classify_material(x, material_thesaurus = c14bazAAR::get_material_thesaurus(),
   quiet = FALSE)
@@ -18,13 +18,25 @@ classify_material(x, material_thesaurus = c14bazAAR::get_material_thesaurus(),
 \arguments{
 \item{x}{an object of class c14_date_list}
 
-\item{material_thesaurus}{a thesaurus table (default: c14bazAAR::material_thesaurus)}
+\item{material_thesaurus}{a thesaurus table}
 
 \item{quiet}{suppress printed output}
 }
 \value{
-an object of class c14_date_list
+an object of class c14_date_list with the additional column \strong{material_thes}
 }
 \description{
-Add column material_thes with simplified and unified terms
+Add column \strong{material_thes} with simplified and unified terms for
+material categories. The classification is manually curated and therefore maybe not
+up-to-date. It's stored in c14bazAAR::material_thesaurus, but to be more independent
+of CRAN update cycles the current version of the classification list is downloaded
+directly from github with \code{c14bazAAR::get_material_thesaurus()}. With this setup
+you can also easily apply own thesaurus tables.
+}
+\examples{
+classify_material(
+  example_c14_date_list,
+  quiet = TRUE
+)
+
 }
