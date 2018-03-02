@@ -38,7 +38,7 @@ coordinate_precision.c14_date_list <- function(x) {
 #' individual_precision
 #'
 #' @param x vector of coordinates (latitude or longitude)
-#' @param ... further arguments indicating the `mode` of the coordinates (whether these are lat or lon)
+#' @param mode argument indicating the `mode` of the coordinates (whether these are lat or lon)
 #'
 #' @return vecor with precision in meters
 individual_precision <- function(x, mode) {
