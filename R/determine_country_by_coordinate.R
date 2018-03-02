@@ -39,7 +39,7 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
   }
 
   # load world map
-  data(countriesHigh)
+  data(countriesHigh, package = "rworldxtra")
   world <- countriesHigh %>%
     sf::st_as_sf()
 
@@ -52,8 +52,9 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
              remove = FALSE,
              crs = 4326) %>%
     sf::st_join(y = world) %>%
-    dplyr::select(names(x), country_coord=ADMIN.1) %>%
-    `st_geometry<-`(NULL)
+    dplyr::select(names(x), country_coord=ADMIN.1)
+
+  sf::st_geometry(sf_x) <- NULL
 
   sf_x <- x %>%
     dplyr::filter(is.na(lat) | lon == 0 | lat == 0) %>%
