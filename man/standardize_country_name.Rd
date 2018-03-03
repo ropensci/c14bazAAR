@@ -22,13 +22,14 @@ standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
 
 \item{country_thesaurus}{data.frame with correct and variants of country names}
 
-\item{codesets}{which country codesets should be searched beyond \strong{country.name.en}
-See \code{?countrycode::codelist} for more information}
+\item{codesets}{which country codesets should be searched for in \code{countrycode::codelist}
+beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information}
 
 \item{quiet}{suppress printed output}
 
 \item{...}{additional arguments are passed to \code{stringdist::stringdist()}.
-\code{stringdist()} is used for fuzzy string matching of the country names}
+\code{stringdist()} is used for fuzzy string matching of the country names in
+\code{countrycode::codelist}}
 }
 \value{
 an object of class c14_date_list

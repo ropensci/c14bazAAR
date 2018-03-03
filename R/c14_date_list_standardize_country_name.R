@@ -15,11 +15,12 @@
 #'
 #' @param x an object of class c14_date_list
 #' @param country_thesaurus data.frame with correct and variants of country names
-#' @param codesets which country codesets should be searched beyond \strong{country.name.en}
-#' See \code{?countrycode::codelist} for more information
+#' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
+#' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
 #' @param quiet suppress printed output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
-#' \code{stringdist()} is used for fuzzy string matching of the country names
+#' \code{stringdist()} is used for fuzzy string matching of the country names in
+#' \code{countrycode::codelist}
 #'
 #' @return an object of class c14_date_list
 #' @export
@@ -107,7 +108,7 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
         find_correct_name_by_stringdist_comparison(db_word, country_df, codes, ...)
       }
     }
-  )
+  ) %>% unname
 
 }
 
@@ -137,5 +138,5 @@ find_correct_name_by_stringdist_comparison <- function(db_word, country_df, code
       which.min(.data$dist)
     ) %>%
     magrittr::extract2("country.name.en") %>%
-    magrittr::extract(1)
+    magrittr::extract2(1)
 }
