@@ -1,17 +1,26 @@
 #### standardize_country_name ####
 
 #' @name standardize_country_name
-#' @title Apply country name standardization
+#' @title Country name standardization for \strong{c14_date_list}s
 #'
-#' @description Add column country_thes with standardized country names
+#' @description Add column \strong{country_thes} with standardized country names. \cr
+#' Most source databases come with a column \strong{country} that contains a character
+#' name of the origin country for each date. Unfortunately the different source databases
+#' don't rely on a unified naming convention and therefore use various terms to represent
+#' the same country (for example: United Kingdom, Great Britain, GB, etc.). This function
+#' aims to standardize the country naming scheme. \cr
+#' To achieve this, it compares the names to values in an external (\code{countrycode::codelist})
+#' and an internal (\code{c14bazAAR::country_thesaurus}) reference list. The latter needs
+#' manual curation to catch semantic and spelling errors in the source databases.
 #'
 #' @param x an object of class c14_date_list
 #' @param country_thesaurus data.frame with correct and variants of country names
-#' @param codesets which country codesets should be searched beyond "country.name.en".
-#' See \code{?countrycode::codelist} for more information
+#' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
+#' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
 #' @param quiet suppress printed output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
-#' \code{stringdist()} is used for fuzzy string matching of the country names
+#' \code{stringdist()} is used for fuzzy string matching of the country names in
+#' \code{countrycode::codelist}
 #'
 #' @return an object of class c14_date_list
 #' @export
@@ -61,15 +70,13 @@ standardize_country_name.c14_date_list <- function(
     as.c14_date_list()
 
   if(!quiet) {
-    print_lookup_decisions(x, country_thesaurus)
+    print_lookup_decisions(x, "country", "country_thes", country_thesaurus)
   }
 
   return(x)
 }
 
-######################################################################################
-# helper functions
-######################################################################################
+#### helper functions ####
 
 #' lookup_in_countrycode_codelist
 #'
@@ -79,6 +86,8 @@ standardize_country_name.c14_date_list <- function(
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a vector with the correct english country names
+#'
+#' @keywords internal
 lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 
   check_if_packages_are_available(c("countrycode", "stringdist"))
@@ -99,7 +108,7 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
         find_correct_name_by_stringdist_comparison(db_word, country_df, codes, ...)
       }
     }
-  )
+  ) %>% unname
 
 }
 
@@ -111,6 +120,8 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a correct english country name
+#'
+#' @keywords internal
 find_correct_name_by_stringdist_comparison <- function(db_word, country_df, codes, ...) {
   country_df %>%
     dplyr::mutate_all(
@@ -127,47 +138,5 @@ find_correct_name_by_stringdist_comparison <- function(db_word, country_df, code
       which.min(.data$dist)
     ) %>%
     magrittr::extract2("country.name.en") %>%
-    magrittr::extract(1)
-}
-
-#' print_lookup_decisions
-#'
-#' @param x a c14_date_list with country and country_thes
-#' @param country_thesaurus data.frame with correct and variants of country names
-#'
-#' @return NULL, called for the print side effect
-print_lookup_decisions <- function(x, country_thesaurus) {
-  changes <- find_lookup_decisions(x, country_thesaurus)
-  message("The following decisions were made: \n")
-  for(i in 1:nrow(changes)) {
-    message(
-      ifelse(
-        changes$thesaurus[i],
-        crayon::green("thesaurus:   "),
-        crayon::yellow("string match:")
-      ),
-      " ",
-      changes$country[i], " -> ", changes$country_thes[i]
-    )
-  }
-  message("\ ")
-}
-
-#' find_lookup_decisions
-#'
-#' @param x a c14_date_list with country and country_thes
-#' @param country_thesaurus data.frame with correct and variants of country names
-#'
-#' @return a tibble with the country names and the new country_thes names
-#' found by \code{find_correct_name_by_stringdist_comparison()}
-find_lookup_decisions <- function(x, country_thesaurus) {
-  x %>%
-    dplyr::select(.data$country, .data$country_thes) %>%
-    dplyr::filter(!is.na(.data$country_thes)) %>%
-    unique %>%
-    dplyr::arrange(.data$country) %>%
-    # check if decision was based on thesaurus entry
-    dplyr::mutate(
-      thesaurus = .data$country %in% country_thesaurus$var
-    )
+    magrittr::extract2(1)
 }

@@ -3,7 +3,9 @@ Title: Download and Prepare C14 Dates from Different Source Databases
 Version: 0.0.0.9000
 Authors@R: c(
   person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph")),
-  person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut"))
+  person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut")),
+  person("Martin", "Hinz", email = "martin.hinz@ufg.uni-kiel.de", role = c("aut")),
+  person("David", "Matzig", role = c("aut"))
   )
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
 Depends: R (>= 3.4.1)
@@ -17,7 +19,6 @@ Imports:
     pbapply (>= 1.3-3),
     RCurl (>= 1.95-4.8),
     readr (>= 1.1.1),
-    readxl (>= 1.0.0),
     rlang (>= 0.1.1),
     tibble (>= 1.3.3),
     tidyr (>= 0.6.3)
@@ -26,9 +27,9 @@ Suggests:
     countrycode (>= 1.00.0),
     dataverse (>= 0.2.0),
     plyr (>= 1.8.4),
+    readxl (>= 1.0.0),
     rworldmap (>= 1.3-6),
     rworldxtra (>= 1.01),
-    sp (>= 1.2-5),
     sf (>= 0.5-4),
     stringdist (>= 0.9.4.6),
     testthat

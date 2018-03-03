@@ -1,9 +1,12 @@
 #### enforce variable types ####
 
 #' @name enforce_types
-#' @title Enforce variable types
+#' @title Enforce variable types in a \strong{c14_date_list}
 #'
-#' @description Enforce variable types in a c14_date_list and remove everything that doesn't fit
+#' @description Enforce variable types in a \strong{c14_date_list} and remove
+#' everything that doesn't fit (e.g. text in a number field).
+#' See \code{c14bazAAR::variable_reference()} for a documenation of the variable
+#' types. \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 #'
 #' @param x an object of class c14_date_list
 #'
@@ -31,9 +34,9 @@ enforce_types.c14_date_list <- function(x) {
     "sourcedb", "method", "labnr", "site", "sitetype", "feature", "period",
     "culture", "material", "material_the", "species", "region", "country",
     "country_coord", "country_the", "spatial_quality", "shortref",
-    "comment"
+    "comment", "duplicate_remove_log"
   )
-  int_cols <- c("c14age", "c14std", "calage", "calstd")
+  int_cols <- c("c14age", "c14std", "calage", "calstd", "duplicate_group")
   dbl_cols <- c("c13val", "lat", "lon")
 
   # transform (invalid values become NA)

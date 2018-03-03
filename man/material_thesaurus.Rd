@@ -3,13 +3,13 @@
 \name{material_thesaurus}
 \alias{material_thesaurus}
 \title{Material Thesaurus}
-\format{A data frame with 2 variables.
+\format{A tibble with 2 variables.
 \itemize{
   \item \bold{cor} fixed name
   \item \bold{var} variations
 }}
 \description{
-A small thesaurus for material names
+A small thesaurus for material classes.
 }
 \seealso{
 Other thesauri: \code{\link{country_thesaurus}}

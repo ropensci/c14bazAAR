@@ -4,7 +4,7 @@
 \alias{fuse}
 \alias{fuse.default}
 \alias{fuse.c14_date_list}
-\title{fuse date tables}
+\title{Fuse multiple \strong{c14_date_list}s}
 \usage{
 fuse(...)
 
@@ -19,5 +19,10 @@ fuse(...)
 an object of class c14_date_list
 }
 \description{
-rowbind multiple c14_date_lists
+This function combines \strong{c14_date_list}s with
+\code{dplyr::bind_rows()}. \cr
+This is not a joining operation and it therefore
+might introduce duplicates. See \code{c14bazAAR::mark_duplicates()}
+and \code{c14bazAAR::remove_duplicates()} for a way to find and remove
+them.
 }

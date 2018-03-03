@@ -21,3 +21,4 @@ a vector with the correct english country names
 \description{
 lookup_in_countrycode_codelist
 }
+\keyword{internal}
