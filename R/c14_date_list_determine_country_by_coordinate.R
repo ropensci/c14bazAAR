@@ -28,15 +28,7 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
 
   check_if_packages_are_available(c("sf", "rworldxtra"))
 
-  # load world map data from rworldxtra
-  countriesHigh <- NA
-  utils::data("countriesHigh", package = "rworldxtra", envir = environment())
-  if(!"SpatialPolygonsDataFrame" %in% class(countriesHigh)) {
-    stop("Problems loading countriesHigh dataset from package rworldxtra.")
-  }
-  world <- countriesHigh %>%
-    sf::st_as_sf()
-
+  world <- get_world_map()
 
   x %<>% dplyr::mutate(ID = seq(1,nrow(x),1))
 
@@ -60,4 +52,18 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
     as.c14_date_list()
 
   return(sf_x)
+}
+
+#### helpers ####
+
+get_world_map <- function() {
+  # load world map data from rworldxtra
+  countriesHigh <- NA
+  utils::data("countriesHigh", package = "rworldxtra", envir = environment())
+  if(!"SpatialPolygonsDataFrame" %in% class(countriesHigh)) {
+    stop("Problems loading countriesHigh dataset from package rworldxtra.")
+  }
+  world <- countriesHigh %>%
+    sf::st_as_sf()
+  return(world)
 }
