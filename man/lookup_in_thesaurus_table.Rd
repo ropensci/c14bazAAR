@@ -17,3 +17,4 @@ a vector with the correct values
 \description{
 lookup_in_thesaurus_table
 }
+\keyword{internal}

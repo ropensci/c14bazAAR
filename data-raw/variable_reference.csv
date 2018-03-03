@@ -4,6 +4,9 @@ sourcedb,character,# TODO,2,0,,,,,,,,,
 labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],2,2,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabCode,LABNR,LABNR,Lab Number
 c14age ,integer,Carbon-14 Age [uncalibrated age BP],3,3,Date BP,C14AGE,AGE,C14AGE,C14AGE,C14Age,C14AGE,C14AGE,Normalized Age
 c14std,integer,Standard deviation [1 sigma devitation range],3,4,±,C14STD,ERROR,C14STD,C14STD,C14SD,C14STD,C14STD,NA Sigma
+calprobdistr,data.frame,Probability distribution of calibrated dates,1,4.1,,,,,,,,,
+calrange,data.frame,sigma ranges of calibrated dates,1,4.2,,,,,,,,,
+sigma,double,sigma value for the sigma ranges,1,4.3,,,,,,,,,
 c13val,double,Carbon-13 amount [ppm],1,7,δ13C,C13,C13_AGE,C13,C13,,C13,C13,Delta 13C (per mil)
 material,character,Dated material,1,12,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL,MATERIAL,Material Dated
 material_thes,character,Dated material (result of thesaurification),0,13,,,,,,,,,
@@ -32,6 +35,8 @@ region,character,Geographical makro region,1,14.5,Subregion,,IBRA_REGION,,REGION
 feature,character,Name or description of the sample context within the site,1,9,Provenance,FEATURE,CONTEXT,,,,FEATURE,FEATURE,Site Name
 ,,,0,,,FEATURE_DESC,,,,,,,
 sitetype,character,Site type classification,1,8.5,,,SITE_TYPE,,,Type,FEATURETYPE,FEATURETYPE,
+duplicate_group,integer,Number of duplicate group,1,23,,,,,,,,,
+duplicate_remove_log,character,Description of variation in duplicate group,1,24,,,,,,,,,
 ,,,0,,,,C13_ERROR,,,,,,
 ,,,0,,,,MATERIAL_TOP_LEVEL,,,,,,
 ,,,0,,,,DEPTH_FROM_SURFACE_CM,,,,,,
