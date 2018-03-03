@@ -1,17 +1,17 @@
 #' get db url
 #'
-#' Downloads db urls
+#' Downloads URLs of c14 source databases from a reference table
+#' on github.
 #'
 #' @param db_name name of the database
 #'
-#' @export
+#' @keywords internal
 get_db_url <- function(db_name) {
 
   # URL
   ref_url <- "https://raw.githubusercontent.com/ISAAKiel/c14bazAAR/master/data-raw/url_reference.csv"
 
-  # check connection
-  if (!RCurl::url.exists(ref_url)) {stop(paste(ref_url, "is not available. No internet connection?"))}
+  check_connection_to_url(ref_url)
 
   # download current version of reference table
   url_table <- readr::read_csv(

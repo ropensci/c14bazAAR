@@ -15,3 +15,4 @@ vector of calages
 \description{
 determine_calage_from_probability_distribution
 }
+\keyword{internal}

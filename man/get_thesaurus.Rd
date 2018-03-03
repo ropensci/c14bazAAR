@@ -15,3 +15,4 @@ thesaurus data.frame
 \description{
 helper function to download thesaurus files
 }
+\keyword{internal}

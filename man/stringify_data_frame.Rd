@@ -15,3 +15,4 @@ a vector of strings describing the data.frame
 \description{
 stringify_data_frame
 }
+\keyword{internal}

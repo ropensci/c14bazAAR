@@ -1,9 +1,12 @@
 #### enforce variable types ####
 
 #' @name enforce_types
-#' @title Enforce variable types
+#' @title Enforce variable types in a \strong{c14_date_list}
 #'
-#' @description Enforce variable types in a c14_date_list and remove everything that doesn't fit
+#' @description Enforce variable types in a \strong{c14_date_list} and remove
+#' everything that doesn't fit (e.g. text in a number field).
+#' See \code{c14bazAAR::variable_reference()} for a documenation of the variable
+#' types. \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 #'
 #' @param x an object of class c14_date_list
 #'

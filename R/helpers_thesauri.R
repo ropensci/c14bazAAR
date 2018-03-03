@@ -27,6 +27,8 @@ get_material_thesaurus <- function() {
 #' @param url url of thesusaurus csv file
 #'
 #' @return thesaurus data.frame
+#'
+#' @keywords internal
 get_thesaurus <- function(url) {
   readr::read_csv(
     url,
@@ -46,6 +48,8 @@ get_thesaurus <- function(url) {
 #' @param thesaurus data.frame with correct and variants of country names
 #'
 #' @return NULL, called for the print side effect
+#'
+#' @keywords internal
 print_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
   changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus)
   message("The following decisions were made: \n")
@@ -76,6 +80,8 @@ print_lookup_decisions <- function(x, variants_column, corrected_column, thesaur
 #'
 #' @return a tibble with the country names and the new country_thes names
 #' found by \code{find_correct_name_by_stringdist_comparison()}
+#'
+#' @keywords internal
 find_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
   x %>%
     dplyr::select(.data[[variants_column]], .data[[corrected_column]]) %>%

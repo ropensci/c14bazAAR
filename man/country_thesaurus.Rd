@@ -3,13 +3,13 @@
 \name{country_thesaurus}
 \alias{country_thesaurus}
 \title{Country Thesaurus}
-\format{A data frame with 2 variables.
+\format{A tibble with 2 variables.
 \itemize{
   \item \bold{cor} fixed name
   \item \bold{var} variations
 }}
 \description{
-A small thesaurus for country names
+A small thesaurus for country names.
 }
 \seealso{
 Other thesauri: \code{\link{material_thesaurus}}

@@ -1,20 +1,8 @@
-#' get current RADON-Database
-#'
-#' Downloads the current version of the RADON-Database from \url{http://radon.ufg.uni-kiel.de/}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   RADON <- get_RADON()
-#' }
-#'
+#' @rdname db_getter
 #' @export
 get_RADON <- function(db_url = get_db_url("RADON")) {
 
-  # check connection
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+  check_connection_to_url(db_url)
 
   # read data
   RADON <- db_url %>%

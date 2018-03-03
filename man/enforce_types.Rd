@@ -4,7 +4,7 @@
 \alias{enforce_types}
 \alias{enforce_types.default}
 \alias{enforce_types.c14_date_list}
-\title{Enforce variable types}
+\title{Enforce variable types in a \strong{c14_date_list}}
 \usage{
 enforce_types(x)
 
@@ -19,5 +19,8 @@ enforce_types(x)
 an object of class c14_date_list
 }
 \description{
-Enforce variable types in a c14_date_list and remove everything that doesn't fit
+Enforce variable types in a \strong{c14_date_list} and remove
+everything that doesn't fit (e.g. text in a number field).
+See \code{c14bazAAR::variable_reference()} for a documenation of the variable
+types. \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 }

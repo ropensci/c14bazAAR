@@ -10,5 +10,7 @@ get_db_url(db_name)
 \item{db_name}{name of the database}
 }
 \description{
-Downloads db urls
+Downloads URLs of c14 source databases from a reference table
+on github.
 }
+\keyword{internal}

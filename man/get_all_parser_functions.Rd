@@ -12,3 +12,4 @@ vector with all parser functions in c14bazAAR
 \description{
 get_all_parser_functions
 }
+\keyword{internal}

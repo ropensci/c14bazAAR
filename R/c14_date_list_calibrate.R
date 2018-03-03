@@ -1,17 +1,39 @@
 #### calibrate ####
 
 #' @name calibrate
-#' @title Calibrate dates
+#' @title Calibrate all valid dates in a \strong{c14_date_list}
 #'
-#' @description Calibrate all valid dates in a c14_date_list
+#' @description Calibrate all dates in a \strong{c14_date_list} with
+#' \code{Bchron::BchronCalibrate()}. The function provides two different
+#' kinds of output variables that are added as new list columns to the input
+#' \strong{c14_date_list}: \strong{calprobdistr} and \strong{calrange}.
+#' \strong{calrange} is accompanied by \strong{sigma}. See
+#' \code{?Bchron::BchronCalibrate} and \code{?c14bazAAR:::hdr} for some more
+#' information. \cr
+#' \strong{calprobdistr}: The probability distribution of the individual date
+#' for all ages with an individual probability >= 1e-06. For each date there's
+#' a data.frame with the columns \strong{calage} and \strong{density}. \cr
+#' \strong{calrange}: The contiguous ranges which cover the probability interval
+#' requested for the individual date. For each date there's a data.frame with the
+#' columns \strong{dens} and \strong{from} and \strong{to}.
 #'
 #' @param x an object of class c14_date_list
-#' @param choices whether the result should include the full calibrated probability dataframe ('probdist')
-#' or the sigma range ('sigmarange'). Both arguments may be given at the same time.
+#' @param choices whether the result should include the full calibrated
+#' probability dataframe ('probdist') or the sigma range ('sigmarange').
+#' Both arguments may be given at the same time.
 #' @param sigma the desired sigma value (1,2,3) for the calibrated sigma ranges
 #' @param ... passed to Bchron::BchronCalibrate()
 #'
-#' @return an object of class c14_date_list
+#' @return an object of class c14_date_list with the additional columns
+#' \strong{calprobdistr} or \strong{calrange} and \strong{sigma}
+#'
+#' @examples
+#' calibrate(
+#'   example_c14_date_list,
+#'   choices = c("probdist", "sigmarange"),
+#'   sigma = 1
+#' )
+#'
 #' @export
 #'
 #' @rdname calibrate
@@ -35,6 +57,10 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
             several.ok = TRUE)
 
   check_if_packages_are_available(c("Bchron", "plyr"))
+
+  # this would actually not be necessary, because a c14_date_list has
+  # those columns per definition
+  x %>% check_if_columns_are_present(c("c14age", "c14std"))
 
   # start message:
   message(paste0("Calibration... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
@@ -92,13 +118,11 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
   # vector of probabilities for 1, 2 and 3 sigma
   my_prob_vector <- c(0.6827, 0.9545, 0.9974)
 
-  x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calprobdistr")
-  x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
-
   if ("sigmarange" %in% choices) {
-  x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange],hdr, prob = my_prob_vector[sigma])
-
-  x$sigma <- sigma
+    x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calprobdistr")
+    x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
+    x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange], hdr, prob = my_prob_vector[sigma])
+    x$sigma <- sigma
   } else {
     x$calrange <- x$sigma <- NULL
   }
@@ -124,6 +148,8 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
 #' @param x c14_date_list
 #'
 #' @return indizes of dates in c14_date_list which are out of calcurve range
+#'
+#' @keywords internal
 determine_dates_out_of_range_of_calcurve <- function(x) {
   # load intcal13 data from Bchron
   intcal13 <- NA
@@ -141,9 +167,11 @@ determine_dates_out_of_range_of_calcurve <- function(x) {
 #' calibrate_to_probability_distribution
 #'
 #' @param x c14_date_list
-#' @param ... passed to Bchron::BchronCalibrate()
+#' @param ... further arguments passed to Bchron::BchronCalibrate()
 #'
 #' @return list with probability distribution data frames
+#'
+#' @keywords internal
 calibrate_to_probability_distribution <- function(x, ...) {
   Bchron::BchronCalibrate(
     ages      = x$c14age,
@@ -166,6 +194,8 @@ calibrate_to_probability_distribution <- function(x, ...) {
 #' @param x c14_date_list
 #'
 #' @return vector of calages
+#'
+#' @keywords internal
 determine_calage_from_probability_distribution <- function(x) {
   x %>%
     lapply(
@@ -179,14 +209,21 @@ determine_calage_from_probability_distribution <- function(x) {
 
 #' Calculate highest density regions for Bchron calibrated ages
 #'
-#' A function for computing highest density regions (HDRs). Adopted from the Bchron package
+#' A function for computing highest density regions (HDRs).
+#' Adopted from the Bchron package.
 #'
-#' @details The output of this function is a list of contiguous ranges which cover the probability interval requested. A highest density region might have multiple such ranges if the calibrated date is multi-modal. These differ from credible intervals, which are always contiguous but will not be a good representation of a multi-modal probability distribution.
+#' @details The output of this function is a list of contiguous ranges which
+#' cover the probability interval requested. A highest density region might
+#' have multiple such ranges if the calibrated date is multi-modal. These
+#' differ from credible intervals, which are always contiguous but will not
+#' be a good representation of a multi-modal probability distribution.
 #'
 #' @param calprobdistr the probability distribution
 #' @param prob The desired probability interval, in the range(0, 1)
 #'
 #' @return a dataframe containing the hdr
+#'
+#' @keywords internal
 hdr <- function(calprobdistr, prob = 0.95) {
 
   if(findInterval(prob, c(0, 1))!=1) stop('prob value outside (0,1).')

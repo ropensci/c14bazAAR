@@ -4,7 +4,7 @@
 \alias{standardize_country_name}
 \alias{standardize_country_name.default}
 \alias{standardize_country_name.c14_date_list}
-\title{Apply country name standardization}
+\title{Country name standardization for \strong{c14_date_list}s}
 \usage{
 standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
@@ -22,17 +22,26 @@ standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
 
 \item{country_thesaurus}{data.frame with correct and variants of country names}
 
-\item{codesets}{which country codesets should be searched beyond "country.name.en".
-See \code{?countrycode::codelist} for more information}
+\item{codesets}{which country codesets should be searched for in \code{countrycode::codelist}
+beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information}
 
 \item{quiet}{suppress printed output}
 
 \item{...}{additional arguments are passed to \code{stringdist::stringdist()}.
-\code{stringdist()} is used for fuzzy string matching of the country names}
+\code{stringdist()} is used for fuzzy string matching of the country names in
+\code{countrycode::codelist}}
 }
 \value{
 an object of class c14_date_list
 }
 \description{
-Add column country_thes with standardized country names
+Add column \strong{country_thes} with standardized country names. \cr
+Most source databases come with a column \strong{country} that contains a character
+name of the origin country for each date. Unfortunately the different source databases
+don't rely on a unified naming convention and therefore use various terms to represent
+the same country (for example: United Kingdom, Great Britain, GB, etc.). This function
+aims to standardize the country naming scheme. \cr
+To achieve this, it compares the names to values in an external (\code{countrycode::codelist})
+and an internal (\code{c14bazAAR::country_thesaurus}) reference list. The latter needs
+manual curation to catch semantic and spelling errors in the source databases.
 }
