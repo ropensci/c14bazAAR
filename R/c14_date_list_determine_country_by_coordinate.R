@@ -27,6 +27,7 @@ determine_country_by_coordinate.default <- function(x) {
 determine_country_by_coordinate.c14_date_list <- function(x) {
 
   check_if_packages_are_available(c("sf", "rworldxtra"))
+  x %>% check_if_columns_are_present(c("lat", "lon"))
 
   world <- get_world_map()
 
