@@ -11,27 +11,35 @@
 #'
 #' @rdname coordinate_precision
 #'
+#' @export
 coordinate_precision <- function(x) {
   UseMethod("coordinate_precision")
 }
 
 #' @rdname coordinate_precision
+#' @export
 coordinate_precision.default <- function(x) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname coordinate_precision
+#' @export
 coordinate_precision.c14_date_list <- function(x) {
+
+  x %>% check_if_columns_are_present(c("lat", "lon"))
+
   lat <- x$lat %>%
     individual_precision(mode = "lat")
   lon <- x$lon %>%
     individual_precision(mode = "lon")
-  
-  x <- add_or_replace_column_in_df(x,
-                              column_name_s = "coord_precision",
-                              column_content_mi = apply(cbind(lat,lon), 1, mean),
-                              .after = "country_coord")
-  return(x)
+
+  x %>% add_or_replace_column_in_df(
+      column_name_s = "coord_precision",
+      column_content_mi = apply(cbind(lat, lon), 1, mean),
+      .after = "lon"
+    ) %>%
+    as.c14_date_list() %>%
+    return()
 }
 
 
@@ -49,7 +57,7 @@ individual_precision <- function(x, mode) {
 #' circumference_calculator
 #'
 #' @param x vector of latitude or longitude coordinates
-#' @param mode a character "lat" or "lon" 
+#' @param mode a character "lat" or "lon"
 #' @return vecor with circumference values at specific latitudes
 circumference_calculator <- function(x, mode) {
   if(mode == "lat") {
@@ -68,7 +76,7 @@ circumference_calculator <- function(x, mode) {
 #'
 #' counts the digits of the given coordinates
 #'
-#' @param x vector of coordinate values#' 
+#' @param x vector of coordinate values#'
 #'
 #' @return vecor with numer of digits
 digits_counter <- function(x) {
