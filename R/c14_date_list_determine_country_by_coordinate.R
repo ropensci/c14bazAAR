@@ -38,23 +38,23 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
     sf::st_as_sf()
 
 
-  x %<>% dplyr::mutate(ID=seq(1,nrow(x),1))
+  x %<>% dplyr::mutate(ID = seq(1,nrow(x),1))
 
   sf_x <- x %>%
-    dplyr::filter(!is.na(lat),lon!=0,lat!=0) %>%
+    dplyr::filter(!is.na(.data$lat),.data$lon!=0,.data$lat!=0) %>%
     sf::st_as_sf(coords = c("lon","lat"),
              remove = FALSE,
              crs = 4326) %>%
     sf::st_join(y = world) %>%
-    dplyr::select(names(x), country_coord=ADMIN.1)
+    dplyr::select(names(x), country_coord = .data$ADMIN.1)
 
   sf::st_geometry(sf_x) <- NULL
 
   sf_x <- x %>%
-    dplyr::filter(is.na(lat) | lon == 0 | lat == 0) %>%
+    dplyr::filter(is.na(.data$lat) | .data$lon == 0 | .data$lat == 0) %>%
     dplyr::bind_rows(., sf_x) %>%
-    dplyr::arrange(ID) %>%
-    dplyr::select(-ID) %>%
+    dplyr::arrange(.data$ID) %>%
+    dplyr::select(-.data$ID) %>%
     as.c14_date_list() %>%
     coordinate_precision() %>%
     as.c14_date_list()

@@ -36,22 +36,22 @@ finalize_country_name.c14_date_list <- function(x) {
     x %<>% dplyr::mutate(ID=seq(1,nrow(x),1))
 
     sf_x_problem <- x %>%
-      dplyr::filter(is.na(country_coord), !is.na(lat), !is.na(lon)) %>%
+      dplyr::filter(is.na(.data$country_coord), !is.na(.data$lat), !is.na(.data$lon)) %>%
       sf::st_as_sf(coords = c("lon","lat"),
                    remove = FALSE,
                    crs = 4326) %>%
       sf::st_buffer(dist = .5) %>%
       sf::st_join(y = world) %>%
-      dplyr::select(c(names(x)[which(names(x)!="country_coord")]), country_coord = ADMIN.1) %>%
-      dplyr::mutate(country_coord = as.character(country_coord))
+      dplyr::mutate(country_coord = as.character(.data$ADMIN.1)) %>%
+      dplyr::select(names(x))
 
     sf_x_problem <- sf_x_problem[which(sf_x_problem$country_coord == sf_x_problem$country_thes),]
 
     x <- x %>%
-      dplyr::filter(!is.element(ID, sf_x_problem$ID)) %>%
+      dplyr::filter(!is.element(.data$ID, sf_x_problem$ID)) %>%
       dplyr::bind_rows(., sf_x_problem) %>%
-      dplyr::arrange(ID) %>%
-      dplyr::select(-ID) %>%
+      dplyr::arrange(.data$ID) %>%
+      dplyr::select(-.data$ID) %>%
       as.c14_date_list()
   }
 
@@ -63,11 +63,11 @@ finalize_country_name.c14_date_list <- function(x) {
     # and the original input data
     x %<>%
       dplyr::mutate(
-        country_final = ifelse(test = !is.na(country_coord),
-                               yes = country_coord,
-                               no = ifelse(test = !is.na(country_thes),
-                                           yes = country_thes,
-                                           no = country))) %>%
+        country_final = ifelse(test = !is.na(.data$country_coord),
+                               yes = .data$country_coord,
+                               no = ifelse(test = !is.na(.data$country_thes),
+                                           yes = .data$country_thes,
+                                           no = .data$country))) %>%
       as.c14_date_list()
     return(x)
 
