@@ -26,17 +26,7 @@ determine_country_by_coordinate.default <- function(x) {
 #' @export
 determine_country_by_coordinate.c14_date_list <- function(x) {
 
-  # check if packages sf and rworldxtra are available
-  if (
-    c("sf", "rworldxtra") %>%
-    sapply(function(x) {requireNamespace(x, quietly = TRUE)}) %>%
-    all %>% `!`
-  ) {
-    stop(
-      "R package 'sf' and 'rworldxtra' needed for this function to work. Please install it.",
-      call. = FALSE
-    )
-  }
+  check_if_packages_are_available(c("sf", "rworldxtra"))
 
   # load world map data from rworldxtra
   countriesHigh <- NA
