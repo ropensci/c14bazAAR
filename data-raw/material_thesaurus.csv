@@ -1,249 +1,503 @@
 cor,var
-ash,ash
-ash,ashy soil
+antler,antler
+antler,horn
+antler,hjorthorn
 bark,bark
-bark,Rinde
+bark,Bark
 bark,riinde
-brain,brain
-brain,brain tissue
+bark,Rinde
+beeswax,Beeswax
+bone,aegilops (saiga)
+bone,animal bone
+bone,Animal Bone
 bone,bone
-bone,bones
 bone,Bone
-bone,cremated bones
-bone,human bone
-bone,human
-bone,"collagen, bone"
-bone,collagen
+bone,Bone (apatite fraction)
+bone,bone (Bos taurus)
+bone,Bone (collagen not removed)
+bone,Bone (collagen)
+bone,Bone (extracted organic material)
+bone,Bone (free carbonate)
+bone,Bone (gelatin)
+bone,Bone (insoluble residue)
+bone,Bone (Macropus rufogriseus)
+bone,Bone (non-apatite fraction)
+bone,Bone (non-humic fraction)
+bone,Bone (organic carbon)
+bone,Bone (organic fraction)
+bone,Bone (organics)
+bone,Bone (re-precipitated alkali soluble fraction)
+bone,Bone (residue)
+bone,bone (Sus domestica)
+bone,bone (Sus scrofa)
+bone,Bone (Vombatus ursinus)
+bone,Bone apatite
+bone,Bone apatite/carbonate
+bone,Bone carbonate
 bone,"bone, rib"
 bone,bone/apatit
 bone,bone/collagen
-bone,animal bone
-bone,Animal Bone
-bone,bone (Bos taurus)
+bone,bones
 bone,bos
-bone,Ur
-bone,bone (Sus domestica)
-bone,bone (Sus scrofa)
-bone,aegilops (saiga)
-bone,pig
+bone,collagen
+bone,"collagen, bone"
+bone,cremated bones
+bone,Dugong bone
 bone,hueso
-ceramics,pottery
+bone,human bone
+bone,Human bone
+bone,Human bone (water soluble fraction)
+bone,Human bone apatite
+bone,Human bone carbonate
+bone,Human bone collagen
+bone,Human bone collagen amino acids
+bone,Human bone humic acid
+bone,Human bone insolubles
+bone,Mammal bone calcite
+bone,Mammal bone collagen
+bone,Mammal bone from midden
+bone,pig
+bone,Turtle carapace
+bone,Ur
+bone,Carbon from charred bone
+burnt clay,Baked clay from hearth
+burnt clay,Clayball from hearth
+burnt clay,mud-brick wall
+ceramics,ceramic
 ceramics,ceramics
 ceramics,organic temper
+ceramics,pottery
 ceramics,vegetable temper
-charcoal,charcoal
-charcoal,charcol
-charcoal,charred wood
-charcoal,charcoal
-charcoal,charoal
 charcoal,charcoak
-charcoal,charcoalE
-charcoal,charcoal/roots
+charcoal,charcoal
+charcoal,charcoal
 charcoal,Charcoal
+charcoal,Charcoal (<125 microns)
+charcoal,Charcoal (>125 + <125 microns)
+charcoal,Charcoal (>125 microns)
+charcoal,charcoal (wood)
+charcoal,Charcoal from grave
+charcoal,Charcoal from grave fill
+charcoal,Charcoal from hearth
+charcoal,Charcoal from hearths
+charcoal,Charcoal from midden
+charcoal,Charcoal from oven
+charcoal,Charcoal from stone pile
 charcoal,"charcoal, charred plant macrofossils"
-charcoal,charred material
+charcoal,charcoal/roots
+charcoal,charcoalE
+charcoal,charcol
+charcoal,charoal
+charcoal,charred wood
+charcoal,Charred wood
+charcoal,Scattered charcoal
+charcoal,Scattered wood charcoal
+charcoal,Wood charcoal
+charcoal,carbon
+charcoal,Diffuse Charcoal
+charcoal,Carbonised wood
+charcoal,Burnt wood
+charcoal,carbonised wood
+charcoal,carbonised wood/ash
+charcoal,Carbon
+charcoal,Carbonised Eucalypt sp.
+charcoal,Carbonised nodule
+charcoal,Carbonised plant material
+charcoal,charred fruit
+charcoal,charred plant macrofossils
+charcoal,charred reed
+charcoal,charred seed
+charcoal,charred seeds
+charcoal,Charred twig
+charcoal,charred twigs
+charcoal,notenschelpen (verkoold)
 fabric,cloth
 fabric,fabric
-fabric,leather
 fabric,mat
 fabric,textile
 fabric,thread
 fabric,wool
+faeces,Dung
 faeces,dung
+faeces,Dung
 faeces,excrement
 faeces,rat dropping
-food,Speisereste
+food,bread
 food,food
 food,food remains
 food,food residue
-food,charred food residue
-food,bread
-food,cereal
-food,fruit
-food,grapes
 food,Honey
-food,legumes
-food,legume
+food,Speisereste
 food,voedselrest
+food,charred food residue
 hair,animal hair
 hair,hair
-horn,horn
-horn,hjorthorn
-plant remains,plant Remains
-plant remains,plant macrofossils
-plant remains,plantenvezels
-plant remains,plant
-plant remains,plant matter
-plant remains,plant remains
-plant remains,plant Remains
-plant remains,plants
-plant remains,burnt plants
-plant remains,triticum
-plant remains,barley
-plant remains,T.dicoccum
-plant remains,"wheat, chickpeas"
-plant remains,seed
-plant remains,Seed
-plant remains,seed/fruit
-plant remains,seeds
-plant remains,seeds/fruit
-plant remains,Elaeis guineensis
-plant remains,bean
-plant remains,beans
-plant remains,been
-plant remains,peas
-plant remains,Pennisetum glaucum
-plant remains,Nauclea sp.
-plant remains,Canarium s.
-plant remains,Cornus mas
-plant remains,Gilbertiodendron d.
-plant remains,grain
-plant remains,grass
-plant remains,reed
-plant remains,reed+twig
-plant remains,straw+reed
-plant remains,grass
-plant remains,grass+straw
-plant remains,grape
+humic acid,humic acid
+humic acid,Humic acid extraction
+humic acid,humic acids
+humic acid,Humic fraction
+humic acid,Humics
+humic acid,Humics from ANUA-33
+humic acid,Humics from CAMS-2873
+humic acid,Humics from NZA-194
+micro organism,Foraminifera
+other,Bird eggshell
+other,Calcium carbonate
+other,eggshell
+other,Emu eggshell
+other,ostrich egg
+other,ostrich eggs
+other,aragonite
+other,aragonte
+other,ash
+other,ashy soil
+other,Glass
+other,alkaline insoluble
+other,Ash and charcoal
+other,Ash and shell
+other,Bulk organic fraction
+other,bulk organic matter
+other,bulk organic mud
+other,Calcrete nodule
+other,Carbonate
+other,Charcoal and burnt earth
+other,Charcoal and soil
+other,Charcoal lense
+other,charred material
+other,Coal
+other,Crustal salts
+other,Graphite
+other,insect remain
+other,Limestone flowstone
+other,Macrofossils
+other,Mactra abbreviata
+other,Marine coral
+other,Melo amphora
+other,Mylitus planulatus shell
+other,Organic Carbon
+other,organic concentrate
+other,Organic swamp deposit
+other,Otolith
+other,Oxalate Carbon Crust
+other,pitch
+other,Silica/paint
+other,soot
+other,Spinifex resin
+other,Termite nest used in hearth
+other,Quartz
+other,Quartz ('sand size')
+other,Quartz (180-212 microns)
+other,Quartz (90-125 microns)
+other,Quatrz
+other,Quatrz (90-125 micron)
+other,Austomylitus rostratus shell
+other,stones
+other,Human blood protein
+plant remains,grass cuticle
+plant remains,(Acacia?) roots
 plant remains,acorn
 plant remains,acorns
 plant remains,Acorns
 plant remains,apple
+plant remains,barley
+plant remains,bean
+plant remains,beans
+plant remains,been
 plant remains,bine
-plant remains,Tannenreisig I
-plant remains,Tannenreisig II
-plant remains,Tannenreisig III
-plant remains,Charred twig
-plant remains,charred twigs
-plant remains,charred reed
-plant remains,charred plant macrofossils
-plant remains,notenschelpen (verkoold)
-plant remains,hazelnut
-plant remains,hazelnoot
-plant remains,hazelnutshell
-plant remains,pistaca
-plant remains,nuts or peas
-plant remains,nut
-plant remains,nutshell
-plant remains,gerste
-plant remains,grain
-plant remains,"grain, chickpeas"
-plant remains,Lolium sp.
-plant remains,straw
-plant remains,charred seeds
-plant remains,papyrus
-plant remains,linen
-plant remains,moss
-plant remains,olive stone
-plant remains,grain
+plant remains,burnt plants
+plant remains,Canarium s.
+plant remains,Celtis seed
+plant remains,cereal
 plant remains,cereals
-plant remains,fruit/seeds
-plant remains,charred fruit
+plant remains,Cordarge (wood fibres from Acacia sp.)
+plant remains,Cornus mas
+plant remains,Corymbia sp. (Bloodwood)
 plant remains,eichelbruch
 plant remains,Eicheln
 plant remains,Eicheln and grain
+plant remains,Elaeis guineensis
 plant remains,fabacae
 plant remains,figs
-plant remains,linsen
-plant remains,lenses
+plant remains,fruit
+plant remains,fruit/seeds
+plant remains,gerste
+plant remains,Gilbertiodendron d.
+plant remains,grain
+plant remains,grain
+plant remains,grain
+plant remains,"grain, chickpeas"
 plant remains,"grain, lenses, peas"
-plant remains,charred seed
-shell,Shell (River/Ocean)
-shell,Shell (Land)
-shell,shells
-shell,shell
-shell,seashell
+plant remains,grape
+plant remains,grapes
+plant remains,grass
+plant remains,grass
+plant remains,grass cuticle
+plant remains,grass+straw
+plant remains,hazelnoot
+plant remains,hazelnut
+plant remains,hazelnutshell
+plant remains,legume
+plant remains,legumes
+plant remains,lenses
+plant remains,Lichen
+plant remains,lindbast
+plant remains,linen
+plant remains,linsen
+plant remains,Lolium sp.
+plant remains,moss
+plant remains,Nauclea sp.
+plant remains,nut
+plant remains,nuts or peas
+plant remains,nutshell
+plant remains,Nutshell
+plant remains,olive stone
+plant remains,papyrus
+plant remains,peas
+plant remains,Pennisetum glaucum
+plant remains,pistaca
+plant remains,plant
+plant remains,plant macrofossils
+plant remains,plant matter
+plant remains,plant Remains
+plant remains,plant remains
+plant remains,plant Remains
+plant remains,Plant Remains
+plant remains,plant seed
+plant remains,plantenvezels
+plant remains,plants
+plant remains,reed
+plant remains,reed+twig
+plant remains,seed
+plant remains,Seed
+plant remains,seed (pip of fruit)
+plant remains,Seed Fragment
+plant remains,seed/fruit
+plant remains,seeds
+plant remains,seeds/fruit
+plant remains,straw
+plant remains,straw+reed
+plant remains,T.dicoccum
+plant remains,Tannenreisig I
+plant remains,Tannenreisig II
+plant remains,Tannenreisig III
+plant remains,terrestrial plant macrofossils
+plant remains,triticum
+plant remains,"wheat, chickpeas"
+plant remains,Vegetable matter lining grave
+pollen,Pollen (<5 microns)
+pollen,Pollen (10-25 microns)
+pollen,Pollen (45-90 microns)
+pollen,Pollen (5-10 microns)
+shell,Freshwater mollusc shell
+shell,Freshwater mussel (Unio sp.)
+shell,Freshwater mussel (Velesunio ambiguus sp.)
+shell,Freshwater mussel shell
+shell,Freshwater shell
+shell,Freshwater shell (Unio protovittatus)
+shell,Freshwater shell (Unionid sp.)
+shell,Freshwater shell (Velesunio sp.)
+shell,Paphies sp. Shell
+shell,Patella laticostata shell
+shell,Polymesoda erosa shell
+shell,Tapes hiantini shell
+shell,Acanthopleura sp.
+shell,Anadara antiquata
+shell,Anadara granosa shell
+shell,Anadara sp. shell
+shell,"Anadara sp., Tapes hiantina"
+shell,Anadara trapezia shell
+shell,Barbatia helbingi
+shell,Barbatia sp. Shell
+shell,Brachidontes rostratus shell
+shell,Cabesatana sp. shell
+shell,Cellana and Subinella sp. shell
+shell,Cellana solida shell
+shell,Cellana sp. shell
+shell,Cellana tramoserica shell
+shell,Cerithidea reidi shell
+shell,Chiton sp. Shell
+shell,"Chitons, limpets and Subinella sp. Shell"
 shell,coquille
+shell,Crassostera commercialis shell
+shell,"Crassostraea sp., Terebralia sp., Telescopium sp., Anadara sp."
+shell,Dicatgaus orbita shell
+shell,Dicathais sp. shell
+shell,Dicathais textilosa shell
+shell,Donax deltoides shell
+shell,Donax sp. shell
+shell,Dosinia juvenilis shell
+shell,Dosinia sp. shell
+shell,Hyotissa sp. shell
+shell,Mangrove shell
+shell,Marcia hiantina shell
+shell,Marcia sp. Shell
+shell,marine mollusks
+shell,Marine shell
+shell,Marine shell (oyster)
+shell,Melo sp. Shell
 shell,mollusc
 shell,molluscs
-shell,marine mollusks
-shell,Escargotière
-shell,ostrich eggs
-shell,ostrich egg
-shell,eggshell
-soil,sediment
-soil,Sediment
-soil,humus
-soil,humic acid
-soil,humic acids
+shell,Nerita atramentosa shell
+shell,Nerita sp. shell
+shell,Notohaliotus ruber shell
+shell,Nucella orbita shell
+shell,Ostrea angasi shell
+shell,Ostrea sp. shell
+shell,Plebidonax deltoides shell
+shell,Pyrazus ebeninus shell
+shell,Pyrazus sp. Shell
+shell,Saccostrea commercialis & Pyrazus ebininus shell
+shell,Saccostrea cucullata shell
+shell,Saccostrea sp. shell
+shell,Scattered Anadara sp. Shell
+shell,Scattered marine shell
+shell,seashell
+shell,Septifer bilocularis shell
+shell,shell
+shell,Shell
+shell,Shell (Land)
+shell,Shell (River/Ocean)
+shell,shells
+shell,Subninella undulata shell
+shell,Subninella undulata shell-aragonite layer
+shell,Subninella undulata shell-calcite layer
+shell,Syrinx aruanus shell
+shell,Tectus pyramis shell
+shell,Telescopium telescopium shell
+shell,Terebralia palustris shell
+shell,Terebralia sp. shell
+shell,Turban sp. shell
+shell,Turbo cinereus shell
+shell,Turbo cinereus/Monodonta labio shell
+shell,Turbo cinereus/Nerita sp. shell
+shell,Turbo intercostalis shell
+shell,Turbo sp and Ostrea sp. shell
+shell,Turbo sp. shell
+shell,Turbo torquatus operculum shell
+shell,Turbo undulata shell
+shell,Turbo undulatus and Haliotis rubra shell
+shell,Gafrarium tumidum shell
+shell,Gastropod shell
+shell,Geloina coaxans shell
+shell,Haliotis rubra shell
+snail,Escargotière
+snail,Landsnail shell
+snail,Snail carbonate
+snail,Mangrove gastropod
+soil,Organic clay
+soil,Pit Sediment
+soil,gyttja
+soil,Gyttja
 soil,humic
-soil,soil
-soil,soil
+soil,humus
+soil,organic sediment
 soil,Peat
 soil,peat
-soil,gyttja
-soil,torv
-soil,organic sediment
-soil,Gyttja
-soil,tuf
 soil,pedogenic carbonate
 soil,pigment
 soil,rotlehm
 soil,Rotlehm
 soil,Sand
-soil,stones
+soil,sediment
+soil,Sediment
+soil,soil
+soil,soil
+soil,Soil
+soil,Soil carbonate
+soil,Soil organic matter
+soil,torv
+soil,tuf
 soil,veen
+soil,bulk peat
+soil,bulk sediment
+soil,Bulk sediments
+soil,Bulk soil
+soil,Burnt earth from hearth
+teeth,dentin
+teeth,Macropod tooth enamel
 teeth,teeth
 teeth,tooth
-teeth,dentin
-tissue,tissue
+teeth,Tooth dentine
+teeth,Tooth enamel
+tissue,leather
+tissue,brain
+tissue,brain tissue
 tissue,skin
-NA,k. A.
-NA,n/a
-NA,
-NA,---
-NA,nd
-NA, nd
-NA,n.d.
-NA,miscellaneous
-NA,charcoal?
-NA,NULL
-NA,AH
-NA,B
-NA,bd
-NA,Br
-NA,bone?
-NA,c
-NA,Er
-NA,Fl
-NA,Ln
-NA,Ln
-NA,Sn
-NA,see
-NA,short-lived
-NA,other
-NA,carbonised residue
-NA,carbonate
-NA,organic residue
-NA,organic matter
-NA,organic substance
-NA,organic
-NA,organic material
-NA,tar
-NA,lump of tar
-NA,lens
-NA,humates
-NA,residue
-NA,leister prong
-NA,charcoal or shell
-NA,Hearth
-NA,hearth
-NA,"tand, ko"
-NA,carbon
-wood,wood
-wood,carbonised wood/ash
-wood,carbonised wood
+tissue,tissue
+unknown,nd
+unknown,---
+unknown,>125 micron organic material
+unknown,AH
+unknown,B
+unknown,bd
+unknown,bone?
+unknown,Br
+unknown,Bulk
+unknown,bulk
+unknown,c
+unknown,carbonate
+unknown,carbonised residue
+unknown,charcoal or shell
+unknown,charcoal?
+unknown,Er
+unknown,Fl
+unknown,Hearth
+unknown,hearth
+unknown,human
+unknown,humates
+unknown,k. A.
+unknown,leister prong
+unknown,lens
+unknown,Ln
+unknown,Ln
+unknown,lump of tar
+unknown,miscellaneous
+unknown,n.d.
+unknown,n/a
+unknown,nd
+unknown,NULL
+unknown,organic
+unknown,Organic
+unknown,organic material
+unknown,Organic material (from rock varnishes)
+unknown,organic matter
+unknown,Organic matter
+unknown,organic residue
+unknown,organic substance
+unknown,Organics
+unknown,Organics from hearth
+unknown,other
+unknown,residue
+unknown,residue (on ceramic)
+unknown,see
+unknown,short-lived
+unknown,Sn
+unknown,"tand, ko"
+unknown,tar
+unknown,Terrestrial
+unknown,UNKNOWN
+unknown,
+unknown,Unknown
+wood,Axtschaft
 wood,Dendro
-wood,twigs
-wood,twig
 wood,Haselzweig
+wood,Holz
+wood,lieg.wood
+wood,Populus sp.
 wood,resin
 wood,schors (verkoold)
 wood,tree
+wood,twig
+wood,twigs
 wood,wicker
-wood,lindbast
-wood,Populus sp.
-wood,Axtschaft
-wood,lieg.wood
-aragonite,aragonite
-aragonite,aragonte
+wood,wood
+wood,Wood
+wood,Wood
+wood,Wood (Casuarina sp.)
+wood,Wood (Eucalyptus camaldulensis)
+wood,Wood (Juncus sp.)
+wood,Wood (Melaleuca sp.)
+wood,Wood (Xanthorrhoea sp.)
+wood,Wood and charcoal
+wood,Wood cellulose
+wood,Wood fragment

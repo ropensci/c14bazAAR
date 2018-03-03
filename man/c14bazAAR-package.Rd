@@ -15,6 +15,7 @@ Authors:
 \itemize{
   \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com}
   \item Martin Hinz \email{martin.hinz@ufg.uni-kiel.de}
+  \item David Matzig
 }
 
 }
