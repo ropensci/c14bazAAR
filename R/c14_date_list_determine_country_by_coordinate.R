@@ -38,8 +38,12 @@ determine_country_by_coordinate.c14_date_list <- function(x) {
     )
   }
 
-  # load world map
-  data(countriesHigh, package = "rworldxtra")
+  # load world map data from rworldxtra
+  countriesHigh <- NA
+  utils::data("countriesHigh", package = "rworldxtra", envir = environment())
+  if(!"SpatialPolygonsDataFrame" %in% class(countriesHigh)) {
+    stop("Problems loading countriesHigh dataset from package rworldxtra.")
+  }
   world <- countriesHigh %>%
     sf::st_as_sf()
 
