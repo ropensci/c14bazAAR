@@ -1,30 +1,18 @@
 #### finalize_country_name ####
 
-#' @name finalize_country_name
-#' @title Chooses the country_name, that is most likely to be correct
-#'
-#' @description Picks the country name in a hierarchical order from the results
-#' of the determine_country_by_coords and standardize_country_name functions,
-#' followed by the original input of the database
-#'
-#' @param x an object of class c14_date_list
-#'
-#' @return an object of class c14_date_list
+#' @rdname country_attribution
 #' @export
-#'
-#' @rdname finalize_country_name
-#'
 finalize_country_name <- function(x) {
   UseMethod("finalize_country_name")
 }
 
-#' @rdname finalize_country_name
+#' @rdname country_attribution
 #' @export
 finalize_country_name.default <- function(x) {
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname finalize_country_name
+#' @rdname country_attribution
 #' @export
 finalize_country_name.c14_date_list <- function(x) {
 

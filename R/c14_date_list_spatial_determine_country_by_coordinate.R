@@ -1,33 +1,18 @@
 #### determine_country_by_coordinate ####
 
-#' @name determine_country_by_coordinate
-#' @title Determine country by coordinate in a \strong{c14_date_list}
-#'
-#' @description Add column \strong{country_coord} with standardized country
-#' attribution based on the coordinate information of the dates. \cr
-#' Due to the inconsistencies in the \strong{country} column
-#' in many c14 source databases (see \code{c14bazAAR::standardize_country_name()}),
-#' it's often necessary to rely on the coordinate position (\strong{lat} &
-#' \strong{lon}) for reliable country attribution information.
-#'
-#' @param x an object of class c14_date_list
-#'
-#' @return an object of class c14_date_list with the additional column
-#' \strong{country_coord}.
-#'
-#' @rdname determine_country_by_coordinate
+#' @rdname country_attribution
 #' @export
 determine_country_by_coordinate <- function(x) {
   UseMethod("determine_country_by_coordinate")
 }
 
-#' @rdname determine_country_by_coordinate
+#' @rdname country_attribution
 #' @export
 determine_country_by_coordinate.default <- function(x) {
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname determine_country_by_coordinate
+#' @rdname country_attribution
 #' @export
 determine_country_by_coordinate.c14_date_list <- function(x) {
 

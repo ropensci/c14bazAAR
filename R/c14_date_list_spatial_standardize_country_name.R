@@ -1,32 +1,7 @@
 #### standardize_country_name ####
 
-#' @name standardize_country_name
-#' @title Country name standardization for \strong{c14_date_list}s
-#'
-#' @description Add column \strong{country_thes} with standardized country names. \cr
-#' Most source databases come with a column \strong{country} that contains a character
-#' name of the origin country for each date. Unfortunately the different source databases
-#' don't rely on a unified naming convention and therefore use various terms to represent
-#' the same country (for example: United Kingdom, Great Britain, GB, etc.). This function
-#' aims to standardize the country naming scheme. \cr
-#' To achieve this, it compares the names to values in an external (\code{countrycode::codelist})
-#' and an internal (\code{c14bazAAR::country_thesaurus}) reference list. The latter needs
-#' manual curation to catch semantic and spelling errors in the source databases.
-#'
-#' @param x an object of class c14_date_list
-#' @param country_thesaurus data.frame with correct and variants of country names
-#' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
-#' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
-#' @param quiet suppress printed output
-#' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
-#' \code{stringdist()} is used for fuzzy string matching of the country names in
-#' \code{countrycode::codelist}
-#'
-#' @return an object of class c14_date_list
 #' @export
-#'
-#' @rdname standardize_country_name
-#'
+#' @rdname country_attribution
 standardize_country_name <- function(
   x,
   country_thesaurus = get_country_thesaurus(),
@@ -37,7 +12,7 @@ standardize_country_name <- function(
   UseMethod("standardize_country_name")
 }
 
-#' @rdname standardize_country_name
+#' @rdname country_attribution
 #' @export
 standardize_country_name.default <- function(
   x,
@@ -49,7 +24,7 @@ standardize_country_name.default <- function(
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname standardize_country_name
+#' @rdname country_attribution
 #' @export
 standardize_country_name.c14_date_list <- function(
   x,
