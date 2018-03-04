@@ -49,13 +49,17 @@ It takes quite some time to run all of this and it's probably not necessary for 
 
 c14bazAAR contains a growing selection of getter functions to download radiocarbon date databases. [Here's](#databases) a list of all available getters. You can download all dates at once with `get_all_dates()`. The getters download the data, adjust the variable selection according to a defined [variable key](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) and transform the resulting list into a `c14_date_list`. 
 
+See `?get_dates` for more information.
+
 ```
 x <- get_all_dates()
 ```
 
 #### Calibration
 
-The `calibrate()` function calibrates all valid dates in a `c14_date_list` individually with `Bchron::BchronCalibrate()`. It provides two different types of output: calprobdistr and calrange. See `?calibrate` for more information.
+The `calibrate()` function calibrates all valid dates in a `c14_date_list` individually with `Bchron::BchronCalibrate()`. It provides two different types of output: calprobdistr and calrange. 
+
+See `?calibrate` for more information.
 
 ```
 x %>% calibrate()
@@ -63,7 +67,9 @@ x %>% calibrate()
 
 #### Material classification
 
-Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations diffult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a changelog of the thesaurus.
+Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations diffult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. 
+
+See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a changelog of the thesaurus.
 
 ```
 x %>% classify_material()
@@ -77,7 +83,9 @@ That's what the function `determine_country_by_coordinate()` does. It joins the 
 
 The function `finalize_country_name()` finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
 
-The wrapper function `all_country_functions()` calls these function automatically in a sequence. See `?country_attribution` for more information.
+The wrapper function `all_country_functions()` calls these function automatically in a sequence. 
+
+See `?country_attribution` for more information.
 
 ```
 x %>%
@@ -90,7 +98,7 @@ x %>%
 
 Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorbation, duplicates make up a significant proportion of combined datasets. The function `mark_duplicates()` adds a column duplicate group to the c14_date_list, that assigns duplicates found by labcode comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
 
-For an automatic removal there's the function `remove_duplicates()`. It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log.
+For an automatic removal there's the function `remove_duplicates()`. It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log. 
 
 See `?duplicates` for more information.
 
@@ -101,6 +109,10 @@ x %>%
 ```
 
 #### Coordinate precision
+
+The function `coordinate_precision()` allows to calculate the precision of the coordinate information. It relies on the number of digits in the columns lat and lon. The mean of the inaccuracy on the x and y axis in meters is stored in the additional column coord_precision. 
+
+See `?coordinate_precision` for more information.
 
 ```
 x %>% coordinate_precision
