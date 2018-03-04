@@ -6,7 +6,7 @@
 
 <img align="right" src="khajiit.jpg" width = 350>
 
-c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](http://www.neolithicRC.de) might be better suited for your needs.
+c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as back end of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](http://www.neolithicRC.de) might be better suited for your needs.
 
 - [Installation](#installation)
 - [How to use](#how-to-use)
@@ -50,7 +50,7 @@ get_all_dates() %>%
   coordinate_precision()
 ```
 
-It takes quite some time to run all of this and it's probably not necessary for your usecase. Here's a list of the main tasks c14bazAAR can handle. That allows you to pick what you need:
+It takes quite some time to run all of this and it's probably not necessary for your use case. Here's a list of the main tasks c14bazAAR can handle. That allows you to pick what you need:
 
 #### Download
 
@@ -74,9 +74,9 @@ x %>% calibrate()
 
 #### Material classification
 
-Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations diffult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. 
+Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations difficult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. 
 
-See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a changelog of the thesaurus.
+See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a change log of the thesaurus.
 
 ```
 x %>% classify_material()
@@ -84,7 +84,7 @@ x %>% classify_material()
 
 #### Country attribution
 
-Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable coountry, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function `standardize_country_name()` tries to unify the semantically equal terms by string comparison with the curated country name list `countrycode::codelist` and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. 
+Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function `standardize_country_name()` tries to unify the semantically equal terms by string comparison with the curated country name list `countrycode::codelist` and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. 
 
 That's what the function `determine_country_by_coordinate()` does. It joins the position with country polygons from `rworldxtra::countriesHigh` to get reliable country attribution. 
 
@@ -103,7 +103,7 @@ x %>%
 
 #### Duplicates
 
-Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorbation, duplicates make up a significant proportion of combined datasets. The function `mark_duplicates()` adds a column duplicate group to the c14_date_list, that assigns duplicates found by labcode comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
+Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function `mark_duplicates()` adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
 
 For an automatic removal there's the function `remove_duplicates()`. It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log. 
 
@@ -137,7 +137,7 @@ x %>% as.sf()
 
 #### Technical functions
 
-c14_date_lists are constructed with `as.c14_date_list`. This function takes data.frames or tibbles and adds the c14_date_list class tag. It also calls `order_variables()` to establish a certain variable order and `enforce_types()` which convertes all variables to the correct data type. There are custom `print` and `format` methods for c14_date_lists. 
+c14_date_lists are constructed with `as.c14_date_list`. This function takes data.frames or tibbles and adds the c14_date_list class tag. It also calls `order_variables()` to establish a certain variable order and `enforce_types()` which converts all variables to the correct data type. There are custom `print` and `format` methods for c14_date_lists. 
 
 The `fuse` function allows to rowbind multiple c14_date_lists.
 
