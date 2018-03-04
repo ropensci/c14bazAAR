@@ -3,3 +3,6 @@
 ^data-raw$
 ^\.travis\.yml$
 ^playground$
+^khajiit\.jpg$
+^CONDUCT\.md$
+^CONTRIBUTING\.md$
