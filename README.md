@@ -120,16 +120,29 @@ x %>% coordinate_precision
 
 #### Conversion
 
+A c14_date_list can be directly converted to other R data structures. So far only `as.sf()` is implemented. The sf package provides great tools to manipulate and plot spatial vector data. This simplifies certain spatial operations with the date point cloud.
+
+See `?as.sf` for more information.
+
 ```
 x %>% as.sf()
 ```
 
 #### Technical functions
 
-Beyond that there are some small helpers to combine (`fuse()`), structure (`order_variables()`, `enforce_types()`) or convert (`as.sf()`, ...) `c14_date_list`s.
+c14_date_lists are constructed with `as.c14_date_list`. This function takes data.frames or tibbles and adds the c14_date_list class tag. It also calls `order_variables()` to establish a certain variable order and `enforce_types()` which convertes all variables to the correct data type. There are custom `print` and `format` methods for c14_date_lists. 
+
+The `fuse` function allows to rowbind multiple c14_date_lists.
+
+See `?as.c14_date_list` and `?fuse`.
 
 ```
-x3 <- fuse(x1, x2)
+x1 <- data.frame(
+  c14age = 2000,
+  c14std = 30
+) %>% as.c14_date_list()
+
+x2 <- fuse(x1, x1)
 ```
 
 ### Databases
@@ -146,6 +159,5 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_RADON()`](R/get_radon.R) [**RADON**](http://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](http://www.jna.uni-kiel.de/index.php/jna/article/view/65).
 * [`get_RADONB()`](R/get_radonb.R) [**RADON-B**](http://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
 
-All databases can be queried at once with `get_all_dates()`.
 
 
