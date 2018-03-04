@@ -8,8 +8,6 @@
 
 c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](http://www.neolithicRC.de) might be better suited for your needs.
 
-#### Table of Contents
-
 - [Installation](#installation)
 - [How to use](#how-to-use)
   - [Download](#download)
@@ -21,6 +19,7 @@ c14bazAAR is a R package to query different openly accessible radiocarbon date d
   - [Conversion](#conversion)
   - [Technical functions](#technical-functions)
 - [Databases](#databases)
+- [Contributing](#contributing)
 
 ### Installation
 
