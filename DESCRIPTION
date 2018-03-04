@@ -2,10 +2,13 @@ Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
 Version: 0.0.0.9000
 Authors@R: c(
-  person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph")),
-  person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut")),
+  person("Wolfgang", "Hamer", email = "hamer@geographie.uni-kiel.de", role = c("aut")),
   person("Martin", "Hinz", email = "martin.hinz@ufg.uni-kiel.de", role = c("aut")),
-  person("David", "Matzig", role = c("aut"))
+  person("Daniel", "Knitter", email = "knitter@geographie.uni-kiel.de", role = c("aut")),
+  person("David", "Matzig", role = c("aut")),
+  person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph")),
+  person("Kay", "Schmütz", email = "kschmuetz@ufg.uni-kiel.de", role = c("aut")),
+  person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut"))
   )
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
 Depends: R (>= 3.4.1)

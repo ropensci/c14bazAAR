@@ -13,9 +13,12 @@ Query different C14 date databases and apply basic data cleaning, merging and ca
 
 Authors:
 \itemize{
-  \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com}
+  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de}
   \item Martin Hinz \email{martin.hinz@ufg.uni-kiel.de}
+  \item Daniel Knitter \email{knitter@geographie.uni-kiel.de}
   \item David Matzig
+  \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
+  \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com}
 }
 
 }
