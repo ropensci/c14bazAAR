@@ -57,6 +57,10 @@ Most 14C databases provide some information about the material sampled for the i
 
 #### Country attribution
 
+Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable coountry, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function `standardize_country_name()` tries to unify the semantically equal terms by string comparison with the curated country name list `countrycode::codelist` and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. That's what the function `determine_country_by_coordinate()` does. It joins the position with country polygons from `rworldxtra::countriesHigh` to get reliable country attribution. The function `finalize_country_name()` finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
+
+The wrapper function `all_country_functions()` calls these function automatically in a sequence. See `?country_attribution` for more information.
+
 #### Duplicates
 
 #### Coordinate precision
