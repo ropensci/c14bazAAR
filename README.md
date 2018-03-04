@@ -4,15 +4,20 @@
 
 # c14bazAAR
 
-c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). 
+c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](http://www.neolithicRC.de) might be better suited for your needs.
 
 #### Table of Contents
 
 - [Installation](#installation)
 - [How to use](#how-to-use)
-  - [`calibrate()`](#1-calibrate)
-  - [`estimate_spatial_quality()`](#2-estimate_spatial_quality)
-  - [`get_all_dates()`](#3-get_all_dates)
+  - [Download](#download)
+  - [Calibration](#calibration)
+  - [Material classification](#material-classification)
+  - [Country attribution](#country-attribution)
+  - [Duplicates](#duplicates)
+  - [Coordinate precision](#coordinate-precision)
+  - [Conversion](#conversion)
+  - [Technical functions](#technical-functions)
 - [Databases](#databases)
 
 ### Installation
@@ -28,25 +33,45 @@ The package needs a lot of other packages -- many of them only necessary for spe
 
 ### How to use
 
-The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around [tibble](http://tibble.tidyverse.org/). 
+The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around the [tibble](http://tibble.tidyverse.org/) class. 
 
-The class `c14_date_list` has some methods to clean and modify the date collections:
+The complete workflow to download and prepare all dates can be triggered like this:
 
-#### 1. [`calibrate()`](R/c14_date_list_calibrate.R)
+```
+# trööt
+```
 
-- The function calibrates all valid dates in a `c14_date_list` with `Bchron::BchronCalibrate()`.
+It takes quite some time to run all of this and it's probably not necessary for your usecase. Here's a list of the main tasks c14bazAAR can handle. That allows you to pick what you need:
 
-#### 2. [`estimate_spatial_quality()`](R/c14_date_list_estimate_spatial_quality.R)
+#### Download
 
-- As the datasets are usually containing wrong coordinated this function can be used to estimate the quality of coordinates with a set of tests.
+[`get_all_dates()`](R/get_all_dates.R)
+
+This function downloads the current version of all [databases](#databases) that a parser was written for and merges them to one c14_date_list.
+
+#### Calibration
+
+[`calibrate()`](R/c14_date_list_calibrate.R)
+
+The function calibrates all valid dates in a `c14_date_list` with `Bchron::BchronCalibrate()`.
+
+#### Material classification
+
+#### Country attribution
+
+#### Duplicates
+
+#### Coordinate precision
+
+#### Conversion
+
+#### Technical functions
 
 Beyond that there are some small helpers to combine (`fuse()`), structure (`order_variables()`, `enforce_types()`) or convert (`as.sf()`, ...) `c14_date_list`s.
 
-#### 3. [`get_all_dates()`](R/get_all_dates.R)
-
-- This function downloads the current version of all [databases](#databases) that a parser was written for and merges them to one c14_date_list.
-
 ### Databases
+
+To suggest other archives to be queried you can join the discussion [here](https://github.com/ISAAKiel/c14bazAAR/issues/2).
 
 * [`get_14SEA()`](R/get_14sea.R) [**14SEA**](http://www.14sea.org/) 14C database for Southeast Europe and Anatolia (10,000–3000 calBC).
 * [`get_aDRAC()`](R/get_adrac.R) [**aDRAC**](https://github.com/dirkseidensticker/aDRAC): Archives des datations radiocarbone d'Afrique centrale by Dirk Seidensticker.
