@@ -4,7 +4,7 @@
 \alias{determine_country_by_coordinate}
 \alias{determine_country_by_coordinate.default}
 \alias{determine_country_by_coordinate.c14_date_list}
-\title{Determines country by coordinate}
+\title{Determine country by coordinate in a \strong{c14_date_list}}
 \usage{
 determine_country_by_coordinate(x)
 
@@ -16,8 +16,14 @@ determine_country_by_coordinate(x)
 \item{x}{an object of class c14_date_list}
 }
 \value{
-an object of class c14_date_list
+an object of class c14_date_list with the additional column
+\strong{country_coord}.
 }
 \description{
-Determines country by coordinate
+Add column \strong{country_coord} with standardized country
+attribution based on the coordinate information of the dates. \cr
+Due to the inconsistencies in the \strong{country} column
+in many c14 source databases (see \code{c14bazAAR::standardize_country_name()}),
+it's often necessary to rely on the coordinate position (\strong{lat} &
+\strong{lon}) for reliable country attribution information.
 }
