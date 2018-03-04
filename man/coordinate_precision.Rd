@@ -4,7 +4,8 @@
 \alias{coordinate_precision}
 \alias{coordinate_precision.default}
 \alias{coordinate_precision.c14_date_list}
-\title{Return coordinate precision according to number length}
+\title{Return coordinate precision according to number of digits in the columns
+\strong{lat} and \strong{lon} of a \strong{c14_date_list}}
 \usage{
 coordinate_precision(x)
 
@@ -16,8 +17,12 @@ coordinate_precision(x)
 \item{x}{an object of class c14_date_list}
 }
 \value{
-an object of class c14_date_list
+an object of class c14_date_list with the additional column
+\strong{coord_precision}
 }
 \description{
-Return coordinate precision according to number length
+The precision of the coordinates for each date vary greatly.
+\code{c14bazAAR::coordinate_precision()} calculates the mean of the possible
+deviation in meters and adds it to the \strong{c14_date_list} with the column
+\strong{coord_precision}.
 }

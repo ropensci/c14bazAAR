@@ -1,13 +1,18 @@
 #### coordinate_precision ####
 
 #' @name coordinate_precision
-#' @title Return coordinate precision according to number length
+#' @title Return coordinate precision according to number of digits in the columns
+#' \strong{lat} and \strong{lon} of a \strong{c14_date_list}
 #'
-#' @description Return coordinate precision according to number length
+#' @description The precision of the coordinates for each date vary greatly.
+#' \code{c14bazAAR::coordinate_precision()} calculates the mean of the possible
+#' deviation in meters and adds it to the \strong{c14_date_list} with the column
+#' \strong{coord_precision}.
 #'
 #' @param x an object of class c14_date_list
 #'
-#' @return an object of class c14_date_list
+#' @return an object of class c14_date_list with the additional column
+#' \strong{coord_precision}
 #'
 #' @rdname coordinate_precision
 #'
@@ -42,6 +47,7 @@ coordinate_precision.c14_date_list <- function(x) {
     return()
 }
 
+#### helpers ####
 
 #' individual_precision
 #'
