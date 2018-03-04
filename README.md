@@ -4,7 +4,7 @@
 
 # c14bazAAR
 
-c14bazAAR (formerly known as c14databases) is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. In the future it will serve as the backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). 
+c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as backend of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). 
 
 #### Table of Contents
 
@@ -17,12 +17,14 @@ c14bazAAR (formerly known as c14databases) is a R package to query different ope
 
 ### Installation
 
-c14bazAAR is not on CRAN yet, but you can install it from github:
+c14bazAAR is not on [CRAN](https://cran.r-project.org/) yet, but you can install it from github. To do so, run the following lines in your R console:
 
 ```
-# install.packages("devtools")
+if(!require('devtools')) install.packages('devtools')
 devtools::install_github("ISAAKiel/c14bazAAR")
 ```
+
+The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to install them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
 
 ### How to use
 
