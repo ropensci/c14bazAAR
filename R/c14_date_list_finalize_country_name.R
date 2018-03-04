@@ -32,17 +32,9 @@ finalize_country_name.c14_date_list <- function(x) {
 
   x %<>% dplyr::mutate(ID=seq(1,nrow(x),1))
 
-  world <- get_world_map()
-
   sf_x_problem <- x %>%
     dplyr::filter(is.na(.data$country_coord), !is.na(.data$lat), !is.na(.data$lon)) %>%
-    sf::st_as_sf(coords = c("lon","lat"),
-                 remove = FALSE,
-                 crs = 4326) %>%
-    sf::st_buffer(dist = .5) %>%
-    sf::st_join(y = world) %>%
-    dplyr::mutate(country_coord = as.character(.data$ADMIN.1)) %>%
-    dplyr::select(names(x))
+    spatial_join_with_country_dataset(buffer_dist = 0.5)
 
   sf_x_problem <- sf_x_problem[which(sf_x_problem$country_coord == sf_x_problem$country_thes),]
 
