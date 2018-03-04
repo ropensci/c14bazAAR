@@ -100,7 +100,7 @@ generate_list_of_equality_partners <- function(x) {
 add_equality_group_number <- function(x, partner_list) {
   amount_duplicate_groups <- length(partner_list)
   pb <- utils::txtProgressBar(
-    min = 1, max = amount_duplicate_groups,
+    min = 0, max = amount_duplicate_groups,
     style = 3,
     width = 50,
     char = "+"
