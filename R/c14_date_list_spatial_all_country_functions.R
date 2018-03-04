@@ -58,7 +58,6 @@ all_country_functions.default <- function(x) {
 #' @export
 all_country_functions.c14_date_list <- function(x) {
   x %>%
-    c14bazAAR::coordinate_precision() %>%
     c14bazAAR::determine_country_by_coordinate() %>%
     c14bazAAR::standardize_country_name() %>%
     c14bazAAR::finalize_country_name() %>%
