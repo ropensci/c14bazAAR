@@ -49,13 +49,25 @@ It takes quite some time to run all of this and it's probably not necessary for 
 
 c14bazAAR contains a growing selection of getter functions to download radiocarbon date databases. [Here's](#databases) a list of all available getters. You can download all dates at once with `get_all_dates()`. The getters download the data, adjust the variable selection according to a defined [variable key](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) and transform the resulting list into a `c14_date_list`. 
 
+```
+x <- get_all_dates()
+```
+
 #### Calibration
 
 The `calibrate()` function calibrates all valid dates in a `c14_date_list` individually with `Bchron::BchronCalibrate()`. It provides two different types of output: calprobdistr and calrange. See `?calibrate` for more information.
 
+```
+x %>% calibrate()
+```
+
 #### Material classification
 
 Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations diffult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a changelog of the thesaurus.
+
+```
+x %>% classify_material()
+```
 
 #### Country attribution
 
@@ -63,15 +75,40 @@ Filtering 14C dates by country is useful for a first spatial limitation and espe
 
 The wrapper function `all_country_functions()` calls these function automatically in a sequence. See `?country_attribution` for more information.
 
+```
+x %>%
+  standardize_country_name() %>%
+  determine_country_by_coordinate() %>%
+  finalize_country_name()
+```
+
 #### Duplicates
+
+```
+x %>%
+  mark_duplicates() %>%
+  remove_duplicates()
+```
 
 #### Coordinate precision
 
+```
+x %>% coordinate_precision
+```
+
 #### Conversion
+
+```
+x %>% as.sf()
+```
 
 #### Technical functions
 
 Beyond that there are some small helpers to combine (`fuse()`), structure (`order_variables()`, `enforce_types()`) or convert (`as.sf()`, ...) `c14_date_list`s.
+
+```
+x3 <- fuse(x1, x2)
+```
 
 ### Databases
 
