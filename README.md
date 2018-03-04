@@ -36,10 +36,18 @@ The package needs a lot of other packages -- many of them only necessary for spe
 
 The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around the [tibble](http://tibble.tidyverse.org/) class and provides specific class methods.
 
-The complete workflow to download and prepare all dates can be triggered like this:
+One (almost) complete workflow to download and prepare all dates can be triggered like this:
 
 ```
-# trööt
+library(c14bazAAR)
+library(magrittr)
+
+get_all_dates() %>%
+  calibrate() %>%
+  mark_duplicates() %>%
+  classify_material() %>%
+  all_country_functions() %>%
+  coordinate_precision()
 ```
 
 It takes quite some time to run all of this and it's probably not necessary for your usecase. Here's a list of the main tasks c14bazAAR can handle. That allows you to pick what you need:
