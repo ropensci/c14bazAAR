@@ -71,7 +71,11 @@ x %>% classify_material()
 
 #### Country attribution
 
-Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable coountry, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function `standardize_country_name()` tries to unify the semantically equal terms by string comparison with the curated country name list `countrycode::codelist` and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. That's what the function `determine_country_by_coordinate()` does. It joins the position with country polygons from `rworldxtra::countriesHigh` to get reliable country attribution. The function `finalize_country_name()` finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
+Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable coountry, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function `standardize_country_name()` tries to unify the semantically equal terms by string comparison with the curated country name list `countrycode::codelist` and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. 
+
+That's what the function `determine_country_by_coordinate()` does. It joins the position with country polygons from `rworldxtra::countriesHigh` to get reliable country attribution. 
+
+The function `finalize_country_name()` finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
 
 The wrapper function `all_country_functions()` calls these function automatically in a sequence. See `?country_attribution` for more information.
 
@@ -83,6 +87,12 @@ x %>%
 ```
 
 #### Duplicates
+
+Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorbation, duplicates make up a significant proportion of combined datasets. The function `mark_duplicates()` adds a column duplicate group to the c14_date_list, that assigns duplicates found by labcode comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
+
+For an automatic removal there's the function `remove_duplicates()`. It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log.
+
+See `?duplicates` for more information.
 
 ```
 x %>%
