@@ -1,26 +1,14 @@
-#' get current EUROEVOL-Database
-#'
-#' Downloads the current version of the EUROEVOL-Database from \url{http://discovery.ucl.ac.uk/1469811/}.
-#'
-#' @param db_urls vector of strings with weblinks to c14 archive files
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   EUROEVOL <- get_EUROEVOL()
-#' }
-#'
+#' @rdname db_getter
 #' @export
-get_EUROEVOL <- function(db_urls = get_db_url("EUROEVOL")) {
+get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
 
-  db_url1 <- db_urls[1]
-  db_url2 <- db_urls[2]
-  db_url3 <- db_urls[3]
+  db_url1 <- db_url[1]
+  db_url2 <- db_url[2]
+  db_url3 <- db_url[3]
 
-  # check connection
-  if (!RCurl::url.exists(db_url1)) {stop(paste(db_url1, "is not available. No internet connection?"))}
-  if (!RCurl::url.exists(db_url2)) {stop(paste(db_url2, "is not available."))}
-  if (!RCurl::url.exists(db_url3)) {stop(paste(db_url3, "is not available."))}
+  check_connection_to_url(db_url1)
+  check_connection_to_url(db_url2)
+  check_connection_to_url(db_url3)
 
   # read dates data
   dates <- db_url1 %>%

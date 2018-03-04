@@ -37,7 +37,7 @@ enforce_types.c14_date_list <- function(x) {
     "comment", "duplicate_remove_log"
   )
   int_cols <- c("c14age", "c14std", "calage", "calstd", "duplicate_group")
-  dbl_cols <- c("c13val", "lat", "lon")
+  dbl_cols <- c("c13val", "lat", "lon", "coord_precision")
 
   # transform (invalid values become NA)
   withCallingHandlers({

@@ -1,37 +1,48 @@
 #### mark_duplicates ####
 
-#' @name mark_duplicates
-#' @title Mark duplicates in a \strong{c14_date_list}
+#' @name duplicates
+#' @title Mark and remove duplicates in a \strong{c14_date_list}
 #'
-#' @description Duplicates are found by comparision of \strong{labnr}s.
+#' @description Duplicates are found in \code{c14bazAAR::mark_duplicates()}
+#' by comparision of \strong{labnr}s.
 #' Only dates with exactly equal \strong{labnr}s are considered duplicates.
 #' Duplicate groups are numbered (from 0) and these numbers linked to
 #' the individual dates in the new column \strong{duplicate_group}.
-#' Duplicates can be removed with \code{c14bazAAR::remove_duplicates()}.
+#' Duplicates can be removed with \code{c14bazAAR::remove_duplicates()}. \cr
+#' While \code{c14bazAAR::mark_duplicates()} finds duplicates,
+#' \code{c14bazAAR::remove_duplicates()} removes them by merging
+#' all dates in a \strong{duplicate_group}. All non-equal variables in the
+#' duplicate group are turned to \code{NA}. A new column
+#' \strong{duplicate_remove_log} documents the variety of entries initially
+#' provided (and partially lost by this hard merging operation).
 #'
 #' @param x an object of class c14_date_list
 #'
 #' @return an object of class c14_date_list with the additional
-#' column \strong{duplicate_group}
+#' columns \strong{duplicate_group} or \strong{duplicate_remove_log}
+#'
+#' @rdname duplicates
 #'
 #' @examples
 #' mark_duplicates(example_c14_date_list)
 #'
+#' library(magrittr)
+#' example_c14_date_list %>%
+#'   mark_duplicates() %>%
+#'   remove_duplicates()
+#'
 #' @export
-#'
-#' @rdname mark_duplicates
-#'
 mark_duplicates <- function(x) {
   UseMethod("mark_duplicates")
 }
 
-#' @rdname mark_duplicates
+#' @rdname duplicates
 #' @export
 mark_duplicates.default <- function(x) {
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname mark_duplicates
+#' @rdname duplicates
 #' @export
 mark_duplicates.c14_date_list <- function(x) {
 
@@ -89,7 +100,7 @@ generate_list_of_equality_partners <- function(x) {
 add_equality_group_number <- function(x, partner_list) {
   amount_duplicate_groups <- length(partner_list)
   pb <- utils::txtProgressBar(
-    min = 1, max = amount_duplicate_groups,
+    min = 0, max = amount_duplicate_groups,
     style = 3,
     width = 50,
     char = "+"

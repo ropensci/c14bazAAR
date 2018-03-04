@@ -1,40 +1,18 @@
 #### remove_duplicates ####
 
-#' @name remove_duplicates
-#' @title Remove duplicates from a \strong{c14_date_list}
-#'
-#' @description While \code{c14bazAAR::mark_duplicates()} finds duplicates,
-#' this function removes them by merging all dates in a \strong{duplicate_group}.
-#' All non-equal variables in the duplicate group are turned to \code{NA}. A new
-#' column \strong{duplicate_remove_log} documents the variety of entries initially
-#' provided (and partially lost by this hard merging operation).
-#'
-#' @param x an object of class c14_date_list
-#'
-#' @return an object of class c14_date_list with the additional
-#' column \strong{duplicate_remove_log}
-#'
-#' @examples
-#' library(magrittr)
-#' example_c14_date_list %>%
-#'   mark_duplicates() %>%
-#'   remove_duplicates()
-#'
+#' @rdname duplicates
 #' @export
-#'
-#' @rdname remove_duplicates
-#'
 remove_duplicates <- function(x) {
   UseMethod("remove_duplicates")
 }
 
-#' @rdname remove_duplicates
+#' @rdname duplicates
 #' @export
 remove_duplicates.default <- function(x) {
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname remove_duplicates
+#' @rdname duplicates
 #' @export
 remove_duplicates.c14_date_list <- function(x) {
 
@@ -58,7 +36,8 @@ remove_duplicates.c14_date_list <- function(x) {
   # stringify variation in duplicates: log string
   stringified_differences <- duplicates %>%
     plyr::dlply("duplicate_group") %>%
-    purrr::map_chr(.f = stringify_data_frame)
+    lapply(FUN = stringify_data_frame) %>%
+    unlist
 
   # combine the duplicates and add the log string
   summarised_duplicates <- duplicates %>%
@@ -124,3 +103,4 @@ compare_and_combine_data_frame_values <- function(x) {
     }
   }
 }
+

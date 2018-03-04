@@ -1,23 +1,7 @@
 #### standardize_country_name ####
 
-#' @name standardize_country_name
-#' @title Apply country name standardization
-#'
-#' @description Add column country_thes with standardized country names
-#'
-#' @param x an object of class c14_date_list
-#' @param country_thesaurus data.frame with correct and variants of country names
-#' @param codesets which country codesets should be searched beyond "country.name.en".
-#' See \code{?countrycode::codelist} for more information
-#' @param quiet suppress printed output
-#' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
-#' \code{stringdist()} is used for fuzzy string matching of the country names
-#'
-#' @return an object of class c14_date_list
 #' @export
-#'
-#' @rdname standardize_country_name
-#'
+#' @rdname country_attribution
 standardize_country_name <- function(
   x,
   country_thesaurus = get_country_thesaurus(),
@@ -28,7 +12,7 @@ standardize_country_name <- function(
   UseMethod("standardize_country_name")
 }
 
-#' @rdname standardize_country_name
+#' @rdname country_attribution
 #' @export
 standardize_country_name.default <- function(
   x,
@@ -40,7 +24,7 @@ standardize_country_name.default <- function(
   stop("x is not an object of class c14_date_list")
 }
 
-#' @rdname standardize_country_name
+#' @rdname country_attribution
 #' @export
 standardize_country_name.c14_date_list <- function(
   x,
@@ -77,6 +61,8 @@ standardize_country_name.c14_date_list <- function(
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a vector with the correct english country names
+#'
+#' @keywords internal
 lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 
   check_if_packages_are_available(c("countrycode", "stringdist"))
@@ -97,7 +83,7 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
         find_correct_name_by_stringdist_comparison(db_word, country_df, codes, ...)
       }
     }
-  )
+  ) %>% unname
 
 }
 
@@ -109,6 +95,8 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 #' @param ... additional arguments are passed to stringdist::stringdist()
 #'
 #' @return a correct english country name
+#'
+#' @keywords internal
 find_correct_name_by_stringdist_comparison <- function(db_word, country_df, codes, ...) {
   country_df %>%
     dplyr::mutate_all(
@@ -125,5 +113,5 @@ find_correct_name_by_stringdist_comparison <- function(db_word, country_df, code
       which.min(.data$dist)
     ) %>%
     magrittr::extract2("country.name.en") %>%
-    magrittr::extract(1)
+    magrittr::extract2(1)
 }

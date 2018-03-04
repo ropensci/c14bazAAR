@@ -1,20 +1,11 @@
-#' get current 14SEA-Database
-#'
-#' Downloads the current version of the 14SEA-Database from \url{http:///www.14sea.org/}.
-#'
-#' @param db_url string with weblink to c14 archive file
-#'
-#' @examples
-#'
-#' \dontrun{
-#'   14SEA <- get_14SEA()
-#' }
-#'
+#' @name get_dates
+#' @rdname db_getter
 #' @export
 get_14SEA <- function(db_url = get_db_url("14SEA")) {
 
-  # check connection
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+  check_if_packages_are_available("readxl")
+
+  check_connection_to_url(db_url)
 
   # download data to temporary file
   tempo <- tempfile()
