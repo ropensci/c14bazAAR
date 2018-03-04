@@ -30,6 +30,7 @@ Suggests:
     countrycode (>= 1.00.0),
     dataverse (>= 0.2.0),
     plyr (>= 1.8.4),
+    rgeos (>= 0.3-26),
     readxl (>= 1.0.0),
     rworldmap (>= 1.3-6),
     rworldxtra (>= 1.01),

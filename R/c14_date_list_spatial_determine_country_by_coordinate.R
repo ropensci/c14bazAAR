@@ -16,7 +16,7 @@ determine_country_by_coordinate.default <- function(x) {
 #' @export
 determine_country_by_coordinate.c14_date_list <- function(x) {
 
-  check_if_packages_are_available(c("sf", "rworldxtra"))
+  check_if_packages_are_available(c("sf", "rworldxtra", "rgeos"))
   x %>% check_if_columns_are_present(c("lat", "lon"))
 
   x %<>% dplyr::mutate(ID = seq(1,nrow(x),1))
