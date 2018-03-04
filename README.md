@@ -33,7 +33,7 @@ The package needs a lot of other packages -- many of them only necessary for spe
 
 ### How to use
 
-The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around the [tibble](http://tibble.tidyverse.org/) class. 
+The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around the [tibble](http://tibble.tidyverse.org/) class and provides specific class methods.
 
 The complete workflow to download and prepare all dates can be triggered like this:
 
@@ -45,17 +45,15 @@ It takes quite some time to run all of this and it's probably not necessary for 
 
 #### Download
 
-[`get_all_dates()`](R/get_all_dates.R)
-
-This function downloads the current version of all [databases](#databases) that a parser was written for and merges them to one c14_date_list.
+c14bazAAR contains a growing selection of getter functions to download radiocarbon date databases. [Here's](#databases) a list of all available getters. You can download all dates at once with `get_all_dates()`. The getters download the data, adjust the variable selection according to a defined [variable key](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) and transform the resulting list into a `c14_date_list`. 
 
 #### Calibration
 
-[`calibrate()`](R/c14_date_list_calibrate.R)
-
-The function calibrates all valid dates in a `c14_date_list` with `Bchron::BchronCalibrate()`.
+The `calibrate()` function calibrates all valid dates in a `c14_date_list` individually with `Bchron::BchronCalibrate()`. It provides two different types of output: calprobdistr and calrange. See `?calibrate` for more information.
 
 #### Material classification
+
+Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations diffult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a changelog of the thesaurus.
 
 #### Country attribution
 
