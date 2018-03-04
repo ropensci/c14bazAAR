@@ -159,5 +159,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_RADON()`](R/get_radon.R) [**RADON**](http://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](http://www.jna.uni-kiel.de/index.php/jna/article/view/65).
 * [`get_RADONB()`](R/get_radonb.R) [**RADON-B**](http://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
 
+### Contributing
 
+If you would like to contribute to this project, please start by reading our [Guide to Contributing](CONTRIBUTING.md). Please note that this project is released with a Contributor [Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
