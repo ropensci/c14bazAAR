@@ -25,8 +25,10 @@ spatial_country_checker.default <- function(x) {
 #' @rdname spatial_country_checker
 #' @export
 spatial_country_checker.c14_date_list <- function(x) {
-  x %<>% c14bazAAR::determine_country_by_coordinate() %>%
+  x %>%
+    c14bazAAR::coordinate_precision() %>%
+    c14bazAAR::determine_country_by_coordinate() %>%
     c14bazAAR::standardize_country_name() %>%
-    c14bazAAR::finalize_country_name()
-  return(x)
+    c14bazAAR::finalize_country_name() %>%
+    return()
 }
