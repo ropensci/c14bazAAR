@@ -54,7 +54,7 @@ It takes quite some time to run all of this and it's probably not necessary for 
 
 #### Download
 
-c14bazAAR contains a growing selection of getter functions to download radiocarbon date databases. [Here's](#databases) a list of all available getters. You can download all dates at once with `get_all_dates()`. The getters download the data, adjust the variable selection according to a defined [variable key](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) and transform the resulting list into a `c14_date_list`. 
+c14bazAAR contains a growing selection of getter functions to download radiocarbon date databases. [Here's](#databases) a list of all available getters. You can download all dates at once with [`get_all_dates()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/get_all_dates.R). The getters download the data, adjust the variable selection according to a defined [variable key](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) and transform the resulting list into a `c14_date_list`. 
 
 See `?get_dates` for more information.
 
@@ -64,7 +64,7 @@ x <- get_all_dates()
 
 #### Calibration
 
-The `calibrate()` function calibrates all valid dates in a `c14_date_list` individually with `Bchron::BchronCalibrate()`. It provides two different types of output: calprobdistr and calrange. 
+The [`calibrate()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_calibrate.R) function calibrates all valid dates in a `c14_date_list` individually with [`Bchron::BchronCalibrate()`](https://github.com/andrewcparnell/Bchron/blob/master/R/BchronCalibrate.R). It provides two different types of output: calprobdistr and calrange. 
 
 See `?calibrate` for more information.
 
@@ -74,7 +74,7 @@ x %>% calibrate()
 
 #### Material classification
 
-Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations difficult for large datasets. The function `classify_material()` relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. 
+Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations difficult for large datasets. The function [`classify_material()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_classify_material.R) relies on a [custom made classification](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data. 
 
 See `?classify_material` for more information and look [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a change log of the thesaurus.
 
@@ -84,13 +84,13 @@ x %>% classify_material()
 
 #### Country attribution
 
-Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function `standardize_country_name()` tries to unify the semantically equal terms by string comparison with the curated country name list `countrycode::codelist` and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. 
+Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`standardize_country_name()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_standardize_country_name.R) tries to unify the semantically equal terms by string comparison with the curated country name list [`countrycode::codelist`](https://github.com/vincentarelbundock/countrycode) and a [custom made thesaurus](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country. 
 
-That's what the function `determine_country_by_coordinate()` does. It joins the position with country polygons from `rworldxtra::countriesHigh` to get reliable country attribution. 
+That's what the function [`determine_country_by_coordinate()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_determine_country_by_coordinate.R) does. It joins the position with country polygons from [`rworldxtra::countriesHigh`](https://github.com/AndySouth/rworldxtra) to get reliable country attribution. 
 
-The function `finalize_country_name()` finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
+The function [`finalize_country_name()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_finalize_country_name.R) finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
 
-The wrapper function `all_country_functions()` calls these function automatically in a sequence. 
+The wrapper function [`all_country_functions()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_all_country_functions.R) calls these function automatically in a sequence. 
 
 See `?country_attribution` for more information.
 
@@ -103,9 +103,9 @@ x %>%
 
 #### Duplicates
 
-Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function `mark_duplicates()` adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
+Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function [`mark_duplicates()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_duplicates_mark.R) adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
 
-For an automatic removal there's the function `remove_duplicates()`. It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log. 
+For an automatic removal there's the function [`remove_duplicates()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log. 
 
 See `?duplicates` for more information.
 
@@ -117,17 +117,17 @@ x %>%
 
 #### Coordinate precision
 
-The function `coordinate_precision()` allows to calculate the precision of the coordinate information. It relies on the number of digits in the columns lat and lon. The mean of the inaccuracy on the x and y axis in meters is stored in the additional column coord_precision. 
+The function [`coordinate_precision()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_coordinate_precision.R) allows to calculate the precision of the coordinate information. It relies on the number of digits in the columns lat and lon. The mean of the inaccuracy on the x and y axis in meters is stored in the additional column coord_precision. 
 
 See `?coordinate_precision` for more information.
 
 ```
-x %>% coordinate_precision
+x %>% coordinate_precision()
 ```
 
 #### Conversion
 
-A c14_date_list can be directly converted to other R data structures. So far only `as.sf()` is implemented. The sf package provides great tools to manipulate and plot spatial vector data. This simplifies certain spatial operations with the date point cloud.
+A c14_date_list can be directly converted to other R data structures. So far only [`as.sf()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_convert.R) is implemented. The sf package provides great tools to manipulate and plot spatial vector data. This simplifies certain spatial operations with the date point cloud.
 
 See `?as.sf` for more information.
 
@@ -137,9 +137,9 @@ x %>% as.sf()
 
 #### Technical functions
 
-c14_date_lists are constructed with `as.c14_date_list`. This function takes data.frames or tibbles and adds the c14_date_list class tag. It also calls `order_variables()` to establish a certain variable order and `enforce_types()` which converts all variables to the correct data type. There are custom `print` and `format` methods for c14_date_lists. 
+c14_date_lists are constructed with [`as.c14_date_list`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_basic.R). This function takes data.frames or tibbles and adds the c14_date_list class tag. It also calls [`order_variables()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_order_variables.R) to establish a certain variable order and [`enforce_types()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_enforce_types.R) which converts all variables to the correct data type. There are custom `print()` and `format()` methods for c14_date_lists. 
 
-The `fuse` function allows to rowbind multiple c14_date_lists.
+The [`fuse()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_fuse.R) function allows to rowbind multiple c14_date_lists.
 
 See `?as.c14_date_list` and `?fuse`.
 
