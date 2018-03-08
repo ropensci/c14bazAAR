@@ -6,7 +6,7 @@
 
 <img align="right" src="khajiit.jpg" width = 350>
 
-c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as back end of the [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](http://www.neolithicRC.de) might be better suited for your needs.
+c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as back end of our [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](http://www.neolithicRC.de) or other tools (such as [GoGet](http://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs. 
 
 - [Installation](#installation)
 - [How to use](#how-to-use)
