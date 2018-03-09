@@ -100,21 +100,24 @@ generate_list_of_equality_partners <- function(x) {
 #'
 #' @keywords internal
 add_equality_group_number <- function(x, partner_list) {
-  amount_duplicate_groups <- length(partner_list)
-  pb <- utils::txtProgressBar(
-    min = 0, max = amount_duplicate_groups,
-    style = 3,
-    width = 50,
-    char = "+"
-  )
-  group_counter = 0
   x$duplicate_group <- NA
-  for (p1 in 1:amount_duplicate_groups) {
-    x$duplicate_group[partner_list[[p1]]] <- group_counter
-    group_counter <- group_counter + 1
-    utils::setTxtProgressBar(pb, p1)
+
+  if(length(partner_list) > 0) {
+    amount_duplicate_groups <- length(partner_list)
+    pb <- utils::txtProgressBar(
+      min = 0, max = amount_duplicate_groups,
+      style = 3,
+      width = 50,
+      char = "+"
+    )
+    group_counter = 0
+    for (p1 in 1:amount_duplicate_groups) {
+      x$duplicate_group[partner_list[[p1]]] <- group_counter
+      group_counter <- group_counter + 1
+      utils::setTxtProgressBar(pb, p1)
+    }
+    close(pb)
   }
-  close(pb)
 
   return(x)
 }
