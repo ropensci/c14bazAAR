@@ -1,6 +1,6 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: c(
   person("Wolfgang", "Hamer", email = "hamer@geographie.uni-kiel.de", role = c("aut")),
   person("Martin", "Hinz", email = "martin.hinz@ufg.uni-kiel.de", role = c("aut")),
