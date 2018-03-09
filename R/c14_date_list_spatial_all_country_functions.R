@@ -34,6 +34,7 @@
 #' @param country_thesaurus data.frame with correct and variants of country names
 #' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
 #' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
+#' @param suppress_spatial_warnings suppress some spatial data messages and warnings
 #' @param quiet suppress printed output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
 #' \code{stringdist()} is used for fuzzy string matching of the country names in

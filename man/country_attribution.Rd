@@ -25,11 +25,13 @@ all_country_functions(x)
 
 \method{all_country_functions}{c14_date_list}(x)
 
-determine_country_by_coordinate(x)
+determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
 
-\method{determine_country_by_coordinate}{default}(x)
+\method{determine_country_by_coordinate}{default}(x,
+  suppress_spatial_warnings = TRUE)
 
-\method{determine_country_by_coordinate}{c14_date_list}(x)
+\method{determine_country_by_coordinate}{c14_date_list}(x,
+  suppress_spatial_warnings = TRUE)
 
 finalize_country_name(x)
 
@@ -50,6 +52,8 @@ standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
+
+\item{suppress_spatial_warnings}{suppress some spatial data messages and warnings}
 
 \item{country_thesaurus}{data.frame with correct and variants of country names}
 
