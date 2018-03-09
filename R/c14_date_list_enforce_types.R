@@ -9,25 +9,27 @@
 #' types. \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 #'
 #' @param x an object of class c14_date_list
+#' @param suppress_na_introduced_warnings suppress warnings caused by data removal in
+#' type transformation due to wrong database entries (surch as text in a number column)
 #'
 #' @return an object of class c14_date_list
 #' @export
 #'
 #' @rdname enforce_types
 #'
-enforce_types <- function(x) {
+enforce_types <- function(x, suppress_na_introduced_warnings = TRUE) {
   UseMethod("enforce_types")
 }
 
 #' @rdname enforce_types
 #' @export
-enforce_types.default <- function(x) {
+enforce_types.default <- function(x, suppress_na_introduced_warnings = TRUE) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname enforce_types
 #' @export
-enforce_types.c14_date_list <- function(x) {
+enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRUE) {
 
   # define variable type lists
   chr_cols <- c(
@@ -40,19 +42,33 @@ enforce_types.c14_date_list <- function(x) {
   dbl_cols <- c("c13val", "lat", "lon", "coord_precision")
 
   # transform (invalid values become NA)
-  withCallingHandlers({
+  if (suppress_na_introduced_warnings) {
+    withCallingHandlers({
+      x <- x %>%
+        dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
+        dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
+        dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double)
+      },
+      warning = na_introduced_warning_handler
+    )
+  } else {
     x <- x %>%
       dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
       dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
-      dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
-      `class<-`(c("c14_date_list", class(.)))
-    },
-    warning = function(w){
-      if(grepl("NAs introduced by coercion", w$message)){
-        warning("There are bad values in this database (e.g. text in a number field). They are replaced by NA:")
-      }
-    }
-  )
+      dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double)
+  }
+
+  x %<>% `class<-`(c("c14_date_list", class(.)))
 
   return(x)
+}
+
+#### helpers ####
+
+na_introduced_warning_handler <- function(x) {
+  if(any(
+    grepl("NAs introduced by coercion", x)
+  )) {
+    invokeRestart("muffleWarning")
+  }
 }

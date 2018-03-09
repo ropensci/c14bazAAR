@@ -6,14 +6,18 @@
 \alias{enforce_types.c14_date_list}
 \title{Enforce variable types in a \strong{c14_date_list}}
 \usage{
-enforce_types(x)
+enforce_types(x, suppress_na_introduced_warnings = TRUE)
 
-\method{enforce_types}{default}(x)
+\method{enforce_types}{default}(x, suppress_na_introduced_warnings = TRUE)
 
-\method{enforce_types}{c14_date_list}(x)
+\method{enforce_types}{c14_date_list}(x,
+  suppress_na_introduced_warnings = TRUE)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
+
+\item{suppress_na_introduced_warnings}{suppress warnings caused by data removal in
+type transformation due to wrong database entries (surch as text in a number column)}
 }
 \value{
 an object of class c14_date_list
