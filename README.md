@@ -46,7 +46,7 @@ get_all_dates() %>%
   calibrate() %>%
   mark_duplicates() %>%
   classify_material() %>%
-  all_country_functions() %>%
+  finalize_country_name() %>%
   coordinate_precision()
 ```
 
@@ -88,9 +88,7 @@ Filtering 14C dates by country is useful for a first spatial limitation and espe
 
 That's what the function [`determine_country_by_coordinate()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_determine_country_by_coordinate.R) does. It joins the position with country polygons from [`rworldxtra::countriesHigh`](https://github.com/AndySouth/rworldxtra) to get reliable country attribution. 
 
-The function [`finalize_country_name()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_finalize_country_name.R) finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final.
-
-The wrapper function [`all_country_functions()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_all_country_functions.R) calls these function automatically in a sequence. 
+The function [`finalize_country_name()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_spatial_finalize_country_name.R) finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final. If the necessary columns are missing, it calls the previous functions automatically. 
 
 See `?country_attribution` for more information.
 

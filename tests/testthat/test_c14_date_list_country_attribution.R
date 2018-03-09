@@ -93,11 +93,10 @@ test_that("finalize_country_name gives back a c14_date_list with the additional
   )
 })
 
-# all_country_functions
+result4 <- finalize_country_name(example_c14_date_list)
 
-result4 <- all_country_functions(example_c14_date_list)
-
-test_that("all_country_functions gives the same result as the other functions combined", {
+test_that("finalize_country_name gives the same result as the other functions combined,
+          because it calls the other functions in case of missing variables.", {
   expect_equal(
     result3,
     result4
