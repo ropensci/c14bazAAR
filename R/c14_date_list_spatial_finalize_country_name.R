@@ -33,7 +33,7 @@
 #' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
 #' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
 #' @param suppress_spatial_warnings suppress some spatial data messages and warnings
-#' @param quiet suppress printed output
+#' @param quiet suppress suppress decision log output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
 #' \code{stringdist()} is used for fuzzy string matching of the country names in
 #' \code{countrycode::codelist}
@@ -43,19 +43,19 @@
 #'
 #' @rdname country_attribution
 #' @export
-finalize_country_name <- function(x) {
+finalize_country_name <- function(x, quiet = FALSE) {
   UseMethod("finalize_country_name")
 }
 
 #' @rdname country_attribution
 #' @export
-finalize_country_name.default <- function(x) {
+finalize_country_name.default <- function(x, quiet = FALSE) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname country_attribution
 #' @export
-finalize_country_name.c14_date_list <- function(x) {
+finalize_country_name.c14_date_list <- function(x, quiet = FALSE) {
 
   # call functions if necessary columns are missing
   if("country" %in% colnames(x) %>% `!`) {
@@ -65,8 +65,10 @@ finalize_country_name.c14_date_list <- function(x) {
     x %<>% determine_country_by_coordinate()
   }
   if("country_thes" %in% colnames(x) %>% `!`) {
-    x %<>% standardize_country_name()
+    x %<>% standardize_country_name(quiet = quiet)
   }
+
+  message(paste0("Selecting final country name... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
 
   # add the column country_final
   x %<>% add_or_replace_column_in_df("country_final", NA, .after = "country_thes")

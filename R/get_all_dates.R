@@ -28,6 +28,8 @@
 #' @export
 get_all_dates <- function() {
 
+  message("Trying to download all dates...")
+
   # setup progress bar
   pb <- utils::txtProgressBar(
     max = 100,

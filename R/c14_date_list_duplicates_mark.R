@@ -50,7 +50,7 @@ mark_duplicates.c14_date_list <- function(x) {
 
   x %>% check_if_columns_are_present("labnr")
 
-  message(paste0("Marking duplicates... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
+  message(paste0("Marking duplicates... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
 
   message("-> Search for accordances in Lab Codes...")
   partners <- x[["labnr"]] %>% generate_list_of_equality_partners()

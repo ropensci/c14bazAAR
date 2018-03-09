@@ -24,11 +24,11 @@ determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
 \method{determine_country_by_coordinate}{c14_date_list}(x,
   suppress_spatial_warnings = TRUE)
 
-finalize_country_name(x)
+finalize_country_name(x, quiet = FALSE)
 
-\method{finalize_country_name}{default}(x)
+\method{finalize_country_name}{default}(x, quiet = FALSE)
 
-\method{finalize_country_name}{c14_date_list}(x)
+\method{finalize_country_name}{c14_date_list}(x, quiet = FALSE)
 
 standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
@@ -46,12 +46,12 @@ standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
 
 \item{suppress_spatial_warnings}{suppress some spatial data messages and warnings}
 
+\item{quiet}{suppress suppress decision log output}
+
 \item{country_thesaurus}{data.frame with correct and variants of country names}
 
 \item{codesets}{which country codesets should be searched for in \code{countrycode::codelist}
 beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information}
-
-\item{quiet}{suppress printed output}
 
 \item{...}{additional arguments are passed to \code{stringdist::stringdist()}.
 \code{stringdist()} is used for fuzzy string matching of the country names in

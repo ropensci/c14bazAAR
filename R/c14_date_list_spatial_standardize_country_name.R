@@ -38,6 +38,8 @@ standardize_country_name.c14_date_list <- function(
 
   x %<>% add_or_replace_column_in_df("country_thes", NA, .after = "country")
 
+  message(paste0("Standardizing country names... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
+
   x %<>%
     dplyr::mutate(
       country_thes = lookup_in_countrycode_codelist(.$country, country_thesaurus, codesets, ...)

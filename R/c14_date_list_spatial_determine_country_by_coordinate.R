@@ -19,6 +19,8 @@ determine_country_by_coordinate.c14_date_list <- function(x, suppress_spatial_wa
   check_if_packages_are_available(c("sf", "rworldxtra", "rgeos", "lwgeom"))
   x %>% check_if_columns_are_present(c("lat", "lon"))
 
+  message(paste0("Determining country by coordinates... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
+
   x %<>% dplyr::mutate(ID = as.integer(seq(1,nrow(x),1)))
 
   x_with_coords <- x %>%
