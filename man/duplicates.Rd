@@ -43,6 +43,8 @@ all dates in a \strong{duplicate_group}. All non-equal variables in the
 duplicate group are turned to \code{NA}. A new column
 \strong{duplicate_remove_log} documents the variety of entries initially
 provided (and partially lost by this hard merging operation).
+\code{c14bazAAR::remove_duplicates()} needs the column \strong{duplicate_group}
+and calls \code{c14bazAAR::mark_duplicates()} if it's missing.
 }
 \examples{
 mark_duplicates(example_c14_date_list)

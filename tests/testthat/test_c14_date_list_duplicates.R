@@ -31,14 +31,6 @@ test_that("mark_duplicates gives back a c14_date_list with the additional
 
 #### remove_duplicates ####
 
-test_that("remove_duplicates doesn't work without the column
-          duplicate_group", {
-  expect_error(
-    remove_duplicates(example_c14_date_list),
-    NULL
-  )
-})
-
 result2 <- remove_duplicates(result)
 
 test_that("remove_duplicates gives back a c14_date_list", {
@@ -66,3 +58,12 @@ test_that("remove_duplicates gives back a c14_date_list with the additional
   )
 })
 
+result3 <- remove_duplicates(example_c14_date_list)
+
+test_that("remove_duplicates alone gives the same result as the other functions combined,
+          because it calls the other functions in case of missing variables.", {
+  expect_equal(
+    result2,
+    result3
+  )
+})
