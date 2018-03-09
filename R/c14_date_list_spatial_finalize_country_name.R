@@ -41,6 +41,13 @@
 #' @return an object of class c14_date_list with the additional columns \strong{country_thes},
 #' \strong{country_coord} and/or \strong{country_final}
 #'
+#' @examples
+#' library(magrittr)
+#' example_c14_date_list %>%
+#'   determine_country_by_coordinate() %>%
+#'   standardize_country_name() %>%
+#'   finalize_country_name()
+#'
 #' @rdname country_attribution
 #' @export
 finalize_country_name <- function(x, quiet = FALSE) {

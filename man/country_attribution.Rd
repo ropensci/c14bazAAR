@@ -87,3 +87,11 @@ of the database. The result is added to the input date list with the column
 \code{c14bazAAR::determine_country_by_coordinate()} and
 \code{c14bazAAR::standardize_country_name()} if the necessary columns are missing yet.
 }
+\examples{
+library(magrittr)
+example_c14_date_list \%>\%
+  determine_country_by_coordinate() \%>\%
+  standardize_country_name() \%>\%
+  finalize_country_name()
+
+}
