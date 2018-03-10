@@ -19,7 +19,7 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     ),
     delim = ";",
     trim_ws = TRUE,
-    locale = readr::locale(encoding = "ISO-8859-9"),
+    locale = readr::locale(encoding = "ISO-8859-1"),
     na = c("-", "--", "---", "", "NA", "n.d.", "?"),
     col_types = readr::cols(
       LABNR = readr::col_character(),
