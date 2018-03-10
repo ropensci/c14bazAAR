@@ -20,6 +20,7 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
     readr::read_csv(
       skip = 3,
       trim_ws = TRUE,
+      locale = readr::locale(encoding = "ISO-8859-1"),
       col_types = readr::cols(
         "Lab Number" = readr::col_character(),
         "Field Number" = "_", # `= "_"` removes/skips the column
