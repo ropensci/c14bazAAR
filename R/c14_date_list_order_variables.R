@@ -57,7 +57,7 @@ order_variables.c14_date_list <- function(x) {
       dplyr::matches("^material_thes$"),
       dplyr::matches("^species$"),
       dplyr::matches("^region$"),
-      dplyr::matches("country$"),
+      dplyr::matches("^country$"),
       dplyr::matches("^country_coord$"),
       dplyr::matches("^country_thes$"),
       dplyr::matches("^lat$"),

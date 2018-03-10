@@ -20,7 +20,7 @@ classify_material(x, material_thesaurus = c14bazAAR::get_material_thesaurus(),
 
 \item{material_thesaurus}{a thesaurus table}
 
-\item{quiet}{suppress printed output}
+\item{quiet}{suppress decision log output}
 }
 \value{
 an object of class c14_date_list with the additional column \strong{material_thes}

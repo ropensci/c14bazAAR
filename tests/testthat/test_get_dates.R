@@ -1,4 +1,4 @@
-context("database parsers and helper functions ~ 30s")
+context("database parsers and helper functions")
 
 #### get_all_parser_functions ####
 

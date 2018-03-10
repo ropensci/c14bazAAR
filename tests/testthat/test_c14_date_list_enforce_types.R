@@ -35,9 +35,9 @@ test_that("enforce_types does adjust variable types if necessary", {
 
 #### warnings ####
 
-test_that("enforce_types warns if it applies changes", {
+test_that("enforce_types warns if it applies changes and warnings are not suppressed", {
   expect_warning(
-    enforce_types(example),
+    enforce_types(example, suppress_na_introduced_warnings = FALSE),
     NULL
   )
 })

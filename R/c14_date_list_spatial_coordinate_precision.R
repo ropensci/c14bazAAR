@@ -33,6 +33,8 @@ coordinate_precision.c14_date_list <- function(x) {
 
   x %>% check_if_columns_are_present(c("lat", "lon"))
 
+  message(paste0("Calculating coordinate precision... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
+
   lat <- x$lat %>%
     individual_precision(mode = "lat")
   lon <- x$lon %>%

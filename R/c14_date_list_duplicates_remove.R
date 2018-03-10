@@ -16,10 +16,13 @@ remove_duplicates.default <- function(x) {
 #' @export
 remove_duplicates.c14_date_list <- function(x) {
 
-  x %>% check_if_columns_are_present("duplicate_group")
+  # call functions if necessary columns are missing
+  if("duplicate_group" %in% colnames(x) %>% `!`) {
+    x %<>% mark_duplicates()
+  }
 
   # start message:
-  message(paste0("Removing duplicates... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
+  message(paste0("Removing duplicates... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
 
   # get all unique dates
   not_duplicates <- x %>%

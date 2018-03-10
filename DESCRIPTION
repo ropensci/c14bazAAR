@@ -1,6 +1,6 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: c(
   person("Wolfgang", "Hamer", email = "hamer@geographie.uni-kiel.de", role = c("aut")),
   person("Martin", "Hinz", email = "martin.hinz@ufg.uni-kiel.de", role = c("aut")),
@@ -29,6 +29,7 @@ Suggests:
     Bchron (>= 4.2.6),
     countrycode (>= 1.00.0),
     dataverse (>= 0.2.0),
+    lwgeom (>= 0.1-4),
     plyr (>= 1.8.4),
     rgeos (>= 0.3-26),
     readxl (>= 1.0.0),

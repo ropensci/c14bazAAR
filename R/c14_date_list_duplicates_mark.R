@@ -15,6 +15,8 @@
 #' duplicate group are turned to \code{NA}. A new column
 #' \strong{duplicate_remove_log} documents the variety of entries initially
 #' provided (and partially lost by this hard merging operation).
+#' \code{c14bazAAR::remove_duplicates()} needs the column \strong{duplicate_group}
+#' and calls \code{c14bazAAR::mark_duplicates()} if it's missing.
 #'
 #' @param x an object of class c14_date_list
 #'
@@ -48,7 +50,7 @@ mark_duplicates.c14_date_list <- function(x) {
 
   x %>% check_if_columns_are_present("labnr")
 
-  message(paste0("Marking duplicates... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
+  message(paste0("Marking duplicates... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
 
   message("-> Search for accordances in Lab Codes...")
   partners <- x[["labnr"]] %>% generate_list_of_equality_partners()
@@ -98,21 +100,24 @@ generate_list_of_equality_partners <- function(x) {
 #'
 #' @keywords internal
 add_equality_group_number <- function(x, partner_list) {
-  amount_duplicate_groups <- length(partner_list)
-  pb <- utils::txtProgressBar(
-    min = 0, max = amount_duplicate_groups,
-    style = 3,
-    width = 50,
-    char = "+"
-  )
-  group_counter = 0
   x$duplicate_group <- NA
-  for (p1 in 1:amount_duplicate_groups) {
-    x$duplicate_group[partner_list[[p1]]] <- group_counter
-    group_counter <- group_counter + 1
-    utils::setTxtProgressBar(pb, p1)
+
+  if(length(partner_list) > 0) {
+    amount_duplicate_groups <- length(partner_list)
+    pb <- utils::txtProgressBar(
+      min = 0, max = amount_duplicate_groups,
+      style = 3,
+      width = 50,
+      char = "+"
+    )
+    group_counter = 0
+    for (p1 in 1:amount_duplicate_groups) {
+      x$duplicate_group[partner_list[[p1]]] <- group_counter
+      group_counter <- group_counter + 1
+      utils::setTxtProgressBar(pb, p1)
+    }
+    close(pb)
   }
-  close(pb)
 
   return(x)
 }

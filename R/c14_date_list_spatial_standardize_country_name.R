@@ -38,6 +38,8 @@ standardize_country_name.c14_date_list <- function(
 
   x %<>% add_or_replace_column_in_df("country_thes", NA, .after = "country")
 
+  message(paste0("Standardizing country names... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
+
   x %<>%
     dplyr::mutate(
       country_thes = lookup_in_countrycode_codelist(.$country, country_thesaurus, codesets, ...)
@@ -75,9 +77,9 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
       # if a manual attribution is supplied then use this
       if (db_word %in% country_thesaurus$var) {
         country_thesaurus$cor[db_word == country_thesaurus$var]
-      # if country name is NA or already the correct english term then store NA
+      # if country name is NA or already the correct english term then use that
       } else if(db_word %in% c(NA, country_df$country.name.en)) {
-        NA
+        db_word
       # else determine correct english term based on stringdist
       } else {
         find_correct_name_by_stringdist_comparison(db_word, country_df, codes, ...)

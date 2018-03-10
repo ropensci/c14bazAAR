@@ -12,7 +12,7 @@
 #'
 #' @param x an object of class c14_date_list
 #' @param material_thesaurus a thesaurus table
-#' @param quiet suppress printed output
+#' @param quiet suppress decision log output
 #'
 #' @return an object of class c14_date_list with the additional column \strong{material_thes}
 #'
@@ -56,7 +56,7 @@ classify_material.c14_date_list <- function(
 
   x %<>% add_or_replace_column_in_df("material_thes", NA_character_, .after = "material")
 
-  message(paste0("Material classification... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
+  message(paste0("Classifying material... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
 
   x %<>%
     dplyr::mutate(

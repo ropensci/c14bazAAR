@@ -58,12 +58,10 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
 
   check_if_packages_are_available(c("Bchron", "plyr"))
 
-  # this would actually not be necessary, because a c14_date_list has
-  # those columns per definition
   x %>% check_if_columns_are_present(c("c14age", "c14std"))
 
   # start message:
-  message(paste0("Calibration... ", {if (nrow(x) > 1000) {"This may take several minutes."}}))
+  message(paste0("Calibrating dates... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
 
   # setup progress bar
   pb <- utils::txtProgressBar(
@@ -74,7 +72,7 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
   )
 
   # add empty column "calprobdistr"
-  x %<>% add_or_replace_column_in_df("calprobdistr",  I(replicate(nrow(x), data.frame())), .after = "c14std")
+  x %<>% add_or_replace_column_in_df("calprobdistr",  replicate(nrow(x), data.frame()), .after = "c14std")
 
   # extract dates which are not out of range of calcurve
   outofrange <- x %>% determine_dates_out_of_range_of_calcurve()
@@ -119,7 +117,7 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
   my_prob_vector <- c(0.6827, 0.9545, 0.9974)
 
   if ("sigmarange" %in% choices) {
-    x %<>% add_or_replace_column_in_df("calrange",  I(replicate(nrow(x), data.frame())), .after = "calprobdistr")
+    x %<>% add_or_replace_column_in_df("calrange",  replicate(nrow(x), data.frame()), .after = "calprobdistr")
     x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
     x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange], hdr, prob = my_prob_vector[sigma])
     x$sigma <- sigma
