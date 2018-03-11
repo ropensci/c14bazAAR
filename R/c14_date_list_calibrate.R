@@ -76,7 +76,11 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
 
   # extract dates which are not out of range of calcurve
   outofrange <- x %>% determine_dates_out_of_range_of_calcurve()
-  calibrateable <- x[-outofrange, ]
+  if(length(outofrange) > 0) {
+    calibrateable <- x[-outofrange, ]
+  } else {
+    calibrateable <- x
+  }
 
   # create empty calibration result data.frame list
   calibrateable_prodistr <- replicate(nrow(calibrateable), data.frame())
@@ -111,7 +115,11 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
   calage_vector <- determine_calage_from_probability_distribution(calibrateable_prodistr)
 
   # write result back into x
-  x$calprobdistr[-outofrange] <- calibrateable_prodistr
+  if(length(outofrange) > 0) {
+    x$calprobdistr[-outofrange] <- calibrateable_prodistr
+  } else {
+    x$calprobdistr <- calibrateable_prodistr
+  }
 
   # vector of probabilities for 1, 2 and 3 sigma
   my_prob_vector <- c(0.6827, 0.9545, 0.9974)
@@ -119,7 +127,11 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
   if ("sigmarange" %in% choices) {
     x %<>% add_or_replace_column_in_df("calrange",  replicate(nrow(x), data.frame()), .after = "calprobdistr")
     x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
-    x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange], hdr, prob = my_prob_vector[sigma])
+    if(length(outofrange) > 0) {
+      x$calrange[-outofrange] <- lapply(x$calprobdistr[-outofrange], hdr, prob = my_prob_vector[sigma])
+    } else {
+      x$calrange <- lapply(x$calprobdistr, hdr, prob = my_prob_vector[sigma])
+    }
     x$sigma <- sigma
   } else {
     x$calrange <- x$sigma <- NULL
