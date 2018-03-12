@@ -6,18 +6,18 @@
 \alias{calibrate.c14_date_list}
 \title{Calibrate all valid dates in a \strong{c14_date_list}}
 \usage{
-calibrate(x, choices = c("sigmarange"), sigma = 2, ...)
+calibrate(x, choices = c("calrange"), sigma = 2, ...)
 
-\method{calibrate}{default}(x, choices = c("sigmarange"), sigma = 2, ...)
+\method{calibrate}{default}(x, choices = c("calrange"), sigma = 2, ...)
 
-\method{calibrate}{c14_date_list}(x, choices = c("sigmarange"), sigma = 2,
+\method{calibrate}{c14_date_list}(x, choices = c("calrange"), sigma = 2,
   ...)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
 \item{choices}{whether the result should include the full calibrated
-probability dataframe ('probdist') or the sigma range ('sigmarange').
+probability dataframe ('calprobdistr') or the sigma range ('calrange').
 Both arguments may be given at the same time.}
 
 \item{sigma}{the desired sigma value (1,2,3) for the calibrated sigma ranges}
@@ -46,7 +46,7 @@ columns \strong{dens} and \strong{from} and \strong{to}.
 \examples{
 calibrate(
   example_c14_date_list,
-  choices = c("probdist", "sigmarange"),
+  choices = c("calprobdistr", "calrange"),
   sigma = 1
 )
 

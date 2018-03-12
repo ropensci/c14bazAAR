@@ -11,7 +11,7 @@ Authors@R: c(
   person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut"))
   )
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
-Depends: R (>= 3.4.1)
+Depends: R (>= 3.4.0)
 License: GPL-2 | file LICENSE
 Encoding: UTF-8
 LazyData: true
