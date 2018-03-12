@@ -19,7 +19,7 @@
 #'
 #' @param x an object of class c14_date_list
 #' @param choices whether the result should include the full calibrated
-#' probability dataframe ('probdist') or the sigma range ('sigmarange').
+#' probability dataframe ('calprobdistr') or the sigma range ('calrange').
 #' Both arguments may be given at the same time.
 #' @param sigma the desired sigma value (1,2,3) for the calibrated sigma ranges
 #' @param ... passed to Bchron::BchronCalibrate()
@@ -30,7 +30,7 @@
 #' @examples
 #' calibrate(
 #'   example_c14_date_list,
-#'   choices = c("probdist", "sigmarange"),
+#'   choices = c("calprobdistr", "calrange"),
 #'   sigma = 1
 #' )
 #'
@@ -38,22 +38,22 @@
 #'
 #' @rdname calibrate
 #'
-calibrate <- function(x, choices = c("sigmarange"), sigma = 2, ...) {
+calibrate <- function(x, choices = c("calrange"), sigma = 2, ...) {
   UseMethod("calibrate")
 }
 
 #' @rdname calibrate
 #' @export
-calibrate.default <- function(x, choices = c("sigmarange"), sigma = 2, ...) {
+calibrate.default <- function(x, choices = c("calrange"), sigma = 2, ...) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname calibrate
 #' @export
-calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...) {
+calibrate.c14_date_list <- function(x, choices = c("calrange"), sigma = 2, ...) {
 
   choices <- match.arg(choices,
-                       c("probdist", "sigmarange"),
+                       c("calprobdistr", "calrange"),
             several.ok = TRUE)
 
   check_if_packages_are_available(c("Bchron", "plyr"))
@@ -124,7 +124,7 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
   # vector of probabilities for 1, 2 and 3 sigma
   my_prob_vector <- c(0.6827, 0.9545, 0.9974)
 
-  if ("sigmarange" %in% choices) {
+  if ("calrange" %in% choices) {
     x %<>% add_or_replace_column_in_df("calrange",  replicate(nrow(x), data.frame()), .after = "calprobdistr")
     x %<>% add_or_replace_column_in_df("sigma",  NA_integer_, .after = "calrange")
     if(length(outofrange) > 0) {
@@ -137,7 +137,7 @@ calibrate.c14_date_list <- function(x, choices = c("sigmarange"), sigma = 2, ...
     x$calrange <- x$sigma <- NULL
   }
 
-  if (!("probdist" %in% choices)) {
+  if (!("calprobdistr" %in% choices)) {
     x$calprobdistr <- NULL
   }
 
