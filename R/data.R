@@ -40,8 +40,7 @@ NULL
 #'   \item \bold{c14bazAAR} name of variable in c14bazAAR
 #'   \item \bold{type} data type of variable in R
 #'   \item \bold{definition} meaning of variable
-#'   \item \bold{priority} priority of variable
-#'   \item \bold{order} position of variable in a c14_date_list
+#'   \item \bold{source} is the variable imported (databases) or generated (c14bazAAR)
 #'   \item \bold{...} variables in source databases
 #' }
 #'
