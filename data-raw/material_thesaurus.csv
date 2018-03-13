@@ -2,11 +2,15 @@ cor,var
 antler,antler
 antler,horn
 antler,hjorthorn
-bark,bark
-bark,Bark
-bark,riinde
-bark,Rinde
-beeswax,Beeswax
+antler,Red deer antler
+antler,Red deer modified antler
+antler,"Cervus elaphus, antler tool"
+antler,"Cervus elaphus, antler"
+antler,"Red deer antler, tool"
+antler,Cervid antler
+antler,"Red deer, antler"
+antler,Red deer antler tool
+antler,Deer antler
 bone,aegilops (saiga)
 bone,animal bone
 bone,Animal Bone
@@ -60,14 +64,224 @@ bone,pig
 bone,Turtle carapace
 bone,Ur
 bone,Carbon from charred bone
-burnt clay,Baked clay from hearth
-burnt clay,Clayball from hearth
-burnt clay,mud-brick wall
+bone,"Animal bone, humerus lamb/kid"
+bone,"Animal bone, sheep/goat metatarsal"
+bone,"Animal bone, sheep/goat humerus"
+bone,"Animal bone, sheep phalanges"
+bone,"Animal bone, goat axis and cervical vertebra"
+bone,"Animal bone, sheep/goat metacarpal and phalanx"
+bone,"Animal bone, dog radius and ulna"
+bone,"Animal bone, sheep/goat tibia"
+bone,"Animal bone, cattle"
+bone,"Animal bone, sheep phalanx"
+bone,"Animal bone, sheep tibia and astragalus"
+bone,"Animal bone, sheep"
+bone,"Human bone, neonate femur"
+bone,"Animal bone, sheep metatarsal and phalax"
+bone,"Animal bone, sheep/goat ilium"
+bone,"Human bone, foetus femur"
+bone,"Animal bone, sheep-sized ribs, vertebrae"
+bone,"human bone (rib), old man"
+bone,"human bone (rib), old woman"
+bone,"Animal bone, sheep- and cattle-sized fragments"
+bone,"human bone (rib), juvenile"
+bone,"human bone, juvenile"
+bone,"animal bone, cattle skull with horncores 1400.X3"
+bone,"animal bone, wild goat horn core 1344.X4"
+bone,"human bone, adult man"
+bone,"Animal bone, sheep-sized fragments"
+bone,Animal bone (worked point from sheep/goat metacarpal)
+bone,"animal bone, cattle phalanx"
+bone,Animal bone (sheep)
+bone,Cattle bucranion
+bone,Human bone (rib mature female skeleton)
+bone,Human long bone fragment
+bone,Human tibia
+bone,Skull
+bone,Human bone (adult female ulna)
+bone,Child's skull fragment
+bone,Human bone (adult humerus)
+bone,Animal bone (sheep tibia)
+bone,Animal bone (sheep/goat femur)
+bone,Human bone (rib from infant)
+bone,Animal bone (sheep/goat carpal)
+bone,Animal bone (sheep phalanges)
+bone,Animal bone
+bone,"Animal bone, collagen"
+bone,"Animal bone, humic acids"
+bone,Bone collagen
+bone,Bone (talus)
+bone,"Bone, sheep/goat"
+bone,Charred bone
+bone,"Collagen, bone"
+bone,Bones
+bone,"Bone apatite, carbon dioxide"
+bone,Bone (Ovis)
+bone,"Bone (cattle, dog, pig)"
+bone,Bone (Capra)
+bone,"bone, Homo sapiens"
+bone,Human (cranial) bone
+bone,Human? bone
+bone,Bone (Bos)
+bone,Bone (Sus)
+bone,Human bone PAL7
+bone,"Human bone, REV5"
+bone,"Bone, Cervus"
+bone,"Bone collagen, Bos"
+bone,"Bone, Bos"
+bone,Bone (ovis)
+bone,Sus scrofa
+bone,Bos taurus
+bone,Sus domesticus
+bone,Ovis aries
+bone,Human infant bone
+bone,Bone perforator
+bone,Dog mandible
+bone,Red deer skull
+bone,Pig maxilla
+bone,"Large mammal long bone, awl"
+bone,"Bos sp., rib"
+bone,"Dog, distal humerus"
+bone,"Bos sp., vertebra"
+bone,"Bos sp., calcaneus"
+bone,Bos-size bone
+bone,"Bos sp., proximal tibia"
+bone,Sus domestica
+bone,Capra hircus
+bone,"Bone, sheep"
+bone,"Bone, pig"
+bone,"Animal bone, bos"
+bone,"Animal bone, pig"
+bone,"Animal bone, goat"
+bone,Bone (wild adult pig)
+bone,Bone (large juvenile bovid)
+bone,Bone (large adult bovid)
+bone,Bone( large adult bovid)
+bone,Bone (subadult sheep)
+bone,Bone (sheep)
+bone,Bone (adult sheep)
+bone,"Human bone, calcinated"
+bone,Animal bone (Bos)
+bone,Animal bone (Ovis/Capra)
+bone,Animal bone (Bos/Cervus)
+bone,Human skull
+bone,Human canine
+bone,Human skull (adult)
+bone,Human skull (old adult)
+bone,Human skull (juvenile)
+bone,Human bone (cranial fragment)
+bone,Red deer metatarsus
+bone,Human femur
+bone,Ungulate long bone
+bone,Human mandible
+bone,Fish vertebra
+bone,Human scapula
+bone,Red deer metacarpus
+bone,Bone tool
+bone,Roe deer metacarpus
+bone,Human left humerus
+bone,Large mammal long bone
+bone,Human rib
+bone,Human right humerus
+bone,Red deer vertebra
+bone,Pig phalanx
+bone,Red deer mandible
+bone,Human left femur
+bone,Domestic cattle metatarsus
+bone,Pig scapula
+bone,Goat metacarpus
+bone,Domestic cattle horn core
+bone,Goat mandible
+bone,Human humerus
+bone,Red deer astragalus
+bone,Human trapezium
+bone,Animal bone collagen (Ursus arctos)
+bone,"Canis familiaris, tibia"
+bone,"Canis familiaris, ulna"
+bone,Bone artefact
+bone,Worked mammal bone
+bone,Unmodified mammal bone
+bone,"Ovis/Capra, distal right humerus"
+bone,"Carnivora, pelvis"
+bone,"Red deer antler, perforated mattock"
+bone,Bone point
+bone,Animal bone (horse)
+bone,Roe deer skull
+bone,Bone chisel (aurochs)
+bone,Bone tool (wild boar tusk)
+bone,Mammal bone
+bone,Bone (horse)
+bone,"Animal bone, cattle (Phalanx)"
+bone,"Animal bone, cattle (Metatarsus)"
+bone,"Animal bone, cattle (Astragalus)"
+bone,Animal bone (wild donkey)
+bone,Unidentified animal bone
+bone,Charred unidentified animal bone
+bone,Bos sp. rib
+bone,Ruminantia long bone
+bone,Pig metatarsus
+bone,Bos sp. mandible
+bone,"Cervus elaphus, humerus"
+bone,"Bos taurus, femur"
+bone,"Bos taurus, humerus"
+bone,"Sus scrofa, femur"
+bone,"Bos taurus, metacarpal"
+bone,"Bos taurus, tibia"
+bone,"Large mammal long bone, tool"
+bone,"Human rib, adult male"
+bone,"Human vertebra, adult male"
+bone,"Cervus elaphus, metatarsal"
+bone,"Capreolus elaphus, metatcarpal"
+bone,"Cervus elaphus, metapodial"
+bone,"Bos/Cervus, metatarsal"
+bone,"Cerphus elaphus, metatarsal"
+bone,"Capreolus capreolus, metatarsal"
+bone,Bos/Cervus tibia
+bone,"Large mammal, long bone"
+bone,"Bos/Cervus, metatrsal"
+bone,"Small ruminant metapodial, bone tool"
+bone,"Bos/Cervus, scapula"
+bone,Ovicaprid bone
+bone,Animal bones
+bone,Mammal bone (spatula)
+bone,Bone (tool)
+bone,Human skull fragment
+bone,Human bones
+bone,"Human skull, adult"
+bone,Bos taurus metatarsal
+bone,"Cervus elaphus, humerus dx"
+bone,"Bos sp., astragalus"
+bone,Quercus and Ulmus
+bone,Long-bone flake
+bone,Bone (Bos primigenius)
+bone,"Bos sp., radius"
+bone,Maxilla
+bone,Mandible
+bone,Human mandible fragment
+bone,Human temporal bone
+bone,"Bos, long-bone"
+bone,"Bos sp., radius dx"
+bone,"Bos sp., femur"
+bone,"Cervus elaphus,  metatarsal"
+bone,"Bos sp., ulna"
+bone,Large mammal humerus
+bone,"Large mammal, polished rib"
+bone,"Bos sp., humerus sx"
+bone,Bos taurus metapodial
+bone,Animal bone (Bos or Equus)
+bone,Equus sp. long bone
+bone,Large ungulate (?) long bone
+bone,Bos primigenius matatarsal
+bone,Bone (red deer)
 ceramics,ceramic
 ceramics,ceramics
 ceramics,organic temper
 ceramics,pottery
 ceramics,vegetable temper
+ceramics,Organic-tempered sherds
+ceramics,"Sherds, organic fraction"
+ceramics,"Pottery, organic temper"
+ceramics,Pottery carbon
 charcoal,charcoak
 charcoal,charcoal
 charcoal,charcoal
@@ -111,36 +325,120 @@ charcoal,charred seeds
 charcoal,Charred twig
 charcoal,charred twigs
 charcoal,notenschelpen (verkoold)
+charcoal,Charcoal (twigs)
+charcoal,"Charcoal, mixed with soil and wheat grains"
+charcoal,"Charcoal, mixed with soil"
+charcoal,Charcoal-juniper
+charcoal,charcoal (unidentified)
+charcoal,charcoal-elm
+charcoal,charcoal-elm; bone
+charcoal,charcoal-elm/oak
+charcoal,charcoal-juniper/oak
+charcoal,charcoal-juniper
+charcoal,charcoal-oak
+charcoal,charcoal-timber(?)
+charcoal,charcoal-timber (?)
+charcoal,Charcoal (unidentified)
+charcoal,Micro-charcoal (AMS)
+charcoal,Unidentified charcoal
+charcoal,Ash and wood charcoal
+charcoal,Charcoal from burnt beams
+charcoal,Carbonaceous
+charcoal,Charcoal with earth
+charcoal,"Carbonised wood stake (Quercus), Sample 1 from 1960"
+charcoal,"Wood charcoal, Quercus deciduous type"
+charcoal,"Charcoal, Sample 2 from 1960"
+charcoal,"Charcoal, Sample 5 from 1960"
+charcoal,"Charcoal, Samples CM, DF, DG (II), CL (II) from 1970"
+charcoal,"Charcoal, Sample CW (II), CY (II) from 1970"
+charcoal,"Charcoal, Sample 3 from 1960"
+charcoal,"Charcoal, Sample 4 from 1960"
+charcoal,"Charcoal, from 1969"
+charcoal,"Charcoal, Samples AR (IA), AY (IA), BA (IA), BI (IA) from 1970"
+charcoal,"Charcoal, Samples 23 and 27-29 from 1970"
+charcoal,"Charcoal, Sample 19 from 1970"
+charcoal,"Charcoal, Sample 6 from 1960"
+charcoal,"Charcoal, Sample 3 from 1970"
+charcoal,Charcoal: Angiosperm
+charcoal,Charcoal: Prunus sp.
+charcoal,Charcoal (organic residue)
+charcoal,Charcoal (organic extract)
+charcoal,Charcoal and humic fraction
+charcoal,Charcoal (62g)
+charcoal,"Charcoal from beam (490g),"
+charcoal,Charcoal from beam (600g)
+charcoal,Charcoal (50g)
+charcoal,Charcoal (60g)
+charcoal,Charcoal (10g)
+charcoal,Small charcoals
+charcoal,Deciduous charcoal
+charcoal,Oak charcoal
+charcoal,Charcoal+soil
+charcoal,Charcoal+fine dark soil
+charcoal,Charcoal +soil
+charcoal,Charcoal +fine dark soil
+charcoal,"Charcoal, No. 28"
+charcoal,"Charcoal, No. 21"
+charcoal,"Charcoal, No. 168"
+charcoal,Charcoal (Juniperus)
+charcoal,"Charcoal (Quercus, Juniperus, ""and several other trees"")"
+charcoal,Charcoal and sand
+charcoal,"Charcoal with earth, detritus"
+charcoal,"Charcoal, detritus"
+charcoal,Charcoal or soot (?)
+charcoal,Charcoal and burned earth
+charcoal,Charcoal + grain
+charcoal,Charcoal (Quercus sp.)
+charcoal,Charcoal (Quercus cf. pubescens)
+charcoal,Charcoal (Fraxinus cf. ornus)
+charcoal,"Charcoal (Viburnum, Ulmus)"
+charcoal,Charcoal (Fraxinus sp.)
+charcoal,Charcoal (Ulmus sp.)
+charcoal,Charcoal (humic acid)
+charcoal,Charcoal/detritus
+charcoal,Charcoal+ashes
+charcoal,Charcoal and earth
+charcoal,Charcoal and detritus
+charcoal,Charcoal fragments
+charcoal,Charcoal (poss. Quercus sp.)
+charcoal,Charcoal/Wood
+charcoal,Charcoal?
+charcoal,Charcoal/seeds
 fabric,cloth
 fabric,fabric
 fabric,mat
 fabric,textile
 fabric,thread
 fabric,wool
-faeces,Dung
-faeces,dung
-faeces,Dung
-faeces,excrement
-faeces,rat dropping
-food,bread
-food,food
-food,food remains
-food,food residue
-food,Honey
-food,Speisereste
-food,voedselrest
-food,charred food residue
-hair,animal hair
-hair,hair
-humic acid,humic acid
-humic acid,Humic acid extraction
-humic acid,humic acids
-humic acid,Humic fraction
-humic acid,Humics
-humic acid,Humics from ANUA-33
-humic acid,Humics from CAMS-2873
-humic acid,Humics from NZA-194
-micro organism,Foraminifera
+food residues,bread
+food residues,food
+food residues,food remains
+food residues,food residue
+food residues,Honey
+food residues,Speisereste
+food residues,voedselrest
+food residues,charred food residue
+other,humic acid
+other,Humic acid extraction
+other,humic acids
+other,Humic fraction
+other,Humics
+other,Humics from ANUA-33
+other,Humics from CAMS-2873
+other,Humics from NZA-194
+other,Humic acid
+other,Foraminifera
+other,Beeswax
+other,Baked clay from hearth
+other,Clayball from hearth
+other,mud-brick wall
+other,Dung
+other,dung
+other,Dung
+other,excrement
+other,rat dropping
+other,animal hair
+other,hair
 other,Bird eggshell
 other,Calcium carbonate
 other,eggshell
@@ -193,6 +491,32 @@ other,Quatrz (90-125 micron)
 other,Austomylitus rostratus shell
 other,stones
 other,Human blood protein
+other,ashes; charcoal-elm
+other,Inhaled particulate carbon
+other,Obsidian
+other,Carbonates
+other,Soot
+other,Wood and bones (5g)
+other,Charcoal and grains (205g)
+other,Burnt remains in situ
+other,Charcoal/humic acid
+other,Soil and charcoal
+other,Sand and wood remains
+other,Ashes/sand
+other,Grains and charcoal
+other,Charcoal and burned bone
+other,Botanical sample
+other,Escargotière
+other,Landsnail shell
+other,Snail carbonate
+other,Mangrove gastropod
+other,Helix cincta (Müller)
+other,leather
+other,brain
+other,brain tissue
+other,skin
+other,tissue
+other,human brain
 plant remains,grass cuticle
 plant remains,(Acacia?) roots
 plant remains,acorn
@@ -284,10 +608,126 @@ plant remains,terrestrial plant macrofossils
 plant remains,triticum
 plant remains,"wheat, chickpeas"
 plant remains,Vegetable matter lining grave
-pollen,Pollen (<5 microns)
-pollen,Pollen (10-25 microns)
-pollen,Pollen (45-90 microns)
-pollen,Pollen (5-10 microns)
+plant remains,Charred seed
+plant remains,Charred hazelnut shell
+plant remains,Charred grain
+plant remains,Charred grain (Hordeum)
+plant remains,Charred seeds (figs)
+plant remains,Charred wheat grains
+plant remains,Fossil Celtis endocarp
+plant remains,Cereal grain
+plant remains,Lolium seed
+plant remains,"charred seeds, Triticum / Pisum/ Cerealae"
+plant remains,Celtis silicified/calcified seed
+plant remains,"charred seeds, Triticum dicoccum"
+plant remains,"charred seeds, Lens"
+plant remains,"charred seeds, Scirpus"
+plant remains,"charred seeds, Pisum"
+plant remains,"charred seeds, Triticumsp."
+plant remains,"charred seeds, Cerealae"
+plant remains,grain (2 types)
+plant remains,"charred seeds, Triticum/Hordeum"
+plant remains,"charred seeds, Hordeum vulgare var."
+plant remains,"charred seeds, pulses"
+plant remains,"Calcified seeds, Celtis"
+plant remains,"charred seeds, Triticum"
+plant remains,Charred monocot. stem
+plant remains,Charred seeds
+plant remains,Pea fragment
+plant remains,Reed stem/rhizome fragment
+plant remains,Lentil
+plant remains,Wheat grain
+plant remains,Pulse fragment
+plant remains,Amygdalus/Prunussp. nutshell fragment
+plant remains,Barley grain
+plant remains,"Charred seeds, cereal"
+plant remains,"Seeds, Celtis (hackberry)"
+plant remains,Almond nutshell
+plant remains,Hackberry fruitstone
+plant remains,Grain (wheat)
+plant remains,Grain (barley)
+plant remains,Wheat
+plant remains,Cereal unident.
+plant remains,Cultivated legume
+plant remains,Grass
+plant remains,Grain
+plant remains,Emmer
+plant remains,Charred fruit (Quercus sp.)
+plant remains,Carbonised beans
+plant remains,"Carbonised grain, Sample 1 from 1960, associated with sample BM-278"
+plant remains,Barley grain (1)
+plant remains,Barley grain (3)
+plant remains,Wheat indeterminate grain
+plant remains,Free-threshing wheat grain
+plant remains,Barley grain (2)
+plant remains,Lentil (1)
+plant remains,Pea (2)
+plant remains,Pea (1)
+plant remains,Large indeterminate legum
+plant remains,wheat indeterminate grain
+plant remains,Cereal indeterminate grain
+plant remains,Amygdalus/Prunus nutshell
+plant remains,Charred fruits
+plant remains,Charred grains (450g)
+plant remains,Burnt grains (10g)
+plant remains,Seeds
+plant remains,Charred fruits (acorns)
+plant remains,Charred grains
+plant remains,Charred cereal seed
+plant remains,Tr. dicoccum
+plant remains,Tr. Monococ.
+plant remains,Tr. dic./ monococ.
+plant remains,Hordeum vulgare
+plant remains,Lens culinaris
+plant remains,Triticum dicoccum
+plant remains,Triticum monococcum
+plant remains,"Grains, Einkorn"
+plant remains,Charred wheat
+plant remains,"Charred seeds, Triticum sp."
+plant remains,"Charred seeds, Hordeum vulgare"
+plant remains,"Charred seeds, Triticum monococcum"
+plant remains,Burnt cereals
+plant remains,Grains (wheat)
+plant remains,"Charred grain (Triticum dicoccum, Triticum monococcum)"
+plant remains,Cereals
+plant remains,Acorns and seeds
+plant remains,Acorn
+plant remains,Barley and wheat
+plant remains,Cereals and pulses
+plant remains,Grain seeds
+plant remains,Pea (sample strongly mixed with roots)
+plant remains,Pea
+plant remains,Grains
+plant remains,Seeds and grains
+plant remains,"Seeds (Triticum dicoccum, Triticum monococcum)"
+plant remains,"Seeds (Triticum dicoccum, Triticum aestivum)"
+plant remains,"Seeds (Lathyrus cf. cicera, Vicia cf. angustifolia, Pisum sp.)"
+plant remains,Seed (Vicia cf. angustifolia)
+plant remains,Grain (Hordeum vulgare)
+plant remains,"Seeds (Vicia, Hordeum vulgare, Lens)"
+plant remains,"Grains (Hordeum vulgare, Lens)"
+plant remains,"Grains (Hordeum vulgare, Triticum monococcum, Pisum)"
+plant remains,"Seeds (Lens, Vicia, Hordeum vulgare)"
+plant remains,"Grains (Triticum monococcum, T. dicoccum)"
+plant remains,Seeds (lentils?)
+plant remains,Charred seeds (humic acid)
+plant remains,"Grains (Triticum dicoccum, T. monococcum, Hordeum vulgare)"
+plant remains,"Grains (Triticum dicoccum, Hordeum vulgare, Vicia angustifolia)"
+plant remains,Seeds and charcoal
+plant remains,Charred plants
+plant remains,Charred cornelian cherry stone
+plant remains,Grains (emmer)
+plant remains,Grains (barley)
+plant remains,Charred Triticum dicoccum
+plant remains,Carbonised wheat grains
+plant remains,Seed (?)
+plant remains,Charred grain (Triticum sp.)
+plant remains,Carbonised grain
+plant remains,Charred grain (mostly charcoal)
+plant remains,Pollen (<5 microns)
+plant remains,Pollen (10-25 microns)
+plant remains,Pollen (45-90 microns)
+plant remains,Pollen (5-10 microns)
 shell,Freshwater mollusc shell
 shell,Freshwater mussel (Unio sp.)
 shell,Freshwater mussel (Velesunio ambiguus sp.)
@@ -380,10 +820,16 @@ shell,Gafrarium tumidum shell
 shell,Gastropod shell
 shell,Geloina coaxans shell
 shell,Haliotis rubra shell
-snail,Escargotière
-snail,Landsnail shell
-snail,Snail carbonate
-snail,Mangrove gastropod
+shell,"Sea shells incl. Murex trunculus, Cerithium vulgatum and Cardium edule"
+shell,"Sea shell: Patella sp., fragment"
+shell,Sea shells
+shell,"Sea shell: Patella caerulea L., 1758"
+shell,Shell (Spondylus)
+shell,Shells (Spondylus)
+shell,Patella ulyssiponensis Gmelin
+shell,Cockle (?)
+shell,Dentalium
+shell,Unio shell
 soil,Organic clay
 soil,Pit Sediment
 soil,gyttja
@@ -413,17 +859,27 @@ soil,bulk sediment
 soil,Bulk sediments
 soil,Bulk soil
 soil,Burnt earth from hearth
+soil,Soil mixed with pebbles and roots
+soil,Organic sediment
+soil,Fine dark soil
+soil,Burned earth
 teeth,dentin
 teeth,Macropod tooth enamel
 teeth,teeth
 teeth,tooth
 teeth,Tooth dentine
 teeth,Tooth enamel
-tissue,leather
-tissue,brain
-tissue,brain tissue
-tissue,skin
-tissue,tissue
+teeth,Molar
+teeth,Human teeth
+teeth,Red deer molar
+teeth,"Tooth, female adult"
+teeth,Red deer tooth
+teeth,Roe deer molar
+teeth,Teeth
+teeth,Bear canine
+teeth,Pig tooth
+teeth,Human tooth
+teeth,Tooth (horse)
 unknown,nd
 unknown,---
 unknown,>125 micron organic material
@@ -478,6 +934,16 @@ unknown,Terrestrial
 unknown,UNKNOWN
 unknown,
 unknown,Unknown
+unknown,Organic material
+unknown,Nd
+unknown,Organic fraction
+unknown,Proto-Sesklo
+unknown,Pre-Sesklo
+unknown,?
+wood,bark
+wood,Bark
+wood,riinde
+wood,Rinde
 wood,Axtschaft
 wood,Dendro
 wood,Haselzweig
@@ -501,3 +967,12 @@ wood,Wood (Xanthorrhoea sp.)
 wood,Wood and charcoal
 wood,Wood cellulose
 wood,Wood fragment
+wood,Charred beam
+wood,Wood twigs
+wood,Wood (oak)
+wood,Wood beam
+wood,Wood (fine fraction of GrN-20356
+wood,"Wood charcoal, Quercus evergreen type"
+wood,Wooden post (ext. rings)
+wood,Wooden post (int. rings)
+wood,"Quercus, Fraxinus and Ulmus"

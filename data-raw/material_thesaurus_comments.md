@@ -1,3 +1,24 @@
+# Changes (13.3.2018)
+
+- had to add all the values from 14SEA.
+- decided to further reduce the amount of categories. 
+
+## defined classes (13.3.2018)
+
+* antler
+* bone
+* ceramics
+* charcoal
+* fabric
+* food residues
+* other
+* plant remains
+* shell
+* soil
+* teeth
+* unknown
+* wood
+
 # Changes (21.2.2018)
 
 * applied some of Martin's suggestions (see github 21.2.2018):
