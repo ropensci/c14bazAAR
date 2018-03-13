@@ -1,6 +1,7 @@
 context("basic c14_date_calibrate functions")
 
 correct_input <- as.c14_date_list(data.frame(c14age = c(2000, 2500), c14std = c(20, 30)))
+oor_input <- as.c14_date_list(data.frame(c14age = c(200000, 2500), c14std = c(20, 30)))
 wrong_input <- data.frame(holland="in not")
 
 #### input sensitivity ####
@@ -36,3 +37,16 @@ test_that("calibrate.c14_date_list 2 sigma range is not wider than 3 sigma range
   expect_true(min(a)>=min(b))
   expect_true(max(a)<=max(b))
 })
+
+#### message ####
+
+test_that("calibrate.c14_date_list returns a message", {
+  expect_message(calibrate(correct_input), "Calibrating dates...")
+})
+
+#### not calibration out of range data ####
+
+test_that("calibrate.c14_date_list returns a message", {
+  expect_equal(nrow(calibrate(calibrate(oor_input))$calrange[[1]]), 0)
+})
+
