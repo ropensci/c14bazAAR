@@ -60,6 +60,7 @@ order_variables.c14_date_list <- function(x) {
       dplyr::matches("^country$"),
       dplyr::matches("^country_coord$"),
       dplyr::matches("^country_thes$"),
+      dplyr::matches("^country_final$"),
       dplyr::matches("^lat$"),
       dplyr::matches("^lon$"),
       dplyr::matches("^coord_precision$"),

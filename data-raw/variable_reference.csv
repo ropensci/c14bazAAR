@@ -15,6 +15,7 @@ country,character,Country,1,15,Country,COUNTRY,,COUNTRY,COUNTRY,Country,COUNTRY,
 country_coord,character,Country (determined by coordinates),0,17,,,,,,,,,
 coord_precision,double,Precision of the sample coordinates,,20.5,,,,,,,,,
 country_thes,character,Country (result of thesaurification),0,16,,,,,,,,,
+country_final,,,,,,,,,,,,,
 site,character,Site [Name],1,8,Site,SITE,SITE,SITE,SITE,SiteName,SITE,SITE,Site Identifier
 period,character,Historico-cultural period of sample context,1,10,Period,,,PERIOD,PERIOD,Period,PERIOD,PERIOD,
 culture,character,Archaeological culture of sample context,1,11,,,,CULTURE,CULTURE,Culture,CULTURE,CULTURE,
