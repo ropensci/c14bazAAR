@@ -9,7 +9,7 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
 
   # download data to temporary file
   tempo <- tempfile()
-  utils::download.file(db_url, tempo, mode="wb")
+  utils::download.file(db_url, tempo, mode = "wb", quiet = TRUE)
 
   # read data
   SEA14 <- tempo %>%
