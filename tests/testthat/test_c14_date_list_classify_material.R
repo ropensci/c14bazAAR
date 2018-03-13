@@ -4,7 +4,6 @@ context("classify material")
 
 result <- classify_material(
   example_c14_date_list,
-  material_thesaurus = material_thesaurus,
   quiet = TRUE
 )
 
@@ -39,7 +38,6 @@ test_that("classify_material has message output, if quiet == FALSE", {
   expect_message(
     classify_material(
       example_c14_date_list,
-      material_thesaurus = material_thesaurus,
       quiet = FALSE
     ),
     NULL
