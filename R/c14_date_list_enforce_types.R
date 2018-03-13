@@ -35,7 +35,7 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
   chr_cols <- c(
     "sourcedb", "method", "labnr", "site", "sitetype", "feature", "period",
     "culture", "material", "material_the", "species", "region", "country",
-    "country_coord", "country_the", "spatial_quality", "shortref",
+    "country_coord", "country_thes", "country_final", "shortref",
     "comment", "duplicate_remove_log"
   )
   int_cols <- c("c14age", "c14std", "calage", "calstd", "duplicate_group")

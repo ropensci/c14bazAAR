@@ -19,8 +19,7 @@ order_variables(x)
 an object of class c14_date_list
 }
 \description{
-Order variables following a key defined in the column
-\strong{order} in \code{c14bazAAR::variable_reference}. This makes
+Arrange variables according to a defined order. This makes
 sure that a \strong{c14_date_list} always appears with the same
 outline. \cr
 A \strong{c14_date_list} has at least the columns \strong{c14age}

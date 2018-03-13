@@ -40,8 +40,7 @@ NULL
 #'   \item \bold{c14bazAAR} name of variable in c14bazAAR
 #'   \item \bold{type} data type of variable in R
 #'   \item \bold{definition} meaning of variable
-#'   \item \bold{priority} priority of variable
-#'   \item \bold{order} position of variable in a c14_date_list
+#'   \item \bold{source} is the variable imported (databases) or generated (c14bazAAR)
 #'   \item \bold{...} variables in source databases
 #' }
 #'
@@ -52,9 +51,9 @@ NULL
 
 #' Example c14_date_list
 #'
-#' c14_date_list with 500 random dates for tests and example code.
+#' c14_date_list with 200 random dates for tests and example code.
 #'
-#' @format A tibble. See variable_reference for an explanation of
+#' @format A c14_date_list. See variable_reference for an explanation of
 #' the variable meaning.
 #'
 #' @family c14_date_lists

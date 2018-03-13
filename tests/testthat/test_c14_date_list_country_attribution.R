@@ -6,7 +6,6 @@ context("country attribution functions")
 
 result <- standardize_country_name(
   example_c14_date_list,
-  country_thesaurus = country_thesaurus,
   quiet = TRUE
 )
 

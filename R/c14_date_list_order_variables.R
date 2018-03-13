@@ -3,8 +3,7 @@
 #' @name order_variables
 #' @title Order the variables in a \strong{c14_date_list}
 #'
-#' @description Order variables following a key defined in the column
-#' \strong{order} in \code{c14bazAAR::variable_reference}. This makes
+#' @description Arrange variables according to a defined order. This makes
 #' sure that a \strong{c14_date_list} always appears with the same
 #' outline. \cr
 #' A \strong{c14_date_list} has at least the columns \strong{c14age}
@@ -60,10 +59,10 @@ order_variables.c14_date_list <- function(x) {
       dplyr::matches("^country$"),
       dplyr::matches("^country_coord$"),
       dplyr::matches("^country_thes$"),
+      dplyr::matches("^country_final$"),
       dplyr::matches("^lat$"),
       dplyr::matches("^lon$"),
       dplyr::matches("^coord_precision$"),
-      dplyr::matches("^spatial_quality$"),
       dplyr::matches("^shortref$"),
       dplyr::matches("^comment$"),
       dplyr::matches("^duplicate_group$"),
