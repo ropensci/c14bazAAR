@@ -63,7 +63,6 @@ order_variables.c14_date_list <- function(x) {
       dplyr::matches("^lat$"),
       dplyr::matches("^lon$"),
       dplyr::matches("^coord_precision$"),
-      dplyr::matches("^spatial_quality$"),
       dplyr::matches("^shortref$"),
       dplyr::matches("^comment$"),
       dplyr::matches("^duplicate_group$"),
