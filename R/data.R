@@ -52,9 +52,9 @@ NULL
 
 #' Example c14_date_list
 #'
-#' c14_date_list with 500 random dates for tests and example code.
+#' c14_date_list with 200 random dates for tests and example code.
 #'
-#' @format A tibble. See variable_reference for an explanation of
+#' @format A c14_date_list. See variable_reference for an explanation of
 #' the variable meaning.
 #'
 #' @family c14_date_lists
