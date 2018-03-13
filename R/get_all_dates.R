@@ -75,13 +75,14 @@ get_all_dates <- function() {
 #' @keywords internal
 get_all_parser_functions <- function() {
   c(
+    c14bazAAR::get_14SEA,
     c14bazAAR::get_aDRAC,
+    c14bazAAR::get_AustArch,
     c14bazAAR::get_CalPal,
     c14bazAAR::get_CONTEXT,
     c14bazAAR::get_EUROEVOL,
     c14bazAAR::get_RADON,
     c14bazAAR::get_RADONB,
-    c14bazAAR::get_AustArch,
     c14bazAAR::get_KITEeastAfrica
   ) %>%
     return()
