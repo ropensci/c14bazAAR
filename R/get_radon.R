@@ -27,8 +27,7 @@ get_RADON <- function(db_url = get_db_url("RADON")) {
         FEATURE = readr::col_character(),
         LATITUDE = readr::col_character(),
         LONGITUDE = readr::col_character(),
-        REFERENCE = readr::col_character(),
-        PAGES = readr::col_character()
+        REFERENCE = readr::col_character()
       )
     ) %>%
     dplyr::transmute(
@@ -46,20 +45,10 @@ get_RADON <- function(db_url = get_db_url("RADON")) {
       feature = .data[["FEATURE"]],
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
-      shortref = .data[["REFERENCE"]],
-      pages = .data[["PAGES"]]
+      shortref = .data[["REFERENCE"]]
     ) %>%
-    # unite shortref & pages (if not NA)
-    tidyr::replace_na(list(shortref = "", pages = "")) %>%
-    tidyr::unite_(
-      ., "shortref", c("shortref", "pages"), sep = ", ", remove = TRUE
-    ) %>%
+    tidyr::replace_na(list(shortref = "")) %>%
     dplyr::mutate(
-      shortref = replace(.$shortref, which(.$shortref == ", "), NA)
-    ) %>%
-    dplyr::mutate(
-      shortref = gsub("[,]+[[:space:]]$", "", .$shortref)
-    ) %>% dplyr::mutate(
       sourcedb = "RADON"
     ) %>%
     as.c14_date_list()

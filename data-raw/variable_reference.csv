@@ -24,7 +24,7 @@ country_final,character,Country  final decision (country_coord > country_thes > 
 lat,double,Latitude of site position [decimal degrees],databases,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,LATITUDE,LATITUDE,Latitude
 lon,double,Longitude of site position [decimal degrees],databases,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,LONGITUDE,LONGITUDE,Longitude
 coord_precision,double,Possible deviation of the sample coordinates [m],c14bazAAR,,,,,,,,,
-shortref,character,Literature source of the dataset information,databases,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,[REFERENCE + PAGES],[REFERENCE + PAGES],References
+shortref,character,Literature source of the dataset information,databases,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,REFERENCE,REFERENCE,References
 comment ,character,Free text with additional information,databases,Comment,,NOTES,NOTICE,NOTICE,,,,[Additional Information + Comments]
 duplicate_group,integer,Number of duplicate group,c14bazAAR,,,,,,,,,
 duplicate_remove_log,character,Description of variable value variation in duplicate group,c14bazAAR,,,,,,,,,
