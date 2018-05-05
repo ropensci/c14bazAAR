@@ -49,7 +49,11 @@ remove_duplicates.c14_date_list <- function(x) {
       .funs = dplyr::funs(compare_and_combine_data_frame_values(.))
     ) %>%
     dplyr::mutate(
-      duplicate_remove_log = stringified_differences
+      duplicate_remove_log = if(length(stringified_differences) != 0) {
+        stringified_differences
+      } else {
+        NA_character_
+      }
     )
 
   # put not_duplicates and duplicates again together

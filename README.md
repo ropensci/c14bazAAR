@@ -20,6 +20,9 @@ c14bazAAR is a R package to query different openly accessible radiocarbon date d
   - [Technical functions](#technical-functions)
 - [Databases](#databases)
 - [Contributing](#contributing)
+- [License](#license)
+
+If you want to use data downloaded with c14bazAAR or neolithicRC for your research, you have to quote the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
 
 ### Installation
 
@@ -168,3 +171,6 @@ To suggest other archives to be queried you can join the discussion [here](https
 
 If you would like to contribute to this project, please start by reading our [Guide to Contributing](CONTRIBUTING.md). Please note that this project is released with a Contributor [Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
+### License
+
+For the code in this project apply the terms and conditions of GNU GENERAL PUBLIC LICENSE Version 2. The source databases are published under different licences.
