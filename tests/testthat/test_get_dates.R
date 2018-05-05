@@ -24,17 +24,13 @@ test_that("get_all_parser_functions gives back a list of functions", {
 
 #### get_all_dates ####
 
-all_dates <- c14bazAAR::get_all_dates()
-
-test_that("get_all_dates gives back a c14_date_list", {
+test_that("get_all_dates works as intended", {
+  skip_on_cran()
+  all_dates <- c14bazAAR::get_all_dates()
   expect_true(
     c14bazAAR::is.c14_date_list(all_dates)
   )
-})
-
-test_that("get_all_dates gives back a c14_date_list with more than one entry", {
   expect_gt(
     nrow(all_dates), 1
   )
 })
-
