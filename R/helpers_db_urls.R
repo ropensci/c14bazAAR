@@ -5,7 +5,7 @@
 #'
 #' @param db_name name of the database
 #'
-#' @keywords internal
+#' @export
 get_db_url <- function(db_name) {
 
   # URL
