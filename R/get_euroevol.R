@@ -23,7 +23,8 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
         SiteID = "character",
         Material = "character",
         MaterialSpecies = "character"
-      )
+      ),
+      showProgress = FALSE
     )
 
   # read site data
@@ -36,7 +37,8 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
         Longitude = "character",
         SiteID = "character",
         SiteName = "character"
-      )
+      ),
+      showProgress = FALSE
     )
 
   # read phases data
@@ -51,7 +53,8 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
         PhaseCode = "character",
         SiteID = "character",
         Type = "character"
-      )
+      ),
+      showProgress = FALSE
     ) %>%
     dplyr::select(-.data[["Period"]], -.data[["SiteID"]])
 

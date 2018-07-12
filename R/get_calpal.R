@@ -28,7 +28,8 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
         "METHOD" = "character",
         "REFERENCE" = "character",
         "NOTICE" = "character"
-      )
+      ),
+      showProgress = FALSE
     ) %>%
     base::replace(., . == "", NA) %>%
     base::replace(., . == "nd", NA) %>%

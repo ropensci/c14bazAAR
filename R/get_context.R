@@ -46,7 +46,8 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       "LONGITUDE" = "character",
       "NOTICE" = "character",
       "REFERENCE" = "character"
-    )
+    ),
+    showProgress = FALSE
   )
   unlink(temp)
   file.remove(

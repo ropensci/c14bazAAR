@@ -35,7 +35,8 @@ get_thesaurus <- function(url) {
     colClasses = c(
       "cor" = "character",
       "var" = "character"
-    )
+    ),
+    showProgress = FALSE
   ) %>%
     tibble::as.tibble()
 }

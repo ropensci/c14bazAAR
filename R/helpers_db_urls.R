@@ -20,7 +20,8 @@ get_db_url <- function(db_name) {
       "db" = "character",
       "url_num" = "integer",
       "url" = "character"
-    )
+    ),
+    showProgress = FALSE
   )
 
   # extract urls

@@ -54,7 +54,8 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
         "Additional Information" = "character",
         "Comments" = "character",
         "References" = "character"
-      )
+      ),
+      showProgress = FALSE
     ) %>%
     dplyr::transmute(
       labnr = .data[["Lab Number"]],

@@ -26,7 +26,8 @@ get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
         "LAT" = "character",
         "LONG" = "character",
         "SOURCE" = "character"
-      )
+      ),
+      showProgress = FALSE
     ) %>%
     dplyr::transmute(
       labnr = .data[["LABNR"]],

@@ -25,7 +25,8 @@ get_RADON <- function(db_url = get_db_url("RADON")) {
         LATITUDE = "character",
         LONGITUDE = "character",
         REFERENCE = "character"
-      )
+      ),
+      showProgress = FALSE
     ) %>%
     base::replace(., . == "", NA) %>%
     base::replace(., . == "n/a", NA) %>%
