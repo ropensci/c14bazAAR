@@ -14,12 +14,12 @@ get_db_url <- function(db_name) {
   check_connection_to_url(ref_url)
 
   # download current version of reference table
-  url_table <- readr::read_csv(
+  url_table <- data.table::fread(
     ref_url,
-    col_types = readr::cols(
-      db = readr::col_character(),
-      url_num = readr::col_integer(),
-      url = readr::col_character()
+    colClasses = c(
+      "db" = "character",
+      "url_num" = "integer",
+      "url" = "character"
     )
   )
 
