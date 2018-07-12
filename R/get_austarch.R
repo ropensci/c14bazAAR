@@ -39,6 +39,7 @@ get_AustArch <- function(db_url = get_db_url("AustArch")) {
     ),
     showProgress = FALSE
   ) %>%
+    base::replace(., . == "", NA) %>%
     dplyr::transmute(
       labnr = .data[["LAB_CODE"]],
       c14age = .data[["AGE"]],

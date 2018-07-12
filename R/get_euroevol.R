@@ -64,6 +64,7 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
     dplyr::left_join(sites, by = "SiteID") %>%
     dplyr::left_join(phases, by = "PhaseCode") %>%
     base::replace(., . == "NULL", NA) %>%
+    base::replace(., . == "", NA) %>%
     dplyr::transmute(
       labnr = .data[["LabCode"]],
       c14age = .data[["C14Age"]],

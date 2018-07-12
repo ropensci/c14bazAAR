@@ -57,6 +57,7 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
       ),
       showProgress = FALSE
     ) %>%
+    base::replace(., . == "", NA) %>%
     dplyr::transmute(
       labnr = .data[["Lab Number"]],
       c14age = .data[["Normalized Age"]],

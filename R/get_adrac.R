@@ -29,6 +29,7 @@ get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
       ),
       showProgress = FALSE
     ) %>%
+    base::replace(., . == "", NA) %>%
     dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
