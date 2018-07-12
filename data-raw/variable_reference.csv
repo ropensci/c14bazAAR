@@ -11,8 +11,8 @@ c13val,double,Carbon-13 amount [ppm],databases,δ13C,C13,C13_AGE,C13,C13,,C13,C1
 site,character,Site name,databases,Site,SITE,SITE,SITE,SITE,SiteName,SITE,SITE,Site Identifier
 sitetype,character,Site type classification,databases,,,SITE_TYPE,,,Type,FEATURETYPE,FEATURETYPE,
 feature,character,Name or description of the sample context within the site,databases,Provenance,FEATURE,CONTEXT,,,,FEATURE,FEATURE,Site Name
-period,character,Historico-cultural period of sample context,databases,Period,,,PERIOD,PERIOD,Period,PERIOD,PERIOD,
-culture,character,Archaeological culture of sample context,databases,,,,CULTURE,CULTURE,Culture,CULTURE,CULTURE,
+period,character,Historico-cultural period of sample context,databases,Period,PHASE,,PERIOD,PERIOD,Period,PERIOD,PERIOD,
+culture,character,Archaeological culture of sample context,databases,,POTTERY,,CULTURE,CULTURE,Culture,CULTURE,CULTURE,
 material,character,Dated material,databases,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,MATERIAL,MATERIAL,Material Dated
 material_thes,character,Dated material (result of thesaurification),c14bazAAR,,,,,,,,,
 species,character,Species of dated material,databases,,,,SPECIES,SPECIES,MaterialSpecies,SPECIES,SPECIES,Taxa Dated
@@ -73,3 +73,5 @@ duplicate_remove_log,character,Description of variable value variation in duplic
 ,,,,,,,,,,,,Stratigraphic Component
 ,,,,,,,,,,,,Context
 ,,,,,,,,,,,,Associated Taxa
+,,,,,ASSOCIATION,,,,,,,
+,,,,,REL,,,,,,,
