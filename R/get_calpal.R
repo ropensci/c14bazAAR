@@ -6,30 +6,35 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
 
   # read data
   CALPAL <- db_url %>%
-    readr::read_csv(
-      trim_ws = TRUE,
-      na = c("", "nd", "--", "n/a", "NoCountry"),
-      col_types = readr::cols(
-        ID = "_",
-        LABNR = readr::col_character(),
-        C14AGE = readr::col_character(),
-        C14STD = readr::col_character(),
-        C13 = readr::col_character(),
-        MATERIAL = readr::col_character(),
-        SPECIES = readr::col_character(),
-        COUNTRY = readr::col_character(),
-        SITE = readr::col_character(),
-        PERIOD = readr::col_character(),
-        CULTURE = readr::col_character(),
-        PHASE = "_",
-        LOCUS = "_",
-        LATITUDE = readr::col_character(),
-        LONGITUDE = readr::col_character(),
-        METHOD = readr::col_character(),
-        REFERENCE = readr::col_character(),
-        NOTICE = readr::col_character()
+    data.table::fread(
+      drop = c(
+        "ID",
+        "PHASE",
+        "LOCUS"
+      ),
+      colClasses = c(
+        "LABNR" = "character",
+        "C14AGE" = "character",
+        "C14STD" = "character",
+        "C13" = "character",
+        "MATERIAL" = "character",
+        "SPECIES" = "character",
+        "COUNTRY" = "character",
+        "SITE" = "character",
+        "PERIOD" = "character",
+        "CULTURE" = "character",
+        "LATITUDE" = "character",
+        "LONGITUDE" = "character",
+        "METHOD" = "character",
+        "REFERENCE" = "character",
+        "NOTICE" = "character"
       )
     ) %>%
+    base::replace(., . == "", NA) %>%
+    base::replace(., . == "nd", NA) %>%
+    base::replace(., . == "--", NA) %>%
+    base::replace(., . == "n/a", NA) %>%
+    base::replace(., . == "NoCountry", NA) %>%
     dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],

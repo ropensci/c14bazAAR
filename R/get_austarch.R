@@ -36,8 +36,7 @@ get_AustArch <- function(db_url = get_db_url("AustArch")) {
       "METHOD" = "character",
       "SOURCE" = "character",
       "NOTES" = "character"
-    ),
-    data.table = FALSE
+    )
   ) %>%
     dplyr::transmute(
       labnr = .data[["LAB_CODE"]],
