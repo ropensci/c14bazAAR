@@ -6,25 +6,26 @@ get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
 
   # read data
   aDRAC <- db_url %>%
-    readr::read_csv(
-      trim_ws = TRUE,
-      col_types = readr::cols(
-        LABNR = readr::col_character(),
-        C14AGE = readr::col_character(),
-        C14STD = readr::col_character(),
-        C13 = readr::col_character(),
-        MATERIAL = readr::col_character(),
-        SITE = readr::col_character(),
-        COUNTRY = readr::col_character(),
-        FEATURE = readr::col_character(),
-        FEATURE_DESC = "_",
-        PHASE = readr::col_character(),
-        POTTERY = readr::col_character(),
-        ASSOCIATION = "_",
-        REL = "_",
-        LAT = readr::col_character(),
-        LONG = readr::col_character(),
-        SOURCE = readr::col_character()
+    data.table::fread(
+      drop = c(
+        "FEATURE_DESC",
+        "ASSOCIATION",
+        "REL"
+      ),
+      colClasses = c(
+        "LABNR" = "character",
+        "C14AGE" = "character",
+        "C14STD" = "character",
+        "C13" = "character",
+        "MATERIAL" = "character",
+        "SITE" = "character",
+        "COUNTRY" = "character",
+        "FEATURE" = "character",
+        "PHASE" = "character",
+        "POTTERY" = "character",
+        "LAT" = "character",
+        "LONG" = "character",
+        "SOURCE" = "character"
       )
     ) %>%
     dplyr::transmute(
