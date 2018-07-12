@@ -6,30 +6,30 @@ get_RADONB <- function(db_url = get_db_url("RADON-B")) {
 
   # read data
   RADONB <- db_url %>%
-    readr::read_tsv(
-      trim_ws = TRUE,
-      na = c("", "n/a", "n.a."),
+    data.table::fread(
       quote = "",
-      quoted_na = TRUE,
-      col_types = readr::cols(
-        ID = readr::col_character(),
-        LABNR = readr::col_character(),
-        C14AGE = readr::col_character(),
-        C14STD = readr::col_character(),
-        C13 = readr::col_character(),
-        MATERIAL = readr::col_character(),
-        SPECIES = readr::col_character(),
-        COUNTRY = readr::col_character(),
-        SITE = readr::col_character(),
-        PERIOD = readr::col_character(),
-        CULTURE = readr::col_character(),
-        FEATURETYPE = readr::col_character(),
-        FEATURE = readr::col_character(),
-        LATITUDE = readr::col_character(),
-        LONGITUDE = readr::col_character(),
-        REFERENCE = readr::col_character()
+      colClasses = c(
+        ID = "character",
+        LABNR = "character",
+        C14AGE = "character",
+        C14STD = "character",
+        C13 = "character",
+        MATERIAL = "character",
+        SPECIES = "character",
+        COUNTRY = "character",
+        SITE = "character",
+        PERIOD = "character",
+        CULTURE = "character",
+        FEATURETYPE = "character",
+        FEATURE = "character",
+        LATITUDE = "character",
+        LONGITUDE = "character",
+        REFERENCE = "character"
       )
     ) %>%
+    base::replace(., . == "", NA) %>%
+    base::replace(., . == "n/a", NA) %>%
+    base::replace(., . == "n.a.", NA) %>%
     dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
@@ -47,7 +47,6 @@ get_RADONB <- function(db_url = get_db_url("RADON-B")) {
       lon = .data[["LONGITUDE"]],
       shortref = .data[["REFERENCE"]]
     ) %>%
-    tidyr::replace_na(list(shortref = "")) %>%
     dplyr::mutate(
       sourcedb = "RADON-B"
     ) %>%
