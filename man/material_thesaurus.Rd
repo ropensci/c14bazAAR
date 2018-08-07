@@ -14,3 +14,4 @@ A small thesaurus for material classes.
 \seealso{
 Other thesauri: \code{\link{country_thesaurus}}
 }
+\concept{thesauri}

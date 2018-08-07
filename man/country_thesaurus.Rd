@@ -14,3 +14,4 @@ A small thesaurus for country names.
 \seealso{
 Other thesauri: \code{\link{material_thesaurus}}
 }
+\concept{thesauri}

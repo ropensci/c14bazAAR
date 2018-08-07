@@ -10,8 +10,8 @@ calibrate(x, choices = c("calrange"), sigma = 2, ...)
 
 \method{calibrate}{default}(x, choices = c("calrange"), sigma = 2, ...)
 
-\method{calibrate}{c14_date_list}(x, choices = c("calrange"), sigma = 2,
-  ...)
+\method{calibrate}{c14_date_list}(x, choices = c("calrange"),
+  sigma = 2, ...)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}

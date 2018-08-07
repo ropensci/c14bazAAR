@@ -38,4 +38,4 @@ Suggests:
     sf (>= 0.5-4),
     stringdist (>= 0.9.4.6),
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
