@@ -30,14 +30,15 @@ get_material_thesaurus <- function() {
 #'
 #' @keywords internal
 get_thesaurus <- function(url) {
-  readr::read_csv(
+  data.table::fread(
     url,
-    col_types = readr::cols(
-      cor = readr::col_character(),
-      var = readr::col_character()
+    colClasses = c(
+      "cor" = "character",
+      "var" = "character"
     ),
-    trim_ws = TRUE
-  )
+    showProgress = FALSE
+  ) %>%
+    tibble::as.tibble()
 }
 
 #' print_lookup_decisions

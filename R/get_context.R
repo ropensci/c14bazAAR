@@ -12,41 +12,42 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv",
     exdir = tempdir()
   )
-  CONTEXT_raw <- readr::read_delim(
+  CONTEXT_raw <- data.table::fread(
     paste0(
       tempdir(),
       "/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
     ),
-    delim = ";",
-    trim_ws = TRUE,
-    locale = readr::locale(encoding = "ISO-8859-1"),
-    na = c("-", "--", "---", "", "NA", "n.d.", "?"),
-    col_types = readr::cols(
-      LABNR = readr::col_character(),
-      GR = "_",
-      C14AGE = readr::col_character(),
-      C14STD = readr::col_character(),
-      C13 = readr::col_character(),
-      COUNTRY = readr::col_character(),
-      SITE = readr::col_character(),
-      MAR = "_",
-      MATERIAL = readr::col_character(),
-      SPECIES = readr::col_character(),
-      PHASE = "_",
-      LOCUS = "_",
-      SAMPLE = "_",
-      CULTURE = readr::col_character(),
-      PERIOD = readr::col_character(),
-      calBC68 = "_",
-      calBC95 = "_",
-      REGION = readr::col_character(),
-      LATITUDE = readr::col_character(),
-      LONGITUDE = readr::col_character(),
-      INCONGR = "_",
-      NOTICE = readr::col_character(),
-      REFERENCE = readr::col_character(),
-      ID = "_"
-    )
+    sep = ";",
+    encoding = "Latin-1",
+    drop = c(
+      "GR",
+      "MAR",
+      "PHASE",
+      "LOCUS",
+      "SAMPLE",
+      "calBC68",
+      "calBC95",
+      "INCONGR",
+      "ID"
+    ),
+    colClasses = c(
+      "LABNR" = "character",
+      "C14AGE" = "character",
+      "C14STD" = "character",
+      "C13" = "character",
+      "COUNTRY" = "character",
+      "SITE" = "character",
+      "MATERIAL" = "character",
+      "SPECIES" = "character",
+      "CULTURE" = "character",
+      "PERIOD" = "character",
+      "REGION" = "character",
+      "LATITUDE" = "character",
+      "LONGITUDE" = "character",
+      "NOTICE" = "character",
+      "REFERENCE" = "character"
+    ),
+    showProgress = FALSE
   )
   unlink(temp)
   file.remove(
@@ -58,6 +59,13 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
 
   # rename
   CONTEXT <- CONTEXT_raw %>%
+    base::replace(., . == "-", NA) %>%
+    base::replace(., . == "--", NA) %>%
+    base::replace(., . == "---", NA) %>%
+    base::replace(., . == "", NA) %>%
+    base::replace(., . == "NA", NA) %>%
+    base::replace(., . == "n.d.", NA) %>%
+    base::replace(., . == "?", NA) %>%
     dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],

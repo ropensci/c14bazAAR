@@ -43,5 +43,6 @@ fuse.c14_date_list <- function(...) {
 
   # actual bind
   dplyr::bind_rows(...) %>%
+    as.c14_date_list() %>%
     return()
 }

@@ -8,17 +8,24 @@
 \description{
 Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ISAAKiel/c14bazAAR}
+}
+
+}
 \author{
 \strong{Maintainer}: Clemens Schmid \email{clemens@nevrome.de} [copyright holder]
 
 Authors:
 \itemize{
-  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de}
-  \item Martin Hinz \email{martin.hinz@ufg.uni-kiel.de}
-  \item Daniel Knitter \email{knitter@geographie.uni-kiel.de}
-  \item David Matzig
-  \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
   \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com}
+  \item Daniel Knitter \email{knitter@geographie.uni-kiel.de}
+  \item Martin Hinz \email{martin.hinz@ufg.uni-kiel.de}
+  \item David Matzig
+  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de}
+  \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
 }
 
 }
