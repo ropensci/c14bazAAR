@@ -8,5 +8,5 @@ KITEeastAfrica,1,https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10
 EUROEVOL,1,http://discovery.ucl.ac.uk/1469811/7/EUROEVOL09-07-201516-34_C14Samples.csv
 EUROEVOL,2,http://discovery.ucl.ac.uk/1469811/9/EUROEVOL09-07-201516-34_CommonSites.csv
 EUROEVOL,3,http://discovery.ucl.ac.uk/1469811/8/EUROEVOL09-07-201516-34_CommonPhases.csv
-RADON,1,http://134.245.38.100/radondownload/radondaily.txt
-RADON-B,1,http://134.245.38.100/radondownload/radonbdaily.txt
+RADON,1,http://radon.ufg.uni-kiel.de/radondaily.txt
+RADON-B,1,http://radon-b.ufg.uni-kiel.de/radondaily.txt
