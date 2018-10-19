@@ -11,7 +11,7 @@ Authors@R: c(
   person("Kay", "Schmütz", email = "kschmuetz@ufg.uni-kiel.de", role = c("aut"))
   )
 URL: https://github.com/ISAAKiel/c14bazAAR
-Date: 2018-08-07
+Date: 2018-09-19
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
 Depends: R (>= 3.4.0)
 License: GPL-2 | file LICENSE
