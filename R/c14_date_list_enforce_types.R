@@ -10,7 +10,7 @@
 #'
 #' @param x an object of class c14_date_list
 #' @param suppress_na_introduced_warnings suppress warnings caused by data removal in
-#' type transformation due to wrong database entries (surch as text in a number column)
+#' type transformation due to wrong database entries (such as text in a number column)
 #'
 #' @return an object of class c14_date_list
 #' @export

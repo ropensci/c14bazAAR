@@ -12,7 +12,7 @@ individual_precision(x, mode)
 \item{mode}{argument indicating the `mode` of the coordinates (whether these are lat or lon)}
 }
 \value{
-vecor with precision in meters
+vector with precision in meters
 }
 \description{
 individual_precision

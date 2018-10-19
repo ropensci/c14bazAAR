@@ -24,7 +24,7 @@ get_material_thesaurus <- function() {
 #'
 #' helper function to download thesaurus files
 #'
-#' @param url url of thesusaurus csv file
+#' @param url url of thesaurus csv file
 #'
 #' @return thesaurus data.frame
 #'
