@@ -4,7 +4,7 @@
 #' @title Mark and remove duplicates in a \strong{c14_date_list}
 #'
 #' @description Duplicates are found in \code{c14bazAAR::mark_duplicates()}
-#' by comparision of \strong{labnr}s.
+#' by comparison of \strong{labnr}s.
 #' Only dates with exactly equal \strong{labnr}s are considered duplicates.
 #' Duplicate groups are numbered (from 0) and these numbers linked to
 #' the individual dates in the new column \strong{duplicate_group}.

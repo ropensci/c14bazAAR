@@ -56,7 +56,7 @@ coordinate_precision.c14_date_list <- function(x) {
 #' @param x vector of coordinates (latitude or longitude)
 #' @param mode argument indicating the `mode` of the coordinates (whether these are lat or lon)
 #'
-#' @return vecor with precision in meters
+#' @return vector with precision in meters
 individual_precision <- function(x, mode) {
   output <- circumference_calculator(x, mode) / (360 * 10^digits_counter(x))
   return(output)
@@ -66,7 +66,7 @@ individual_precision <- function(x, mode) {
 #'
 #' @param x vector of latitude or longitude coordinates
 #' @param mode a character "lat" or "lon"
-#' @return vecor with circumference values at specific latitudes
+#' @return vector with circumference values at specific latitudes
 circumference_calculator <- function(x, mode) {
   if(mode == "lat") {
     circumference <- (2 * pi) * 6378137 # Following WGS84
@@ -84,9 +84,9 @@ circumference_calculator <- function(x, mode) {
 #'
 #' counts the digits of the given coordinates
 #'
-#' @param x vector of coordinate values#'
+#' @param x vector of coordinate values
 #'
-#' @return vecor with numer of digits
+#' @return vector with number of digits
 digits_counter <- function(x) {
   output <- sapply(X = x,
                    FUN = function(x){nchar(unlist(strsplit(as.character(x),"\\."))[2])})

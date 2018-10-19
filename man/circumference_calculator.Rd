@@ -12,7 +12,7 @@ circumference_calculator(x, mode)
 \item{mode}{a character "lat" or "lon"}
 }
 \value{
-vecor with circumference values at specific latitudes
+vector with circumference values at specific latitudes
 }
 \description{
 circumference_calculator

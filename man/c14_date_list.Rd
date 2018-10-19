@@ -24,7 +24,7 @@ is.c14_date_list(x, ...)
 \description{
 The \strong{c14_date_list} is the central data structure of the
 \code{c14bazAAR} package. It's a tibble with set of custom methods and
-variables. Please see \code{c14bazAAR::variable_reference} for a describtion
+variables. Please see \code{c14bazAAR::variable_reference} for a description
 of the variables. Further available variables are ignored. \cr
 If an object is of class data.frame or tibble (tbl & tbl_df), it can be
 converted to an object of class \strong{c14_date_list}. The only requirement
