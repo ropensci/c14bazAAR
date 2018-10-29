@@ -1,6 +1,6 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
-Version: 1.0.2
+Version: 1.0.2.9000
 Authors@R: c(
   person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph")),
   person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut")),
