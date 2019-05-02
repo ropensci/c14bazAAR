@@ -13,9 +13,9 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     exdir = tempdir()
   )
   CONTEXT_raw <- data.table::fread(
-    paste0(
+    file.path(
       tempdir(),
-      "/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
+      "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
     ),
     sep = ";",
     encoding = "Latin-1",
@@ -51,9 +51,9 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
   )
   unlink(temp)
   file.remove(
-    paste0(
+    file.path(
       tempdir(),
-      "/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
+      "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
     )
   )
 
