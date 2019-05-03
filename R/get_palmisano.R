@@ -82,12 +82,12 @@ get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
       by = c("SiteID" = "Id")
     ) %>%
     dplyr::mutate(
-      CRA_bc = 1950 - as.numeric(CRA),
-      StartDate = as.numeric(StartDate),
-      EndDate = as.numeric(EndDate)
+      CRA_bc = 1950 - as.numeric(.data[["CRA"]]),
+      StartDate = as.numeric(.data[["StartDate"]]),
+      EndDate = as.numeric(.data[["EndDate"]])
     ) %>%
     dplyr::filter(
-      CRA_bc >= StartDate & CRA_bc < EndDate
+      .data[["CRA_bc"]] >= .data[["StartDate"]] & .data[["CRA_bc"]] < .data[["EndDate"]]
     )
 
   Palmisano_raw <- radiocarbon_raw %>%
