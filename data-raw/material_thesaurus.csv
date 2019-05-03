@@ -273,6 +273,8 @@ bone,Equus sp. long bone
 bone,Large ungulate (?) long bone
 bone,Bos primigenius matatarsal
 bone,Bone (red deer)
+bone,bone (apatite)
+bone,bone (cremated)
 ceramics,ceramic
 ceramics,ceramics
 ceramics,organic temper
@@ -404,6 +406,7 @@ charcoal,Charcoal (poss. Quercus sp.)
 charcoal,Charcoal/Wood
 charcoal,Charcoal?
 charcoal,Charcoal/seeds
+charcoal,charcoal/wood (twig)
 fabric,cloth
 fabric,fabric
 fabric,mat
@@ -517,6 +520,8 @@ other,brain tissue
 other,skin
 other,tissue
 other,human brain
+other,mortar
+other,piece of rope
 plant remains,grass cuticle
 plant remains,(Acacia?) roots
 plant remains,acorn
@@ -728,6 +733,8 @@ plant remains,Pollen (<5 microns)
 plant remains,Pollen (10-25 microns)
 plant remains,Pollen (45-90 microns)
 plant remains,Pollen (5-10 microns)
+plant remains,grain (charred)
+plant remains,seed (charred)
 shell,Freshwater mollusc shell
 shell,Freshwater mussel (Unio sp.)
 shell,Freshwater mussel (Velesunio ambiguus sp.)
@@ -830,6 +837,7 @@ shell,Patella ulyssiponensis Gmelin
 shell,Cockle (?)
 shell,Dentalium
 shell,Unio shell
+shell,shell (marine)
 soil,Organic clay
 soil,Pit Sediment
 soil,gyttja
@@ -976,3 +984,4 @@ wood,"Wood charcoal, Quercus evergreen type"
 wood,Wooden post (ext. rings)
 wood,Wooden post (int. rings)
 wood,"Quercus, Fraxinus and Ulmus"
+wood,piece of wood
