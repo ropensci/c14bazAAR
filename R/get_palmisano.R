@@ -28,7 +28,7 @@
   radiocarbon_raw <- data.table::fread(
     radiocarbon_path,
     sep = ",",
-    encoding = "Latin-1",
+    encoding = "UTF-8",
     drop = c(
       "DateID",
       "LocQual"
@@ -51,7 +51,7 @@
   sites_raw <- data.table::fread(
     sites_path,
     sep = ",",
-    encoding = "Latin-1",
+    encoding = "UTF-8",
     drop = c(
       "Toponyms",
       "Longitude",
@@ -78,5 +78,27 @@
   file.remove(sites_path)
 
   # merge data
+  radiocarbon_additional_info <- radiocarbon_raw %>%
+    dplyr::left_join(
+      sites_raw,
+      by = c("SiteID" = "Id")
+    ) %>%
+    dplyr::mutate(
+      CRA_bc = 1950 - as.numeric(CRA),
+      StartDate = as.numeric(StartDate),
+      EndDate = as.numeric(EndDate)
+    ) %>%
+    dplyr::filter(
+      CRA_bc >= StartDate & CRA_bc < EndDate
+    )
+
+  Palmisano_raw <- radiocarbon_raw %>%
+    dplyr::left_join(
+      radiocarbon_additional_info,
+      by = c("LabID", "CRA", "Error", "Material", "Species",
+             "SiteID", "SiteName", "Longitude", "Latitude", "Source")
+    )
+
+
 
 # }
