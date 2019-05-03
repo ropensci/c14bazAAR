@@ -1,8 +1,6 @@
 #' @rdname db_getter
 #' @export
-# get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
-
-  db_url <- "http://discovery.ucl.ac.uk/1575442/1/Palmisanoetal.zip"
+get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
 
   check_connection_to_url(db_url)
 
@@ -99,6 +97,25 @@
              "SiteID", "SiteName", "Longitude", "Latitude", "Source")
     )
 
+  # final data preparation
+  Palmisano <- Palmisano_raw %>%
+    base::replace(., . == "", NA) %>%
+    dplyr::transmute(
+      labnr = .data[["LabID"]],
+      c14age = .data[["CRA"]],
+      c14std = .data[["Error"]],
+      site = .data[["SiteName"]],
+      sitetype = .data[["Type"]],
+      material = .data[["Material"]],
+      species = .data[["Species"]],
+      period = .data[["Period"]],
+      lat = .data[["Latitude"]],
+      lon = .data[["Longitude"]],
+      shortref = .data[["Source"]]
+    ) %>% dplyr::mutate(
+      sourcedb = "Palmisano"
+    ) %>%
+    as.c14_date_list()
 
-
-# }
+  return(Palmisano)
+}
