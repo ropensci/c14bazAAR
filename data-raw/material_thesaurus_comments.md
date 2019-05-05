@@ -129,6 +129,9 @@
 * wood
 * aragonite
 
+# Changes (3.5.2019)
+
+* added additional terms for the Palmisano database
 
 ## not yet defined, uncertain
 

@@ -83,7 +83,8 @@ get_all_parser_functions <- function() {
     c14bazAAR::get_EUROEVOL,
     c14bazAAR::get_RADON,
     c14bazAAR::get_RADONB,
-    c14bazAAR::get_KITEeastAfrica
+    c14bazAAR::get_KITEeastAfrica,
+    c14bazAAR::get_Palmisano
   ) %>%
     return()
 }

@@ -4,7 +4,7 @@ country_thesaurus <- readr::read_csv(
   "data-raw/country_thesaurus.csv",
   na = c("NA")
 )
-devtools::use_data(country_thesaurus, overwrite = TRUE)
+usethis::use_data(country_thesaurus, overwrite = TRUE)
 
 #### material_thesaurus ####
 
@@ -12,7 +12,7 @@ material_thesaurus <- readr::read_csv(
   "data-raw/material_thesaurus.csv",
   na = c("NA")
 )
-devtools::use_data(material_thesaurus, overwrite = TRUE)
+usethis::use_data(material_thesaurus, overwrite = TRUE)
 
 #### variable_reference ####
 
@@ -20,7 +20,7 @@ variable_reference <- readr::read_csv(
   "data-raw/variable_reference.csv",
   na = c("NA")
 )
-devtools::use_data(variable_reference, overwrite = TRUE)
+usethis::use_data(variable_reference, overwrite = TRUE)
 
 #### example_c14_date_list ####
 
@@ -28,5 +28,5 @@ all_dates <- c14bazAAR::get_all_dates()
 example_c14_date_list <- all_dates %>%
   dplyr::sample_n(200) %>%
   c14bazAAR::as.c14_date_list()
-devtools::use_data(example_c14_date_list, overwrite = TRUE)
+usethis::use_data(example_c14_date_list, overwrite = TRUE)
 
