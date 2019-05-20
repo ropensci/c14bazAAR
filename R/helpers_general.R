@@ -75,6 +75,7 @@ check_if_columns_are_present <- function(x, columns) {
 #'
 #' @return an object of class c14_date_list
 #'
+#' @rdname cleaning
 #' @keywords internal
 clean_latlon <- function(x) {
 
@@ -85,6 +86,33 @@ clean_latlon <- function(x) {
 
     # lat&long not on this earth
     x[which(x[["lon"]] > 180 | x[["lon"]] < -180 | x[["lat"]] > 90 | x[["lat"]] < -90), c("lon", "lat")] <- NA
+
+  }
+
+  return(x)
+}
+
+#' @rdname cleaning
+#' @keywords internal
+clean_labnr <- function(x) {
+
+  if ("labnr" %in% colnames(x)) {
+
+    # Testcode
+    # EUROEVOL -> x
+    # x$labnr[x$labnr %>% grepl("[-]", .) %>% `!`]
+
+    # case 1: simple labnr but no hyphen and no space z.B. Gd4438
+    without_space <- x[["labnr"]] %>%
+      grep("^[A-Z,a-z]+[0-9]+[A-Za-z]?$", .)
+    x[["labnr"]][without_space] <- x[["labnr"]][without_space] %>%
+      gsub("^([A-Za-z]+)([0-9]+)([A-Za-z]?)$", "\\1-\\2\\3", .)
+
+    # case 2: simple labnr but space instead of hyphen
+    without_hyphen <- x[["labnr"]] %>%
+      grep("^[A-Z,a-z]+\\s[0-9]+[A-Za-z]?$", .)
+    x[["labnr"]][without_hyphen] <- x[["labnr"]][without_hyphen] %>%
+      gsub("^([A-Za-z]+)(\\s)([0-9]+)([A-Za-z]?)$", "\\1-\\3\\4", .)
 
   }
 

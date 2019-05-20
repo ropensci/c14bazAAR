@@ -2,9 +2,12 @@
 % Please edit documentation in R/helpers_general.R
 \name{clean_latlon}
 \alias{clean_latlon}
+\alias{clean_labnr}
 \title{clean dataset}
 \usage{
 clean_latlon(x)
+
+clean_labnr(x)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
