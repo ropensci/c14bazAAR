@@ -114,6 +114,12 @@ clean_labnr <- function(x) {
     x[["labnr"]][without_hyphen] <- x[["labnr"]][without_hyphen] %>%
       gsub("^([A-Za-z]+)(\\s)([0-9]+)([A-Za-z]?)$", "\\1-\\3\\4", .)
 
+    # case 3: simple labnr but double hyphens
+    double_hyphen <- x[["labnr"]] %>%
+      grep("^[A-Z,a-z]+--[0-9]+[A-Za-z]?$", .)
+    x[["labnr"]][double_hyphen] <- x[["labnr"]][double_hyphen] %>%
+      gsub("^([A-Za-z]+)(--)([0-9]+)([A-Za-z]?)$", "\\1-\\3\\4", .)
+
   }
 
   return(x)
