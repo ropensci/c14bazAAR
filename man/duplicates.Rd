@@ -17,14 +17,25 @@ mark_duplicates(x)
 
 \method{mark_duplicates}{c14_date_list}(x)
 
-remove_duplicates(x)
+remove_duplicates(x, preferences = NULL, log = TRUE)
 
-\method{remove_duplicates}{default}(x)
+\method{remove_duplicates}{default}(x, preferences = NULL, log = TRUE)
 
-\method{remove_duplicates}{c14_date_list}(x)
+\method{remove_duplicates}{c14_date_list}(x, preferences = NULL,
+  log = TRUE)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
+
+\item{preferences}{character vector with the order of source databases by
+which the deduping should be executed. If e.g. preferences = c("RADON", "CALPAL")
+and a certain date appears in Radon and EUROEVOL, then only the RADON entry remains.
+Default: NULL. With preferences = NULL all overlapping, conflicting information in
+individual columns of one duplicated date is removed.}
+
+\item{log}{logical. If log = TRUE, an additional column is added that contains a string
+documentation of all variants of the information for one date from all conflicting
+databases.}
 }
 \value{
 an object of class c14_date_list with the additional

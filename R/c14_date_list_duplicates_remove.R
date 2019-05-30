@@ -2,19 +2,19 @@
 
 #' @rdname duplicates
 #' @export
-remove_duplicates <- function(x) {
+remove_duplicates <- function(x, preferences = NULL, log = TRUE) {
   UseMethod("remove_duplicates")
 }
 
 #' @rdname duplicates
 #' @export
-remove_duplicates.default <- function(x) {
+remove_duplicates.default <- function(x, preferences = NULL, log = TRUE) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname duplicates
 #' @export
-remove_duplicates.c14_date_list <- function(x) {
+remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
 
   # call functions if necessary columns are missing
   if("duplicate_group" %in% colnames(x) %>% `!`) {
@@ -36,25 +36,46 @@ remove_duplicates.c14_date_list <- function(x) {
       !is.na(.data$duplicate_group)
     )
 
-  # stringify variation in duplicates: log string
-  stringified_differences <- duplicates %>%
-    plyr::dlply("duplicate_group") %>%
-    lapply(FUN = stringify_data_frame) %>%
-    unlist
+  # create log string: stringify variation in duplicates
+  if (log) {
+    log_string <- duplicates %>%
+      plyr::dlply("duplicate_group") %>%
+      lapply(FUN = stringify_data_frame) %>%
+      unlist
+  }
 
-  # combine the duplicates and add the log string
-  summarised_duplicates <- duplicates %>%
-    dplyr::group_by(.data$duplicate_group) %>%
-    dplyr::summarise_all(
-      .funs = dplyr::funs(compare_and_combine_data_frame_values(.))
-    ) %>%
-    dplyr::mutate(
-      duplicate_remove_log = if(length(stringified_differences) != 0) {
-        stringified_differences
-      } else {
-        NA_character_
-      }
-    )
+  # combine the duplicates
+
+  # 1. option: replace inconsistencies with NA
+  if (is.null(preferences) | !("sourcedb" %in% colnames(duplicates))) {
+    summarised_duplicates <- duplicates %>%
+      dplyr::group_by(.data$duplicate_group) %>%
+      dplyr::summarise_all(
+        .funs = dplyr::funs(compare_and_combine_data_frame_values(.))
+      )
+  }
+
+  # 2. option: replace inconsistencies with the first value from the prefered database
+  if (!is.null(preferences)) {
+    preference_based_order <- unique(c(preferences, duplicates$sourcedb %>% unique))
+    duplicates$sourcedb <- factor(duplicates$sourcedb, levels = preference_based_order)
+    summarised_duplicates <- duplicates %>%
+      dplyr::group_by(.data$duplicate_group) %>%
+      dplyr::arrange(.data$sourcedb) %>%
+      dplyr::filter(dplyr::row_number() == 1)
+  }
+
+  # add log string
+  if (log) {
+    summarised_duplicates <- summarised_duplicates %>%
+      dplyr::mutate(
+        duplicate_remove_log = if(length(log_string) != 0) {
+          log_string
+        } else {
+          NA_character_
+        }
+      )
+  }
 
   # put not_duplicates and duplicates again together
   not_duplicates$duplicate_remove_log <- NA

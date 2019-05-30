@@ -19,6 +19,14 @@
 #' and calls \code{c14bazAAR::mark_duplicates()} if it's missing.
 #'
 #' @param x an object of class c14_date_list
+#' @param preferences character vector with the order of source databases by
+#' which the deduping should be executed. If e.g. preferences = c("RADON", "CALPAL")
+#' and a certain date appears in Radon and EUROEVOL, then only the RADON entry remains.
+#' Default: NULL. With preferences = NULL all overlapping, conflicting information in
+#' individual columns of one duplicated date is removed.
+#' @param log logical. If log = TRUE, an additional column is added that contains a string
+#' documentation of all variants of the information for one date from all conflicting
+#' databases.
 #'
 #' @return an object of class c14_date_list with the additional
 #' columns \strong{duplicate_group} or \strong{duplicate_remove_log}
