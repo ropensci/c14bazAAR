@@ -36,14 +36,6 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
       !is.na(.data$duplicate_group)
     )
 
-  # create log string: stringify variation in duplicates
-  if (log) {
-    log_string <- duplicates %>%
-      plyr::dlply("duplicate_group") %>%
-      lapply(FUN = stringify_data_frame) %>%
-      unlist
-  }
-
   # combine the duplicates
 
   # 1. option: replace inconsistencies with NA
@@ -52,7 +44,8 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
       dplyr::group_by(.data$duplicate_group) %>%
       dplyr::summarise_all(
         .funs = dplyr::funs(compare_and_combine_data_frame_values(.))
-      )
+      ) %>%
+      dplyr::ungroup()
   }
 
   # 2. option: replace inconsistencies with the first value from the prefered database
@@ -62,11 +55,18 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
     summarised_duplicates <- duplicates %>%
       dplyr::group_by(.data$duplicate_group) %>%
       dplyr::arrange(.data$sourcedb) %>%
-      dplyr::filter(dplyr::row_number() == 1)
+      dplyr::filter(dplyr::row_number() == 1) %>%
+      dplyr::ungroup()
   }
 
-  # add log string
+  # optional: add log string
   if (log) {
+    # create log string: stringify variation in duplicates
+    log_string <- duplicates %>%
+      plyr::dlply("duplicate_group") %>%
+      lapply(FUN = stringify_data_frame) %>%
+      unlist
+    # duplicates
     summarised_duplicates <- summarised_duplicates %>%
       dplyr::mutate(
         duplicate_remove_log = if(length(log_string) != 0) {
@@ -75,10 +75,11 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
           NA_character_
         }
       )
+    # not_duplicates
+    not_duplicates$duplicate_remove_log <- NA
   }
 
   # put not_duplicates and duplicates again together
-  not_duplicates$duplicate_remove_log <- NA
   final_without_duplicates <- not_duplicates %>%
     rbind(summarised_duplicates)
 
