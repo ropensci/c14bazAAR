@@ -10,13 +10,21 @@
 #' the individual dates in the new column \strong{duplicate_group}.
 #' Duplicates can be removed with \code{c14bazAAR::remove_duplicates()}. \cr
 #' While \code{c14bazAAR::mark_duplicates()} finds duplicates,
-#' \code{c14bazAAR::remove_duplicates()} removes them by merging
-#' all dates in a \strong{duplicate_group}. All non-equal variables in the
-#' duplicate group are turned to \code{NA}. A new column
-#' \strong{duplicate_remove_log} documents the variety of entries initially
-#' provided (and partially lost by this hard merging operation).
+#' \code{c14bazAAR::remove_duplicates()} removes them with two different strategies
+#' according to the value of the option \code{preferences}:
+#' \enumerate{
+#'   \item By merging all dates in a \strong{duplicate_group}. All non-equal variables
+#'   in the duplicate group are turned to \code{NA}.
+#'   \item By selecting individual database entries in a \strong{duplicate_group}
+#'   according to a trust hierarchy as defined by the parameter \code{preferences}.
+#'   In case of duplicates within one database the first occurence in the table (top down)
+#'   is selected.
+#' }
+#' The option \code{log} allows to add a new column \strong{duplicate_remove_log}
+#' that documents the variety of values provided by all databases for this
+#' duplicated date.
 #' \code{c14bazAAR::remove_duplicates()} needs the column \strong{duplicate_group}
-#' and calls \code{c14bazAAR::mark_duplicates()} if it's missing.
+#' and calls \code{c14bazAAR::mark_duplicates()} if it is missing.
 #'
 #' @param x an object of class c14_date_list
 #' @param preferences character vector with the order of source databases by
@@ -26,7 +34,7 @@
 #' individual columns of one duplicated date is removed.
 #' @param log logical. If log = TRUE, an additional column is added that contains a string
 #' documentation of all variants of the information for one date from all conflicting
-#' databases.
+#' databases. Default = TRUE.
 #'
 #' @return an object of class c14_date_list with the additional
 #' columns \strong{duplicate_group} or \strong{duplicate_remove_log}
