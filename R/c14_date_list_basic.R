@@ -55,6 +55,7 @@ as.c14_date_list <- function(x, ...) {
         c14bazAAR::order_variables() %>%
         c14bazAAR::enforce_types() %>%
         clean_latlon() %>%
+        clean_labnr() %>%
         return()
     } else {
       stop(
