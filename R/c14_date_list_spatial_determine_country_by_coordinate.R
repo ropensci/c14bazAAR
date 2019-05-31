@@ -112,7 +112,7 @@ spatial_join_with_country_dataset <- function(x) {
   }
 
   x_sf %>%
-    tibble::as.tibble() %>%
+    tibble::as_tibble() %>%
     dplyr::select(-.data$geometry) %>%
     return()
 }
