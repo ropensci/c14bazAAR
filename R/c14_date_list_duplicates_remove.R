@@ -52,7 +52,7 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
     summarised_duplicates <- duplicates %>%
       dplyr::group_by(.data$duplicate_group) %>%
       dplyr::summarise_all(
-        .funs = dplyr::funs(compare_and_combine_data_frame_values(.))
+        .funs = ~compare_and_combine_data_frame_values(.)
       ) %>%
       dplyr::ungroup()
   }

@@ -38,7 +38,7 @@ get_thesaurus <- function(url) {
     ),
     showProgress = FALSE
   ) %>%
-    tibble::as.tibble()
+    tibble::as_tibble()
 }
 
 #' print_lookup_decisions
