@@ -40,6 +40,15 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
 
   # 1. option: replace inconsistencies with NA
   if (is.null(preferences) | !("sourcedb" %in% colnames(duplicates))) {
+    message(
+      "You did not provide the argument 'preferences' or your c14_date_list ",
+      "does not contain the necessary column 'sourcedb'. That means that duplicates ",
+      "are removed in a way that obscures conflicting information. As a result of this ",
+      "vital data for your analysis might get lost. "
+    )
+    message(
+      "You can check '?duplicates' for more information or ignore this message."
+    )
     summarised_duplicates <- duplicates %>%
       dplyr::group_by(.data$duplicate_group) %>%
       dplyr::summarise_all(
