@@ -100,12 +100,11 @@ lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
 #'
 #' @keywords internal
 find_correct_name_by_stringdist_comparison <- function(db_word, country_df, codes, ...) {
+
+  db_word_dist <- function(x) { stringdist::stringdist(db_word, x, ...) }
+
   country_df %>%
-    dplyr::mutate_all(
-      dplyr::funs(
-        stringdist = stringdist::stringdist(db_word, ., ...)
-      )
-    ) %>%
+    dplyr::mutate_all(list(stringdist = ~db_word_dist(.))) %>%
     tidyr::gather(
       key = "code_type",
       value = "dist",
