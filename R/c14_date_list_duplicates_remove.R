@@ -2,19 +2,19 @@
 
 #' @rdname duplicates
 #' @export
-remove_duplicates <- function(x, preferences = NULL, log = TRUE) {
+remove_duplicates <- function(x, preferences = NULL, supermerge = FALSE, log = TRUE) {
   UseMethod("remove_duplicates")
 }
 
 #' @rdname duplicates
 #' @export
-remove_duplicates.default <- function(x, preferences = NULL, log = TRUE) {
+remove_duplicates.default <- function(x, preferences = NULL, supermerge = FALSE, log = TRUE) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname duplicates
 #' @export
-remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
+remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = FALSE, log = TRUE) {
 
   # set usage option
   if (is.null(preferences) | !("sourcedb" %in% colnames(x))) {
@@ -41,10 +41,13 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
     message(
       "You can check '?duplicates' for more information."
     )
+  } else if (supermerge & !is.null(preferences) & "sourcedb" %in% colnames(x)) {
+    # 3. option: supermerge
+    removal_option <- 3
   }
 
   # filter dataset to database selection
-  if (removal_option == 2) {
+  if (removal_option == 2 | removal_option == 3) {
     x %<>% dplyr::filter(
       .data$sourcedb %in% preferences
     )
@@ -93,6 +96,19 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
       dplyr::ungroup()
   }
 
+  # 3. option
+  if (removal_option == 3) {
+    summarised_duplicates <- duplicates %>%
+      dplyr::group_by(.data$duplicate_group) %>%
+      dplyr::summarise_all(
+        .funs = ~supermerge_data_frame_values(
+          .,
+          order = match(.data$sourcedb, preferences)
+        )
+      ) %>%
+      dplyr::ungroup()
+  }
+
   # optional: add log string
   if (log) {
     # create log string: stringify variation in duplicates
@@ -124,13 +140,6 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, log = TRUE) {
 
 #### helper functions ####
 
-#' stringify_data_frame
-#'
-#' @param x a data.frame
-#'
-#' @return a vector of strings describing the data.frame
-#'
-#' @keywords internal
 stringify_data_frame <- function(x) {
   # remove all columns that are not character or numeric
   y <- x[, sapply(x, class) %in% c("character", "numeric", "double", "integer", "factor")]
@@ -142,13 +151,6 @@ stringify_data_frame <- function(x) {
     return()
 }
 
-#' compare_and_combine_data_frame_values
-#'
-#' @param x a data.frame
-#'
-#' @return a version of the data.frame where all inequalities are replaced by NA
-#'
-#' @keywords internal
 compare_and_combine_data_frame_values <- function(x) {
   # remove NA values
   y <- x[!is.na(x)]
@@ -167,3 +169,18 @@ compare_and_combine_data_frame_values <- function(x) {
   }
 }
 
+supermerge_data_frame_values <- function(x, order) {
+  # order by rank
+  ordered <- x[order]
+  # if all values are NA, than return NA
+  if (all(is.na(ordered))) {
+    if(class(x) == "character") {
+      return(NA_character_)
+    } else {
+      return(NA)
+    }
+  } else {
+    # else return the value with the highest rank
+    return(ordered[min(which(!is.na(ordered)))])
+  }
+}

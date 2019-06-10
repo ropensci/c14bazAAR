@@ -32,6 +32,7 @@
 #' and a certain date appears in Radon and EUROEVOL, then only the RADON entry remains.
 #' Default: NULL. With preferences = NULL all overlapping, conflicting information in
 #' individual columns of one duplicated date is removed.
+#' @param supermerge test
 #' @param log logical. If log = TRUE, an additional column is added that contains a string
 #' documentation of all variants of the information for one date from all conflicting
 #' databases. Default = TRUE.
