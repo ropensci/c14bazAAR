@@ -10,15 +10,20 @@
 #' the individual dates in the new column \strong{duplicate_group}.
 #' Duplicates can be removed with \code{c14bazAAR::remove_duplicates()}. \cr
 #' While \code{c14bazAAR::mark_duplicates()} finds duplicates,
-#' \code{c14bazAAR::remove_duplicates()} removes them with two different strategies
-#' according to the value of the option \code{preferences}:
+#' \code{c14bazAAR::remove_duplicates()} removes them with three different strategies
+#' according to the value of the arguments \code{preferences} and \code{supermerge}:
 #' \enumerate{
-#'   \item By merging all dates in a \strong{duplicate_group}. All non-equal variables
-#'   in the duplicate group are turned to \code{NA}.
-#'   \item By selecting individual database entries in a \strong{duplicate_group}
+#'   \item Option 1: By merging all dates in a \strong{duplicate_group}. All non-equal variables
+#'   in the duplicate group are turned to \code{NA}. This is the default option.
+#'   \item Option 2: By selecting individual database entries in a \strong{duplicate_group}
 #'   according to a trust hierarchy as defined by the parameter \code{preferences}.
 #'   In case of duplicates within one database the first occurence in the table (top down)
-#'   is selected.
+#'   is selected. All databases not mentioned in \code{preferences} are dropped.
+#'   \item Option 3: Like option 2, but in this case the different datasets in a
+#'   \strong{duplicate_group} are merged column by column to
+#'   create a superdataset with a maximum of information. The column \strong{sourcedb} is
+#'   dropped in this case to indicate that multiple databases have been merged. Data
+#'   citation is a lot more difficult with this option. It can be activated with \code{supermerge}.
 #' }
 #' The option \code{log} allows to add a new column \strong{duplicate_remove_log}
 #' that documents the variety of values provided by all databases for this
@@ -31,8 +36,9 @@
 #' which the deduping should be executed. If e.g. preferences = c("RADON", "CALPAL")
 #' and a certain date appears in Radon and EUROEVOL, then only the RADON entry remains.
 #' Default: NULL. With preferences = NULL all overlapping, conflicting information in
-#' individual columns of one duplicated date is removed.
-#' @param supermerge test
+#' individual columns of one duplicated date is removed. See Option 2 and 3.
+#' @param supermerge boolean. Should the duplicated datasets be merged on the column level?
+#' Default: FALSE. See Option 3.
 #' @param log logical. If log = TRUE, an additional column is added that contains a string
 #' documentation of all variants of the information for one date from all conflicting
 #' databases. Default = TRUE.
