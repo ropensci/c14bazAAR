@@ -89,7 +89,7 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
 
   # 3. option
   if (removal_option == 3) {
-    summarised_duplicates <- duplicates[1:5000,] %>%
+    summarised_duplicates <- duplicates %>%
       dplyr::mutate(
         sourcedb_order = match(.data$sourcedb, preferences)
       ) %>%
@@ -174,8 +174,11 @@ supermerge_data_frame_values <- function(x, order) {
     } else {
       return(NA)
     }
+  # if all values are equal, than return that value
+  } else if (length(unique(na.omit(x))) == 1) {
+    return(unique(na.omit(x)))
+  # else return the value with the highest rank
   } else {
-    # else return the value with the highest rank
     ordered <- x[order]
     return(ordered[which(!is.na(ordered))[1]])
   }
