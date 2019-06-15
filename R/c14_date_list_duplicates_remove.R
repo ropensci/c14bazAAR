@@ -27,20 +27,11 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
       "vital data for your analysis might get lost. "
     )
     message(
-      "You can check '?duplicates' for more information."
+      "Please check '?duplicates' for more information."
     )
   } else if (!is.null(preferences) & "sourcedb" %in% colnames(x)) {
     # 2. option: replace inconsistencies with the first value from the prefered database
     removal_option <- 2
-    message(
-      "You did provide the argument 'preferences' and your c14_date_list ",
-      "does contain the necessary column 'sourcedb'.",
-      "All databases not mentioned in the 'preferences' vector will be removed ",
-      "and duplicated dates will be selected according to your rank order."
-    )
-    message(
-      "You can check '?duplicates' for more information."
-    )
   } else if (supermerge & !is.null(preferences) & "sourcedb" %in% colnames(x)) {
     # 3. option: supermerge
     removal_option <- 3
@@ -98,16 +89,22 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
 
   # 3. option
   if (removal_option == 3) {
-    summarised_duplicates <- duplicates %>%
+    summarised_duplicates <- duplicates[1:5000,] %>%
+      dplyr::mutate(
+        sourcedb_order = match(.data$sourcedb, preferences)
+      ) %>%
       dplyr::group_by(.data$duplicate_group) %>%
       dplyr::summarise_all(
         .funs = ~supermerge_data_frame_values(
           .,
-          order = match(.data$sourcedb, preferences)
+          order = sourcedb_order
         )
       ) %>%
-      dplyr::ungroup()
-  }
+      dplyr::ungroup() %>%
+      dplyr::select(
+        .data$sourcedb_order
+      )
+    }
 
   # optional: add log string
   if (log) {
@@ -170,10 +167,8 @@ compare_and_combine_data_frame_values <- function(x) {
 }
 
 supermerge_data_frame_values <- function(x, order) {
-  # order by rank
-  ordered <- x[order]
   # if all values are NA, than return NA
-  if (all(is.na(ordered))) {
+  if (all(is.na(x))) {
     if(class(x) == "character") {
       return(NA_character_)
     } else {
@@ -181,6 +176,7 @@ supermerge_data_frame_values <- function(x, order) {
     }
   } else {
     # else return the value with the highest rank
-    return(ordered[min(which(!is.na(ordered)))])
+    ordered <- x[order]
+    return(ordered[which(!is.na(ordered))[1]])
   }
 }
