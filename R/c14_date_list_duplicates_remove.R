@@ -29,7 +29,7 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
     message(
       "Please check '?duplicates' for more information."
     )
-  } else if (!is.null(preferences) & "sourcedb" %in% colnames(x)) {
+  } else if (!supermerge & !is.null(preferences) & "sourcedb" %in% colnames(x)) {
     # 2. option: replace inconsistencies with the first value from the prefered database
     removal_option <- 2
   } else if (supermerge & !is.null(preferences) & "sourcedb" %in% colnames(x)) {
@@ -95,14 +95,12 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
       ) %>%
       dplyr::group_by(.data$duplicate_group) %>%
       dplyr::summarise_all(
-        .funs = ~supermerge_data_frame_values(
-          .,
-          order = sourcedb_order
-        )
+        .funs = ~supermerge_data_frame_values(., order = sourcedb_order)
       ) %>%
       dplyr::ungroup() %>%
       dplyr::select(
-        .data$sourcedb_order
+        -.data$sourcedb_order,
+        -.data$sourcedb
       )
     }
 
@@ -131,6 +129,9 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
     rbind(summarised_duplicates)
 
   final_without_duplicates %>%
+    dplyr::select(
+      -duplicate_group
+    ) %>%
     as.c14_date_list() %>%
     return()
 }
