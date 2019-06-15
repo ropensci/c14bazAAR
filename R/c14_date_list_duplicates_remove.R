@@ -130,7 +130,7 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
 
   final_without_duplicates %>%
     dplyr::select(
-      -duplicate_group
+      -.data$duplicate_group
     ) %>%
     as.c14_date_list() %>%
     return()
@@ -176,8 +176,8 @@ supermerge_data_frame_values <- function(x, order) {
       return(NA)
     }
   # if all values are equal, than return that value
-  } else if (length(unique(na.omit(x))) == 1) {
-    return(unique(na.omit(x)))
+  } else if (length(unique(stats::na.omit(x))) == 1) {
+    return(unique(stats::na.omit(x)))
   # else return the value with the highest rank
   } else {
     ordered <- x[order]
