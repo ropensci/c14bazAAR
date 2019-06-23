@@ -102,7 +102,8 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
         -.data$sourcedb_order,
         -.data$sourcedb
       )
-    }
+    not_duplicates <- not_duplicates %>% dplyr::select(-.data$sourcedb)
+  }
 
   # optional: add log string
   if (log) {
