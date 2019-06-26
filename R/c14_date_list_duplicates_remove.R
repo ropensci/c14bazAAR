@@ -60,10 +60,13 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
       is.na(.data$duplicate_group)
     )
 
-  # get all duplicates
+  # get all duplicates and order them by the duplicate group number
   duplicates <- x %>%
     dplyr::filter(
       !is.na(.data$duplicate_group)
+    ) %>%
+    dplyr::arrange(
+      .data$duplicate_group
     )
 
   # combine the duplicates
@@ -81,18 +84,21 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
           )
         }
       ) %>%
-      do.call(rbind, .)
+      do.call(rbind, .) %>%
+      dplyr::arrange(.data$duplicate_group)
   }
 
   # 2. option
   if (removal_option == 2) {
     preference_based_order <- unique(c(preferences, duplicates$sourcedb %>% unique))
-    duplicates$sourcedb <- factor(duplicates$sourcedb, levels = preference_based_order)
+    duplicates$sourcedb_factor <- factor(duplicates$sourcedb, levels = preference_based_order)
     summarised_duplicates <- duplicates %>%
       dplyr::group_by(.data$duplicate_group) %>%
-      dplyr::arrange(.data$sourcedb) %>%
+      dplyr::arrange(.data$sourcedb_factor) %>%
       dplyr::filter(dplyr::row_number() == 1) %>%
-      dplyr::ungroup()
+      dplyr::ungroup() %>%
+      dplyr::select(-.data$sourcedb_factor) %>%
+      dplyr::arrange(.data$duplicate_group)
   }
 
   # 3. option
@@ -115,7 +121,8 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
       dplyr::select(
         -.data$sourcedb_order,
         -.data$sourcedb
-      )
+      ) %>%
+      dplyr::arrange(.data$duplicate_group)
 
     not_duplicates <- not_duplicates %>% dplyr::select(-.data$sourcedb)
   }
