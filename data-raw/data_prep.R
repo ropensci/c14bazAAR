@@ -26,7 +26,6 @@ usethis::use_data(variable_reference, overwrite = TRUE)
 
 all_dates <- c14bazAAR::get_all_dates()
 example_c14_date_list <- all_dates %>%
-  dplyr::sample_n(200) %>%
-  c14bazAAR::as.c14_date_list()
+  dplyr::sample_n(1000)
 usethis::use_data(example_c14_date_list, overwrite = TRUE)
 
