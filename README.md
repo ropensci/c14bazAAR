@@ -192,6 +192,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 7. Update the [material_thesaurus table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
 8. Do the same for the [country thesaurus table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
 9. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/get_all_dates.R#L76).
+10. Document the addition of the new function in the NEWS.md file.
 
 ### License
 
