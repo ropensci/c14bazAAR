@@ -44,7 +44,7 @@ test_that("remove_duplicates gives back a c14_date_list with the additional
           column duplicate_remove_log", {
   expect_true(
     all(
-      c(colnames(result), "duplicate_remove_log") %in%
+      c("duplicate_remove_log") %in%
         colnames(result2)
     )
   )
