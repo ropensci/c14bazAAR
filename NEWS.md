@@ -8,7 +8,7 @@
 - added new options for the deduplication function (see `?duplicates`) (#63)
 - added an internal function `clean_labnr` to the `as.c14_date_list` workflow to fix certain syntactically wrong representations of lab numbers in several input databases as part of the downloading process (#61)
 - added a [checklist](https://github.com/ISAAKiel/c14bazAAR#adding-database-getter-functions) to the README on how to add new getter functions
-- better implementation of the `c14_date_list` as a subclass of tibble (#67)
+- better implementation of the `c14_date_list` as a subclass of tibble for a better integration of the subclass into the tidyverse (#67)
 
 # bugfixes
 - small file path construction fix in CONTEXT getter function (4f3e3a8c4fb596d6ce9667814d661a5bc533a824)
