@@ -8,7 +8,8 @@ Authors@R: c(
   person("Martin", "Hinz", email = "martin.hinz@ufg.uni-kiel.de", role = c("aut")),
   person("David", "Matzig", role = c("aut")),
   person("Wolfgang", "Hamer", email = "hamer@geographie.uni-kiel.de", role = c("aut")),
-  person("Kay", "Schmütz", email = "kschmuetz@ufg.uni-kiel.de", role = c("aut"))
+  person("Kay", "Schmütz", email = "kschmuetz@ufg.uni-kiel.de", role = c("aut")),
+  person("Nils", "Mueller-Scheessel", email = "nils.mueller-scheessel@ufg.uni-kiel.de", role = c("ctb"))
   )
 URL: https://github.com/ISAAKiel/c14bazAAR
 Date: 2018-09-19
