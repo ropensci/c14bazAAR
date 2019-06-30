@@ -28,5 +28,10 @@ Authors:
   \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
 }
 
+Other contributors:
+\itemize{
+  \item Nils Mueller-Scheessel \email{nils.mueller-scheessel@ufg.uni-kiel.de} [contributor]
+}
+
 }
 \keyword{internal}

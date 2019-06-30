@@ -42,13 +42,18 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
     x %<>% dplyr::filter(
       .data$sourcedb %in% preferences
     ) %>%
-      as.c14_date_list() %>%
       mark_duplicates()
   }
 
   # call functions if necessary duplicate_group column is missing
   if("duplicate_group" %in% colnames(x) %>% `!`) {
     x %<>% mark_duplicates()
+  }
+
+  # if if there are no duplicates, then stop. There's nothing to remove
+  if(all(is.na(x[["duplicate_group"]]))) {
+    message("No duplicates found.")
+    return(x)
   }
 
   # start message:
