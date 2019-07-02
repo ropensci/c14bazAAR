@@ -20,6 +20,7 @@ c14bazAAR is a R package to query different openly accessible radiocarbon date d
   - [Technical functions](#technical-functions)
 - [Databases](#databases)
 - [Contributing](#contributing)
+  - [Adding database getter functions](#adding-database-getter-functions)
 - [License](#license)
 
 If you want to use data downloaded with c14bazAAR or neolithicRC for your research, you have to quote the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
@@ -172,6 +173,27 @@ To suggest other archives to be queried you can join the discussion [here](https
 ### Contributing
 
 If you would like to contribute to this project, please start by reading our [Guide to Contributing](CONTRIBUTING.md). Please note that this project is released with a Contributor [Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+#### Adding database getter functions
+
+If you want to add another radiocarbon database to c14bazAAR (maybe from the list [here](https://github.com/ISAAKiel/c14bazAAR/issues/2)) you can follow this checklist to apply all the necessary changes to the package:
+
+1. Add your database to the [variable_reference table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv) and map the database variables to the variables of c14bazAAR and other databases.
+2. Write the getter function `get_[The Database Name]` in an own script file: **get_[the database name].R**. For the script file names we used a lowercase version of the database name. The function name on the other hand can contain upper case letters. The getter functions have a standardized layout and always yield an object of the class `c14_date_list`. Please look at some of the available functions to get an idea how it is supposed to look like and which checks it has to include.
+3. Add the following roxygen2 tags above the function definition to include it in the package documentation.
+
+```
+#' @rdname db_getter
+#' @export
+```
+
+4. Update the package documentation with roxygen2.
+5. Add the database url(s) to the [url_reference table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/url_reference.csv) to make sure that `get_db_url("[the database name]")` works. `get_db_url()` relies on the file version on the master branch, so maybe you have to find a temporary solution for this as long as you are working in another branch.
+6. Add your function to the database list in the README file [here](https://github.com/ISAAKiel/c14bazAAR#databases).
+7. Update the [material_thesaurus table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
+8. Do the same for the [country thesaurus table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
+9. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/get_all_dates.R#L76).
+10. Document the addition of the new function in the NEWS.md file.
 
 ### License
 

@@ -51,7 +51,7 @@ as.c14_date_list <- function(x, ...) {
     if (all(present)) {
       # do the actual conversion!
       x %>%
-        `class<-`(c("c14_date_list", class(.))) %>%
+        tibble::new_tibble(., nrow = nrow(.), class = "c14_date_list") %>%
         c14bazAAR::order_variables() %>%
         c14bazAAR::enforce_types() %>%
         clean_latlon() %>%
@@ -115,3 +115,6 @@ print.c14_date_list <- function(x, ...) {
   # add table printed like a tibble
   x %>% `class<-`(c("tbl", "tbl_df", "data.frame")) %>% print
 }
+
+#### accessor functions ####
+

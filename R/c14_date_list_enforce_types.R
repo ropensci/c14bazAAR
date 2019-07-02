@@ -58,8 +58,6 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
       dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double)
   }
 
-  x %<>% `class<-`(c("c14_date_list", class(.)))
-
   return(x)
 }
 
