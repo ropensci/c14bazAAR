@@ -80,6 +80,7 @@ get_all_parser_functions <- function() {
     c14bazAAR::get_AustArch,
     c14bazAAR::get_CalPal,
     c14bazAAR::get_CONTEXT,
+    c14bazAAR::get_EUBAR,
     c14bazAAR::get_EUROEVOL,
     c14bazAAR::get_RADON,
     c14bazAAR::get_RADONB,

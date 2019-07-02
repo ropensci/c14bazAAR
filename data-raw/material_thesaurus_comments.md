@@ -133,6 +133,11 @@
 
 * added additional terms for the Palmisano database
 
+# Changes (25.06.2019)
+
+* added additional terms for the EUBAR database 
+
+
 ## not yet defined, uncertain
 
 * "Ash and charcoal" as ?

@@ -275,6 +275,9 @@ bone,Bos primigenius matatarsal
 bone,Bone (red deer)
 bone,bone (apatite)
 bone,bone (cremated)
+bone,Hueso humano
+bone,Hueso animal
+bone,Hueso
 ceramics,ceramic
 ceramics,ceramics
 ceramics,organic temper
@@ -407,6 +410,8 @@ charcoal,Charcoal/Wood
 charcoal,Charcoal?
 charcoal,Charcoal/seeds
 charcoal,charcoal/wood (twig)
+charcoal,Madera carbonizada
+charcoal,Carbón
 fabric,cloth
 fabric,fabric
 fabric,mat
@@ -522,6 +527,12 @@ other,tissue
 other,human brain
 other,mortar
 other,piece of rope
+other,Carbonato
+other,Hueso animal o semillas
+other,Resina cristalizada
+other,Ceniza
+other,Caracoles de tierra
+other,Carbón y semillla
 plant remains,grass cuticle
 plant remains,(Acacia?) roots
 plant remains,acorn
@@ -735,6 +746,12 @@ plant remains,Pollen (45-90 microns)
 plant remains,Pollen (5-10 microns)
 plant remains,grain (charred)
 plant remains,seed (charred)
+plant remains,Semillas
+plant remains,Semillas carbonizadas
+plant remains,Bellota carbonizada
+plant remains,Avellana carbonizada
+plant remains,Semilla
+plant remains,Zarzamora
 shell,Freshwater mollusc shell
 shell,Freshwater mussel (Unio sp.)
 shell,Freshwater mussel (Velesunio ambiguus sp.)
@@ -948,6 +965,15 @@ unknown,Organic fraction
 unknown,Proto-Sesklo
 unknown,Pre-Sesklo
 unknown,?
+unknown,No det.
+unknown,Hueso?
+unknown,Hueso humano?
+unknown,Restos orgánicos
+unknown,CARAMEL?
+unknown,Fibra vegetal
+unknown,“Drusch”, trilladura
+unknown,Malas hierbas (Unkraut)
+unknown,Desechos
 wood,bark
 wood,Bark
 wood,riinde
@@ -985,3 +1011,5 @@ wood,Wooden post (ext. rings)
 wood,Wooden post (int. rings)
 wood,"Quercus, Fraxinus and Ulmus"
 wood,piece of wood
+wood,Madera
+

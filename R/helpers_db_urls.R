@@ -10,7 +10,6 @@ get_db_url <- function(db_name) {
 
   # URL
   ref_url <- "https://raw.githubusercontent.com/ISAAKiel/c14bazAAR/master/data-raw/url_reference.csv"
-
   check_connection_to_url(ref_url)
 
   # download current version of reference table
