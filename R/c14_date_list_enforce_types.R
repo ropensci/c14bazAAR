@@ -5,8 +5,10 @@
 #'
 #' @description Enforce variable types in a \strong{c14_date_list} and remove
 #' everything that doesn't fit (e.g. text in a number field).
-#' See \code{c14bazAAR::variable_reference()} for a documentation of the variable
-#' types. \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
+#' See the
+#' \href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv}{variable_reference}
+#' table for a documentation of the variable types.
+#' \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 #'
 #' @param x an object of class c14_date_list
 #' @param suppress_na_introduced_warnings suppress warnings caused by data removal in

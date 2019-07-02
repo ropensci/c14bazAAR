@@ -48,10 +48,11 @@ get_RADONB(db_url = get_db_url("RADON-B"))
 current URL of the data source}
 }
 \description{
-This functions download source databases and adjust their variables to conform to the
-definition in \code{c14bazAAR::variable_reference}. That includes renaming and arranging
-the variables (with \code{c14bazAAR::order_variables()}) as well as type conversion
-(with \code{c14bazAAR::enforce_types()}) -- so all the steps undertaken by
+This functions downloads source databases and adjust their variables to conform to the
+definition in the
+\href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv}{variable_reference}
+table. That includes renaming and arranging the variables (with \code{c14bazAAR::order_variables()})
+as well as type conversion (with \code{c14bazAAR::enforce_types()}) -- so all the steps undertaken by
 \code{as.c14_date_list()}. \cr
 All databases require different downloading and data wrangling steps. Therefore
 there's a custom getter function for each of them. \cr

@@ -108,7 +108,6 @@ test_that("standardize_country_name has message output, if quiet == FALSE", {
   expect_message(
     standardize_country_name(
       example_c14_date_list,
-      country_thesaurus = country_thesaurus,
       quiet = FALSE
     ),
     NULL

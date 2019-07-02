@@ -31,10 +31,10 @@ an object of class c14_date_list with the additional column \strong{material_the
 \description{
 Add column \strong{material_thes} with simplified and unified terms for
 material categories. The classification is manually curated and therefore maybe not
-up-to-date. It's stored in c14bazAAR::material_thesaurus, but to be more independent
-of CRAN update cycles the current version of the classification list is downloaded
-directly from github with \code{c14bazAAR::get_material_thesaurus()}. With this setup
-you can also easily apply own thesaurus tables.
+up-to-date. It's stored in a
+\href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv}{material_thesaurus}
+list, and downloaded directly from github with \code{c14bazAAR::get_material_thesaurus()}.
+With this setup you can also easily apply own thesaurus tables.
 }
 \examples{
 classify_material(

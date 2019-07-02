@@ -10,9 +10,12 @@
 - added a [checklist](https://github.com/ISAAKiel/c14bazAAR#adding-database-getter-functions) to the README on how to add new getter functions
 - better implementation of the `c14_date_list` as a subclass of tibble for a better integration of the subclass into the tidyverse (#67)
 
-# bugfixes
+## bugfixes
 - small file path construction fix in CONTEXT getter function (4f3e3a8c4fb596d6ce9667814d661a5bc533a824)
 - replaced some deprecated functions by other packages (dplyr::funs & tibble::as.tibble)
+
+## removed objects
+- data objects `c14bazAAR::country_thesaurus`, `c14bazAAR::material_thesaurus`, `c14bazAAR::variable-reference` have been removed from the package -- they are queried from [here](https://github.com/ISAAKiel/c14bazAAR/tree/master/data-raw) anyway and it's not necessary to put them into the package
 
 # c14bazAAR 1.0.2
 
