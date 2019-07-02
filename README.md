@@ -27,14 +27,20 @@ If you want to use data downloaded with c14bazAAR or neolithicRC for your resear
 
 ### Installation
 
-c14bazAAR is not on [CRAN](https://cran.r-project.org/) yet, but you can install it from github. To do so, run the following lines in your R console:
+c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it directly from your R console. To do so, run the following line:
+
+```
+install.packages("c14bazAAR")
+```
+
+You can also get the development version from github:
 
 ```
 if(!require('devtools')) install.packages('devtools')
 devtools::install_github("ISAAKiel/c14bazAAR")
 ```
 
-The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to install them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
+The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to enable them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
 
 ### How to use
 
