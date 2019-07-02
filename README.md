@@ -113,7 +113,7 @@ x %>%
 
 Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function [`mark_duplicates()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_duplicates_mark.R) adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard. 
 
-For an automatic removal there's the function [`remove_duplicates()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). It boils down all dates in a duplicate_group to one entry. Unequal values become NA. All variants for all columns are documented within a string in the column duplicate_remove_log. 
+For an automatic removal there's the function [`remove_duplicates()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options how exaclty duplicates should be treated.
 
 See `?duplicates` for more information.
 
