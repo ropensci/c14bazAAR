@@ -1,6 +1,7 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
-Version: 1.0.2.9000
+Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
+Version: 1.0.3
 Authors@R: c(
   person("Clemens", "Schmid", email = "clemens@nevrome.de", role = c("aut", "cre", "cph")),
   person("Dirk", "Seidensticker", email = "dirk.seidensticker@gmail.com", role = c("aut")),
@@ -12,8 +13,7 @@ Authors@R: c(
   person("Nils", "Mueller-Scheessel", email = "nils.mueller-scheessel@ufg.uni-kiel.de", role = c("ctb"))
   )
 URL: https://github.com/ISAAKiel/c14bazAAR
-Date: 2018-09-19
-Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
+BugReports: https://github.com/ISAAKiel/c14bazAAR/issues
 Depends: R (>= 3.4.0)
 License: GPL-2 | file LICENSE
 Encoding: UTF-8

@@ -12,6 +12,7 @@ Query different C14 date databases and apply basic data cleaning, merging and ca
 Useful links:
 \itemize{
   \item \url{https://github.com/ISAAKiel/c14bazAAR}
+  \item Report bugs at \url{https://github.com/ISAAKiel/c14bazAAR/issues}
 }
 
 }
