@@ -133,5 +133,5 @@ clean_labnr <- function(x) {
 #'
 #' @keywords internal
 check_connection_to_url <- function(db_url) {
-  if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+  if (httr::http_error(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
 }
