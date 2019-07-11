@@ -12,7 +12,7 @@ globalVariables(".")
 #' @importFrom rlang ":="
 #'
 #' @keywords internal
-#'
+#' @noRd
 dummy_func <- function() {
   "dummy"
 }

@@ -29,6 +29,7 @@ get_material_thesaurus <- function() {
 #' @return thesaurus data.frame
 #'
 #' @keywords internal
+#' @noRd
 get_thesaurus <- function(url) {
   data.table::fread(
     url,
@@ -51,6 +52,7 @@ get_thesaurus <- function(url) {
 #' @return NULL, called for the print side effect
 #'
 #' @keywords internal
+#' @noRd
 print_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
   changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus)
   message("The following decisions were made: \n")
@@ -83,6 +85,7 @@ print_lookup_decisions <- function(x, variants_column, corrected_column, thesaur
 #' found by \code{find_correct_name_by_stringdist_comparison()}
 #'
 #' @keywords internal
+#' @noRd
 find_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
   x %>%
     dplyr::select(.data[[variants_column]], .data[[corrected_column]]) %>%

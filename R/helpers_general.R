@@ -5,6 +5,7 @@
 #' @return NULL - called for side effect stop()
 #'
 #' @keywords internal
+#' @noRd
 check_if_packages_are_available <- function(packages_ch) {
   if (
     packages_ch %>%
@@ -33,6 +34,7 @@ check_if_packages_are_available <- function(packages_ch) {
 #' @return data.frame with new column
 #'
 #' @keywords internal
+#' @noRd
 add_or_replace_column_in_df <- function(x, column_name_s, column_content_mi, ...) {
   if (column_name_s %in% colnames(x) %>% all) {
     x[[column_name_s]] <- column_content_mi
@@ -54,6 +56,7 @@ add_or_replace_column_in_df <- function(x, column_name_s, column_content_mi, ...
 #' @return NULL - called for side effect stop()
 #'
 #' @keywords internal
+#' @noRd
 check_if_columns_are_present <- function(x, columns) {
   if(columns %in% colnames(x) %>% all %>% `!`) {
     stop(
@@ -77,6 +80,7 @@ check_if_columns_are_present <- function(x, columns) {
 #'
 #' @rdname cleaning
 #' @keywords internal
+#' @noRd
 clean_latlon <- function(x) {
 
   if(all(c("lat", "lon") %in% colnames(x))) {
@@ -94,6 +98,7 @@ clean_latlon <- function(x) {
 
 #' @rdname cleaning
 #' @keywords internal
+#' @noRd
 clean_labnr <- function(x) {
 
   if ("labnr" %in% colnames(x)) {
@@ -132,6 +137,7 @@ clean_labnr <- function(x) {
 #' @return logical
 #'
 #' @keywords internal
+#' @noRd
 check_connection_to_url <- function(db_url) {
   if (!RCurl::url.exists(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
 }

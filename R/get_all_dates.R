@@ -75,6 +75,7 @@ get_all_dates <- function() {
 #' @return vector with all parser functions in c14bazAAR
 #'
 #' @keywords internal
+#' @noRd
 get_all_parser_functions <- function() {
   c(
     c14bazAAR::get_14SEA,

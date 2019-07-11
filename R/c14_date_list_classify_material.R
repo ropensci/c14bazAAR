@@ -79,6 +79,7 @@ classify_material.c14_date_list <- function(
 #' @return a vector with the correct values
 #'
 #' @keywords internal
+#' @noRd
 lookup_in_thesaurus_table <- function(x, thesaurus_df){
   ifelse(
     x %in% thesaurus_df$var,

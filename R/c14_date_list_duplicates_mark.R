@@ -95,6 +95,7 @@ mark_duplicates.c14_date_list <- function(x) {
 #' @return list of unique partners
 #'
 #' @keywords internal
+#' @noRd
 generate_list_of_equality_partners <- function(x) {
   x %>% pbapply::pblapply(
     function(y){
@@ -122,6 +123,7 @@ generate_list_of_equality_partners <- function(x) {
 #' @return c14_date_list with additional column duplicate_group
 #'
 #' @keywords internal
+#' @noRd
 add_equality_group_number <- function(x, partner_list) {
   x$duplicate_group <- NA
 
