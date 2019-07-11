@@ -21,6 +21,7 @@ c14bazAAR is a R package to query different openly accessible radiocarbon date d
 - [Databases](#databases)
 - [Contributing](#contributing)
   - [Adding database getter functions](#adding-database-getter-functions)
+- [Citation](#citation)
 - [License](#license)
 
 If you want to use data downloaded with c14bazAAR or neolithicRC for your research, you have to quote the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
@@ -200,6 +201,19 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 8. Do the same for the [country thesaurus table](https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
 9. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ISAAKiel/c14bazAAR/blob/master/R/get_all_dates.R#L76).
 10. Document the addition of the new function in the NEWS.md file.
+
+### Citation 
+
+Clemens Schmid, Dirk Seidensticker, Daniel Knitter, Martin Hinz, David Matzig, Wolfgang Hamer and Kay Schmütz (2018). c14bazAAR: Download and Prepare C14 Dates from Different Source Databases. https://github.com/ISAAKiel/c14bazAAR
+
+```
+@Manual{,
+  title = {c14bazAAR: Download and Prepare C14 Dates from Different Source Databases},
+  author = {Clemens Schmid and Dirk Seidensticker and Daniel Knitter and Martin Hinz and David Matzig and Wolfgang Hamer and Kay Schmütz},
+  year = {2018},
+  url = {https://github.com/ISAAKiel/c14bazAAR},
+}
+```
 
 ### License
 
