@@ -1,5 +1,9 @@
 # c14bazAAR 1.0.3
 
+## adjustment to the rOpenSci Packaging Guide
+- reformated authors
+- added ORCID to authors
+
 ## new getter functions
 - added getter function for Palmisano et al. database: `get_Palmisano` (#59)
 - added getter function for EUBAR database: `get_EUBAR` (#64)
