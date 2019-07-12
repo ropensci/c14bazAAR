@@ -13,7 +13,7 @@ authors:
     orcid: 0000-0002-8155-7702
     affiliation: 2
   - name: Martin Hinz
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0002-9904-6548
     affiliation: 1
 affiliations:
   - name: Institute of Archaeological Sciences, University of Bern
