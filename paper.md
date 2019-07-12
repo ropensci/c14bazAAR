@@ -44,6 +44,6 @@ In addition to that ``c14bazAAR`` contains a multitude of functions that can be 
 
 # Acknowledgements
 
-The package got valuable code input from several members of the (ISAAKiel group)[https://isaakiel.github.io] (Initiative for Statistical Analysis in Archaeology Kiel), most notably: Daniel Knitter, David Matzig, Wolfgang Hamer, Kay Schmütz and Nils Müller-Scheeßel.
+The package got valuable code input from several members of the [ISAAKiel group](https://isaakiel.github.io) (Initiative for Statistical Analysis in Archaeology Kiel), most notably: Daniel Knitter, David Matzig, Wolfgang Hamer, Kay Schmütz and Nils Müller-Scheeßel.
 
 # References
