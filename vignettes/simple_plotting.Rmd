@@ -24,7 +24,7 @@ The basis for this example code is the [aDRAC data collection](https://github.co
 aDRAC <- get_aDRAC()
 ```
 
-# Plotting radiocarbon ages
+## Plotting radiocarbon ages
 
 Radiocarbon dating is a method to determine the abolute age of samples. Therefore one of the main aims for plotting naturally is to display temporal information. Let's select the dates of one individual site -- *Batalimo* in Central Africa -- as a subset to reproduce two of the most common types of radiocarbon date plots.
 
@@ -35,7 +35,7 @@ Batalimo <- aDRAC %>%
 
 If age modelling and date plotting on a local or regional scale is the major aim of your analysis, you might want to take a look at the [oxcAAR](https://CRAN.R-project.org/package=oxcAAR ) package. It serves as an R interface to the [OxCal](https://c14.arch.ox.ac.uk/oxcal.html) software and provides powerful default plotting options.
 
-## Ridgeplots of density distributions
+### Ridgeplots of density distributions
 
 One way to plot radiocarbon dates is to show the probability density distribution of individual calibrated dates as ridgeplots. To produce a plot like that, we need the age-probability information for each plot. We can calculate that with the function `c14bazAAR::calibrate()`. 
 
@@ -81,16 +81,41 @@ Batalimo_cal_dens %>%
   ylab("dates")
 ```
 
-```
-## Calcurve plot
+### Calcurve plot
 
+Another way to plot radiocarbon dates is to project them onto a calibration curve. The [Bchron](https://CRAN.R-project.org/package=Bchron) R package contains a data.frame with the [intcal13](https://www.doi.org/10.2458/azu_js_rc.55.16947) calibration curve data. We can load the `intcal13` table directly from Bchron.
+
+```{r}
+load(system.file('data/intcal13.rda', package = 'Bchron'))
+```
+
+For this kind of plot it is more convinient to work with the simplified `calrange` output of `c14bazAAR::calibrate()`.
+
+```{r, include = FALSE}
 Batalimo_calibrated <- Batalimo %>%
   calibrate(choices = "calrange")
+```
 
+```{r, eval = FALSE}
+Batalimo_calibrated <- Batalimo %>%
+  calibrate(choices = "calrange")
+```
+
+Like the `calprobdistr` option this also adds a list column to the input `c14_date_list`, but a much shorter one for each date only with the age ranges that make up the 2-sigma significance interval of the probability distribution.
+
+```{r}
+Batalimo_calibrated$calrange[1:3]
+```
+
+Thre resulting table can also be unnested to make the list column content available in the main table.
+
+```{r}
 Batalimo_cal_range <- Batalimo_calibrated %>% tidyr::unnest()
+```
 
-load(system.file('data/intcal13.rda', package = 'Bchron'))
+Now we can plot the calibration curve and -- on top -- error bars with the `calrange` sequences.
 
+```{r, warning=FALSE}
 ggplot() +
   geom_line(
     data = intcal13,
@@ -100,27 +125,35 @@ ggplot() +
     data = Batalimo_cal_range,
     mapping = aes(y = -c14age + 1950, xmin = -to + 1950, xmax = -from + 1950)
   ) +
-  xlim(-1000, 1000) +
-  ylim(1000, -1000) +
+  xlim(-1000, 2000) +
+  ylim(2000, -1000) +
   xlab("age calBC/calAD") +
   ylab("uncalibrated age BC/AD")
+```
 
-# Map
+## Map
 
+```{r}
 Moga_spatial <- aDRAC %>%
   as.sf %>%
   dplyr::filter(grepl("Moga 2008", data.shortref)) %>%
   dplyr::group_by(data.site) %>%
   dplyr::summarise()
+```
 
-## interactive
+### interactive
 
+```{r}
 Moga_spatial %>% mapview::mapview()
+```
 
-## static
+### static
 
+```{r}
 countries <- rnaturalearth::ne_countries() %>% sf::st_as_sf()
+```
 
+```{r}
 ggplot() +
   geom_sf(data = countries) +
   geom_sf(data = Moga_spatial) +
