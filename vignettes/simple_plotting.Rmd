@@ -24,7 +24,7 @@ The basis for this example code is the [aDRAC data collection](https://github.co
 aDRAC <- get_aDRAC()
 ```
 
-## Plotting radiocarbon ages
+## Temporal plotting of radiocarbon ages
 
 Radiocarbon dating is a method to determine the abolute age of samples. Therefore one of the main aims for plotting naturally is to display temporal information. Let's select the dates of one individual site -- *Batalimo* in Central Africa -- as a subset to reproduce two of the most common types of radiocarbon date plots.
 
@@ -33,7 +33,7 @@ Batalimo <- aDRAC %>%
   dplyr::filter(site == "Batalimo")
 ```
 
-If age modelling and date plotting on a local or regional scale is the major aim of your analysis, you might want to take a look at the [oxcAAR](https://CRAN.R-project.org/package=oxcAAR ) package. It serves as an R interface to the [OxCal](https://c14.arch.ox.ac.uk/oxcal.html) software and provides powerful default plotting options.
+If age modelling and date plotting on a local or regional scale is the major aim of your analysis, you might want to take a look at the [oxcAAR](https://CRAN.R-project.org/package=oxcAAR) package. It serves as an R interface to the [OxCal](https://c14.arch.ox.ac.uk/oxcal.html) software and provides powerful default plotting options.
 
 ### Ridgeplots of density distributions
 
@@ -117,46 +117,76 @@ Now we can plot the calibration curve and -- on top -- error bars with the `calr
 
 ```{r, warning=FALSE}
 ggplot() +
+  # line plot of the intcal curve
   geom_line(
     data = intcal13,
+    # again we transform the age information from BP to BC
     mapping = aes(x = -V1 + 1950, y = -V2 + 1950)
   ) +
+  # the errorbars are plotted on top of the curve
   geom_errorbarh(
     data = Batalimo_cal_range,
     mapping = aes(y = -c14age + 1950, xmin = -to + 1950, xmax = -from + 1950)
   ) +
+  # we define the age range manually -- typically the calcurve
+  # is arranged to go from the top left to the bottom right corner
   xlim(-1000, 2000) +
   ylim(2000, -1000) +
   xlab("age calBC/calAD") +
   ylab("uncalibrated age BC/AD")
 ```
 
-## Map
+## Spatial mapping of radiocarbon dates
+
+Most radiocarbon dates that can be accessed with c14bazAAR have coordinate information for the respective sites where the samples were taken. Spatial maps therefore are an important form of data visualisation as well.
+
+`c14_date_list`s can directly be transformed to objects of class `sf`. `sf` were introduced by the R package [sf](https://CRAN.R-project.org/package=sf) which provides a very modern and tidy interface to work with spatial data in R.
 
 ```{r}
-Moga_spatial <- aDRAC %>%
-  as.sf %>%
+aDRAC_sf <- aDRAC %>% as.sf()
+```
+
+This tabular data structure contains the spatial point information for each date in a column *geom*, but also the initial columns of the input dataset: *data.\**
+
+```{r, echo=FALSE}
+aDRAC_sf %>% dplyr::select(data.labnr, data.c14age, data.c14std, geom)
+```
+
+It can be manipulated with the powerful dplyr functions. We `filter` out all dates from one particular puplication (*Moga 2008*), `group` the dates `by` *site* and apply the `summarise` command to keep only one value per group. As we do not define an operation to fold the other variables in the input table they are removed. Only the geometry column remains.
+
+```{r}  
+Moga_spatial <- aDRAC_sf %>%
   dplyr::filter(grepl("Moga 2008", data.shortref)) %>%
   dplyr::group_by(data.site) %>%
   dplyr::summarise()
 ```
 
-### interactive
+### Interactive map view
+
+The resultuting `sf` object can be plotted interactively with the [mapview](https://CRAN.R-project.org/package=mapview) package. 
 
 ```{r}
 Moga_spatial %>% mapview::mapview()
 ```
 
-### static
+### Static map plot
+
+The `sf` object can also be used for a static plot -- useful for publications. We download some simple country border base map vector data with the [rnaturalearth](https://CRAN.R-project.org/package=rnaturalearth) R package and transform it to `sf` as well.
 
 ```{r}
 countries <- rnaturalearth::ne_countries() %>% sf::st_as_sf()
 ```
 
-```{r}
+Now we can combine the base layer and our point data to create the prototype of a static map plot. 
+
+```{r, warning=FALSE}
 ggplot() +
+  # geom_sf is a special geom to handle spatial data in sf format
+  # the explicit mapping of variables is not necessary here, as geom_sf 
+  # automcatically selects the *geom* column in the input table
   geom_sf(data = countries) +
+  geom_sf_text(data = countries, mapping = aes(label = formal_en), size = 2) +
   geom_sf(data = Moga_spatial) +
-  geom_sf_text(data = countries, mapping = aes(label = formal_en)) +
+  # with geom_sf comes coord_sf to manage the underlying coordinate grid
   coord_sf(xlim = c(10, 30), ylim = c(0, 15))
 ```
