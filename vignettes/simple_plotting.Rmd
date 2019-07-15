@@ -9,13 +9,14 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-This vignette shows some basic workflows to plot radiocarbon dates in `c14_date_list`s. This is only a short compilation to get you started with c14bazAAR output and [ggplot2](https://ggplot2.tidyverse.org/). 
+This vignette shows some basic workflows to plot radiocarbon dates in `c14_date_list`s. This is only a short compilation to get you started with c14bazAAR output and [ggplot2](https://CRAN.R-project.org/package=ggplot2). 
 
-So let's get started by loading the main packages for this endeavour: c14bazAAR and ggplot2. We will use functions from other packages as well, but address them individually with the `::` operator.
+So let's get started by loading the main packages for this endeavour: c14bazAAR and ggplot2. And of course [magrittr](https://CRAN.R-project.org/package=magrittr) to enable the pipe (`%>%`) operator. We will use functions from other packages as well, but address them individually with the `::` operator. 
 
 ```{r}
 library(c14bazAAR)
 library(ggplot2)
+library(magrittr)
 ```
 
 The basis for this example code is the [aDRAC data collection](https://github.com/dirkseidensticker/aDRAC) by Dirk Seidensticker. So let's download the data with the relevant c14bazAAR getter function: 
