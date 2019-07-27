@@ -6,14 +6,16 @@
 \alias{as.sf.c14_date_list}
 \title{Convert a \strong{c14_date_list} to a sf object}
 \usage{
-as.sf(x)
+as.sf(x, quiet = FALSE)
 
-\method{as.sf}{default}(x)
+\method{as.sf}{default}(x, quiet = FALSE)
 
-\method{as.sf}{c14_date_list}(x)
+\method{as.sf}{c14_date_list}(x, quiet = FALSE)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
+
+\item{quiet}{suppress warning about the removal of dates without coordinates}
 }
 \value{
 an object of class sf

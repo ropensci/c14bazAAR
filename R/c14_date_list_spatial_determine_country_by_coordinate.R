@@ -24,8 +24,8 @@ determine_country_by_coordinate.c14_date_list <- function(x, suppress_spatial_wa
   x %<>% dplyr::mutate(ID = as.integer(seq(1,nrow(x),1)))
 
   x_with_coords <- x %>%
-    dplyr::filter(!is.na(.data$lat),.data$lon!=0,.data$lat!=0)
-  if(suppress_spatial_warnings) {
+    dplyr::filter(!is.na(.data$lat), .data$lon != 0, .data$lat != 0)
+  if (suppress_spatial_warnings) {
     sf_x <- withCallingHandlers(
       spatial_join_with_country_dataset(x_with_coords),
       message = spatial_message_handler,
@@ -83,7 +83,7 @@ spatial_join_with_country_dataset <- function(x) {
   x_sf <- x %>% sf::st_as_sf(
     coords = c("lon","lat"),
     remove = FALSE,
-    crs = 4326
+    crs = sf::st_crs(world)
   )
   # normal join
   x_sf %<>%
