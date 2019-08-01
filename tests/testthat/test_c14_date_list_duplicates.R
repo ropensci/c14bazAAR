@@ -1,8 +1,20 @@
 context("duplicates related functions")
 
+option_test_input <- tibble::tribble(
+  ~sourcedb, ~labnr,  ~c14age, ~c14std,
+  "A",       "lab-1", 1100,    10,
+  "A",       "lab-1", 2100,    20,
+  "B",       "lab-1", 3100,    30,
+  "A",       "lab-2", NA,      10,
+  "B",       "lab-2", 2200,    20,
+  "C",       "lab-3", 1300,    10
+) %>%
+  as.c14_date_list() %>%
+  mark_duplicates()
+
 #### mark_duplicates ####
 
-result <- mark_duplicates(example_c14_date_list)
+result <- mark_duplicates(option_test_input)
 
 test_that("mark_duplicates gives back a c14_date_list", {
   expect_s3_class(
@@ -15,7 +27,7 @@ test_that("mark_duplicates gives back a c14_date_list with the additional
           column duplicate_group", {
   expect_true(
     all(
-      c(colnames(example_c14_date_list), "duplicate_group") %in%
+      c(colnames(option_test_input), "duplicate_group") %in%
         colnames(result)
     )
   )
@@ -58,7 +70,7 @@ test_that("remove_duplicates gives back a c14_date_list with the additional
   )
 })
 
-result3 <- remove_duplicates(example_c14_date_list)
+result3 <- remove_duplicates(option_test_input)
 
 test_that("remove_duplicates alone gives the same result as the other functions combined,
           because it calls the other functions in case of missing variables.", {
@@ -69,18 +81,6 @@ test_that("remove_duplicates alone gives the same result as the other functions 
 })
 
 #### remove_duplicates options ####
-
-option_test_input <- tibble::tribble(
-  ~sourcedb, ~labnr,  ~c14age, ~c14std,
-  "A",       "lab-1", 1100,    10,
-  "A",       "lab-1", 2100,    20,
-  "B",       "lab-1", 3100,    30,
-  "A",       "lab-2", NA,      10,
-  "B",       "lab-2", 2200,    20,
-  "C",       "lab-3", 1300,    10
-) %>%
-  as.c14_date_list() %>%
-  mark_duplicates()
 
 # option 1
 option_test_res_1 <- tibble::tribble(
