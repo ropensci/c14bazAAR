@@ -30,7 +30,7 @@ Radiocarbon dating is one of the most important methods for absolute and relativ
 
 Data selection for such models is complex and requires a thorough understanding of the archaeological questions. Most of the time it is not sufficient to include every date that vaguely fits into the context. Some dates have to be deliberately omitted. In order to make this important process of data filtering as transparent and reproducible as possible, the criteria for selection and especially the original data set must be generally accessible and well contextualized. Otherwise peers can not evaluate the results in a meaningful way.
 
-Fortunately, many archaeological institutions and individual authors are sharing their radiocarbon collections online (e.g. @Hinz:2012, @Kneisel:2013, @Mustaphi:2016) -- some of them archives with a long tradition of quality control and maintenance. Also the boom of the Open Data movement in recent years has led to an increase of publications with raw data in archaeology (e.g. @Palmisano:2017). These collections are an important archive for future research questions. 
+Fortunately, many archaeological institutions and individual authors are sharing their radiocarbon collections online (e.g. @Hinz:2012, @Kneisel:2013, @Mustaphi:2016, @Seidensticker:2016) -- some of them archives with a long tradition of quality control and maintenance. Also the boom of the Open Data movement in recent years has led to an increase of publications with raw data in archaeology (e.g. @Palmisano:2017). These collections are an important archive for future research questions. 
 
 However the entire data basis is currently highly decentralized and lacks basic standardisation. That results in an effective loss of the possible added value that could result from the intersection of data sets in terms of searchability, error checking and further analysis. The creation of a world-wide and centralised database of radiocarbon dates which could solve these issues is not to be expected for the near future.
 
@@ -40,7 +40,7 @@ The package includes download functions `get_*` (e.g. `get_aDRAC()`, `get_EUROEV
 
 Beyond the download functions, ``c14bazAAR`` contains a multitude of useful helpers that can be applied to objects of class `c14_date_list`. These include methods for the bulk calibration of radiocarbon dates with the Bchron R package [@Haslett:2008], the removal of duplicates, the estimation of coordinate precision, and the conversion to other useful R data types (e.g. `sf::sf` [@Pebesma:2018]). For the classification of sample material ``c14bazAAR`` provides manually curated reference lists that map the inconsistent attributions in the source databases to a standardized set of material classes. Such a reference list exists as well to fix the country attribution value of dates -- which is especially important in case of missing coordinate information. For these dates another function to determine the source country based on coordinate information fails.
 
-``c14bazAAR`` was already and is currently used for data aquisition and preparation of multiple research papers, e.g. @Schmid:2019
+``c14bazAAR`` was already and is currently used for data aquisition and preparation of multiple research papers, e.g. @Schmid:2019.
 
 # Acknowledgements
 
