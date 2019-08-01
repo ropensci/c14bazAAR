@@ -149,7 +149,9 @@ remove_duplicates.c14_date_list <- function(x, preferences = NULL, supermerge = 
         }
       )
     # not_duplicates
-    not_duplicates$duplicate_remove_log <- NA
+    if (nrow(not_duplicates) > 0) {
+      not_duplicates$duplicate_remove_log <- NA
+    }
   }
 
   # put not_duplicates and duplicates again together
