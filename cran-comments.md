@@ -11,4 +11,3 @@ This is the first submission of an updated version of the package.
 ## R CMD check results
 
 There were no NOTES, ERRORs or WARNINGs.
-The tests may take some time to complete, because they require test data downloads. 
