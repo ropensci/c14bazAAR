@@ -24,8 +24,8 @@ Authors:
   \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com} (0000-0002-8155-7702)
   \item Daniel Knitter \email{knitter@geographie.uni-kiel.de} (0000-0003-3014-4497)
   \item Martin Hinz \email{martin.hinz@iaw.unibe.ch} (0000-0002-9904-6548)
-  \item David Matzig
-  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de}
+  \item David Matzig \email{matzigdavid@gmail.com} (0000-0001-7349-5401)
+  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de} (0000-0002-5943-5020)
   \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
 }
 
