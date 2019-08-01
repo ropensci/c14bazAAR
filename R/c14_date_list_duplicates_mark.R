@@ -8,8 +8,7 @@
 #' Only dates with exactly equal \strong{labnr}s are considered duplicates.
 #' Duplicate groups are numbered (from 0) and these numbers linked to
 #' the individual dates in the new column \strong{duplicate_group}.
-#' Duplicates can be removed with \code{c14bazAAR::remove_duplicates()}. \cr
-#' While \code{c14bazAAR::mark_duplicates()} finds duplicates,
+#' While \code{c14bazAAR::mark_duplicates()} only finds duplicates,
 #' \code{c14bazAAR::remove_duplicates()} removes them with three different strategies
 #' according to the value of the arguments \code{preferences} and \code{supermerge}:
 #' \enumerate{
@@ -49,12 +48,25 @@
 #' @rdname duplicates
 #'
 #' @examples
-#' mark_duplicates(example_c14_date_list)
-#'
 #' library(magrittr)
-#' example_c14_date_list %>%
-#'   mark_duplicates() %>%
-#'   remove_duplicates()
+#'
+#' # mark duplicates
+#' duplicates_marked <- example_c14_date_list %>%
+#'   mark_duplicates()
+#'
+#' # remove duplicates with option 1:
+#' duplicates_marked %>% remove_duplicates()
+#'
+#' # remove duplicates with option 2:
+#' duplicates_marked %>% remove_duplicates(
+#'   preferences = c("RADON", "CALPAL")
+#' )
+#'
+#' # remove duplicates with option 3:
+#' duplicates_marked %>% remove_duplicates(
+#'   preferences = c("RADON", "CALPAL"),
+#'   supermerge = TRUE
+#' )
 #'
 #' @export
 mark_duplicates <- function(x) {
