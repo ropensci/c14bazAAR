@@ -1,11 +1,11 @@
 ## Submission
 
-This is a first submission.
+This is the first submission of an updated version of the package.
 
 ## Test environments
 
-* 4.14.74-1-MANJARO Linux 64-bit, R 3.5.1
-* Ubuntu Trusty 14.04 (on travis-ci), R 3.5.0
+* Manjaro Linux 18.0.4 64-bit, R 3.6.1
+* Ubuntu Trusty 14.04 (on travis-ci), R 3.6.1
 * win-builder (devel and release)
 
 ## R CMD check results
