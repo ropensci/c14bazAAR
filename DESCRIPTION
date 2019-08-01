@@ -60,13 +60,20 @@ Suggests:
     Bchron (>= 4.2.6),
     countrycode (>= 1.00.0),
     dataverse (>= 0.2.0),
+    ggplot2,
+    ggridges,
+    knitr,
     lwgeom (>= 0.1-4),
+    mapview,
     openxlsx (>= 4.0.17),
     plyr (>= 1.8.4),
     rgeos (>= 0.3-26),
+    rmarkdown,
+    rnaturalearth,
     rworldmap (>= 1.3-6),
     rworldxtra (>= 1.01),
     sf (>= 0.5-4),
     stringdist (>= 0.9.4.6),
     testthat
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr
