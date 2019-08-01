@@ -50,21 +50,30 @@
 #' @examples
 #' library(magrittr)
 #'
+#' test_data <- tibble::tribble(
+#'   ~sourcedb, ~labnr,  ~c14age, ~c14std,
+#'  "A",       "lab-1", 1100,    10,
+#'  "A",       "lab-1", 2100,    20,
+#'  "B",       "lab-1", 3100,    30,
+#'  "A",       "lab-2", NA,      10,
+#'  "B",       "lab-2", 2200,    20,
+#'  "C",       "lab-3", 1300,    10
+#' ) %>% as.c14_date_list()
+#'
 #' # mark duplicates
-#' duplicates_marked <- example_c14_date_list %>%
-#'   mark_duplicates()
+#' test_data %>% mark_duplicates()
 #'
 #' # remove duplicates with option 1:
-#' duplicates_marked %>% remove_duplicates()
+#' test_data %>% remove_duplicates()
 #'
 #' # remove duplicates with option 2:
-#' duplicates_marked %>% remove_duplicates(
-#'   preferences = c("RADON", "CALPAL")
+#' test_data %>% remove_duplicates(
+#'   preferences = c("A", "B")
 #' )
 #'
 #' # remove duplicates with option 3:
-#' duplicates_marked %>% remove_duplicates(
-#'   preferences = c("RADON", "CALPAL"),
+#' test_data %>% remove_duplicates(
+#'   preferences = c("A", "B"),
 #'   supermerge = TRUE
 #' )
 #'
