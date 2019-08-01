@@ -4,7 +4,7 @@
 
 # c14bazAAR
 
-<img align="right" src="inst/image/khajiit.jpg" width = 350>
+<img align="right" src="inst/image/khajiit.jpg" width = 430>
 
 c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. It serves as back end of our [neolithicRC WebApp](https://github.com/nevrome/neolithicR). If you're not familiar with R the [WebApp](https://www.neolithicRC.de) or other tools (such as [GoGet](https://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs. 
 
@@ -25,7 +25,7 @@ c14bazAAR is a R package to query different openly accessible radiocarbon date d
 - [Citation](#citation)
 - [License](#license)
 
-If you want to use data downloaded with c14bazAAR or neolithicRC for your research, you have to quote the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
+If you want to use data downloaded with c14bazAAR or neolithicRC for your research, you have to cite the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
 
 ### Installation
 
