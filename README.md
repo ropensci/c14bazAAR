@@ -18,6 +18,7 @@ c14bazAAR is a R package to query different openly accessible radiocarbon date d
   - [Coordinate precision](#coordinate-precision)
   - [Conversion](#conversion)
   - [Technical functions](#technical-functions)
+  - [Plotting and visualization](#plotting-radiocarbon-data)
 - [Databases](#databases)
 - [Contributing](#contributing)
   - [Adding database getter functions](#adding-database-getter-functions)
@@ -160,6 +161,10 @@ x1 <- data.frame(
 
 x2 <- fuse(x1, x1)
 ```
+
+#### Plotting radiocarbon data
+
+c14bazAAR does not provide plotting functions, but the [simple plotting vignette](https://github.com/ISAAKiel/c14bazAAR/blob/master/vignettes/simple_plotting.Rmd) introduces some basic techniques to help you get started.
 
 ### Databases
 
