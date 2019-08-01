@@ -6,6 +6,7 @@
 - added a [checklist](https://github.com/ISAAKiel/c14bazAAR#adding-database-getter-functions) to the README on how to add new getter functions
 - work on an article for the Journal of Open Source Software (paper.md + paper.bib)
 - added a vignette with some plotting workflows
+- created a completely artificial example dataset that replaces the sampled version
 
 ## new getter functions
 - added getter function for Palmisano et al. database: `get_Palmisano` (#59)
