@@ -90,10 +90,16 @@ option_test_res_1 <- tibble::tribble(
   NA,        "lab-2", 2200,    NA
 ) %>% as.c14_date_list()
 
-test_that("duplicate removal option 1 works as expected.", {
+test_that("duplicate removal option 1 works as expected", {
   expect_equal(
     option_test_input %>% remove_duplicates(., log = FALSE),
     option_test_res_1
+  )
+})
+
+test_that("duplicate removal option 1 works with log = TRUE", {
+  expect_true(
+    "duplicate_remove_log" %in% (option_test_input %>% remove_duplicates() %>% colnames())
   )
 })
 
@@ -104,12 +110,22 @@ option_test_res_2 <- tibble::tribble(
   "A",       "lab-2", NA,      10
 ) %>% as.c14_date_list()
 
-test_that("duplicate removal option 2 works as expected.", {
+test_that("duplicate removal option 2 works as expected", {
   expect_equal(
     option_test_input %>% remove_duplicates(
       preferences = c("A", "B"), log = FALSE
     ),
     option_test_res_2
+  )
+})
+
+test_that("duplicate removal option 2 works with log = TRUE", {
+  expect_true(
+    "duplicate_remove_log" %in% (
+      option_test_input %>% remove_duplicates(
+        preferences = c("A", "B"), log = TRUE
+      ) %>% colnames()
+    )
   )
 })
 
@@ -120,11 +136,21 @@ option_test_res_3 <- tibble::tribble(
   "lab-2", 2200,    10
 ) %>% as.c14_date_list()
 
-test_that("duplicate removal option 3 works as expected.", {
+test_that("duplicate removal option 3 works as expected", {
   expect_equal(
     option_test_input %>% remove_duplicates(
       preferences = c("A", "B"), supermerge = TRUE, log = FALSE
     ),
     option_test_res_3
+  )
+})
+
+test_that("duplicate removal option 3 works with log = TRUE", {
+  expect_true(
+    "duplicate_remove_log" %in% (
+      option_test_input %>% remove_duplicates(
+        preferences = c("A", "B"), supermerge = TRUE, log = TRUE
+      ) %>% colnames()
+    )
   )
 })
