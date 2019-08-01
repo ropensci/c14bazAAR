@@ -1,7 +1,7 @@
 # c14bazAAR 1.0.3
 
 ## general changes
-- reformated authors in DESCRIPTION and added ORCIDs (#72)
+- reformatted authors in DESCRIPTION and added ORCIDs (#72)
 - added a [citation](https://github.com/ISAAKiel/c14bazAAR#citation) section to the README
 - added a [checklist](https://github.com/ISAAKiel/c14bazAAR#adding-database-getter-functions) to the README on how to add new getter functions
 - work on an article for the Journal of Open Source Software (paper.md + paper.bib)
@@ -21,7 +21,7 @@
 - small file path construction fix in CONTEXT getter function
 - replaced some deprecated functions by other packages (dplyr::funs & tibble::as.tibble)
 - replaced `RCurl::url.exists` with `httr::http_error` in `check_connection_to_url` (#68)
-- fixed `as.sf` error that occured when date lists with dates without coordinates were transformed
+- fixed `as.sf` error that occurred when date lists with dates without coordinates were transformed
 
 ## removed objects
 - data objects `c14bazAAR::country_thesaurus`, `c14bazAAR::material_thesaurus`, `c14bazAAR::variable-reference` have been removed from the package -- they are queried from [here](https://github.com/ISAAKiel/c14bazAAR/tree/master/data-raw) anyway and it's not necessary to put them into the package

@@ -14,7 +14,7 @@ vignette: >
 
 This vignette shows some basic workflows to plot radiocarbon dates in `c14_date_list`s. This is only a short compilation to get you started.
 
-So let's begin by loading the main packages for this endeavor: c14bazAAR and [ggplot2](https://CRAN.R-project.org/package=ggplot2). And of course [magrittr](https://CRAN.R-project.org/package=magrittr) to enable the pipe (`%>%`) operator. We will use functions from other packages as well, but address them individually with the `::` operator. 
+So let's begin by loading the main packages for this endeavour: c14bazAAR and [ggplot2](https://CRAN.R-project.org/package=ggplot2). And of course [magrittr](https://CRAN.R-project.org/package=magrittr) to enable the pipe (`%>%`) operator. We will use functions from other packages as well, but address them individually with the `::` operator. 
 
 ```{r}
 library(c14bazAAR)
@@ -37,7 +37,7 @@ Batalimo <- aDRAC %>%
   dplyr::filter(site == "Batalimo")
 ```
 
-If age modeling and date plotting on a local or regional scale is the major aim of your analysis, you might want to take a look at the [oxcAAR](https://CRAN.R-project.org/package=oxcAAR) package. It serves as an R interface to [OxCal](https://c14.arch.ox.ac.uk/oxcal.html) and provides powerful default plotting methods
+If age modelling and date plotting on a local or regional scale is the major aim of your analysis, you might want to take a look at the [oxcAAR](https://CRAN.R-project.org/package=oxcAAR) package. It serves as an R interface to [OxCal](https://c14.arch.ox.ac.uk/oxcal.html) and provides powerful default plotting methods
 
 ### Ridgeplots of density distributions
 

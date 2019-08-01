@@ -16,7 +16,7 @@
 #'   in the duplicate group are turned to \code{NA}. This is the default option.
 #'   \item Option 2: By selecting individual database entries in a \strong{duplicate_group}
 #'   according to a trust hierarchy as defined by the parameter \code{preferences}.
-#'   In case of duplicates within one database the first occurence in the table (top down)
+#'   In case of duplicates within one database the first occurrence in the table (top down)
 #'   is selected. All databases not mentioned in \code{preferences} are dropped.
 #'   \item Option 3: Like option 2, but in this case the different datasets in a
 #'   \strong{duplicate_group} are merged column by column to
