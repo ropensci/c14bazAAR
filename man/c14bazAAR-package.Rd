@@ -32,6 +32,8 @@ Authors:
 Other contributors:
 \itemize{
   \item Nils Mueller-Scheessel \email{nils.mueller-scheessel@ufg.uni-kiel.de} (0000-0001-7992-8722) [contributor]
+  \item Ben Marwick (0000-0001-7879-4531) [reviewer]
+  \item Enrico R. Crema (0000-0001-6727-5138) [reviewer]
 }
 
 }
