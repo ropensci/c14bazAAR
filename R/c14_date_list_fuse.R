@@ -15,6 +15,10 @@
 #' @return an object of class c14_date_list
 #' @export
 #'
+#' @examples
+#' # fuse three identical example c14_date_lists
+#' fuse(example_c14_date_list, example_c14_date_list, example_c14_date_list)
+#'
 #' @rdname fuse
 #'
 fuse <- function(...) {

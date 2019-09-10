@@ -16,6 +16,11 @@
 #'
 #' @rdname coordinate_precision
 #'
+#' @examples
+#' # calculate coordinate precision for all dates
+#' ex <- coordinate_precision(example_c14_date_list)
+#' ex[,c("lat", "lon", "coord_precision")]
+#'
 #' @export
 coordinate_precision <- function(x) {
   UseMethod("coordinate_precision")

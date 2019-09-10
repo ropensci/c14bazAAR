@@ -31,3 +31,17 @@ See the
 table for a documentation of the variable types.
 \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 }
+\examples{
+# initial situation
+ex <- example_c14_date_list
+class(ex$c14age)
+
+# modify variable/column type
+ex$c14age <- as.character(ex$c14age)
+class(ex$c14age)
+
+# fix type with enforce_types()
+ex <- enforce_types(ex)
+class(ex$c14age)
+
+}

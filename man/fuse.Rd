@@ -26,3 +26,8 @@ might introduce duplicates. See \code{c14bazAAR::mark_duplicates()}
 and \code{c14bazAAR::remove_duplicates()} for a way to find and remove
 them.
 }
+\examples{
+# fuse three identical example c14_date_lists
+fuse(example_c14_date_list, example_c14_date_list, example_c14_date_list)
+
+}

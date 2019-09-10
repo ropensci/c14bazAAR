@@ -26,3 +26,9 @@ The precision of the coordinates for each date vary greatly.
 deviation in meters and adds it to the \strong{c14_date_list} with the column
 \strong{coord_precision}.
 }
+\examples{
+# calculate coordinate precision for all dates
+ex <- coordinate_precision(example_c14_date_list)
+ex[,c("lat", "lon", "coord_precision")]
+
+}
