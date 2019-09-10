@@ -43,6 +43,10 @@ get_RADON(db_url = get_db_url("RADON"))
 
 get_RADONB(db_url = get_db_url("RADON-B"))
 }
+\arguments{
+\item{db_url}{Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}
+fetches the URL from a reference list on github}
+}
 \description{
 Backend functions to download data. See \code{?\link{get_c14data}}
 for a more simple interface and further information.

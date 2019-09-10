@@ -8,9 +8,6 @@ get_c14data(databases = c())
 }
 \arguments{
 \item{databases}{Character vector. Names of databases to be downloaded. "all" causes the download of all databases}
-
-\item{db_url}{Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}
-fetches the URL from a reference list on github}
 }
 \description{
 \code{get_c14data()} allows to download source databases and adjust their variables to conform to the

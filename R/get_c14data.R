@@ -15,8 +15,6 @@
 #' \code{c14bazAAR::fuse()} the results.
 #'
 #' @param databases Character vector. Names of databases to be downloaded. "all" causes the download of all databases
-#' @param db_url Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}
-#' fetches the URL from a reference list on github
 #'
 #' @rdname db_getter
 #'
@@ -116,6 +114,9 @@ get_all_parser_functions <- function() {
 #'
 #' @description Backend functions to download data. See \code{?\link{get_c14data}}
 #' for a more simple interface and further information.
+#'
+#' @param db_url Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}
+#' fetches the URL from a reference list on github
 #'
 #' @rdname db_getter_backend
 #' @export
