@@ -1,21 +1,35 @@
-a1 <- c14bazAAR::get_aDRAC()
+a1 <- c14bazAAR::get_all_dates()
 
 a2 <- a1 %>% dplyr::filter(
-  !is.na(lat) & !is.na(lon),
-  c14age < 15000
+  !is.na(lat) & !is.na(lon)
   )
 
 a3 <- a2 %>% c14bazAAR::as.sf() %>%
-  sf::st_transform(crs = 4049) %>%
+  sf::st_transform(crs = 25832) %>%
   sf::st_coordinates() %>%
   tibble::as_tibble()
 
-data("countriesHigh", package = "rworldxtra")
-africa_sp <- countriesHigh[(countriesHigh$REGION == "Africa") %>% tidyr::replace_na(FALSE), ]
-africa <- africa_sp %>%
-  sf::st_as_sf() %>%
-  sf::st_transform(crs = 4049) %>%
-  dplyr::select(ADMIN)
+world_wgs84 <- rnaturalearth::ne_coastline(110, "sf")
+
+border_wgs84 <-
+  sf::st_polygon(list(rbind(
+    c(-16, 36),
+    c(34, 36),
+    c(34, 63),
+    c(-16, 63),
+    c(-16, 36)
+  ))) %>%
+  sf::st_sfc(crs = sf::st_crs(world_wgs84))
+  #sf::st_transform(crs = 25832) %>%
+  #sf::st_buffer(dist = 0)
+
+europe_wgs84 <- world_wgs84 %>%
+  sf::st_crop(border_wgs84)
+
+europe_25832 <- europe_wgs84 %>%
+  sf::st_transform(crs = 25832)
+
+plot(europe_25832)
 
 library(ggplot2)
 library(ggridges)
