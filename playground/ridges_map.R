@@ -1,13 +1,5 @@
-a1 <- c14bazAAR::get_all_dates()
-
-a2 <- a1 %>% dplyr::filter(
-  !is.na(lat) & !is.na(lon)
-  )
-
-a3 <- a2 %>% c14bazAAR::as.sf() %>%
-  sf::st_transform(crs = 25832) %>%
-  sf::st_coordinates() %>%
-  tibble::as_tibble()
+library(ggplot2)
+library(ggridges)s
 
 world_wgs84 <- rnaturalearth::ne_coastline(110, "sf")
 
@@ -23,6 +15,9 @@ border_wgs84 <-
   #sf::st_transform(crs = 25832) %>%
   #sf::st_buffer(dist = 0)
 
+border_25832 <- border_wgs84 %>%
+  sf::st_transform(crs = 25832)
+
 europe_wgs84 <- world_wgs84 %>%
   sf::st_crop(border_wgs84)
 
@@ -31,48 +26,50 @@ europe_25832 <- europe_wgs84 %>%
 
 plot(europe_25832)
 
-library(ggplot2)
-library(ggridges)
+a1 <- c14bazAAR::get_all_dates()
 
-a4 <- cbind(a2, a3) %>% tibble::as_tibble()
+a2 <- a1 %>% dplyr::filter(
+  !is.na(lat) & !is.na(lon), !is.na(c14age)
+)
 
-a4$Y_r <- a4$Y %>% round(-5)
+a2b <- a2 %>% c14bazAAR::as.sf() %>%
+  sf::st_transform(crs = 25832) %>%
+  sf::st_crop(border_25832)
 
-a5 <- a4 %>% dplyr::mutate(
-  c14age_groups = cut(
-    c14age,
-    breaks = quantile(a4$c14age, probs = c(0, 0.33, 0.66, 1)) %>% as.vector(),
-    include.lowest = T
-    labels = 1:3
-  )
+a3 <- a2b %>%
+  dplyr::mutate(
+    X = sf::st_coordinates(.)[,1],
+    Y = sf::st_coordinates(.)[,2],
+    X_r = round(X, -4),
+    Y_r = round(Y, -4)
+  ) %>%
+  tibble::as_tibble()
+
+colnames(a3) <- gsub("data.", "", colnames(a3))
+
+ad <- 1950
+
+a4 <- a3 %>%
+  dplyr::group_by(
+    X_r, Y_r
+  ) %>%
+  dplyr::summarise(
+    age = max(c14age) - ad
+  ) %>%
+  dplyr::ungroup()
+
+a5 <- a4 %>% tidyr::complete(
+  X_r, Y_r, fill = list(age = 0)
 )
 
 ggplot() +
-  geom_sf(data = africa) +
-  geom_density_ridges(
-    data = a5 %>% dplyr::filter(c14age_groups == 1),
-    mapping = aes(x = X, y = Y_r, group = Y_r),
+  geom_sf(data = europe_25832) +
+  geom_ridgeline(
+    data = a5,
+    mapping = aes(x = X_r, y = Y_r, group = Y_r, height = age),
     alpha = 0.3,
     color = "red",
-    fill = "red",
-    rel_min_height = 0.03
-  ) +
-  geom_density_ridges(
-    data = a5 %>% dplyr::filter(c14age_groups == 2),
-    mapping = aes(x = X, y = Y_r, group = Y_r),
-    fill = "orange",
-    alpha = 0.3,
-    color = "white",
-    rel_min_height = 0.03
-  ) +
-  geom_density_ridges(
-    data = a5 %>% dplyr::filter(c14age_groups == 3),
-    mapping = aes(x = X, y = Y_r, group = Y_r),
-    fill = "yellow",
-    alpha = 0.3,
-    color = "white",
-    rel_min_height = 0.03
-  ) +
-  xlim(min(a5$X) - 1000000, max(a5$X) + 1000000) +
-  ylim(min(a5$Y) - 1000000, max(a5$Y) + 1000000)
+    #fill = "red",
+    scale = 7
+  )
 
