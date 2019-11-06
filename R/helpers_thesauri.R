@@ -4,7 +4,7 @@
 #'
 #' @export
 get_country_thesaurus <- function() {
-  "https://raw.githubusercontent.com/ISAAKiel/c14bazAAR/master/data-raw/country_thesaurus.csv" %>%
+  "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv" %>%
     get_thesaurus() %>%
     return()
 }
@@ -15,7 +15,7 @@ get_country_thesaurus <- function() {
 #'
 #' @export
 get_material_thesaurus <- function() {
-  "https://raw.githubusercontent.com/ISAAKiel/c14bazAAR/master/data-raw/material_thesaurus.csv" %>%
+  "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv" %>%
     get_thesaurus() %>%
     return()
 }

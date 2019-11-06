@@ -195,4 +195,4 @@ ggplot() +
   coord_sf(xlim = c(10, 30), ylim = c(0, 15))
 ```
 
-Please feel free to open an issue [here](https://github.com/ISAAKiel/c14bazAAR/issues) if you have questions about plotting radiocarbon dates.
+Please feel free to open an issue [here](https://github.com/ropensci/c14bazAAR/issues) if you have questions about plotting radiocarbon dates.

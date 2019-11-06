@@ -2,8 +2,8 @@
 
 ## general changes
 - reformatted authors in DESCRIPTION and added ORCIDs (#72)
-- added a [citation](https://github.com/ISAAKiel/c14bazAAR#citation) section to the README
-- added a [checklist](https://github.com/ISAAKiel/c14bazAAR#adding-database-getter-functions) to the README on how to add new getter functions
+- added a [citation](https://github.com/ropensci/c14bazAAR#citation) section to the README
+- added a [checklist](https://github.com/ropensci/c14bazAAR#adding-database-getter-functions) to the README on how to add new getter functions
 - work on an article for the Journal of Open Source Software (paper.md + paper.bib)
 - added a vignette with some plotting workflows
 - created a completely artificial example dataset that replaces the sampled version
@@ -24,7 +24,7 @@
 - fixed `as.sf` error that occurred when date lists with dates without coordinates were transformed
 
 ## removed objects
-- data objects `c14bazAAR::country_thesaurus`, `c14bazAAR::material_thesaurus`, `c14bazAAR::variable-reference` have been removed from the package -- they are queried from [here](https://github.com/ISAAKiel/c14bazAAR/tree/master/data-raw) anyway and it's not necessary to put them into the package
+- data objects `c14bazAAR::country_thesaurus`, `c14bazAAR::material_thesaurus`, `c14bazAAR::variable-reference` have been removed from the package -- they are queried from [here](https://github.com/ropensci/c14bazAAR/tree/master/data-raw) anyway and it's not necessary to put them into the package
 - some helper functions have been made internal
 - .Rd files for unexported, internal objects have been removed (@noRd)
 
