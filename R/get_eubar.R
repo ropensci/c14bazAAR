@@ -1,4 +1,4 @@
-#' @rdname db_getter
+#' @rdname db_getter_backend
 #' @export
 get_EUBAR <- function(db_url = get_db_url("EUBAR")) {
 

@@ -1,3 +1,14 @@
+# c14bazAAR 1.1.0
+
+## general changes
+- [ROpenSci review](https://github.com/ropensci/software-review/issues/333)
+- moved main development repository to github/ropensci/c14bazAAR (e0e6827f0381be04c50380eec277c01cad44ac7d)
+- created [c14bazAAR project](https://doi.org/10.17605/OSF.IO/3DS6A) on the OSF platform with a DOI
+- more work on an article for the Journal of Open Source Software (paper.md + paper.bib)
+
+## new features
+- new download interface as suggested by Enrico Crema in the ROpenSci review: `get_c14data()` (#76)
+
 # c14bazAAR 1.0.3
 
 ## general changes
