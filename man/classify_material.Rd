@@ -32,7 +32,7 @@ an object of class c14_date_list with the additional column \strong{material_the
 Add column \strong{material_thes} with simplified and unified terms for
 material categories. The classification is manually curated and therefore maybe not
 up-to-date. It's stored in a
-\href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/material_thesaurus.csv}{material_thesaurus}
+\href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv}{material_thesaurus}
 list, and downloaded directly from github with \code{c14bazAAR::get_material_thesaurus()}.
 With this setup you can also easily apply own thesaurus tables.
 }

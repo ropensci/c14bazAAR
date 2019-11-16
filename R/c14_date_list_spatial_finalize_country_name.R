@@ -13,7 +13,7 @@
 #' GB, etc.). This function aims to standardize the country naming scheme. To achieve this,
 #' it compares the names to values in an external (\code{countrycode::codelist})
 #' and an internal
-#' \href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/country_thesaurus.csv}{country_thesaurus}
+#' \href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv}{country_thesaurus}
 #' reference list. The latter needs
 #' manual curation to catch semantic and spelling errors in the source databases. \cr \cr
 #' \code{c14bazAAR::determine_country_by_coordinate()} adds the column \strong{country_coord}

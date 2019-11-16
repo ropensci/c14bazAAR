@@ -6,7 +6,7 @@
 #' @description Enforce variable types in a \strong{c14_date_list} and remove
 #' everything that doesn't fit (e.g. text in a number field).
 #' See the
-#' \href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv}{variable_reference}
+#' \href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv}{variable_reference}
 #' table for a documentation of the variable types.
 #' \code{enforce_types()} is called in \code{c14bazAAR::as.c14_date_list()}.
 #'

@@ -1,4 +1,4 @@
-## devtools::install_github("ISAAKiel/c14bazAAR")
+## devtools::install_github("ropensci/c14bazAAR")
 library(c14bazAAR)
 tmp <- get_aDRAC()
 tmp
