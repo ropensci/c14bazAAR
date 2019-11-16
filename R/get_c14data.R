@@ -39,7 +39,7 @@ get_c14data <- function(databases = c()) {
   message("Trying to download all dates from the requested databases...")
 
   # check if all requested databases are available (e.g. spelling errors)
-  database_availability_check <- databases %in% names_of_available_parsers
+  database_availability_check <- databases %in% c("all", names_of_available_parsers)
   if (any(!database_availability_check)) {
     stop(
       "The following databases are not in the list of available databases (spelling?): ",
