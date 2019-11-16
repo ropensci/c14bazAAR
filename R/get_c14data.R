@@ -27,13 +27,26 @@
 #' @export
 get_c14data <- function(databases = c()) {
 
+  # message if no database is selected
+  names_of_available_parsers <- names(get_all_parser_functions())
   if (length(databases) == 0) {
-    message("The following databases are available: ", paste0(names(get_all_parser_functions()), collapse = ", "))
+    message("The following databases are available: ", paste0(names_of_available_parsers, collapse = ", "))
     message("Learn more here: https://github.com/ISAAKiel/c14bazAAR")
     return()
   }
 
+  # start processing
   message("Trying to download all dates from the requested databases...")
+
+  # check if all requested databases are available (e.g. spelling errors)
+  database_availability_check <- databases %in% names_of_available_parsers
+  if (any(!database_availability_check)) {
+    stop(
+      "The following databases are not in the list of available databases (spelling?): ",
+      paste0(databases[!database_availability_check], collapse = ", ")
+    )
+  }
+  available_databases <- databases[database_availability_check]
 
   # setup progress bar
   pb <- utils::txtProgressBar(
@@ -44,7 +57,7 @@ get_c14data <- function(databases = c()) {
   )
 
   # define list of parser functions
-  parser_functions <- get_parser_functions(databases)
+  parser_functions <- get_parser_functions(available_databases)
 
   # loop to call all parser functions
   date_lists <- list()
@@ -63,7 +76,7 @@ get_c14data <- function(databases = c()) {
     warning(
       paste(
         "There were errors:\n\n",
-        paste(sapply(errors,function(x) x$message), collapse = "\n"),
+        paste(sapply(errors, function(x) x$message), collapse = "\n"),
         "\n\nNot all data might have been downloaded accurately!",
         sep = ""
       )
