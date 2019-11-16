@@ -63,7 +63,10 @@ get_c14data <- function(databases = c()) {
   date_lists <- list()
   for (i in 1:length(parser_functions)) {
     # call parser function
-    date_lists[[i]] <- tryCatch(parser_functions[[i]](), error = function(e) e)
+    date_lists[[i]] <- tryCatch(
+      parser_functions[[i]](),
+      error = function(e, name = names(parser_functions)[i]) { list(e = e, name = name) }
+    )
     # increment progress bar
     utils::setTxtProgressBar(pb, 99 * i/length(parser_functions))
   }
@@ -72,11 +75,11 @@ get_c14data <- function(databases = c()) {
   errors <- date_lists[error_ind]
   date_lists <- date_lists[!error_ind]
 
-  if(any(error_ind)) {
+  if (any(error_ind)) {
     warning(
       paste(
         "There were errors:\n\n",
-        paste(sapply(errors, function(x) x$message), collapse = "\n"),
+        paste(sapply(errors, function(x) { paste0(x$name, " --> ", x$e$message) }), collapse = "\n"),
         "\n\nNot all data might have been downloaded accurately!",
         sep = ""
       )
