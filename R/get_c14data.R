@@ -27,6 +27,9 @@
 #' @export
 get_c14data <- function(databases = c()) {
 
+  # transfrom all input to lower
+  databases <- tolower(databases)
+
   # message if no database is selected
   names_of_available_parsers <- names(get_all_parser_functions())
   if (length(databases) == 0) {
