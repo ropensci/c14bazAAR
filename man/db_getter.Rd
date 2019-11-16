@@ -7,7 +7,7 @@
 get_c14data(databases = c())
 }
 \arguments{
-\item{databases}{Character vector. Names of databases to be downloaded. "all" causes the download of all databases}
+\item{databases}{Character vector. Names of databases to be downloaded. "all" causes the download of all databases. \code{get_c14data()} prints a list of the currently available databases}
 }
 \description{
 \code{get_c14data()} allows to download source databases and adjust their variables to conform to the

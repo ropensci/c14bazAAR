@@ -14,7 +14,7 @@
 #' \code{get_c14data()} is a wrapper to download all dates from multiple databases and
 #' \code{c14bazAAR::fuse()} the results.
 #'
-#' @param databases Character vector. Names of databases to be downloaded. "all" causes the download of all databases
+#' @param databases Character vector. Names of databases to be downloaded. "all" causes the download of all databases. \code{get_c14data()} prints a list of the currently available databases
 #'
 #' @rdname db_getter
 #'
@@ -50,17 +50,24 @@ get_c14data <- function(databases = c()) {
   date_lists <- list()
   for (i in 1:length(parser_functions)) {
     # call parser function
-    date_lists[[i]] <- tryCatch(parser_functions[[i]](),error=function(e) e)
+    date_lists[[i]] <- tryCatch(parser_functions[[i]](), error = function(e) e)
     # increment progress bar
     utils::setTxtProgressBar(pb, 99 * i/length(parser_functions))
   }
 
-  error_ind <- sapply(date_lists,function(x) !('c14_date_list' %in% class(x)))
+  error_ind <- sapply(date_lists, function(x) !('c14_date_list' %in% class(x)))
   errors <- date_lists[error_ind]
   date_lists <- date_lists[!error_ind]
 
   if(any(error_ind)) {
-    warning(paste("There were errors:\n\n",paste(sapply(errors,function(x) x$message), collapse = "\n"),"\n\nNot all data might have been downloaded accurately!",sep=""))
+    warning(
+      paste(
+        "There were errors:\n\n",
+        paste(sapply(errors,function(x) x$message), collapse = "\n"),
+        "\n\nNot all data might have been downloaded accurately!",
+        sep = ""
+      )
+    )
   }
 
   # fuse radiocarbon lists
