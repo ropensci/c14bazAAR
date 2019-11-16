@@ -89,6 +89,11 @@ get_c14data <- function(databases = c()) {
     )
   }
 
+  # check if any database could be downloaded
+  if (all(error_ind)) {
+    stop("\n\nDownload failed for all databases.\n\n")
+  }
+
   # fuse radiocarbon lists
   all_dates <- do.call(c14bazAAR::fuse, date_lists)
 
