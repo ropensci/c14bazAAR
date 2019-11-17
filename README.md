@@ -1,3 +1,4 @@
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Travis-CI Build Status](https://travis-ci.org/ropensci/c14bazAAR.svg?branch=master)](https://travis-ci.org/ropensci/c14bazAAR) [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/c14bazAAR/master.svg)](https://codecov.io/github/ropensci/c14bazAAR?branch=master)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/c14bazAAR)](https://cran.r-project.org/package=c14bazAAR)
 [![license](https://img.shields.io/badge/license-GPL%202-B50B82.svg)](https://www.r-project.org/Licenses/GPL-2)
