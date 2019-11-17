@@ -224,3 +224,5 @@ Clemens Schmid, Dirk Seidensticker, Daniel Knitter, Martin Hinz, David Matzig, W
 ### License
 
 For the code in this project apply the terms and conditions of GNU GENERAL PUBLIC LICENSE Version 2. The source databases are published under different licenses.
+
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
