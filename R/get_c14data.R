@@ -4,7 +4,7 @@
 #'
 #' @description \code{get_c14data()} allows to download source databases and adjust their variables to conform to the
 #' definition in the
-#' \href{https://github.com/ISAAKiel/c14bazAAR/blob/master/data-raw/variable_reference.csv}{variable_reference}
+#' \href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv}{variable_reference}
 #' table. That includes renaming and arranging the variables (with \code{c14bazAAR::order_variables()})
 #' as well as type conversion (with \code{c14bazAAR::enforce_types()}) -- so all the steps undertaken by
 #' \code{as.c14_date_list()}. \cr
@@ -34,7 +34,7 @@ get_c14data <- function(databases = c()) {
   names_of_available_parsers <- names(get_all_parser_functions())
   if (length(databases) == 0) {
     message("The following databases are available: ", paste0(names_of_available_parsers, collapse = ", "))
-    message("Learn more here: https://github.com/ISAAKiel/c14bazAAR")
+    message("Learn more here: https://github.com/ropensci/c14bazAAR")
     return()
   }
 
