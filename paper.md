@@ -1,5 +1,5 @@
 ---
-title: 'c14bazAAR: An R package for downloading and preparing C14 dates from different source databases
+title: 'c14bazAAR: An R package for downloading and preparing C14 dates from different source databases'
 tags:
   - R
   - archaeology
@@ -16,14 +16,14 @@ authors:
     orcid: 0000-0002-9904-6548
     affiliation: 3
 affiliations:
-  - name: Max Planck Institute for the Science of Human History, Jena
+  - name: Max Planck Institute for the Science of Human History
     index: 1
   - name: Faculty of Arts and Philosophy, Department of Languages and Cultures, Ghent University
     index: 2
   - name: Institute of Archaeological Sciences, University of Bern
     index: 3
-date: 12 July 2019
-bibliography: paper.bib 
+date: 17 November 2019
+bibliography: paper.bib
 ---
 
 # Background
