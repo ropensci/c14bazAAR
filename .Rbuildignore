@@ -9,3 +9,4 @@
 ^paper\.md$
 ^paper\.bib$
 ^CRAN-RELEASE$
+^codemeta\.json$
