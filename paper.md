@@ -14,12 +14,14 @@ authors:
     affiliation: 2
   - name: Martin Hinz
     orcid: 0000-0002-9904-6548
-    affiliation: 1
+    affiliation: 3
 affiliations:
-  - name: Institute of Archaeological Sciences, University of Bern
+  - name: Max Planck Institute for the Science of Human History, Jena
     index: 1
   - name: Faculty of Arts and Philosophy, Department of Languages and Cultures, Ghent University
     index: 2
+  - name: Institute of Archaeological Sciences, University of Bern
+    index: 3
 date: 12 July 2019
 bibliography: paper.bib 
 ---
@@ -36,13 +38,13 @@ However the entire data basis is currently highly decentralized and lacks basic 
 
 # Code Summary
 
-``c14bazAAR`` attempts to tackle the problem at hand by providing an independent interface to access different radiocarbon data sources and make them available for a reproducible research process: from modelling to publication to scientific discourse. It queries multiple openly available ^14^C data archives not behind pay- or login-walls.
+``c14bazAAR`` is an R package that attempts to tackle the problem at hand by providing an independent interface to access radiocarbon data and make it available for a reproducible research process: from modelling to publication to scientific discourse. It queries openly available ^14^C data archives, but not those behind pay- or login-walls.
 
-The package includes download functions `get_*` (e.g. `get_aDRAC()`, `get_EUROEVOL()`) that acquire the databases from different sources online. They reduce the tables to a set of common variables and store them in a dedicated R S3 class: `c14_date_list`. The `c14_date_list` is based on `tibble::tibble` to integrate well into the R [tidyverse](https://www.tidyverse.org/) ecosystem. It also establishes standardised data types for the most important variables usually defined to describe radiocarbon data.
+The package includes download functions (accessible with the main interface `c14bazAAR::get_c14data()`) that -- first of all -- acquire the databases from different sources online. They then reduce the tables to a set of common variables and store them in a dedicated R S3 class: `c14_date_list`. The `c14_date_list` is based on `tibble::tibble` to integrate well into the R [tidyverse](https://www.tidyverse.org/) ecosystem. It also establishes standardised data types for the most important variables usually defined to describe radiocarbon data.
 
-Beyond the download functions, ``c14bazAAR`` contains a multitude of useful helpers that can be applied to objects of class `c14_date_list`. These include methods for the bulk calibration of radiocarbon dates with the Bchron R package [@Haslett:2008], the removal of duplicates, the estimation of coordinate precision, and the conversion to other useful R data types (e.g. `sf::sf` [@Pebesma:2018]). For the classification of sample material ``c14bazAAR`` provides a manually curated reference list that maps the inconsistent attributions in the source databases to a standardized set of material classes. Such a reference list exists as well to fix the country attribution value of dates -- which is especially important in case of missing coordinate information. Another function to determine the source country based on coordinates fails on such dates.
+Beyond the download functions, ``c14bazAAR`` contains a multitude of useful helpers that can be applied to objects of class `c14_date_list`. These include methods for the bulk calibration of radiocarbon dates with the Bchron R package [@Haslett:2008], the removal of duplicates, the estimation of coordinate precision, or the conversion to other useful R data types (e.g. `sf::sf` [@Pebesma:2018]). For the classification of sample material ``c14bazAAR`` provides a manually curated reference list that maps the inconsistent attributions in the source databases to a standardized set of material classes. Such a reference list exists as well to fix the country attribution value of dates -- which is especially important in case of missing coordinate information: Another function to determine the source country based on coordinates fails on such dates.
 
-``c14bazAAR`` was already and is currently used for data aquisition and preparation of multiple research papers, e.g. @Schmid:2019.
+``c14bazAAR`` was already used for data acquisition and preparation in at least one research paper: @Schmid:2019.
 
 # Acknowledgements
 
