@@ -1,3 +1,5 @@
+#' @rdname db_getter_backend
+#' @export
 get_IRDD <- function(db_url = get_db_url("IRDD")) {
 
   check_if_packages_are_available("openxlsx")
