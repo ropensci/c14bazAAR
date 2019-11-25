@@ -17,23 +17,23 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Clemens Schmid \email{clemens@nevrome.de} (0000-0003-3448-5715) [copyright holder]
+\strong{Maintainer}: Clemens Schmid \email{clemens@nevrome.de} (\href{https://orcid.org/0000-0003-3448-5715}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
-  \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com} (0000-0002-8155-7702)
-  \item Daniel Knitter \email{knitter@geographie.uni-kiel.de} (0000-0003-3014-4497)
-  \item Martin Hinz \email{martin.hinz@iaw.unibe.ch} (0000-0002-9904-6548)
-  \item David Matzig \email{matzigdavid@gmail.com} (0000-0001-7349-5401)
-  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de} (0000-0002-5943-5020)
+  \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com} (\href{https://orcid.org/0000-0002-8155-7702}{ORCID})
+  \item Daniel Knitter \email{knitter@geographie.uni-kiel.de} (\href{https://orcid.org/0000-0003-3014-4497}{ORCID})
+  \item Martin Hinz \email{martin.hinz@iaw.unibe.ch} (\href{https://orcid.org/0000-0002-9904-6548}{ORCID})
+  \item David Matzig \email{matzigdavid@gmail.com} (\href{https://orcid.org/0000-0001-7349-5401}{ORCID})
+  \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de} (\href{https://orcid.org/0000-0002-5943-5020}{ORCID})
   \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
 }
 
 Other contributors:
 \itemize{
-  \item Nils Mueller-Scheessel \email{nils.mueller-scheessel@ufg.uni-kiel.de} (0000-0001-7992-8722) [contributor]
-  \item Ben Marwick (0000-0001-7879-4531) [reviewer]
-  \item Enrico R. Crema (0000-0001-6727-5138) [reviewer]
+  \item Nils Mueller-Scheessel \email{nils.mueller-scheessel@ufg.uni-kiel.de} (\href{https://orcid.org/0000-0001-7992-8722}{ORCID}) [contributor]
+  \item Ben Marwick (\href{https://orcid.org/0000-0001-7879-4531}{ORCID}) [reviewer]
+  \item Enrico R. Crema (\href{https://orcid.org/0000-0001-6727-5138}{ORCID}) [reviewer]
 }
 
 }

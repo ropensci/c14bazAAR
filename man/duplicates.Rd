@@ -17,14 +17,11 @@ mark_duplicates(x)
 
 \method{mark_duplicates}{c14_date_list}(x)
 
-remove_duplicates(x, preferences = NULL, supermerge = FALSE,
-  log = TRUE)
+remove_duplicates(x, preferences = NULL, supermerge = FALSE, log = TRUE)
 
-\method{remove_duplicates}{default}(x, preferences = NULL,
-  supermerge = FALSE, log = TRUE)
+\method{remove_duplicates}{default}(x, preferences = NULL, supermerge = FALSE, log = TRUE)
 
-\method{remove_duplicates}{c14_date_list}(x, preferences = NULL,
-  supermerge = FALSE, log = TRUE)
+\method{remove_duplicates}{c14_date_list}(x, preferences = NULL, supermerge = FALSE, log = TRUE)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
