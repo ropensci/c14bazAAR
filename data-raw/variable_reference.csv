@@ -28,66 +28,20 @@ shortref,character,Literature source of the dataset information,databases,[Refer
 comment ,character,Free text with additional information,databases,Comment,,NOTES,NOTICE,NOTICE,,,,,,[Additional Information + Comments]
 duplicate_group,integer,Number of duplicate group,c14bazAAR,,,,,,,,,,,
 duplicate_remove_log,character,Description of variable value variation in duplicate group,c14bazAAR,,,,,,,,,,,
-,,,,,,ADSID,ID,ID,,C14ID,,ID,ID,
-,,,,,,,PHASE,PHASE,,PhaseCode,,,,
-,,,,,,,LOCUS,LOCUS,,,,,,
-,,,,,,,CALAGE,,,,,,,
-,,,,,,,CALSTD,,,,,,,
-,,,,Subregion no.,,,,,Municipio,,,,,
-,,,,calBC 1σ (from),,,,,,,,,,
-,,,,calBC 1σ (to),,,,,,,,,,
-,,,,Level,,,,,,,,,,
-,,,,,FEATURE_DESC,,,,,,,,,
-,,,,,,C13_ERROR,,,,,,,,
-,,,,,,MATERIAL_TOP_LEVEL,,,,,,,,
-,,,,,,DEPTH_FROM_SURFACE_CM,,,,,,,,
-,,,,,,TECHNIQUE,,,,,,,,
-,,,,,,Data pertinent for time-series analysis or calibration,,,,,,,,
-,,,,,,Open or Closed Site,,,,,,,,
-,,,,,,Directly Related to occupation? Yes/Unknown,,,,,,,,
-,,,,,,RECORD_SOURCE,,,,,,,,
-,,,,,,DATE_ISSUES,,,,,,,,
-,,,,,,AGE_NORM,,,,,,,,
-,,,,,,ADDITIONAL_DATA_ISSUES,,,,,,,,
-,,,,,,,,GR,,,,,,
-,,,,,,,,MAR,,,,,,
-,,,,,,,,SAMPLE,,,,,,
-,,,,,,,,calBC68,,,,,,
-,,,,,,,,calBC95,,,,,,
-,,,,,,,,INCONGR,,,,,,
-,,,,,,,,,,Subculture,,,,
-,,,,,,,,,,,,,,Field Number
-,,,,,,,,,,,,,,Locality
-,,,,,,,,,,,,,,Map Sheet
-,,,,,,,,,,,,,,Elevation (m ASL)
-,,,,,,,,,,,,,,Submitter
-,,,,,,,,,,,,,,Date Submitted
-,,,,,,,,,,,,,,Collector
-,,,,,,,,,,,,,,Date Collected
-,,,,,,,,,,,,,,Updater
-,,,,,,,,,,,,,,Date Updated
-,,,,,,,,,,,,,,Measured Age
-,,,,,,,,,,,,,,MA Sigma
+,,,,Subregion no.,FEATURE_DESC,ADSID,ID,ID,Municipio,C14ID,LocQual,ID,ID,Field Number
+,,,,calBC 1σ (from),ASSOCIATION,C13_ERROR,PHASE,PHASE,Provincia/Distrito,PhaseCode,StartDate,,,Locality
+,,,,calBC 1σ (to),REL,MATERIAL_TOP_LEVEL,LOCUS,LOCUS,Comarca,Subculture,EndDate,,,Map Sheet
+,,,,Level,,DEPTH_FROM_SURFACE_CM,CALAGE,GR,Región,,SizeHA,,,Elevation (m ASL)
+,,,,,,TECHNIQUE,CALSTD,MAR,Comunidad autónoma,,SizeQual,,,Submitter
+,,,,,,Data pertinent for time-series analysis or calibration,,SAMPLE,Departamento,,Source_id,,,Date Submitted
+,,,,,,Open or Closed Site,,calBC68,Cantón,,,,,Collector
+,,,,,,Directly Related to occupation? Yes/Unknown,,calBC95,Región geográfica,,,,,Date Collected
+,,,,,,RECORD_SOURCE,,INCONGR,Contexto Funcional,,,,,Updater
+,,,,,,DATE_ISSUES,,,Tipo de tumba,,,,,Date Updated
+,,,,,,AGE_NORM,,,Ritual funerario,,,,,Measured Age
+,,,,,,ADDITIONAL_DATA_ISSUES,,,,,,,,MA Sigma
 ,,,,,,,,,,,,,,Delta 13C Source
 ,,,,,,,,,,,,,,Significance
 ,,,,,,,,,,,,,,Stratigraphic Component
 ,,,,,,,,,,,,,,Context
 ,,,,,,,,,,,,,,Associated Taxa
-,,,,,ASSOCIATION,,,,,,,,,
-,,,,,REL,,,,,,,,,
-,,,,,,,,,,,LocQual,,,
-,,,,,,,,,,,StartDate,,,
-,,,,,,,,,,,EndDate,,,
-,,,,,,,,,,,SizeHA,,,
-,,,,,,,,,,,SizeQual,,,
-,,,,,,,,,,,Source_id,,,
-,,,,,,,,,Provincia/Distrito,,,,,
-,,,,,,,,,Comarca,,,,,
-,,,,,,,,,Región,,,,,
-,,,,,,,,,Comunidad autónoma,,,,,
-,,,,,,,,,Departamento,,,,,
-,,,,,,,,,Cantón,,,,,
-,,,,,,,,,Región geográfica,,,,,
-,,,,,,,,,Contexto Funcional,,,,,
-,,,,,,,,,Tipo de tumba,,,,,
-,,,,,,,,,Ritual funerario,,,,,
