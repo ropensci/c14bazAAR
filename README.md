@@ -3,6 +3,7 @@
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/c14bazAAR)](https://cran.r-project.org/package=c14bazAAR)
 [![license](https://img.shields.io/badge/license-GPL%202-B50B82.svg)](https://www.r-project.org/Licenses/GPL-2)
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2F3DS6A-blue)](https://doi.org/10.17605/OSF.IO/3DS6A)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.01914/status.svg)](https://doi.org/10.21105/joss.01914)
 
 # c14bazAAR
 
