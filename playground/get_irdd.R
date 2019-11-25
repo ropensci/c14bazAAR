@@ -1,6 +1,4 @@
-#get_IRDD <- function(db_url = get_db_url("IRDD")) {
-
-  db_url <- "https://zenodo.org/record/3367518/files/Chapple%2C%20RM%202019%20Catalogue%20of%20radiocarbon%20determinations%20%26%20dendrochronology%20dates%20%28August%202019%20Release%29.xlsx"
+get_IRDD <- function(db_url = get_db_url("IRDD")) {
 
   check_if_packages_are_available("openxlsx")
 
@@ -16,7 +14,8 @@
       sheet = 3,
       startRow = 2,
       colNames = FALSE,
-      rowNames = FALSE
+      rowNames = FALSE,
+      na.strings = c("?")
     ) %>%
     dplyr::mutate_if(
       sapply(., is.character),
@@ -26,17 +25,13 @@
       labnr = .[[7]],
       c14age = .[[4]],
       c14std = .[[6]],
-      c13val = .[[25]],
+      site = .[[2]],
+      sitetype = .[[14]],
       material = .[[26]],
-      # country = .[[4]],
-      # region = .[[2]],
-      # site = .[[1]],
       lat = .[[19]],
       lon = .[[20]],
-      # period = .[[15]],
-      # feature = .[[13]],
-      shortref = .[[15]]
-      #comment = .[[14]]
+      shortref = .[[15]],
+      comment = .[[16]]
     ) %>%
     dplyr::mutate(
       sourcedb = "IR-DD"
@@ -46,5 +41,5 @@
   # delete temporary file
   unlink(tempo)
 
-#  return(IRDD)
-#}
+  return(IRDD)
+}
