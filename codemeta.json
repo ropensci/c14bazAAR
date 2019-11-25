@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "c14bazAAR",
   "description": "Query different C14 date databases and apply basic data cleaning, merging and calibration steps.",
@@ -450,8 +453,16 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "160.715KB",
-  "contIntegration": ["https://travis-ci.org/ropensci/c14bazAAR", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
-  "keywords": ["radiocarbon-dates", "archaeology", "r"],
-  "relatedLink": "https://CRAN.R-project.org/package=c14bazAAR"
+  "fileSize": "160.946KB",
+  "contIntegration": [
+    "https://travis-ci.org/ropensci/c14bazAAR",
+    "https://codecov.io/github/ropensci/c14bazAAR?branch=master"
+  ],
+  "keywords": [
+    "radiocarbon-dates",
+    "archaeology",
+    "r"
+  ],
+  "relatedLink": "https://CRAN.R-project.org/package=c14bazAAR",
+  "developmentStatus": "https://www.repostatus.org/#active"
 }
