@@ -137,7 +137,8 @@ get_all_parser_functions <- function() {
     "radon" = c14bazAAR::get_RADON,
     "radon-b" = c14bazAAR::get_RADONB,
     "kiteeastafrica" = c14bazAAR::get_KITEeastAfrica,
-    "palmisano" = c14bazAAR::get_Palmisano
+    "palmisano" = c14bazAAR::get_Palmisano,
+    "irdd" = c14bazAAR::get_IRDD
   ))
 }
 
