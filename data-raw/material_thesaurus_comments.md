@@ -137,6 +137,9 @@
 
 * added additional terms for the EUBAR database 
 
+# Changes (27.11.2019)
+
+* added additional terms for the IRDD (Ireland) database
 
 ## not yet defined, uncertain
 

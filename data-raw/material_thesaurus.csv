@@ -38,6 +38,7 @@ bone,Bone (Vombatus ursinus)
 bone,Bone apatite
 bone,Bone apatite/carbonate
 bone,Bone carbonate
+bone,bone carbonate
 bone,"bone, rib"
 bone,bone/apatit
 bone,bone/collagen
@@ -45,6 +46,7 @@ bone,bones
 bone,bos
 bone,collagen
 bone,"collagen, bone"
+bone,cremated bone
 bone,cremated bones
 bone,Dugong bone
 bone,hueso
@@ -540,6 +542,7 @@ plant remains,acorns
 plant remains,Acorns
 plant remains,apple
 plant remains,barley
+plant remains,Burnt barley grains
 plant remains,bean
 plant remains,beans
 plant remains,been
@@ -918,6 +921,7 @@ unknown,bulk
 unknown,c
 unknown,carbonate
 unknown,carbonised residue
+unknown,charred
 unknown,charcoal or shell
 unknown,charcoal?
 unknown,Er
