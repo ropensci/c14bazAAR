@@ -8,6 +8,10 @@
 
 ## new features
 - new download interface as suggested by Enrico Crema in the ROpenSci review: `get_c14data()` (#76)
+- replaced hard coded URLs with arguments to get helper functions (caabcb7b)
+
+## new getter functions
+- added getter function for IRDD database: `get_IRDD` (#79)
 
 # c14bazAAR 1.0.3
 
