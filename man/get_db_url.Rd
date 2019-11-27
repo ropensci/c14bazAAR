@@ -12,6 +12,8 @@ get_db_url(
 }
 \arguments{
 \item{db_name}{name of the database}
+
+\item{ref_url}{url of the relevant reference table}
 }
 \description{
 Downloads URLs of c14 source databases from a reference table

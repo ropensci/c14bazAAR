@@ -2,6 +2,8 @@
 #'
 #' Download thesaurus and provide it as tibble.
 #'
+#' @param ref_url url of the relevant reference table
+#'
 #' @export
 get_country_thesaurus <- function(ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv") {
   ref_url %>%
@@ -12,6 +14,8 @@ get_country_thesaurus <- function(ref_url = "https://raw.githubusercontent.com/r
 #' get_material_thesaurus
 #'
 #' Download thesaurus and provide it as tibble.
+#'
+#' @param ref_url url of the relevant reference table
 #'
 #' @export
 get_material_thesaurus <- function(ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv") {

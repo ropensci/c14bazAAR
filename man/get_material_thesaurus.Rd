@@ -9,6 +9,9 @@ get_material_thesaurus(
     ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv"
 )
 }
+\arguments{
+\item{ref_url}{url of the relevant reference table}
+}
 \description{
 Download thesaurus and provide it as tibble.
 }
