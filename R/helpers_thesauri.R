@@ -3,8 +3,8 @@
 #' Download thesaurus and provide it as tibble.
 #'
 #' @export
-get_country_thesaurus <- function() {
-  "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv" %>%
+get_country_thesaurus <- function(ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv") {
+  ref_url %>%
     get_thesaurus() %>%
     return()
 }
@@ -14,8 +14,8 @@ get_country_thesaurus <- function() {
 #' Download thesaurus and provide it as tibble.
 #'
 #' @export
-get_material_thesaurus <- function() {
-  "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv" %>%
+get_material_thesaurus <- function(ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv") {
+  ref_url %>%
     get_thesaurus() %>%
     return()
 }

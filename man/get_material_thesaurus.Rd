@@ -4,7 +4,10 @@
 \alias{get_material_thesaurus}
 \title{get_material_thesaurus}
 \usage{
-get_material_thesaurus()
+get_material_thesaurus(
+ 
+    ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv"
+)
 }
 \description{
 Download thesaurus and provide it as tibble.

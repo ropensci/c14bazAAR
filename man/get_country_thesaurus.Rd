@@ -4,7 +4,10 @@
 \alias{get_country_thesaurus}
 \title{get_country_thesaurus}
 \usage{
-get_country_thesaurus()
+get_country_thesaurus(
+ 
+    ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv"
+)
 }
 \description{
 Download thesaurus and provide it as tibble.

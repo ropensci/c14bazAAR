@@ -6,10 +6,8 @@
 #' @param db_name name of the database
 #'
 #' @export
-get_db_url <- function(db_name) {
+get_db_url <- function(db_name, ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/url_reference.csv") {
 
-  # URL
-  ref_url <- "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/url_reference.csv"
   check_connection_to_url(ref_url)
 
   # download current version of reference table
