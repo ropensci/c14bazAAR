@@ -471,7 +471,6 @@ other,Carbonate
 other,Charcoal and burnt earth
 other,Charcoal and soil
 other,Charcoal lense
-other,charred material
 other,Coal
 other,Crustal salts
 other,Graphite
@@ -922,6 +921,7 @@ unknown,c
 unknown,carbonate
 unknown,carbonised residue
 unknown,charred
+unknown,charred material
 unknown,charcoal or shell
 unknown,charcoal?
 unknown,Er
