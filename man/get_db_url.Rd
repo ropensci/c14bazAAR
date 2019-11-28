@@ -6,8 +6,8 @@
 \usage{
 get_db_url(
   db_name,
- 
-    ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/url_reference.csv"
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
+    "master", "data-raw", "url_reference.csv"), collapse = "/")
 )
 }
 \arguments{

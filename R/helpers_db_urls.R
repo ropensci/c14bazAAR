@@ -7,7 +7,15 @@
 #' @param ref_url url of the relevant reference table
 #'
 #' @export
-get_db_url <- function(db_name, ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/url_reference.csv") {
+get_db_url <- function(
+  db_name, ref_url = paste(c(
+    "https://raw.githubusercontent.com",
+    "ropensci",
+    "c14bazAAR",
+    "master",
+    "data-raw",
+    "url_reference.csv"
+  ), collapse = "/")) {
 
   check_connection_to_url(ref_url)
 

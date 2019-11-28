@@ -5,8 +5,8 @@
 \title{get_material_thesaurus}
 \usage{
 get_material_thesaurus(
- 
-    ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv"
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
+    "master", "data-raw", "material_thesaurus.csv"), collapse = "/")
 )
 }
 \arguments{

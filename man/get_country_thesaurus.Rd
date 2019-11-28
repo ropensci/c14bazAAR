@@ -5,8 +5,8 @@
 \title{get_country_thesaurus}
 \usage{
 get_country_thesaurus(
- 
-    ref_url = "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv"
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
+    "master", "data-raw", "country_thesaurus.csv"), collapse = "/")
 )
 }
 \arguments{
