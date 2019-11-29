@@ -4,10 +4,16 @@
 \alias{get_db_url}
 \title{get db url}
 \usage{
-get_db_url(db_name)
+get_db_url(
+  db_name,
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
+    "master", "data-raw", "url_reference.csv"), collapse = "/")
+)
 }
 \arguments{
 \item{db_name}{name of the database}
+
+\item{ref_url}{url of the relevant reference table}
 }
 \description{
 Downloads URLs of c14 source databases from a reference table

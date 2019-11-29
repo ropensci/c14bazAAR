@@ -2,23 +2,39 @@
 #'
 #' Download thesaurus and provide it as tibble.
 #'
+#' @param ref_url url of the relevant reference table
+#'
 #' @export
-get_country_thesaurus <- function() {
-  "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/country_thesaurus.csv" %>%
-    get_thesaurus() %>%
-    return()
+get_country_thesaurus <- function(
+  ref_url = paste(c(
+    "https://raw.githubusercontent.com",
+    "ropensci",
+    "c14bazAAR",
+    "master",
+    "data-raw",
+    "country_thesaurus.csv"
+  ), collapse = "/")) {
+  ref_url %>% get_thesaurus() %>% return()
 }
 
 #' get_material_thesaurus
 #'
 #' Download thesaurus and provide it as tibble.
 #'
+#' @param ref_url url of the relevant reference table
+#'
 #' @export
-get_material_thesaurus <- function() {
-  "https://raw.githubusercontent.com/ropensci/c14bazAAR/master/data-raw/material_thesaurus.csv" %>%
-    get_thesaurus() %>%
-    return()
-}
+get_material_thesaurus <- function(
+  ref_url = paste(c(
+    "https://raw.githubusercontent.com",
+    "ropensci",
+    "c14bazAAR",
+    "master",
+    "data-raw",
+    "material_thesaurus.csv"
+  ), collapse = "/")) {
+    ref_url %>% get_thesaurus() %>% return()
+  }
 
 #' get_thesaurus
 #'

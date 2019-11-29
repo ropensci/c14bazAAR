@@ -4,7 +4,13 @@
 \alias{get_material_thesaurus}
 \title{get_material_thesaurus}
 \usage{
-get_material_thesaurus()
+get_material_thesaurus(
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
+    "master", "data-raw", "material_thesaurus.csv"), collapse = "/")
+)
+}
+\arguments{
+\item{ref_url}{url of the relevant reference table}
 }
 \description{
 Download thesaurus and provide it as tibble.
