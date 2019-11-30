@@ -10,3 +10,4 @@
 ^paper\.bib$
 ^CRAN-RELEASE$
 ^codemeta\.json$
+^logo$
