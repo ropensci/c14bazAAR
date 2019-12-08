@@ -74,6 +74,7 @@ Suggests:
     dataverse,
     ggplot2,
     ggridges,
+    globe,
     knitr,
     lwgeom,
     mapview,

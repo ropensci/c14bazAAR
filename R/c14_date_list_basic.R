@@ -39,6 +39,8 @@
 #'
 #' print(example_c14_date_list)
 #'
+#' plot(example_c14_date_list)
+#'
 #' @export
 as.c14_date_list <- function(x, ...) {
 
@@ -115,6 +117,61 @@ print.c14_date_list <- function(x, ...) {
   cat(format(x, ...), "\n\n")
   # add table printed like a tibble
   x %>% `class<-`(c("tbl", "tbl_df", "data.frame")) %>% print
+}
+
+#### plot ####
+
+#' @rdname c14_date_list
+#' @export
+plot.c14_date_list <- function(x, ...) {
+
+  check_if_packages_are_available("globe")
+
+  # store par settings
+  old.par <- par(no.readonly = TRUE)
+
+  # set plot layout
+  layout(matrix(c(1,2,3,3), 2, 2, byrow = TRUE))
+
+  # plot 1: text
+  header <- as.character(format(x)) %>%
+    strsplit("\n") %>% unlist %>%
+    sub("\t", "", .) %>%
+    sub("\t\t", "\t", .) %>%
+    trimws
+  plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, 1), ylim = c(length(header) + 1, 0))
+  for (i in 1:length(header)) {
+    if (i == 1) {
+      text(0, i, bquote(bold(.(header[i]))), adj = 0)
+    } else {
+      text(0, i, header[i], adj = 0)
+    }
+  }
+
+  # plot 2: globe
+  par(mar = c(0, 0, 0, 0))
+  globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
+  globe::globepoints(
+    loc = x[,c("lon", "lat")],
+    col = "red",
+    cex = 0.01,
+    pch = 20
+  )
+
+  # plot 3: histogram
+  par(mar = c(4.2, 4.2, 0, 0))
+  hist(
+    x[["c14age"]],
+    breaks = 100,
+    main = NULL,
+    xlim = rev(range(x[["c14age"]], na.rm = T)),
+    xlab = "Uncalibrated Age BP in years (c14age)",
+    ylab = "Amount of dates"
+  )
+
+
+  # reset par setting on exit
+  on.exit(par(old.par))
 }
 
 #### accessor functions ####
