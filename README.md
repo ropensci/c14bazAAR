@@ -213,14 +213,19 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 
 ### Citation
 
-Clemens Schmid, Dirk Seidensticker, Daniel Knitter, Martin Hinz, David Matzig, Wolfgang Hamer and Kay Schmütz (2018). c14bazAAR: Download and Prepare C14 Dates from Different Source Databases. https://github.com/ropensci/c14bazAAR
+Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14 dates from different source databases. Journal of Open Source Software, 4(43), 1914, https://doi.org/10.21105/joss.01914
 
 ```
-@Manual{,
-  title = {c14bazAAR: Download and Prepare C14 Dates from Different Source Databases},
-  author = {Clemens Schmid and Dirk Seidensticker and Daniel Knitter and Martin Hinz and David Matzig and Wolfgang Hamer and Kay Schmütz},
-  year = {2018},
-  url = {https://github.com/ropensci/c14bazAAR},
+@article{Schmid2019,
+  title    = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
+  author   = "Schmid, Clemens and Seidensticker, Dirk and Hinz, Martin",
+  abstract = "Software archive",
+  journal  = "JOSS",
+  volume   =  4,
+  number   =  43,
+  pages    = "1914",
+  month    =  nov,
+  year     =  2019
 }
 ```
 
