@@ -11,6 +11,7 @@ Query different C14 date databases and apply basic data cleaning, merging and ca
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://docs.ropensci.org/c14bazAAR}
   \item \url{https://github.com/ropensci/c14bazAAR}
   \item Report bugs at \url{https://github.com/ropensci/c14bazAAR/issues}
 }

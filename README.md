@@ -7,7 +7,7 @@
 
 # c14bazAAR
 
-<img align="right" src="inst/image/khajiit.jpg" width = 430>
+<img align="right" src="man/figures/khajiit.jpg" width = 430>
 
 c14bazAAR is a R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. If you're not familiar with R other tools (such as [GoGet](https://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs.
 
