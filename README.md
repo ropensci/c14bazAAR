@@ -219,7 +219,6 @@ Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14
 @article{Schmid2019,
   title    = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
   author   = "Schmid, Clemens and Seidensticker, Dirk and Hinz, Martin",
-  abstract = "Software archive",
   journal  = "JOSS",
   volume   =  4,
   number   =  43,
