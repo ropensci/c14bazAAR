@@ -4,11 +4,9 @@
 \alias{get_db_url}
 \title{get db url}
 \usage{
-get_db_url(
-  db_name,
-  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
-    "master", "data-raw", "url_reference.csv"), collapse = "/")
-)
+get_db_url(db_name,
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci",
+  "c14bazAAR", "master", "data-raw", "url_reference.csv"), collapse = "/"))
 }
 \arguments{
 \item{db_name}{name of the database}

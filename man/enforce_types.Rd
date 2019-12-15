@@ -8,9 +8,11 @@
 \usage{
 enforce_types(x, suppress_na_introduced_warnings = TRUE)
 
-\method{enforce_types}{default}(x, suppress_na_introduced_warnings = TRUE)
+\method{enforce_types}{default}(x,
+  suppress_na_introduced_warnings = TRUE)
 
-\method{enforce_types}{c14_date_list}(x, suppress_na_introduced_warnings = TRUE)
+\method{enforce_types}{c14_date_list}(x,
+  suppress_na_introduced_warnings = TRUE)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
