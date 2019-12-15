@@ -4,9 +4,11 @@
 \alias{get_db_version}
 \title{get db version}
 \usage{
-get_db_version(db_name,
-  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci",
-  "c14bazAAR", "master", "data-raw", "url_reference.csv"), collapse = "/"))
+get_db_version(
+  db_name,
+  ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
+    "version", "data-raw", "url_reference.csv"), collapse = "/")
+)
 }
 \arguments{
 \item{db_name}{name of the database}

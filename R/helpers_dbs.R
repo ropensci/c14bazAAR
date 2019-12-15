@@ -31,7 +31,7 @@ get_db_version <- function(db_name, ref_url = paste(c(
   "https://raw.githubusercontent.com",
   "ropensci",
   "c14bazAAR",
-  "master",
+  "version",
   "data-raw",
   "url_reference.csv"
   ), collapse = "/")) {

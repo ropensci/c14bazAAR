@@ -18,11 +18,9 @@
 \usage{
 determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
 
-\method{determine_country_by_coordinate}{default}(x,
-  suppress_spatial_warnings = TRUE)
+\method{determine_country_by_coordinate}{default}(x, suppress_spatial_warnings = TRUE)
 
-\method{determine_country_by_coordinate}{c14_date_list}(x,
-  suppress_spatial_warnings = TRUE)
+\method{determine_country_by_coordinate}{c14_date_list}(x, suppress_spatial_warnings = TRUE)
 
 finalize_country_name(x, quiet = FALSE)
 
@@ -30,16 +28,29 @@ finalize_country_name(x, quiet = FALSE)
 
 \method{finalize_country_name}{c14_date_list}(x, quiet = FALSE)
 
-standardize_country_name(x, country_thesaurus = get_country_thesaurus(),
-  codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
-
-\method{standardize_country_name}{default}(x,
+standardize_country_name(
+  x,
   country_thesaurus = get_country_thesaurus(),
-  codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
+  codesets = c("country.name.de", "iso3c"),
+  quiet = FALSE,
+  ...
+)
 
-\method{standardize_country_name}{c14_date_list}(x,
+\method{standardize_country_name}{default}(
+  x,
   country_thesaurus = get_country_thesaurus(),
-  codesets = c("country.name.de", "iso3c"), quiet = FALSE, ...)
+  codesets = c("country.name.de", "iso3c"),
+  quiet = FALSE,
+  ...
+)
+
+\method{standardize_country_name}{c14_date_list}(
+  x,
+  country_thesaurus = get_country_thesaurus(),
+  codesets = c("country.name.de", "iso3c"),
+  quiet = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}

@@ -6,17 +6,23 @@
 \alias{classify_material.c14_date_list}
 \title{Apply material classification on a \strong{c14_date_list}}
 \usage{
-classify_material(x,
+classify_material(
+  x,
   material_thesaurus = c14bazAAR::get_material_thesaurus(),
-  quiet = FALSE)
+  quiet = FALSE
+)
 
-\method{classify_material}{default}(x,
+\method{classify_material}{default}(
+  x,
   material_thesaurus = c14bazAAR::get_material_thesaurus(),
-  quiet = FALSE)
+  quiet = FALSE
+)
 
-\method{classify_material}{c14_date_list}(x,
+\method{classify_material}{c14_date_list}(
+  x,
   material_thesaurus = c14bazAAR::get_material_thesaurus(),
-  quiet = FALSE)
+  quiet = FALSE
+)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
