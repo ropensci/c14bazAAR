@@ -1,3 +1,43 @@
+#' get db url
+#'
+#' Downloads information for c14 source databases from a reference table
+#' on github.
+#'
+#' @param db_name name of the database
+#' @param ref_url url of the relevant reference table
+#'
+#' @export
+get_db_url <- function(db_name, ref_url = paste(c(
+  "https://raw.githubusercontent.com",
+  "ropensci",
+  "c14bazAAR",
+  "master",
+  "data-raw",
+  "url_reference.csv"
+  ), collapse = "/")) {
+  get_db_info(db_name, "url", ref_url)
+}
+
+#' get db version
+#'
+#' Downloads information for c14 source databases from a reference table
+#' on github.
+#'
+#' @param db_name name of the database
+#' @param ref_url url of the relevant reference table
+#'
+#' @export
+get_db_version <- function(db_name, ref_url = paste(c(
+  "https://raw.githubusercontent.com",
+  "ropensci",
+  "c14bazAAR",
+  "master",
+  "data-raw",
+  "url_reference.csv"
+  ), collapse = "/")) {
+  get_db_info(db_name, "version", ref_url)
+}
+
 #' get db info
 #'
 #' Downloads information for c14 source databases from a reference table
@@ -5,9 +45,10 @@
 #'
 #' @param db_name name of the database
 #' @param info_type type of information: "url", "version"
-#' @param ref_url url of the relevant reference table
+#' @param ref_url info for the relevant reference table
 #'
-#' @export
+#' @keywords internal
+#' @noRd
 get_db_info <- function(
   db_name, info_type = c("url", "version"), ref_url = paste(c(
     "https://raw.githubusercontent.com",
