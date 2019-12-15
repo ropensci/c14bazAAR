@@ -56,7 +56,8 @@ get_AustArch <- function(db_url = get_db_url("AustArch")) {
       method = .data[["METHOD"]],
       comment = .data[["NOTES"]]
     ) %>% dplyr::mutate(
-      sourcedb = "AustArch"
+      sourcedb = "AustArch",
+      sourcedb_version = get_db_version("AustArch")
     ) %>%
     # AustArch also contains dates from other dating
     # methods (OSL, TL, U-Series, etc.)

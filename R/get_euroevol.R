@@ -79,7 +79,8 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
       culture = .data[["Culture"]],
       sitetype = .data[["Type"]]
     ) %>% dplyr::mutate(
-      sourcedb = "EUROEVOL"
+      sourcedb = "EUROEVOL",
+      sourcedb_version = get_db_version("EUROEVOL")
     ) %>%
     as.c14_date_list()
 

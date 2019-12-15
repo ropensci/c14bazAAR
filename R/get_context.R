@@ -84,6 +84,7 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
       sourcedb = "CONTEXT",
+      sourcedb_version = get_db_version("CONTEXT"),
       lat = gsub(",", ".", .data[["lat"]]),
       lon = gsub(",", ".", .data[["lon"]])
     ) %>%

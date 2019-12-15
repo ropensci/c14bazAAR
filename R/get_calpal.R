@@ -53,7 +53,8 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
-      sourcedb = "CALPAL"
+      sourcedb = "CALPAL",
+      sourcedb_version = get_db_version("CALPAL")
     ) %>%
     as.c14_date_list()
 
