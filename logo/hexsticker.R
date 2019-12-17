@@ -4,11 +4,18 @@ library(emojifont)
 library(osmdata)
 library(sf)
 
+
+
 x <- opq(bbox = c(28.967196, 41.009832,
                   28.969631, 41.011588)) %>%
   add_osm_feature(key = "highway",
                   value = "pedestrian") %>%
   osmdata_sf()
+
+
+
+
+
 
 # 4 random locations
 load.fontawesome()
@@ -54,4 +61,4 @@ hexSticker::sticker(subplot = p,
                     h_fill = "white",
                     h_color = "black",
                     h_size = 1,
-                    filename = "../logo.png")
+                    filename = "man/figures/logo.png")
