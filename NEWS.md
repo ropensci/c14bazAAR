@@ -1,3 +1,10 @@
+# c14bazAAR 1.2.0
+
+## new features
+- added a basic plot function for c14_date_lists (#82)
+- added a basic write function for c14_date_lists: `write_c14()` (#84)
+- added a version column that documents from which database version a certain date is pulled (#85)
+
 # c14bazAAR 1.1.0
 
 ## general changes
