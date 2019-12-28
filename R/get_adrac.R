@@ -45,7 +45,8 @@ get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
       lon = .data[["LONG"]],
       shortref = .data[["SOURCE"]]
     ) %>% dplyr::mutate(
-      sourcedb = "aDRAC"
+      sourcedb = "aDRAC",
+      sourcedb_version = get_db_version("aDRAC")
     ) %>%
     as.c14_date_list()
 

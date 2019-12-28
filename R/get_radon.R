@@ -49,7 +49,8 @@ get_RADON <- function(db_url = get_db_url("RADON")) {
       shortref = .data[["REFERENCE"]]
     ) %>%
     dplyr::mutate(
-      sourcedb = "RADON"
+      sourcedb = "RADON",
+      sourcedb_version = get_db_version("RADON")
     ) %>%
     as.c14_date_list()
 

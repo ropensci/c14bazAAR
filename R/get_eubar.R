@@ -39,7 +39,8 @@ get_EUBAR <- function(db_url = get_db_url("EUBAR")) {
       comment = NA
     ) %>%
     dplyr::mutate(
-      sourcedb = "EUBAR"
+      sourcedb = "EUBAR",
+      sourcedb_version = get_db_version("EUBAR")
     ) %>%
     as.c14_date_list()
 

@@ -72,7 +72,8 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
       feature = .data[["Site Name"]],
       comment = gsub("^, $", NA, paste0(.data[["Comments"]], .data[["Additional Information"]], sep = ", "))
     ) %>% dplyr::mutate(
-      sourcedb = "KITEeastafrica"
+      sourcedb = "KITEeastafrica",
+      sourcedb_version = get_db_version("KITEeastafrica")
     ) %>%
     as.c14_date_list()
 

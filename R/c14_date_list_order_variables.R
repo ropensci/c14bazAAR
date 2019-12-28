@@ -39,6 +39,7 @@ order_variables.c14_date_list <- function(x) {
   x <- x %>%
     dplyr::select(
       dplyr::matches("^sourcedb$"),
+      dplyr::matches("^sourcedb_version$"),
       dplyr::matches("^method$"),
       dplyr::matches("^labnr$"),
       .data[["c14age"]],

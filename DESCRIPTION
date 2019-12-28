@@ -88,5 +88,5 @@ Suggests:
     sf,
     stringdist,
     testthat
-RoxygenNote: 7.0.1
+RoxygenNote: 7.0.2
 VignetteBuilder: knitr

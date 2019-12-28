@@ -113,7 +113,8 @@ get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
       lon = .data[["Longitude"]],
       shortref = .data[["Source"]]
     ) %>% dplyr::mutate(
-      sourcedb = "Palmisano"
+      sourcedb = "Palmisano",
+      sourcedb_version = get_db_version("Palmisano")
     ) %>%
     as.c14_date_list()
 

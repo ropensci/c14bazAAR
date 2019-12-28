@@ -1,5 +1,6 @@
 c14bazAAR,type,definition,source,14SEA,ADRAC,AUSTARCH,CALPAL,CONTEXT,EUBAR,EUROEVOL,PALMISANO,RADON,RADONB,KITEEASTAFRICA,IRDD
 sourcedb,character,Source database name,c14bazAAR,,,,,,,,,,,,
+sourcedb_version,character,Source database version,c14bazAAR,,,,,,,,,,,,
 method,character,Radiocarbon date measurement method,databases,,,METHOD,METHOD,,,,,,,,
 labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],databases,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,Laboratorio,LabCode,LabID,LABNR,LABNR,Lab Number,Code
 c14age ,integer,14C age [uncalibrated age BP],databases,Date BP,C14AGE,AGE,C14AGE,C14AGE,Edad BP literatura,C14Age,CRA,C14AGE,C14AGE,Normalized Age,BP
