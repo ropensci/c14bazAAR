@@ -165,6 +165,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "globe",
+      "name": "globe",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=globe"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
       "provider": {
@@ -453,7 +465,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "160.946KB",
+  "fileSize": "161.633KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/c14bazAAR",
     "https://codecov.io/github/ropensci/c14bazAAR?branch=master"
