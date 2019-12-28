@@ -7,7 +7,7 @@
 get_db_url(
   db_name,
   ref_url = paste(c("https://raw.githubusercontent.com", "ropensci", "c14bazAAR",
-    "version", "data-raw", "url_reference.csv"), collapse = "/")
+    "master", "data-raw", "url_reference.csv"), collapse = "/")
 )
 }
 \arguments{

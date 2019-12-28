@@ -55,4 +55,6 @@ is.c14_date_list(example_c14_date_list) # TRUE
 
 print(example_c14_date_list)
 
+plot(example_c14_date_list)
+
 }
