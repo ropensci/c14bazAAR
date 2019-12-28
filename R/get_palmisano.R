@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
+get_palmisano <- function(db_url = get_db_url("palmisano")) {
 
   check_connection_to_url(db_url)
 
@@ -90,7 +90,7 @@ get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
       .data[["CRA_bc"]] >= .data[["StartDate"]] & .data[["CRA_bc"]] < .data[["EndDate"]]
     )
 
-  Palmisano_raw <- radiocarbon_raw %>%
+  palmisano_raw <- radiocarbon_raw %>%
     dplyr::left_join(
       radiocarbon_additional_info,
       by = c("LabID", "CRA", "Error", "Material", "Species",
@@ -98,7 +98,7 @@ get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
     )
 
   # final data preparation
-  Palmisano <- Palmisano_raw %>%
+  palmisano <- palmisano_raw %>%
     base::replace(., . == "", NA) %>%
     dplyr::transmute(
       labnr = .data[["LabID"]],
@@ -113,10 +113,10 @@ get_Palmisano <- function(db_url = get_db_url("Palmisano")) {
       lon = .data[["Longitude"]],
       shortref = .data[["Source"]]
     ) %>% dplyr::mutate(
-      sourcedb = "Palmisano",
-      sourcedb_version = get_db_version("Palmisano")
+      sourcedb = "palmisano",
+      sourcedb_version = get_db_version("palmisano")
     ) %>%
     as.c14_date_list()
 
-  return(Palmisano)
+  return(palmisano)
 }

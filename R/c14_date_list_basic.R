@@ -31,7 +31,7 @@
 #' # You have to add the class again afterwards:
 #' library(magrittr)
 #' example_c14_date_list %>%
-#'   dplyr::filter(sourcedb == "CALPAL") %>%
+#'   dplyr::filter(sourcedb == "") %>%
 #'   as.c14_date_list()
 #'
 #' is.c14_date_list(5) # FALSE

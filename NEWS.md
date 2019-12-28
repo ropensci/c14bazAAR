@@ -19,7 +19,7 @@
 - replaced hard coded URLs with arguments to get helper functions (caabcb7b)
 
 ## new getter functions
-- added getter function for IRDD database: `get_IRDD` (#79)
+- added getter function for irdd database: `get_irdd` (#79)
 
 # c14bazAAR 1.0.3
 
@@ -32,8 +32,8 @@
 - created a completely artificial example dataset that replaces the sampled version
 
 ## new getter functions
-- added getter function for Palmisano et al. database: `get_Palmisano` (#59)
-- added getter function for EUBAR database: `get_EUBAR` (#64)
+- added getter function for Palmisano et al. database: `get_palmisano` (#59)
+- added getter function for eubar database: `get_eubar` (#64)
 
 ## new features
 - added new options for the deduplication function (see `?duplicates`) (#63)
@@ -41,7 +41,7 @@
 - better implementation of the `c14_date_list` as a subclass of tibble for a better integration of the subclass into the tidyverse (#67)
 
 ## bugfixes
-- small file path construction fix in CONTEXT getter function
+- small file path construction fix in context getter function
 - replaced some deprecated functions by other packages (dplyr::funs & tibble::as.tibble)
 - replaced `RCurl::url.exists` with `httr::http_error` in `check_connection_to_url` (#68)
 - fixed `as.sf` error that occurred when date lists with dates without coordinates were transformed
