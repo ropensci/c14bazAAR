@@ -12,7 +12,6 @@ before_install:
 - sudo apt-get install --yes libudunits2-dev
 - sudo apt-get install --yes libproj-dev libgeos-dev libgdal-dev
 after_success:
-- Rscript -e "install.packages('devtools'); devtools::install_github('ropensci/c14bazAAR'); library(c14bazAAR); get_euroevol(); get_palmisano()"
 - Rscript -e 'library(covr); codecov()'
 - git clone --bare https://github.com/ropensci/c14bazAAR.git
 - cd c14bazAAR.git/
