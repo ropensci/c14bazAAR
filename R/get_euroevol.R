@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
+get_euroevol <- function(db_url = get_db_url("euroevol")) {
 
   db_url1 <- db_url[1]
   db_url2 <- db_url[2]
@@ -59,7 +59,7 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
     dplyr::select(-.data[["Period"]], -.data[["SiteID"]])
 
   # merge and prepare
-  EUROEVOL <- dates %>%
+  euroevol <- dates %>%
     # merge
     dplyr::left_join(sites, by = "SiteID") %>%
     dplyr::left_join(phases, by = "PhaseCode") %>%
@@ -79,10 +79,10 @@ get_EUROEVOL <- function(db_url = get_db_url("EUROEVOL")) {
       culture = .data[["Culture"]],
       sitetype = .data[["Type"]]
     ) %>% dplyr::mutate(
-      sourcedb = "EUROEVOL",
-      sourcedb_version = get_db_version("EUROEVOL")
+      sourcedb = "euroevol",
+      sourcedb_version = get_db_version("euroevol")
     ) %>%
     as.c14_date_list()
 
-  return(EUROEVOL)
+  return(euroevol)
 }

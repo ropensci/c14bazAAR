@@ -47,7 +47,7 @@ as.c14_date_list(data.frame(c14age = c(2000, 2500), c14std = c(30, 35)))
 # You have to add the class again afterwards:
 library(magrittr)
 example_c14_date_list \%>\%
-  dplyr::filter(sourcedb == "CALPAL") \%>\%
+  dplyr::filter(sourcedb == "") \%>\%
   as.c14_date_list()
 
 is.c14_date_list(5) # FALSE

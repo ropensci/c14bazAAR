@@ -1,11 +1,11 @@
 #' @rdname db_getter_backend
 #' @export
-get_CalPal <- function(db_url = get_db_url("CalPal")) {
+get_calpal <- function(db_url = get_db_url("calpal")) {
 
   check_connection_to_url(db_url)
 
   # read data
-  CALPAL <- db_url %>%
+  calpal <- db_url %>%
     data.table::fread(
       drop = c(
         "ID",
@@ -53,10 +53,10 @@ get_CalPal <- function(db_url = get_db_url("CalPal")) {
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
-      sourcedb = "CALPAL",
-      sourcedb_version = get_db_version("CALPAL")
+      sourcedb = "calpal",
+      sourcedb_version = get_db_version("calpal")
     ) %>%
     as.c14_date_list()
 
-  return(CALPAL)
+  return(calpal)
 }

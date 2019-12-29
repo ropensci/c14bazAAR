@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_EUBAR <- function(db_url = get_db_url("EUBAR")) {
+get_eubar <- function(db_url = get_db_url("eubar")) {
 
   check_if_packages_are_available("openxlsx")
 
@@ -11,7 +11,7 @@ get_EUBAR <- function(db_url = get_db_url("EUBAR")) {
   utils::download.file(db_url, tempo, mode = "wb", quiet = TRUE)
 
   # read data
-  EUBAR <- tempo %>%
+  eubar <- tempo %>%
     openxlsx::read.xlsx(
       na.strings = c("Combination fails", "nd", "-"),
       startRow = 2,
@@ -39,13 +39,13 @@ get_EUBAR <- function(db_url = get_db_url("EUBAR")) {
       comment = NA
     ) %>%
     dplyr::mutate(
-      sourcedb = "EUBAR",
-      sourcedb_version = get_db_version("EUBAR")
+      sourcedb = "eubar",
+      sourcedb_version = get_db_version("eubar")
     ) %>%
     as.c14_date_list()
 
   # delete temporary file
   unlink(tempo)
 
-  return(EUBAR)
+  return(eubar)
 }
