@@ -128,10 +128,10 @@ plot.c14_date_list <- function(x, ...) {
   check_if_packages_are_available("globe")
 
   # store par settings
-  old.par <- par(no.readonly = TRUE)
+  old.par <- graphics::par(no.readonly = TRUE)
 
   # set plot layout
-  layout(matrix(c(1,2,3,3), 2, 2, byrow = TRUE))
+  graphics::layout(matrix(c(1,2,3,3), 2, 2, byrow = TRUE))
 
   # plot 1: text
   header <- as.character(format(x)) %>%
@@ -139,17 +139,17 @@ plot.c14_date_list <- function(x, ...) {
     sub("\t", "", .) %>%
     sub("\t\t", "\t", .) %>%
     trimws
-  plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, 1), ylim = c(length(header) + 1, 0))
+  graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, 1), ylim = c(length(header) + 1, 0))
   for (i in 1:length(header)) {
     if (i == 1) {
-      text(0, i, bquote(bold(.(header[i]))), adj = 0)
+      graphics::text(0, i, bquote(bold(.(header[i]))), adj = 0)
     } else {
-      text(0, i, header[i], adj = 0)
+      graphics::text(0, i, header[i], adj = 0)
     }
   }
 
   # plot 2: globe
-  par(mar = c(0, 0, 0, 0))
+  graphics::par(mar = c(0, 0, 0, 0))
   globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
   globe::globepoints(
     loc = x[,c("lon", "lat")],
@@ -159,8 +159,8 @@ plot.c14_date_list <- function(x, ...) {
   )
 
   # plot 3: histogram
-  par(mar = c(4.2, 4.2, 0, 0))
-  hist(
+  graphics::par(mar = c(4.2, 4.2, 0, 0))
+  graphics::hist(
     x[["c14age"]],
     breaks = 100,
     main = NULL,
@@ -171,7 +171,7 @@ plot.c14_date_list <- function(x, ...) {
 
 
   # reset par setting on exit
-  on.exit(par(old.par))
+  on.exit(graphics::par(old.par))
 }
 
 #### accessor functions ####
