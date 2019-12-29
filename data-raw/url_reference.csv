@@ -4,7 +4,7 @@ adrac,today,1,https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/d
 austarch,2013-11-28,1,https://archaeologydataservice.ac.uk/catalogue/adsdata/arch-1661-1/dissemination/csv/Austarch_1-3_and_IDASQ_28Nov13-1.csv
 calpal,2016-04-27,1,https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_14C-Database.csv
 context,2006-09-26,1,http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip
-kiteeastafrica,2016-04-28,1,https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ
+kiteeastafrica,2016-04-28,1,https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/NJLNRJ/L8KRSL
 eubar,2017-10-02,1,https://telearchaeology.org/EUBAR/EUBAR%20def.xlsx
 euroevol,2015-07-09,1,https://discovery.ucl.ac.uk/id/eprint/1469811/7/EUROEVOL09-07-201516-34_C14Samples.csv
 euroevol,,2,https://discovery.ucl.ac.uk/id/eprint/1469811/9/EUROEVOL09-07-201516-34_CommonSites.csv

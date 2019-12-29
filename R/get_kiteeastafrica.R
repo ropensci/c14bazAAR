@@ -4,19 +4,8 @@ get_kiteeastafrica <- function(db_url = get_db_url("kiteeastafrica")) {
 
   check_connection_to_url(db_url)
 
-  # download data to temporary file
-  tempo <- tempfile()
-
-  writeBin(
-    dataverse::get_file(
-      "CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ",
-      server = "dataverse.harvard.edu"
-    ),
-    tempo
-  )
-
   # read data
-  kiteeastafrica <- tempo %>%
+  kiteeastafrica <- db_url %>%
     data.table::fread(
       skip = 3,
       encoding = "Latin-1",
