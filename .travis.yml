@@ -9,7 +9,7 @@ before_install:
 - sudo apt-get install --yes libudunits2-dev
 - sudo apt-get install --yes libproj-dev libgeos-dev libgdal-dev
 # ca certificates for palmisano and euroevol
-- sudo openssl s_client -showcerts -servername discovery.ucl.ac.uk -connect discovery.ucl.ac.uk:443 </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >> /etc/ssl/certs/ca-certificates.crt
+- sudo sh -c "openssl s_client -showcerts -servername discovery.ucl.ac.uk -connect discovery.ucl.ac.uk:443 </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >> /etc/ssl/certs/ca-certificates.crt"
 after_success:
 - Rscript -e 'library(covr); codecov()'
 - git clone --bare https://github.com/ropensci/c14bazAAR.git
