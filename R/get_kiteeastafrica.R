@@ -2,7 +2,7 @@
 #' @export
 get_kiteeastafrica <- function(db_url = get_db_url("kiteeastafrica")) {
 
-  check_connection_to_url(db_url)
+  check_connection_to_url("https://dataverse.harvard.edu")
 
   # read data
   kiteeastafrica <- db_url %>%
