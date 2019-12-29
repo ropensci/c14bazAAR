@@ -1,5 +1,8 @@
 # c14bazAAR 1.2.0
 
+## general changes
+- unified database names in all functions, tables, variables and documentation (#86)
+
 ## new features
 - added a basic plot function for c14_date_lists (#82)
 - added a basic write function for c14_date_lists: `write_c14()` (#84)
