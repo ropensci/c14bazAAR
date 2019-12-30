@@ -1,6 +1,7 @@
 context("write c14_date_lists to file system")
 
 csv_file <- tempfile()
+csv_file2 <- tempfile()
 xlsx_file <- tempfile()
 
 test_that("writing to file works without errors", {
@@ -9,6 +10,13 @@ test_that("writing to file works without errors", {
   )
   expect_silent(
     write_c14(example_c14_date_list, file = xlsx_file, format = "xlsx")
+  )
+})
+
+test_that("list columns are correctly recognized and a message created", {
+  expect_message(
+    write_c14(calibrate(example_c14_date_list), file = csv_file2, format = "csv"),
+    "The following list columns were removed: calrange. Unnest them to keep them in the output table."
   )
 })
 
