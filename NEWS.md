@@ -2,6 +2,7 @@
 
 ## general changes
 - unified database names in all functions, tables, variables and documentation (#86)
+- new logo and some layout changes in the README (#81)
 
 ## new features
 - added a basic plot function for c14_date_lists (#82)
