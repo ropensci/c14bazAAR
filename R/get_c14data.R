@@ -21,7 +21,7 @@
 #' @examples
 #'
 #' \dontrun{
-##'  get_c14data(databases = c("aDrac", "Palmisano"))
+##'  get_c14data(databases = c("adrac", "palmisano"))
 #'   get_all_dates()}
 #'
 #' @export
@@ -127,18 +127,18 @@ get_parser_functions <- function(databases) {
 #' @noRd
 get_all_parser_functions <- function() {
   return(c(
-    "14sea" = c14bazAAR::get_14SEA,
-    "adrac" = c14bazAAR::get_aDRAC,
-    "austarch" =  c14bazAAR::get_AustArch,
-    "calpal" = c14bazAAR::get_CalPal,
-    "context" = c14bazAAR::get_CONTEXT,
-    "eubar" = c14bazAAR::get_EUBAR,
-    "euroevol" = c14bazAAR::get_EUROEVOL,
-    "radon" = c14bazAAR::get_RADON,
-    "radon-b" = c14bazAAR::get_RADONB,
-    "kiteeastafrica" = c14bazAAR::get_KITEeastAfrica,
-    "palmisano" = c14bazAAR::get_Palmisano,
-    "irdd" = c14bazAAR::get_IRDD
+    "14sea" = c14bazAAR::get_14sea,
+    "adrac" = c14bazAAR::get_adrac,
+    "austarch" =  c14bazAAR::get_austarch,
+    "calpal" = c14bazAAR::get_calpal,
+    "context" = c14bazAAR::get_context,
+    "eubar" = c14bazAAR::get_eubar,
+    "euroevol" = c14bazAAR::get_euroevol,
+    "radon" = c14bazAAR::get_radon,
+    "radonb" = c14bazAAR::get_radonb,
+    "kiteeastafrica" = c14bazAAR::get_kiteeastafrica,
+    "palmisano" = c14bazAAR::get_palmisano,
+    "irdd" = c14bazAAR::get_irdd
   ))
 }
 

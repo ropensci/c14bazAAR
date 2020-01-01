@@ -55,6 +55,7 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
   )
   int_cols <- c("c14age", "c14std", "calage", "calstd", "duplicate_group")
   dbl_cols <- c("c13val", "lat", "lon", "coord_precision")
+  date_cols <- c("sourcedb_version")
 
   # transform (invalid values become NA)
   if (suppress_na_introduced_warnings) {
@@ -62,7 +63,8 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
       x <- x %>%
         dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
         dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
-        dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double)
+        dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
+        dplyr::mutate_if(colnames(.) %in% date_cols, as.Date)
       },
       warning = na_introduced_warning_handler
     )
@@ -70,7 +72,8 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
     x <- x %>%
       dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
       dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
-      dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double)
+      dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
+      dplyr::mutate_if(colnames(.) %in% date_cols, as.Date)
   }
 
   return(x)

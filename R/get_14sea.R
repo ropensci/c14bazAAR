@@ -1,7 +1,7 @@
 #' @name get_dates
 #' @rdname db_getter_backend
 #' @export
-get_14SEA <- function(db_url = get_db_url("14SEA")) {
+get_14sea <- function(db_url = get_db_url("14sea")) {
 
   check_if_packages_are_available("openxlsx")
 
@@ -51,7 +51,8 @@ get_14SEA <- function(db_url = get_db_url("14SEA")) {
       comment = .[[14]]
     ) %>%
     dplyr::mutate(
-      sourcedb = "14SEA"
+      sourcedb = "14sea",
+      sourcedb_version = get_db_version("14sea")
     ) %>%
     as.c14_date_list()
 

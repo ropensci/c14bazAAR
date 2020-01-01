@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
+get_context <- function(db_url = get_db_url("context")) {
 
   check_connection_to_url(db_url)
 
@@ -12,7 +12,7 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
     "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv",
     exdir = tempdir()
   )
-  CONTEXT_raw <- data.table::fread(
+  context_raw <- data.table::fread(
     file.path(
       tempdir(),
       "Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1.csv"
@@ -58,7 +58,7 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
   )
 
   # rename
-  CONTEXT <- CONTEXT_raw %>%
+  context <- context_raw %>%
     base::replace(., . == "-", NA) %>%
     base::replace(., . == "--", NA) %>%
     base::replace(., . == "---", NA) %>%
@@ -83,11 +83,12 @@ get_CONTEXT <- function(db_url = get_db_url("CONTEXT")) {
       shortref = .data[["REFERENCE"]],
       comment = .data[["NOTICE"]]
     ) %>% dplyr::mutate(
-      sourcedb = "CONTEXT",
+      sourcedb = "context",
+      sourcedb_version = get_db_version("context"),
       lat = gsub(",", ".", .data[["lat"]]),
       lon = gsub(",", ".", .data[["lon"]])
     ) %>%
     as.c14_date_list()
 
-  return(CONTEXT)
+  return(context)
 }

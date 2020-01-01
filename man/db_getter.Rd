@@ -25,7 +25,7 @@ there's a custom getter function for each of them (see \code{?get_all_dates}). \
 \examples{
 
 \dontrun{
- get_c14data(databases = c("aDrac", "Palmisano"))
+ get_c14data(databases = c("adrac", "palmisano"))
   get_all_dates()}
 
 }

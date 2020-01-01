@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_IRDD <- function(db_url = get_db_url("IRDD")) {
+get_irdd <- function(db_url = get_db_url("irdd")) {
 
   check_if_packages_are_available("openxlsx")
 
@@ -11,7 +11,7 @@ get_IRDD <- function(db_url = get_db_url("IRDD")) {
   utils::download.file(db_url, tempo, mode = "wb", quiet = TRUE)
 
   # read data
-  IRDD <- tempo %>%
+  irdd <- tempo %>%
     openxlsx::read.xlsx(
       sheet = 3,
       startRow = 2,
@@ -36,12 +36,13 @@ get_IRDD <- function(db_url = get_db_url("IRDD")) {
       comment = .[[16]]
     ) %>%
     dplyr::mutate(
-      sourcedb = "IR-DD"
+      sourcedb = "irdd",
+      sourcedb_version = get_db_version("irdd")
     ) %>%
     as.c14_date_list()
 
   # delete temporary file
   unlink(tempo)
 
-  return(IRDD)
+  return(irdd)
 }

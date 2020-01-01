@@ -1,22 +1,11 @@
 #' @rdname db_getter_backend
 #' @export
-get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
+get_kiteeastafrica <- function(db_url = get_db_url("kiteeastafrica")) {
 
-  check_connection_to_url(db_url)
-
-  # download data to temporary file
-  tempo <- tempfile()
-
-  writeBin(
-    dataverse::get_file(
-      "CARD Upload Template - KITE East Africa v2.1.csv", "doi:10.7910/DVN/NJLNRJ",
-      server = "dataverse.harvard.edu"
-    ),
-    tempo
-  )
+  check_connection_to_url("https://dataverse.harvard.edu")
 
   # read data
-  KITEeastafrica <- tempo %>%
+  kiteeastafrica <- db_url %>%
     data.table::fread(
       skip = 3,
       encoding = "Latin-1",
@@ -72,10 +61,11 @@ get_KITEeastAfrica <- function(db_url = get_db_url("KITEeastAfrica")) {
       feature = .data[["Site Name"]],
       comment = gsub("^, $", NA, paste0(.data[["Comments"]], .data[["Additional Information"]], sep = ", "))
     ) %>% dplyr::mutate(
-      sourcedb = "KITEeastafrica"
+      sourcedb = "kiteeastafrica",
+      sourcedb_version = get_db_version("kiteeastafrica")
     ) %>%
     as.c14_date_list()
 
-  return(KITEeastafrica)
+  return(kiteeastafrica)
 
 }

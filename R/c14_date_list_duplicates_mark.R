@@ -32,8 +32,8 @@
 #'
 #' @param x an object of class c14_date_list
 #' @param preferences character vector with the order of source databases by
-#' which the deduping should be executed. If e.g. preferences = c("RADON", "CALPAL")
-#' and a certain date appears in Radon and EUROEVOL, then only the RADON entry remains.
+#' which the deduping should be executed. If e.g. preferences = c("radon", "calpal")
+#' and a certain date appears in radon and euroevol, then only the radon entry remains.
 #' Default: NULL. With preferences = NULL all overlapping, conflicting information in
 #' individual columns of one duplicated date is removed. See Option 2 and 3.
 #' @param supermerge boolean. Should the duplicated datasets be merged on the column level?

@@ -6,6 +6,7 @@
 \alias{is.c14_date_list}
 \alias{format.c14_date_list}
 \alias{print.c14_date_list}
+\alias{plot.c14_date_list}
 \title{\strong{c14_date_list}}
 \usage{
 as.c14_date_list(x, ...)
@@ -15,6 +16,8 @@ is.c14_date_list(x, ...)
 \method{format}{c14_date_list}(x, ...)
 
 \method{print}{c14_date_list}(x, ...)
+
+\method{plot}{c14_date_list}(x, ...)
 }
 \arguments{
 \item{x}{an object}
@@ -44,12 +47,14 @@ as.c14_date_list(data.frame(c14age = c(2000, 2500), c14std = c(30, 35)))
 # You have to add the class again afterwards:
 library(magrittr)
 example_c14_date_list \%>\%
-  dplyr::filter(sourcedb == "CALPAL") \%>\%
+  dplyr::filter(sourcedb == "") \%>\%
   as.c14_date_list()
 
 is.c14_date_list(5) # FALSE
 is.c14_date_list(example_c14_date_list) # TRUE
 
 print(example_c14_date_list)
+
+plot(example_c14_date_list)
 
 }

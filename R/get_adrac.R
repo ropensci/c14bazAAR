@@ -1,11 +1,11 @@
 #' @rdname db_getter_backend
 #' @export
-get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
+get_adrac <- function(db_url = get_db_url("adrac")) {
 
   check_connection_to_url(db_url)
 
   # read data
-  aDRAC <- db_url %>%
+  adrac <- db_url %>%
     data.table::fread(
       drop = c(
         "FEATURE_DESC",
@@ -45,9 +45,10 @@ get_aDRAC <- function(db_url = get_db_url("aDRAC")) {
       lon = .data[["LONG"]],
       shortref = .data[["SOURCE"]]
     ) %>% dplyr::mutate(
-      sourcedb = "aDRAC"
+      sourcedb = "adrac",
+      sourcedb_version = get_db_version("adrac")
     ) %>%
     as.c14_date_list()
 
-  return(aDRAC)
+  return(adrac)
 }

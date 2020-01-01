@@ -22,10 +22,10 @@ library(ggplot2)
 library(magrittr)
 ```
 
-The basis for this example code is the [aDRAC data collection](https://github.com/dirkseidensticker/aDRAC) by Dirk Seidensticker. So let's download the data with the relevant c14bazAAR getter function: 
+The basis for this example code is the [adrac data collection](https://github.com/dirkseidensticker/aDRAC) by Dirk Seidensticker. So let's download the data with the relevant c14bazAAR getter function: 
 
 ```{r}
-aDRAC <- get_aDRAC()
+adrac <- get_c14data("adrac")
 ```
 
 ## Temporal plotting of radiocarbon ages
@@ -33,7 +33,7 @@ aDRAC <- get_aDRAC()
 Radiocarbon dating is a method to determine the absolute age of samples. Therefore one of the main aims for plotting naturally is to display temporal information. Let's select the dates of one individual site -- *Batalimo* in Central Africa -- as a subset to reproduce two of the most common types of radiocarbon date plots.
 
 ```{r}
-Batalimo <- aDRAC %>%
+Batalimo <- adrac %>%
   dplyr::filter(site == "Batalimo")
 ```
 
@@ -147,19 +147,19 @@ Most radiocarbon dates that can be accessed with c14bazAAR have coordinate infor
 `c14_date_list`s can directly be transformed to objects of class `sf`. `sf` objects were introduced by the R package [sf](https://CRAN.R-project.org/package=sf) which provides a tidy interface to work with spatial data in R.
 
 ```{r}
-aDRAC_sf <- aDRAC %>% as.sf()
+adrac_sf <- adrac %>% as.sf()
 ```
 
 This tabular data structure contains the spatial point information for each date in a column *geom*, but also the initial columns of the input dataset: *data.\**
 
 ```{r, echo=FALSE}
-aDRAC_sf %>% dplyr::select(data.labnr, data.c14age, data.c14std, geom)
+adrac_sf %>% dplyr::select(data.labnr, data.c14age, data.c14std, geom)
 ```
 
 It can be manipulated with the powerful dplyr functions. We `filter` out all dates from one particular publication (*Moga 2008*), `group` the dates `by` *site* and apply the `summarise` command to keep only one value per group. As we do not define an operation to fold the other variables in the input table, they are removed. Only the geometry column remains.
 
 ```{r}  
-Moga_spatial <- aDRAC_sf %>%
+Moga_spatial <- adrac_sf %>%
   dplyr::filter(grepl("Moga 2008", data.shortref)) %>%
   dplyr::group_by(data.site) %>%
   dplyr::summarise()

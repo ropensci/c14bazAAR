@@ -1,11 +1,11 @@
 #' @rdname db_getter_backend
 #' @export
-get_AustArch <- function(db_url = get_db_url("AustArch")) {
+get_austarch <- function(db_url = get_db_url("austarch")) {
 
   check_connection_to_url(db_url)
 
   # read data
-  AustArch <- data.table::fread(
+  austarch <- data.table::fread(
     db_url,
     drop = c(
       "ADSID",
@@ -56,14 +56,15 @@ get_AustArch <- function(db_url = get_db_url("AustArch")) {
       method = .data[["METHOD"]],
       comment = .data[["NOTES"]]
     ) %>% dplyr::mutate(
-      sourcedb = "AustArch"
+      sourcedb = "austarch",
+      sourcedb_version = get_db_version("austarch")
     ) %>%
-    # AustArch also contains dates from other dating
+    # austarch also contains dates from other dating
     # methods (OSL, TL, U-Series, etc.)
     dplyr::filter(
       .data$method == "Radiocarbon"
     ) %>%
     as.c14_date_list()
 
-  return(AustArch)
+  return(austarch)
 }

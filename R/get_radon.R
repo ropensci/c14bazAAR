@@ -1,11 +1,11 @@
 #' @rdname db_getter_backend
 #' @export
-get_RADON <- function(db_url = get_db_url("RADON")) {
+get_radon <- function(db_url = get_db_url("radon")) {
 
   check_connection_to_url(db_url)
 
   # read data
-  RADON <- db_url %>%
+  radon <- db_url %>%
     data.table::fread(
       quote = "",
       colClasses = c(
@@ -49,9 +49,10 @@ get_RADON <- function(db_url = get_db_url("RADON")) {
       shortref = .data[["REFERENCE"]]
     ) %>%
     dplyr::mutate(
-      sourcedb = "RADON"
+      sourcedb = "radon",
+      sourcedb_version = get_db_version("radon")
     ) %>%
     as.c14_date_list()
 
-  return(RADON)
+  return(radon)
 }
