@@ -157,7 +157,7 @@ x2 <- fuse(x1, x1)
 
 #### Plotting radiocarbon data
 
-c14bazAAR does not provide plotting functions, but the [simple plotting vignette](https://github.com/ropensci/c14bazAAR/blob/master/vignettes/simple_plotting.Rmd) introduces some basic techniques to help you get started.
+c14bazAAR only provides a very basic `plot` function for `c14_date_list`s. The [simple plotting vignette](https://github.com/ropensci/c14bazAAR/blob/master/vignettes/simple_plotting.Rmd) introduces some techniques to help you get started with more sophisticated visualization.
 
 ### Databases
 
