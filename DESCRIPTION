@@ -62,7 +62,7 @@ Imports:
     data.table (>= 1.11.4),
     dplyr (>= 0.7.2),
     graphics,
-    httr (>= 1.4.0),
+    httr (>= 1.4.1),
     magrittr (>= 1.5),
     pbapply (>= 1.3-3),
     rlang (>= 0.1.1),

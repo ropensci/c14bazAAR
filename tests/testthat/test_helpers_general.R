@@ -23,7 +23,7 @@ test_that("check_if_columns_are_present works", {
 # check_connection_to_url
 test_that("check_connection_to_url works", {
   expect_silent(
-    check_connection_to_url("www.google.de")
+    check_connection_to_url("www.google.com")
   )
   expect_error(
     check_connection_to_url("abc")

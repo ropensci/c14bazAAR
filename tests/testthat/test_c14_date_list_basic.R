@@ -65,8 +65,8 @@ test_that("print.c14_date_list uses format to print a c14_date_list in the inten
     10
   )
   expect_equal(
-    c("\tRadiocarbon date list", "\tdates\t\t9", "\tsites\t\t4", "\tcountries\t5", "\tuncalBP\t\t9000 ― 1000 "),
-    capture.output(print(example_c14_date_list))[1:5]
+    c("\tRadiocarbon date list", "\tdates\t\t9", "\tsites\t\t4", "\tcountries\t5"),
+    capture.output(print(example_c14_date_list))[1:4]
   )
 })
 
