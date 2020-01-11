@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -380,6 +380,11 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "graphics",
+      "name": "graphics"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
       "version": ">= 1.4.0",
@@ -465,7 +470,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "161.633KB",
+  "fileSize": "121.757KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/c14bazAAR",
     "https://codecov.io/github/ropensci/c14bazAAR?branch=master"
@@ -475,6 +480,6 @@
     "archaeology",
     "r"
   ],
-  "relatedLink": "https://CRAN.R-project.org/package=c14bazAAR",
+  "relatedLink": ["https://CRAN.R-project.org/package=c14bazAAR", "https://docs.ropensci.org/c14bazAAR"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }

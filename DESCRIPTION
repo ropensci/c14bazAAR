@@ -1,7 +1,7 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
-Version: 1.1.0
+Version: 1.2.0
 Authors@R: 
     c(person(given = "Clemens",
              family = "Schmid",
