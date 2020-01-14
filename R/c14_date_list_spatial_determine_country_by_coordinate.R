@@ -78,7 +78,7 @@ get_world_map <- function() {
 }
 
 spatial_join_with_country_dataset <- function(x) {
-  world <- get_world_map()
+  world <- get_world_map() %>% lwgeom::st_make_valid()
   # transform data to sf
   x_sf <- x %>% sf::st_as_sf(
     coords = c("lon","lat"),
