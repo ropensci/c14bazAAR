@@ -73,12 +73,12 @@ get_world_map <- function() {
     stop("Problems loading countriesHigh dataset from package rworldxtra.")
   }
   world <- countriesHigh %>%
-    sf::st_as_sf()
+    sf::st_as_sf() %>% lwgeom::st_make_valid()
   return(world)
 }
 
 spatial_join_with_country_dataset <- function(x) {
-  world <- get_world_map() %>% lwgeom::st_make_valid()
+  world <- get_world_map()
   # transform data to sf
   x_sf <- x %>% sf::st_as_sf(
     coords = c("lon","lat"),
