@@ -73,7 +73,7 @@ get_world_map <- function() {
     stop("Problems loading countriesHigh dataset from package rworldxtra.")
   }
   world <- countriesHigh %>%
-    sf::st_as_sf()
+    sf::st_as_sf() %>% lwgeom::st_make_valid()
   return(world)
 }
 
