@@ -121,6 +121,7 @@ bone,"Bone apatite, carbon dioxide"
 bone,Bone (Ovis)
 bone,"Bone (cattle, dog, pig)"
 bone,Bone (Capra)
+bone,"bone, rabbit"
 bone,"bone, Homo sapiens"
 bone,Human (cranial) bone
 bone,Human? bone
@@ -291,6 +292,7 @@ ceramics,"Pottery, organic temper"
 ceramics,Pottery carbon
 charcoal,charcoak
 charcoal,charcoal
+charcoal,"charcoal, nut"
 charcoal,charcoal
 charcoal,Charcoal
 charcoal,Charcoal (<125 microns)
@@ -410,6 +412,9 @@ charcoal,Charcoal fragments
 charcoal,Charcoal (poss. Quercus sp.)
 charcoal,Charcoal/Wood
 charcoal,Charcoal?
+charcoal,charcoal?
+charcoal,"charcoal, Salix/Populus"
+charcoal,"charcoal, Pinus"
 charcoal,Charcoal/seeds
 charcoal,charcoal/wood (twig)
 charcoal,Madera carbonizada
@@ -430,6 +435,7 @@ food residues,voedselrest
 food residues,charred food residue
 other,humic acid
 other,Humic acid extraction
+other,"humic acid, Salix/Populus"
 other,humic acids
 other,Humic fraction
 other,Humics
@@ -754,6 +760,7 @@ plant remains,Bellota carbonizada
 plant remains,Avellana carbonizada
 plant remains,Semilla
 plant remains,Zarzamora
+plant remains,"seed, juniper"
 shell,Freshwater mollusc shell
 shell,Freshwater mussel (Unio sp.)
 shell,Freshwater mussel (Velesunio ambiguus sp.)
@@ -1016,3 +1023,419 @@ wood,Wooden post (int. rings)
 wood,"Quercus, Fraxinus and Ulmus"
 wood,piece of wood
 wood,Madera
+other,amino acids
+antler,antler carbonate fraction
+antler,antler carbonate?
+antler,antler collagen
+antler,"antler collagen, shed"
+antler,"antler, artifact"
+antler,"antler, baton"
+antler,"antler, beveled implement"
+antler,"antler, bevelled base point"
+antler,"antler, biserial point"
+antler,"antler, burned"
+antler,"antler, Cervus elaphus"
+antler,"antler, chisel"
+antler,"antler, cutmarks/grooved"
+antler,"antler, double bevelled point"
+antler,"antler, female"
+antler,"antler, grooved"
+antler,"antler, grooved and ochred"
+antler,"antler, harpoon"
+antler,"antler, modified"
+antler,"antler, Obanian point"
+antler,"antler, pick"
+antler,"antler, pierced baton"
+antler,"antler, point"
+antler,"antler, red deer"
+antler,"antler, reindeer"
+antler,"antler, reindeer, baton"
+antler,"antler, retoucher"
+antler,"antler, rod"
+antler,"antler, sagaie"
+antler,"antler, shed"
+antler,"antler, spear"
+antler,"antler, spearhead"
+antler,"antler, spike"
+antler,"antler, uniserial point"
+antler,"antler, uniserial point 2"
+antler,"antler, unmodified, shed"
+antler,"antler, unmodified, unshed"
+antler,"antler, wand"
+antler,"antler, worked"
+antler,"antler, worked shed specimen"
+charcoal,ash/burned bone
+charcoal,ash/burned earth?
+charcoal,ash/charcoal
+bone,bison
+bone,bison 19
+bone,bison 33
+bone,bison 36
+bone,bison 44
+bone,bison n°19
+bone,bison n°3
+bone,bison n°4
+bone,"bison vertical, zona IX"
+bone,bone
+bone,"bone ,horse, longbone, fresh break"
+bone,bone amino acids
+bone,"bone amino acids, metapodial"
+bone,bone apatite
+bone,bone carbonate fraction
+bone,bone collagen
+bone,bone collagen (bone charcoal)
+bone,bone collagen (bulk sample)
+bone,bone collagen amino acid
+bone,"bone collagen, atlas, cutmarks"
+bone,"bone collagen, cranium/horn core."
+bone,"bone collagen, femur dext."
+bone,"bone collagen, humerus"
+bone,"bone collagen, humerus/radius"
+bone,"bone collagen, lumbar vertebra"
+bone,"bone collagen, metapodium"
+bone,"bone collagen, metatarsus"
+bone,"bone collagen, metatarsus sin."
+bone,"bone collagen, phalange 2"
+bone,"bone collagen, phalange 3"
+bone,"bone collagen, radius dext."
+bone,"bone collagen, scapula sin."
+bone,"bone collagen, shaft"
+bone,"bone collagen, skull/cranium"
+bone,"bone collagen, tibia"
+bone,"bone collagen, tibia sin."
+bone,bone collagen?
+bone,bone collagen/charcoal?
+bone,"bone, adult"
+bone,"bone, adult frontal"
+bone,"bone, adult mandible"
+bone,"bone, antler, Cervus elaphus"
+bone,"bone, arctic hare"
+bone,"bone, arctic hare, calcaneum, cutmarks"
+bone,"bone, arctic hare, tibia, awl"
+bone,"bone, astragalus"
+bone,"bone, astragalus, cutmarks"
+bone,"bone, atlas, cutmarks"
+bone,"bone, auroch, astragalus"
+bone,"bone, badger"
+bone,"bone, bear"
+bone,"bone, bear and microfauna"
+bone,"bone, bear, femur"
+bone,"bone, bear, vertebra w/ flint"
+bone,"bone, bevelled tool"
+bone,"bone, bison"
+bone,"bone, Bison sp."
+bone,"bone, Bos"
+bone,"bone, bovid"
+bone,"bone, bovid, equid, rodent and hyaena"
+bone,"bone, bovid/horse, femur"
+bone,"bone, bovid/horse, longbone, cutmarks"
+bone,"bone, bovid/horse, rib"
+bone,"bone, calcaneum"
+bone,"bone, calcaneum dext."
+bone,"bone, calcaneum sin"
+bone,"bone, calcaneum, cutmarks"
+bone,"bone, calvarium"
+bone,"bone, canis lupus"
+bone,"bone, Capra ibex, Cervus elaphus, vertebrae"
+bone,"bone, capra ibex, naviculo-cuboid"
+bone,"bone, capra sp."
+bone,"bone, capra sp., metatarsal"
+bone,"bone, cave bear"
+bone,"bone, cervid"
+bone,"bone, Cervus elaphus"
+bone,"bone, cervus sp."
+bone,"bone, cervus sp., phalange 1"
+bone,"bone, child calvarium"
+bone,"bone, Coelodonta antiquitatis"
+bone,"bone, cranium"
+bone,"bone, cutmarks"
+bone,"bone, deer"
+bone,"bone, dog"
+bone,"bone, elephant"
+bone,"bone, elk, metatarsal, fresh break"
+bone,"bone, Equus"
+bone,"bone, Equus caballus"
+bone,"bone, Equus ferus"
+bone,"bone, Equus hydruntinus"
+bone,"bone, equus sp."
+bone,"bone, Equus sp."
+bone,"bone, extracted preservatives"
+bone,"bone, femur"
+bone,"bone, femur, cut"
+bone,"bone, femur, female"
+bone,"bone, femur, male"
+bone,"bone, femur, worked"
+bone,"bone, grooved"
+bone,"bone, hare, tibia"
+bone,"bone, harfang"
+bone,"bone, harpoon barb"
+bone,"bone, horn core"
+bone,"bone, horn core, engraved"
+bone,"bone, horse"
+bone,"bone, horse, distal femur"
+bone,"bone, horse, longbone"
+bone,"bone, horse, metapodial, cutmarks"
+bone,"bone, horse, metapodial, fresh break"
+bone,"bone, horse, phalange 1, modified"
+bone,"bone, horse, phalange 2, cutmarks"
+bone,"bone, horse, radius"
+bone,"bone, horse, tibia"
+bone,"bone, horse, tibia, cutmarks"
+bone,"bone, horse, vertebra, modified"
+bone,"bone, horse?, longbone?, impact"
+bone,"bone, human"
+bone,"bone, human (apatite)"
+bone,"bone, human (collagen)"
+bone,"bone, human, astragalus"
+bone,"bone, human, maxilla"
+bone,"bone, human, Paviland I"
+bone,"bone, human, phalange"
+bone,"bone, human, scapula"
+bone,"bone, human, vertebra"
+bone,"bone, human?"
+bone,"bone, humerus"
+bone,"bone, humerus dext."
+bone,"bone, humerus sin."
+bone,"bone, humerus, cutmarks"
+bone,"bone, humerus, worked"
+bone,"bone, humerus?"
+bone,"bone, humerus/scapula"
+bone,"bone, hyaena, mandible"
+bone,"bone, hyaena, premaxilla, neonatal"
+bone,"bone, hyoid"
+bone,"bone, hyoid, piercer with biserial point"
+bone,"bone, ibex"
+bone,"bone, ibex, mandible"
+bone,"bone, left humerus"
+bone,"bone, long bone, fresh break"
+bone,"bone, lynx, femur, modified"
+bone,"bone, mammoth"
+bone,"bone, mammoth, rib"
+bone,"bone, mammoth, rib, cutmarks"
+bone,"bone, mammoth, skull"
+bone,"bone, mandible"
+bone,"bone, mandible, incised, amino acids from collagen"
+bone,"bone, mandible, modified"
+bone,"bone, mandible/pelvis?"
+bone,"bone, mastoid process"
+bone,"bone, maxilla"
+bone,"bone, maxilla dext., I2, I3"
+bone,"bone, maxilla sin"
+bone,"bone, metacarpal"
+bone,"bone, metacarpal dext., cutmarks"
+bone,"bone, metacarpal III dext"
+bone,"bone, metacarpal III sin"
+bone,"bone, metacarpal IV sin"
+bone,"bone, metacarpus"
+bone,"bone, metacarpus sin., cutmarks"
+bone,"bone, metapodial"
+bone,"bone, metapodium"
+bone,"bone, metatarsal"
+bone,"bone, metatarsal III dext"
+bone,"bone, metatarsus"
+bone,"bone, microfauna"
+bone,"bone, milk tooth"
+bone,"bone, moose"
+bone,"bone, naviculo-cuboid"
+bone,"bone, neanderthal"
+bone,"bone, Orcytolagus cuniculus, vertebrae"
+bone,"bone, partial right scapula"
+bone,"bone, pelvis"
+bone,"bone, penis"
+bone,"bone, phalange"
+bone,"bone, phalange 1"
+bone,"bone, phalange 1, cutmarks"
+bone,"bone, phalange 2"
+bone,"bone, phalange 2, cutmarks"
+bone,"bone, phalange 2, cutmarks w/ biserial point"
+bone,"bone, phalanx"
+bone,"bone, pisiform dext., cutmarks?"
+bone,"bone, point"
+bone,"bone, rabbit"
+bone,"bone, radiocubitus sin."
+bone,"bone, radius"
+bone,"bone, radius dext"
+bone,"bone, radius, cutmarks"
+bone,"bone, radius/ulna, cutmarks"
+bone,"bone, red deer"
+bone,"bone, red deer, metapodial, cutmarks"
+bone,"bone, red deer, tibia, modified"
+bone,"bone, reindeer"
+bone,"bone, reindeer, femur?, fresh break"
+bone,"bone, reindeer, humerus"
+bone,"bone, reindeer, humerus, impact"
+bone,"bone, reindeer, longbone, impact"
+bone,"bone, reindeer, metapodial"
+bone,"bone, reindeer, metapodial, fresh break"
+bone,"bone, reindeer, metatarsal"
+bone,"bone, reindeer, phalange"
+bone,"bone, reindeer, radius, fresh break"
+bone,"bone, reindeer, radius/ulna"
+bone,"bone, reindeer, tibia"
+bone,"bone, reindeer, tibia, cutmarks"
+bone,"bone, reindeer, ulna and wolf, astragalus"
+bone,"bone, rhino (mammoth?), rib"
+bone,"bone, rhino, humerus"
+bone,"bone, rhinoceros"
+bone,"bone, rib w/ embedded projectile"
+bone,"bone, rib, cutmarks"
+bone,"bone, rib, modified"
+bone,"bone, right distal humerus"
+bone,"bone, roe deer"
+bone,"bone, roe deer, metacarpial"
+bone,"bone, saïga"
+bone,"bone, saiga, calcaneum"
+bone,"bone, scapula"
+bone,"bone, scapula, modified?"
+bone,"bone, skull"
+bone,"bone, skull and antler"
+bone,"bone, Sus sp."
+bone,"bone, tibia"
+bone,"bone, tibia dext."
+bone,"bone, tibia, cutmarks"
+bone,"bone, ulna"
+bone,"bone, ulna dext."
+bone,"bone, ulna dext., cutmarks?"
+bone,"bone, ulna/tibia"
+bone,"bone, ungulate, humerus"
+bone,"bone, uniserial point"
+bone,"bone, uniserial point 1"
+bone,"bone, Ursus arctos"
+bone,"bone, Ursus arctos, humerus?"
+bone,"bone, Ursus sp., collagen, humerus dext., cutmarks"
+bone,"bone, Ursus spelaeus"
+bone,"bone, Ursus Spelaeus"
+bone,"bone, vertebra"
+bone,"bone, vertebra, cutmarks"
+bone,"bone, vertebra, ochre-stained"
+bone,"bone, vulpes, mandible"
+bone,"bone, wolf-gnawed"
+bone,"bone, worked"
+bone,bone/antler point
+bone,bone/humus
+bone,bone/tooth
+bone,bouquetin n°56
+bone,bouquetin n°67 C8
+antler,burned antler
+bone,burned bone
+bone,burned bone residue
+bone,"burned bone, phalange"
+unknown,burned bone?
+bone,burned bone/charcoal
+bone,burned bone/humus
+other,burned earth
+other,calcareous tufa
+other,calcite
+other,calcrete
+bone,calvarium
+other,carbonaceous earth
+other,carbonaceous material
+other,carbonized matter
+charcoal,charbon
+charcoal,charcaol
+charcoal,charcoal (sample from painting)
+charcoal,charcoal and bone
+charcoal,charcoal and burned bone
+charcoal,"charcoal, burned bone?"
+charcoal,"charcoal, Erica"
+charcoal,"charcoal, hazelnut"
+charcoal,"charcoal, humic acids"
+charcoal,"charcoal, Juniperus/Tetraclinis sp."
+charcoal,"charcoal, nut"
+charcoal,"charcoal, Olea sp."
+charcoal,"charcoal, Picea"
+charcoal,"charcoal, Pinus"
+charcoal,"charcoal, Pinus sp."
+charcoal,"charcoal, Pinus sylvestris"
+charcoal,"charcoal, Pistacea sp."
+charcoal,"charcoal, salix"
+charcoal,"charcoal, Salix/Populus"
+charcoal,charcoal/humus
+food residues,charred food remains
+bone,cheval n°39
+bone,cheval n°56
+bone,cheval n°58
+bone,cheval n°63
+other,colluvial loess
+unknown,cone
+teeth,dent
+plant remains,fruit and cone scales
+plant remains,fruit and fruit scales
+soil,gyttja (coarse detritus mud) with points
+soil,gyttja/humus
+bone,harpoon
+bone,horse bone No. 44
+bone,horse bone No. 9
+other,"humic acid, Salix/Populus"
+soil,humic fraction
+soil,humic loam
+soil,humic material
+soil,humic sand
+soil,humic sediment (humates)
+unknown,humic?/bone?
+soil,humics
+soil,humus [fossil soil]
+unknown,humus?
+other,Insects associated with mammoth
+other,Insects inside juvenile mammoth
+antler,ivory
+antler,ivory collagen
+antler,"ivory collagen, tusk"
+antler,"ivory, boomerang"
+antler,"ivory, mammoth, modified"
+antler,"ivory, mammoth, pendant"
+antler,"ivory, rod"
+antler,"ivory, tusk"
+antler,"ivory, worked"
+soil,Kalkgyttja
+other,lignite
+other,marine shell
+other,"marine shell, Patella sp."
+unknown,moss?
+plant remains,nuts
+other,organic fraction
+other,organic pigment
+other,painting sample
+plant remains,peat (humic acid)
+plant remains,peat (humic acids)
+plant remains,peat (organic carbon)
+other,PK II
+other,PK II enriched
+other,PK II humus
+other,PK II prepared with fulvic acids
+plant remains,plant macro
+plant remains,plant macro and wood
+other,point
+other,prehistoric paintings
+charcoal,purified charcoal
+other,sample from painting
+plant remains,"seed, juniper"
+other,"shell, terrestrial"
+unknown,shell?
+other,stalagmite
+teeth,"tooth, adult"
+teeth,"tooth, auroch, M3, horse, molar"
+teeth,"tooth, brown bear, canine, incised"
+teeth,"tooth, giant deer"
+teeth,"tooth, horse"
+teeth,"tooth, human"
+teeth,"tooth, ibex"
+teeth,"tooth, incisor, cutmarks"
+teeth,"tooth, juvenile"
+teeth,"tooth, M1"
+teeth,"tooth, mammoth"
+teeth,"tooth, mammoth, burned"
+teeth,"tooth, mandibular M3"
+teeth,"tooth, max. P2 sin."
+teeth,"tooth, molar"
+teeth,"tooth, P3/P4, cutmarks"
+teeth,"tooth, premolar"
+teeth,"tooth, reindeer"
+teeth,"tooth, rhinoceros"
+teeth,"tooth, upper molar"
+teeth,tooth/bone
+antler,"tusk, mammoth"
+wood,wood and nuts
+wood,wood charcoal
+wood,wood-rich peat
+wood,"wood, Pinus sp."
