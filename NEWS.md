@@ -38,6 +38,7 @@
 ## new getter functions
 - added getter function for Palmisano et al. database: `get_palmisano` (#59)
 - added getter function for eubar database: `get_eubar` (#64)
+- added getter function for PACEA database: `get_pacea`
 
 ## new features
 - added new options for the deduplication function (see `?duplicates`) (#63)
