@@ -176,6 +176,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("radon")`](R/get_radon.R) [**radon**](https://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](https://www.jna.uni-kiel.de/index.php/jna/article/view/65).
 * [`get_c14data("radonb")`](R/get_radonb.R) [**radonb**](https://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
 * [`get_c14data("pacea")`](R/get_pacea.R) [**pacea**](http://www.paleoanthro.org/media/journal/content/PA20110001_S01.zip): PACEA Geo-Referenced Radiocarbon Database for the late Middle Paleolithic, Upper Paleolithic, and initial Holocene in Europe by [Francesco D'Errico, William E. Banks, Marian Vanhaeren, Véronique Laroulandie and Mathieu Langlais](http://www.paleoanthro.org/media/journal/content/PA20110001.pdf) (2011). 
+* [`get_c14data("14cpalaeolithic")`](R/get_14cpalaeolithic.R) [**14cpalaeolithic**](https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx): RADIOCARBON PALAEOLITHIC EUROPE DATABASE V26, JUNE 2019 by [Pierre M. Vermeersch](https://ees.kuleuven.be/geography/projects/14c-palaeolithic/) (2019).
 
 ### Contributing
 

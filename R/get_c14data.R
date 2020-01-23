@@ -139,7 +139,8 @@ get_all_parser_functions <- function() {
     "kiteeastafrica" = c14bazAAR::get_kiteeastafrica,
     "palmisano" = c14bazAAR::get_palmisano,
     "irdd" = c14bazAAR::get_irdd,
-    "pacea" = c14bazAAR::get_pacea
+    "pacea" = c14bazAAR::get_pacea,
+    "14cpalaeolithic" = c14bazAAR::get_14cpalaeolithic
   ))
 }
 
