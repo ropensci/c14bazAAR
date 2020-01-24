@@ -4,7 +4,7 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
   check_connection_to_url(db_url)
 
-  db_url <-"https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx"
+  # db_url <-"https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx"
 
 
   # download data
