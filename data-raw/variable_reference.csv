@@ -1,4 +1,4 @@
-c14bazAAR,type,definition,source,14sea,adrac,austarch,calpal,context,eubar,euroevol,palmisano,radon,radonb,kiteeastafrica,irdd,PACEA,14cpalaeolithic
+c14bazAAR,type,definition,source,14sea,adrac,austarch,calpal,context,eubar,euroevol,palmisano,radon,radonb,kiteeastafrica,irdd,pacea,14cpalaeolithic
 sourcedb,character,Source database name,c14bazAAR,,,,,,,,,,,,,,
 sourcedb_version,character,Source database version,c14bazAAR,,,,,,,,,,,,,,
 method,character,Radiocarbon date measurement method,databases,,,METHOD,METHOD,,,,,,,,,Date Type,method
