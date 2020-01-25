@@ -2,9 +2,9 @@
 #' @export
 get_pacea <- function(db_url = get_db_url("pacea")) {
 
-  check_connection_to_url(db_url)
-
   # db_url <-"http://www.paleoanthro.org/media/journal/content/PA20110001_S01.zip"
+
+  check_connection_to_url(db_url)
 
   # download and unzip data
   temp <- tempfile()
@@ -28,7 +28,6 @@ get_pacea <- function(db_url = get_db_url("pacea")) {
   # remove files in file system
   unlink(temp)
   file.remove(db_path)
-
 
   # final data preparation
   pacea <- db_raw %>%
@@ -55,7 +54,6 @@ get_pacea <- function(db_url = get_db_url("pacea")) {
       sourcedb_version = get_db_version("pacea")
     ) %>%
     as.c14_date_list()
-
 
   return(pacea)
 }
