@@ -2,37 +2,26 @@
 #' @export
 get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
+  # db_url <- "https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx"
+
   check_connection_to_url(db_url)
 
-  # db_url <-"https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx"
-
-
   # download data
-  temp <- tempfile(fileext=".xlsx")
-
-  utils::download.file(url = db_url, destfile = temp, mode="wb")
-
-  # Read each file and write it to csv
-  lapply(temp, function(f) {
-    df = openxlsx::read.xlsx(f, sheet=1)
-    utils::write.csv(df, gsub("xlsx", "csv", f), row.names=FALSE)
-  })
-
-  db_path_xlsx <- unlist(strsplit(temp, split = ".", fixed = TRUE))
-  db_path_csv <- paste(db_path_xlsx[1], ".csv", sep = "")
+  temp <- tempfile(fileext = ".xlsx")
+  utils::download.file(url = db_url, destfile = temp, mode = "wb", quiet = TRUE)
 
   # read data
-  db_raw <- data.table::fread(
-    db_path_csv,
-    sep = ",",
-    encoding = "UTF-8",
-    colClasses = "character",
-    showProgress = FALSE
-  )
+  db_raw <- openxlsx::read.xlsx(
+    temp,
+    sheet = 1
+  ) %>%
+    dplyr::mutate_if(
+      sapply(., is.character),
+      trimws
+    )
 
   # remove files in file system
   unlink(temp)
-
 
   # final data preparation
   c14palaeolithic <- db_raw %>%
@@ -45,7 +34,7 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
       site = .data[["sitename"]],
       period = .data[["cult.stage"]],
       material = .data[["sample"]],
-      country = .data[["Country"]],
+      country = .data[["country"]],
       lat = .data[["coord_lat"]],
       lon = .data[["coord_long"]],
       shortref = .data[["bibliogr_ref"]]
@@ -55,6 +44,9 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
     ) %>%
     as.c14_date_list()
 
+  # remove non-radiocarbon dates
+  c14palaeolithic <- c14palaeolithic %>%
+    dplyr::filter(method %in% c("AMS", "Conv. 14C"))
 
   return(c14palaeolithic)
 }
