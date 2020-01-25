@@ -1,3 +1,10 @@
+# c14bazAAR 1.2.1
+
+## new getter functions
+- added getter function for PACEA database: `get_pacea`
+- added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic`
+
+
 # c14bazAAR 1.2.0
 
 ## general changes
@@ -8,6 +15,7 @@
 - added a basic plot function for c14_date_lists (#82)
 - added a basic write function for c14_date_lists: `write_c14()` (#84)
 - added a version column that documents from which database version a certain date is pulled (#85)
+
 
 # c14bazAAR 1.1.0
 
@@ -38,6 +46,7 @@
 ## new getter functions
 - added getter function for Palmisano et al. database: `get_palmisano` (#59)
 - added getter function for eubar database: `get_eubar` (#64)
+
 
 ## new features
 - added new options for the deduplication function (see `?duplicates`) (#63)
