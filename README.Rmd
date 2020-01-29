@@ -192,7 +192,7 @@ names(c14.lab) <- c14.n$Var1
 land <- ne_download(scale = "medium", type = 'land', category = 'physical', returnclass = "sf")
 ```
 
-```{r figure, echo=FALSE, fig.align='center', dpi=300, out.width='100%'}
+```{r figure, echo=FALSE, fig.align='center', dpi=300, out.width='100%', warning=FALSE}
 # map
 c14.map <- ggplot(land) + 
   geom_sf(fill = "lightgrey", color = NA) + 

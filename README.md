@@ -134,13 +134,6 @@ c14bazAAR only provides a very basic `plot` function for `c14_date_list`s. The [
 
 ### Databases
 
-    ## Warning: Removed 1506 rows containing non-finite values (stat_bin).
-
-    ## Warning: Removed 28 rows containing missing values (geom_bar).
-
-    ## Warning: Graphs cannot be horizontally aligned unless the axis parameter is
-    ## set. Placing graphs unaligned.
-
 <img src="README_files/figure-markdown_github/figure-1.png" width="100%" style="display: block; margin: auto;" />
 
 To suggest other archives to be queried you can join the discussion [here](https://github.com/ropensci/c14bazAAR/issues/2).
