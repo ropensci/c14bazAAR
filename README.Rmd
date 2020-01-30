@@ -221,7 +221,7 @@ c14.spd <- ggplot(data = c14.data,
   facet_grid(sourcedb ~ ., 
              scales = "free_y", 
              labeller = labeller(sourcedb = c14.lab)) + 
-  scale_x_continuous(limits = c(0, 40000),
+  scale_x_reverse("uncal BP", limits = c(40000, 0),
                      expand = c(0,0)) + 
   scale_y_continuous("", expand = c(0,0)) + 
   #theme_bw() + 
