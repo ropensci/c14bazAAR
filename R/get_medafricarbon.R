@@ -37,8 +37,8 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
   db_culturelink_list <- list()
   for(i in 1:length(db_culturelink_id)){
     culture <- data.frame(Date_ID = db_culturelink_id[i],
-                          Culture = paste(db_culturelink[Date_ID == db_culturelink_id[i],
-                                                         Culture_ID],
+                          Culture = paste(db_culturelink["Date_ID" == db_culturelink_id[i],
+                                                         "Culture_ID"],
                                           collapse = ", "))
     db_culturelink_list[[i]] <- culture
   }
@@ -58,8 +58,8 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
   db_ref_list <- list()
   for(i in 1:length(db_reflinks_id)){
     ref <- data.frame(Date_ID = db_reflinks_id[i],
-                      shortref = paste(db_reflinks[Date_ID == db_reflinks_id[i],
-                                                   BibTexKey],
+                      shortref = paste(db_reflinks["Date_ID" == db_reflinks_id[i],
+                                                   "BibTexKey"],
                                        collapse = ", "))
     db_ref_list[[i]] <- ref
   }
@@ -98,7 +98,7 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
       site = .data[["Site_Name"]],
       sitetype = .data[["Site_Type"]],
       feature = .data[["Site_Context"]],
-      culture = .data[["Culture"]],
+      #culture = .data[["Culture"]],
       material = .data[["Material"]],
       region = .data[["Admin_Region"]],
       country = .data[["Country"]],

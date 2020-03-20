@@ -140,7 +140,8 @@ get_all_parser_functions <- function() {
     "palmisano" = c14bazAAR::get_palmisano,
     "irdd" = c14bazAAR::get_irdd,
     "pacea" = c14bazAAR::get_pacea,
-    "14cpalaeolithic" = c14bazAAR::get_14cpalaeolithic
+    "14cpalaeolithic" = c14bazAAR::get_14cpalaeolithic,
+    "medafricarbon" = c14bazAAR::get_medafricarbon
   ))
 }
 

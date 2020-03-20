@@ -2,8 +2,8 @@
 % Please edit documentation in R/get_14cpalaeolithic.R, R/get_14sea.R,
 %   R/get_adrac.R, R/get_austarch.R, R/get_c14data.R, R/get_calpal.R,
 %   R/get_context.R, R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R,
-%   R/get_kiteeastafrica.R, R/get_pacea.R, R/get_palmisano.R, R/get_radon.R,
-%   R/get_radonb.R
+%   R/get_kiteeastafrica.R, R/get_medafricarbon.R, R/get_pacea.R,
+%   R/get_palmisano.R, R/get_radon.R, R/get_radonb.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_dates}
@@ -17,6 +17,7 @@
 \alias{get_euroevol}
 \alias{get_irdd}
 \alias{get_kiteeastafrica}
+\alias{get_medafricarbon}
 \alias{get_pacea}
 \alias{get_palmisano}
 \alias{get_radon}
@@ -44,6 +45,8 @@ get_euroevol(db_url = get_db_url("euroevol"))
 get_irdd(db_url = get_db_url("irdd"))
 
 get_kiteeastafrica(db_url = get_db_url("kiteeastafrica"))
+
+get_medafricarbon(db_url = get_db_url("medafricarbon"))
 
 get_pacea(db_url = get_db_url("pacea"))
 
