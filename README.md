@@ -202,6 +202,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 8. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
 9. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
 10. Document the addition of the new function in the NEWS.md file.
+11. Add the new database in the list of *Currently available databases* in the DESCRIPTION file
 
 ### Citation
 
