@@ -2,8 +2,6 @@
 #' @export
 get_pacea <- function(db_url = get_db_url("pacea")) {
 
-  # db_url <-"http://www.paleoanthro.org/media/journal/content/PA20110001_S01.zip"
-
   check_connection_to_url(db_url)
 
   # download and unzip data
