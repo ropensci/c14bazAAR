@@ -37,6 +37,7 @@ bone,bone (Sus scrofa)
 bone,Bone (Vombatus ursinus)
 bone,Bone apatite
 bone,Bone apatite/carbonate
+bone,bone apatite (animal)
 bone,Bone carbonate
 bone,bone carbonate
 bone,"bone, rib"
@@ -308,6 +309,7 @@ charcoal,Charcoal from oven
 charcoal,Charcoal from stone pile
 charcoal,"charcoal, charred plant macrofossils"
 charcoal,charcoal/roots
+charcoal,charred plant remain
 charcoal,charcoalE
 charcoal,charcol
 charcoal,charoal
@@ -455,9 +457,14 @@ other,excrement
 other,rat dropping
 other,animal hair
 other,hair
+other,hair (animal)
+other,hair (undetermined)
 other,Bird eggshell
 other,Calcium carbonate
+other,cupule
 other,eggshell
+other,eggshells
+other,eggshell (burnt)
 other,Emu eggshell
 other,ostrich egg
 other,ostrich eggs
@@ -495,6 +502,7 @@ other,Oxalate Carbon Crust
 other,pitch
 other,Silica/paint
 other,soot
+other,Soot
 other,Spinifex resin
 other,Termite nest used in hearth
 other,Quartz
@@ -606,6 +614,7 @@ plant remains,pistaca
 plant remains,plant
 plant remains,plant macrofossils
 plant remains,plant matter
+plant remains,plant remain
 plant remains,plant Remains
 plant remains,plant remains
 plant remains,plant Remains
@@ -621,6 +630,7 @@ plant remains,seed (pip of fruit)
 plant remains,Seed Fragment
 plant remains,seed/fruit
 plant remains,seeds
+plant remains,seeds (charred)
 plant remains,seeds/fruit
 plant remains,straw
 plant remains,straw+reed
@@ -635,6 +645,7 @@ plant remains,Vegetable matter lining grave
 plant remains,Charred seed
 plant remains,Charred hazelnut shell
 plant remains,Charred grain
+plant remains,charred grain
 plant remains,Charred grain (Hordeum)
 plant remains,Charred seeds (figs)
 plant remains,Charred wheat grains
@@ -662,6 +673,7 @@ plant remains,Reed stem/rhizome fragment
 plant remains,Lentil
 plant remains,Wheat grain
 plant remains,Pulse fragment
+plant remains,pulse
 plant remains,Amygdalus/Prunussp. nutshell fragment
 plant remains,Barley grain
 plant remains,"Charred seeds, cereal"
@@ -761,6 +773,7 @@ plant remains,Avellana carbonizada
 plant remains,Semilla
 plant remains,Zarzamora
 plant remains,"seed, juniper"
+plant remains,plant matter (root)
 shell,Freshwater mollusc shell
 shell,Freshwater mussel (Unio sp.)
 shell,Freshwater mussel (Velesunio ambiguus sp.)
@@ -864,6 +877,9 @@ shell,Cockle (?)
 shell,Dentalium
 shell,Unio shell
 shell,shell (marine)
+shell,shell (terrestrial)
+shell,shells (undetermined)
+shell,shell (freshwater)
 soil,Organic clay
 soil,Pit Sediment
 soil,gyttja
@@ -878,6 +894,7 @@ soil,pigment
 soil,rotlehm
 soil,Rotlehm
 soil,Sand
+soil,organic sand
 soil,sediment
 soil,Sediment
 soil,soil
@@ -959,6 +976,7 @@ unknown,organic substance
 unknown,Organics
 unknown,Organics from hearth
 unknown,other
+unknown,Other
 unknown,residue
 unknown,residue (on ceramic)
 unknown,see
@@ -970,6 +988,7 @@ unknown,Terrestrial
 unknown,UNKNOWN
 unknown,
 unknown,Unknown
+unknown,unknown
 unknown,Organic material
 unknown,Nd
 unknown,Organic fraction
@@ -1023,6 +1042,7 @@ wood,Wooden post (int. rings)
 wood,"Quercus, Fraxinus and Ulmus"
 wood,piece of wood
 wood,Madera
+wood,Charred Wood
 other,amino acids
 antler,antler carbonate fraction
 antler,antler carbonate?
@@ -1077,6 +1097,12 @@ bone,bison n°3
 bone,bison n°4
 bone,"bison vertical, zona IX"
 bone,bone
+bone,bone bioapatite
+bone,bone (burned) bioapatite
+bone,bone (burned) collagen
+bone,bone - rib (human)
+bone,bone bioapatite (animal)
+bone,bone (animal)
 bone,"bone ,horse, longbone, fresh break"
 bone,bone amino acids
 bone,"bone amino acids, metapodial"
@@ -1085,6 +1111,8 @@ bone,bone carbonate fraction
 bone,bone collagen
 bone,bone collagen (bone charcoal)
 bone,bone collagen (bulk sample)
+bone,bone collagen (human)
+bone,bone collagen (animal)
 bone,bone collagen amino acid
 bone,"bone collagen, atlas, cutmarks"
 bone,"bone collagen, cranium/horn core."
@@ -1314,8 +1342,10 @@ bone,"bone, worked"
 bone,bone/antler point
 bone,bone/humus
 bone,bone/tooth
+bone,tooth collagen (undetermined)
 bone,bouquetin n°56
 bone,bouquetin n°67 C8
+bone,bone (human)
 antler,burned antler
 bone,burned bone
 bone,burned bone residue
@@ -1434,6 +1464,7 @@ teeth,"tooth, reindeer"
 teeth,"tooth, rhinoceros"
 teeth,"tooth, upper molar"
 teeth,tooth/bone
+teeth,tooth (human)
 antler,"tusk, mammoth"
 wood,wood and nuts
 wood,wood charcoal
@@ -1687,10 +1718,14 @@ bone,bone collagenRangi!fer tarandus left metacarpal from eboulis zone a
 bone,bone collagen Rangifer tarandus tibia from eobulis zone a
 bone,bone collagen Rangifer tarandus radious/metacarpal from eboulis zone a
 bone,bone collagen left femur Bonivae U.A. D
+bone,bone collagen (undetermined)
 bone,charred bone
+bone,charred bone (undetermined)
 bone,burnt bone
 bone,burnt bone from V2 avant-inf 2
 bone,burnt bone from W-1a avant -inf 2
+bone,burnt bone (undetermined)
+bone,bone (undetermined)
 bone,bone from lens 1
 bone,"Bos/Horse, long bone, fragment of schaft, cutmarks"
 bone,"BID, animal bone, cutmarks"
@@ -4923,6 +4958,7 @@ charcoal,"charcoal, humates"
 charcoal,charcoal ?
 charcoal,Pinus type sylvestris charcoal from layer I
 charcoal,"burned bone, charcoal (?)"
+charcoal,charcoal (?)
 charcoal,"charcoal, leaf"
 charcoal,charcoal Pinus
 charcoal,Sediments and charcoal
@@ -5910,6 +5946,7 @@ charcoal,charcoal of Salix within a hearth (probably the lab took another sample
 charcoal,charcoal paint from another schematic anthropomorphic muestra 4
 charcoal,charcaol RB 51 from M4/4
 charcoal,vhztvoal
+charcoal,sediment with charcoal
 NA,"sample from the base of L2, just above the archaeological layer"
 NA,"just above the archaeological layer 3b, multiple aliquot"
 NA,"just above the archaeological layer 3b,multiple aliquot"
@@ -6926,8 +6963,11 @@ other,ESR/U series US on dentine of lower ploar Bos primigenius
 other,Uranium series on pisoliths
 other,sandinine twenty-nine crystals extracted from the white volcanic
 other,organic Material
+other,organic material
 other,ESR on sediments
 other,burnt flint core
+other,basket
+other,basket lining
 other,U-series on overlying stalagmite
 other,pIR-IR225 feldspar from deposits overlying the excavated artefacts
 other,massive-based point (almost complete)
@@ -7005,6 +7045,7 @@ other,Hair from mammoth with cutmarks
 other,Musscle tissue from Mammoth with cut marks
 other,charred residue on pottery from layer 9g
 other,charred residue on pottery
+other,Ceramic Organic Residue
 other,chared residue on pottery
 other, single amino acid
 other,travertine 230Th/234U
@@ -7081,8 +7122,10 @@ other,brick earth above the artefacts
 other,brick earth below the artefacts
 other,ESR on estuarine and freshwater sands Q2
 other,ESR on estuarine and freshwater Q1
+other,Charred Remains
 other,Charred remains on pottery
 other,charred remains on potery
+other,Lacquer
 other,acid soluble fraction of Gif-9140-II
 other,Acid soluble fraction of Gif/LSM-9140-I
 other,clay above
@@ -7090,6 +7133,8 @@ other,clay + sand
 other,"raddish loam, cultural layer"
 other,clay above site
 other,coprolithe
+other,other (animal)
+other,other (unspecified)
 plant remains,indet. Coniferous
 plant remains,Pinus nigra-syk
 plant remains,Pinus nigra-sylvestris
@@ -7269,6 +7314,7 @@ shell,shell Patella
 shell,decorated shell
 shell,Shell Patella calcite
 shell,Shell Vermetidae
+shell,shell (undetermined)
 soil,"ESR on quartz from Q12-1 sheet VII, layer 3(slope)"
 soil,"ESR on quartz from Q1 sheet VI, lfluvial sands"
 soil,"ESR on quartz from Q3 sheet VII, layer 4c (fluvial)"
@@ -7281,10 +7327,14 @@ soil,humic acid fraction from samples GifA-91181 and GifA-96071
 soil,Humic acid fraction from previous
 soil,humic acid fraction from sample GifA-9660 and GifA-91179
 soil,sand
+soil,sediment
 soil,sediments
 soil,cave earth
 soil,sedimetns
+soil,Sediment
 soil,Sediments
+soil,sediment rich in ash
+soil,hydromorphic sand
 soil,sediment from layer 5
 soil,sediments from S2
 soil,"humus, I horizont"
@@ -8269,86 +8319,86 @@ unknown,bone (unknown)
 unknown,antler point ( layer unknown inv; 244ø  bone collagen
 unknown,"fragment of human jaw (inv 514, layer unknown)  bone collagen"
 unknown,bone (position of sample is unknown)
-unkown,from house 1
-unkown,AAR
-unkown,U/Th
-unkown,U/Th?
-unkown,travertine
-unkown,flint
-unkown,Racemisation
-unkown,burnt granite
-unkown,Travertine Carbonatesfraom layer 2 base
-unkown,Travertine carbonates from layer 2 top
-unkown,Th/U detrital calcite corrected
-unkown,U-series on travertine
-unkown,U-series
-unkown,U/Th series on travertine
-unkown,U/Th on travertine
-unkown,U/Th from top of the layer
-unkown,U/Th series from base of the layer
-unkown,U/Th series from top of the layer
-unkown,U/Th from the base of the layer
-unkown,pIRIR250 for Layer E/G
-unkown,from level D
-unkown,AMS3 from layer D
-unkown,"from unit M, level?"
-unkown,From Unit C
-unkown,from unit F
-unkown,from unit 3
-unkown,shzll
-unkown,brunt
-unkown,?burned flint
-unkown,triangular sign nr 57A
-unkown,line below a deer
-unkown,black dot
-unkown,U-series: Overlays red spotted outline horse of Techo de los Policromos chamber
-unkown,Large claviform-like symbol of Techno de los Policromos (same date as previous?)
-unkown,"calcine on sign ALT-11, signo rojo. Est  situado en el sector central del Gran Techo."
-unkown,coquilles
-unkown,.
-unkown,Large claviform-like symbol of Techno de los Policromos
-unkown,ESR and U-series combined data
-unkown,from Gley
-unkown,150-250æm quartz
-unkown,quartz 150-250æm at depth of 1000cm
-unkown,burnt flint
-unkown,heated flint
-unkown,U-series minimum age; probable time of deposition of around 190 ka for Apidima 2
-unkown,U-series Apidia 1
-unkown,SAR minimum age model  unit 6
-unkown,SAR minimum age model from unit 4
-unkown,pIR-IR290 (artefacts not in original position)
-unkown,Pa/U
-unkown,Th/U
-unkown,Ra/U
-unkown,Lyngby type artefact
-unkown," calcitic
+unknown,from house 1
+unknown,AAR
+unknown,U/Th
+unknown,U/Th?
+unknown,travertine
+unknown,flint
+unknown,Racemisation
+unknown,burnt granite
+unknown,Travertine Carbonatesfraom layer 2 base
+unknown,Travertine carbonates from layer 2 top
+unknown,Th/U detrital calcite corrected
+unknown,U-series on travertine
+unknown,U-series
+unknown,U/Th series on travertine
+unknown,U/Th on travertine
+unknown,U/Th from top of the layer
+unknown,U/Th series from base of the layer
+unknown,U/Th series from top of the layer
+unknown,U/Th from the base of the layer
+unknown,pIRIR250 for Layer E/G
+unknown,from level D
+unknown,AMS3 from layer D
+unknown,"from unit M, level?"
+unknown,From Unit C
+unknown,from unit F
+unknown,from unit 3
+unknown,shzll
+unknown,brunt
+unknown,?burned flint
+unknown,triangular sign nr 57A
+unknown,line below a deer
+unknown,black dot
+unknown,U-series: Overlays red spotted outline horse of Techo de los Policromos chamber
+unknown,Large claviform-like symbol of Techno de los Policromos (same date as previous?)
+unknown,"calcine on sign ALT-11, signo rojo. Est  situado en el sector central del Gran Techo."
+unknown,coquilles
+unknown,.
+unknown,Large claviform-like symbol of Techno de los Policromos
+unknown,ESR and U-series combined data
+unknown,from Gley
+unknown,150-250æm quartz
+unknown,quartz 150-250æm at depth of 1000cm
+unknown,burnt flint
+unknown,heated flint
+unknown,U-series minimum age; probable time of deposition of around 190 ka for Apidima 2
+unknown,U-series Apidia 1
+unknown,SAR minimum age model  unit 6
+unknown,SAR minimum age model from unit 4
+unknown,pIR-IR290 (artefacts not in original position)
+unknown,Pa/U
+unknown,Th/U
+unknown,Ra/U
+unknown,Lyngby type artefact
+unknown," calcitic
 crusts that formed on the cranium"
-unkown,humid acids
-unkown,"calcaneum, AI,  12,"
-unkown,?Rangiferfrom Sch K:4 2/3
-unkown,Same as previous
-unkown,Same sample as previous
-unkown,from layer Ca
-unkown,from C3 sup
-unkown,from encasing sediment
-unkown,from A1-560
-unkown,from 32B
-unkown,from 32A
-unkown,from 32C
-unkown,from 31C
-unkown,from Con 41
-unkown,from Con 35
-unkown,from Con 40
-unkown,from Con 39
-unkown,from Con 37
-unkown,from Con 44
-unkown,from Con 43
-unkown,from CTY 3
-unkown,from CTY 6
-unkown,from CTY 5
-unkown,from CTY 9
-unkown,from CTY 1
+unknown,humid acids
+unknown,"calcaneum, AI,  12,"
+unknown,?Rangiferfrom Sch K:4 2/3
+unknown,Same as previous
+unknown,Same sample as previous
+unknown,from layer Ca
+unknown,from C3 sup
+unknown,from encasing sediment
+unknown,from A1-560
+unknown,from 32B
+unknown,from 32A
+unknown,from 32C
+unknown,from 31C
+unknown,from Con 41
+unknown,from Con 35
+unknown,from Con 40
+unknown,from Con 39
+unknown,from Con 37
+unknown,from Con 44
+unknown,from Con 43
+unknown,from CTY 3
+unknown,from CTY 6
+unknown,from CTY 5
+unknown,from CTY 9
+unknown,from CTY 1
 unknown,U/Th series
 wood,Pinus sp. Wood
 wood,worked wood

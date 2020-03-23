@@ -141,7 +141,8 @@ get_all_parser_functions <- function() {
     "irdd" = c14bazAAR::get_irdd,
     "pacea" = c14bazAAR::get_pacea,
     "14cpalaeolithic" = c14bazAAR::get_14cpalaeolithic,
-    "medafricarbon" = c14bazAAR::get_medafricarbon
+    "medafricarbon" = c14bazAAR::get_medafricarbon,
+    "jomon" = c14bazAAR::get_jomon
   ))
 }
 
