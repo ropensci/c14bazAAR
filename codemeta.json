@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.2.0",
+  "version": "1.2.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -470,7 +470,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "123.805KB",
+  "fileSize": "123.683KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/c14bazAAR",
     "https://codecov.io/github/ropensci/c14bazAAR?branch=master"
