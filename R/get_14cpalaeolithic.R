@@ -46,7 +46,7 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
   # remove non-radiocarbon dates
   c14palaeolithic <- c14palaeolithic %>%
-    dplyr::filter(.data$method %in% c("AMS", "Conv. 14C"))
+    dplyr::filter(.data[["method"]] %in% c("AMS", "Conv. 14C"))
 
   return(c14palaeolithic)
 }

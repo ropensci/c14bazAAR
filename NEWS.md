@@ -3,7 +3,8 @@
 ## new getter functions
 - added getter function for PACEA database: `get_pacea`
 - added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic`
-
+- added getter function for MedAfriCarbon database: `get_medafricarbon`
+- added getter function for Jōmon population dynamics database: `get_jomon`
 
 # c14bazAAR 1.2.0
 
