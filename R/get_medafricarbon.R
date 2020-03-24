@@ -18,77 +18,55 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
     db_path[grepl("/dateTable.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8")
+    encoding = "UTF-8"
+  )
 
   db_sites <- data.table::fread(
     db_path[grepl("/siteTable.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8")
+    encoding = "UTF-8"
+  )
 
   db_culturelink <- data.table::fread(
     db_path[grepl("/cultureLink.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8")
+    encoding = "UTF-8"
+  )
 
   # build chain of cultural attributions
-  db_culturelink_id <- unique(db_culturelink$Date_ID)
-  db_culturelink_list <- list()
-  for(i in 1:length(db_culturelink_id)){
-    culture <- data.frame(Date_ID = db_culturelink_id[i],
-                          Culture = paste(db_culturelink["Date_ID" == db_culturelink_id[i],
-                                                         "Culture_ID"],
-                                          collapse = ", "))
-    db_culturelink_list[[i]] <- culture
-  }
-  db_culture <- do.call(rbind, db_culturelink_list)
+  db_culture <- db_culturelink %>%
+    dplyr::select(.data[["Culture_ID"]], .data[["Date_ID"]]) %>%
+      dplyr::group_by(.data[["Date_ID"]]) %>%
+      dplyr::summarise(
+        culture = paste(.data[["Culture_ID"]], collapse = ", ")
+      )
 
   db_reflinks <- data.table::fread(
     db_path[grepl("/dateRefLink.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8")
+    encoding = "UTF-8"
+  )
 
   # build chain of reflinks for shortref field
-  # TODO:
-  # - as of now a very slow implementation: how can that be done faster?
-  # - individual references within bibtex: how to integrate propper short references instead of bibtex keys?
-  db_reflinks_id <- unique(db_reflinks$Date_ID)
-  db_ref_list <- list()
-  for(i in 1:length(db_reflinks_id)){
-    ref <- data.frame(Date_ID = db_reflinks_id[i],
-                      shortref = paste(db_reflinks["Date_ID" == db_reflinks_id[i],
-                                                   "BibTexKey"],
-                                       collapse = ", "))
-    db_ref_list[[i]] <- ref
-  }
-  db_ref <- do.call(rbind, db_ref_list)
-
-  # build raw data based on schema
-
-  # add in sites data
-  db_raw <- merge(x = db_dates,
-                  y = db_sites,
-                  by = "Site_ID")
-
-  # add in cultural attribution
-  db_raw <- merge(x = db_raw,
-                  y = db_culture,
-                  by = "Date_ID",
-                  all.x = T)
-
-  # add in references
-  db_raw <- merge(x = db_raw,
-                  y = db_ref,
-                  by = "Date_ID",
-                  all.x = T)
+  db_ref <- db_reflinks %>%
+    dplyr::select(.data[["BibTexKey"]], .data[["Date_ID"]]) %>%
+    dplyr::group_by(.data[["Date_ID"]]) %>%
+    dplyr::summarise(
+      shortref = paste(.data[["BibTexKey"]], collapse = ", ")
+    )
 
   # remove files in file system
   unlink(temp)
   file.remove(db_path)
 
-  medafricarbon <- db_raw %>%
+  # build raw data based on schema
+  medafricarbon <- db_dates %>%
+    dplyr::left_join(db_sites, by = "Site_ID") %>%
+    dplyr::left_join(db_culture, by = "Date_ID") %>%
+    dplyr::left_join(db_ref, by = "Date_ID") %>%
     base::replace(., . == "", NA) %>%
     dplyr::transmute(
       method = .data[["Date_Method"]],
