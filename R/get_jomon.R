@@ -8,12 +8,16 @@ get_jomon <- function(db_url = get_db_url("jomon")) {
   jomon <- db_url %>%
     data.table::fread(
       drop = c(
-        #"Site_Name_JP",
+        "SampleID",
+        "CombineGroup",
+        "SiteID",
         "Site_Address_JP",
-        "Context_JP",
         "MaterialType_JP",
-        "PotteryPhase_JP",
-        "Source"),
+        "Phase",
+        "Phase_Details",
+        "PhaseAnalysis",
+        "Delta13CError"
+        ),
       encoding = "UTF-8",
       showProgress = FALSE
     ) %>%
@@ -24,13 +28,11 @@ get_jomon <- function(db_url = get_db_url("jomon")) {
       c14std = .data[["Error"]],
       c13val = .data[["Delta13C"]],
       material = .data[["MaterialType_En"]],
-      site = .data[["Site_Name_JP"]] # SiteID
-      #country = .data[["COUNTRY"]],
-      #feature = .data[["FEATURE"]],
-      #period = .data[["PHASE"]],
-      #culture = .data[["POTTERY"]],
-      #lat = .data[["LAT"]],
-      #lon = .data[["LONG"]]
+      site = .data[["Site_Name_JP"]],
+      region = .data[["Region"]],
+      sitetype = .data[["Context_JP"]],
+      period = .data[["PotteryPhase_JP"]],
+      shortref = .data[["Source"]]
     ) %>%
     dplyr::mutate(
       sourcedb = "jomon",
