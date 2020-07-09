@@ -9,6 +9,9 @@
 - added getter function for MedAfriCarbon database: `get_medafricarbon`
 - added getter function for Jōmon population dynamics database: `get_jomon`
 
+## bugfixes
+- `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)
+
 # c14bazAAR 1.2.0
 
 ## general changes
