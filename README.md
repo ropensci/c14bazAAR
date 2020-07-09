@@ -222,15 +222,17 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14 dates from different source databases. Journal of Open Source Software, 4(43), 1914, https://doi.org/10.21105/joss.01914
 
 ```
-@article{Schmid2019,
-  title    = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
-  author   = "Schmid, Clemens and Seidensticker, Dirk and Hinz, Martin",
-  journal  = "Journal of Open Source Software",
-  volume   =  4,
-  number   =  43,
-  pages    = "1914",
-  month    =  nov,
-  year     =  2019
+@Article{Schmid2019,
+  title = {{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases},
+  author = {Clemens Schmid and Dirk Seidensticker and Martin Hinz},
+  journal = {Journal of Open Source Software},
+  volume = {4},
+  number = {43},
+  pages = {1914},
+  month = {nov},
+  year = {2019},
+  doi = {10.21105/joss.01914},
+  url = {https://doi.org/10.21105/joss.01914},
 }
 ```
 
