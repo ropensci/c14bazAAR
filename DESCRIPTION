@@ -77,7 +77,6 @@ Suggests:
     ggridges,
     globe,
     knitr,
-    lwgeom,
     mapview,
     openxlsx,
     plyr,
@@ -89,5 +88,5 @@ Suggests:
     sf,
     stringdist,
     testthat
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr

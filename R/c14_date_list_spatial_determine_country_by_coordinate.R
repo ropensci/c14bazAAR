@@ -16,7 +16,7 @@ determine_country_by_coordinate.default <- function(x, suppress_spatial_warnings
 #' @export
 determine_country_by_coordinate.c14_date_list <- function(x, suppress_spatial_warnings = TRUE) {
 
-  check_if_packages_are_available(c("sf", "rworldxtra", "rgeos", "lwgeom"))
+  check_if_packages_are_available(c("sf", "rworldxtra", "rgeos"))
   x %>% check_if_columns_are_present(c("lat", "lon"))
 
   message(paste0("Determining country by coordinates... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
@@ -73,7 +73,7 @@ get_world_map <- function() {
     stop("Problems loading countriesHigh dataset from package rworldxtra.")
   }
   world <- countriesHigh %>%
-    sf::st_as_sf() %>% lwgeom::st_make_valid()
+    sf::st_as_sf() %>% sf::st_make_valid()
   return(world)
 }
 
