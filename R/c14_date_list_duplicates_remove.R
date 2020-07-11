@@ -250,7 +250,7 @@ remove_duplicates.c14_date_list <- function(
 
   # put not_duplicates and duplicates again together
   final_without_duplicates <- not_duplicates %>%
-    rbind(summarised_duplicates)
+    rbind(summarised_duplicates %>% as.c14_date_list())
 
   final_without_duplicates %>%
     dplyr::select(
