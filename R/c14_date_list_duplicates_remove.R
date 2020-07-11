@@ -58,9 +58,6 @@
 #'  "C",       "lab-3", 1300,    10
 #' ) %>% as.c14_date_list()
 #'
-#' # mark duplicates
-#' test_data %>% find_and_mark_duplicates()
-#'
 #' # remove duplicates with option 1:
 #' test_data %>% remove_duplicates()
 #'
