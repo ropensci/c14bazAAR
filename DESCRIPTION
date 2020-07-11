@@ -77,6 +77,7 @@ Suggests:
     ggridges,
     globe,
     knitr,
+    lwgeom,
     mapview,
     openxlsx,
     plyr,
