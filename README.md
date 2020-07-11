@@ -48,8 +48,8 @@ library(c14bazAAR)
 library(magrittr)
 
 get_c14data("all") %>%
+  remove_duplicates() %>%
   calibrate() %>%
-  mark_duplicates() %>%
   classify_material() %>%
   finalize_country_name() %>%
   coordinate_precision()
@@ -106,15 +106,16 @@ x %>%
 
 #### Duplicates
 
-Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function [`mark_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_mark.R) adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard.
+Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. It's not trivial to find and deal with theses duplicates, because they are not exactly identical between databases: Sometimes they are linked to conflicting and mutually exclusive context information.
 
-For an automatic removal there's the function [`remove_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options how exactly duplicates should be treated.
+For an automatic search and removal based on identical lab numbers we wrote [`remove_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options on how exactly duplicates should be treated.
+
+If you call `remove_duplicates()` with the option `mark_only = TRUE` then no data is removed, but you can inspect the duplicate groups identified.
 
 See `?duplicates` for more information.
 
 ```
 x %>%
-  mark_duplicates() %>%
   remove_duplicates()
 ```
 
