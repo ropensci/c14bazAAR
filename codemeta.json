@@ -14,10 +14,9 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
+  "runtimePlatform": "R version 4.0.1 (2020-06-06)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -470,11 +469,8 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "123.985KB",
-  "contIntegration": [
-    "https://travis-ci.org/ropensci/c14bazAAR",
-    "https://codecov.io/github/ropensci/c14bazAAR?branch=master"
-  ],
+  "fileSize": "10704.229KB",
+  "contIntegration": ["https://travis-ci.org/ropensci/c14bazAAR", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
   "keywords": [
     "radiocarbon-dates",
     "archaeology",
@@ -484,5 +480,44 @@
     "https://CRAN.R-project.org/package=c14bazAAR",
     "https://docs.ropensci.org/c14bazAAR"
   ],
-  "developmentStatus": "https://www.repostatus.org/#active"
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2019",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Clemens",
+          "familyName": "Schmid"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Dirk",
+          "familyName": "Seidensticker"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Martin",
+          "familyName": "Hinz"
+        }
+      ],
+      "name": "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
+      "identifier": "10.21105/joss.01914",
+      "url": "https://doi.org/10.21105/joss.01914",
+      "pagination": "1914",
+      "@id": "https://doi.org/10.21105/joss.01914",
+      "sameAs": "https://doi.org/10.21105/joss.01914",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "43",
+        "datePublished": "2019",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "4",
+          "name": "Journal of Open Source Software"
+        }
+      }
+    }
+  ]
 }
