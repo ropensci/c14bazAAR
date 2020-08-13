@@ -12,7 +12,7 @@
 c14bazAAR is an R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. If you're not familiar with R other tools (such as [GoGet](https://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs.
 
 - [**Installation**](#installation)
-- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Coordinate precision](#coordinate-precision), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data))
+- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Coordinate precision](#coordinate-precision), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
 - [**Databases**](#databases)
 - [**Contributing**](#contributing) ([Adding database getter functions](#adding-database-getter-functions))
 - [**Citation**](#citation)
@@ -159,6 +159,16 @@ x2 <- fuse(x1, x1)
 
 c14bazAAR only provides a very basic `plot` function for `c14_date_list`s. The [simple plotting vignette](https://github.com/ropensci/c14bazAAR/blob/master/vignettes/simple_plotting.Rmd) introduces some techniques to help you get started with more sophisticated visualization.
 
+#### Other radiocarbon packages
+
+There are several R packages that provide functions to calibrate, analyze or model radiocarbon dates: e.g. [oxcAAR](https://github.com/ISAAKiel/oxcAAR), [rcarbon](https://github.com/ahb108/rcarbon), [Bchron](https://github.com/andrewcparnell/Bchron)
+
+They usually have a simple, vector based interface and you can use `c14_date_list` columns as input.
+
+```
+rcarbon::calibrate(x = x$c14age, error = x$c14std)
+```
+
 ### Databases
 
 To suggest other archives to be queried you can join the discussion [here](https://github.com/ropensci/c14bazAAR/issues/2).
@@ -172,9 +182,14 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("euroevol")`](R/get_euroevol.R) [**euroevol**](https://discovery.ucl.ac.uk/1469811/): Cultural Evolution of Neolithic Europe Dataset by [Katie Manning, Sue Colledge, Enrico Crema, Stephen Shennan and Adrian Timpson](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.40/).
 * [`get_c14data("irdd")`](R/get_irdd.R) [**irdd**](https://sites.google.com/site/chapplearchaeology/irish-radiocarbon-dendrochronological-dates): [Robert M Chapple](https://doi.org/10.5281/zenodo.3367518)'s Catalogue of Radiocarbon Determinations & Dendrochronology Dates is a free-to-download resource for Irish archaeology.
 * [`get_c14data("kiteeastafrica")`](R/get_kiteeastafrica.R) [**kiteeastafrica**](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ): Radiocarbon dates from eastern Africa in the CARD2.0 format by [Colin Courtney Mustaphi, Rob Marchant](https://www.openquaternary.com/articles/10.5334/oq.22/).
-* [`get_c14data("palmisano")`](R/get_palmisano.R) [**palmisano**](https://dx.doi.org/10.14324/000.ds.1575442): Regional Demographic Trends and Settlement Patterns in Central Italy: Archaeological Sites and Radiocarbon Dates by A. Palmisano, A. Bevan and S. Shennan (2017).
+* [`get_c14data("palmisano")`](R/get_palmisano.R) [**palmisano**](https://dx.doi.org/10.14324/000.ds.1575442): Regional Demographic Trends and Settlement Patterns in Central Italy: Archaeological Sites and Radiocarbon Dates by [Alessio Palmisano, Andrew Bevan and Stephen Shennan](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.43/) (2018).
 * [`get_c14data("radon")`](R/get_radon.R) [**radon**](https://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](https://www.jna.uni-kiel.de/index.php/jna/article/view/65).
 * [`get_c14data("radonb")`](R/get_radonb.R) [**radonb**](https://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
+* [`get_c14data("pacea")`](R/get_pacea.R) [**pacea**](http://www.paleoanthro.org/media/journal/content/PA20110001_S01.zip): PACEA Geo-Referenced Radiocarbon Database for the late Middle Paleolithic, Upper Paleolithic, and initial Holocene in Europe by [Francesco D'Errico, William E. Banks, Marian Vanhaeren, Véronique Laroulandie and Mathieu Langlais](http://www.paleoanthro.org/media/journal/content/PA20110001.pdf) (2011). 
+* [`get_c14data("14cpalaeolithic")`](R/get_14cpalaeolithic.R) [**14cpalaeolithic**](https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx): Radiocarbon Palaolithic Europe Database V26, June 2019 by [Pierre M. Vermeersch](https://ees.kuleuven.be/geography/projects/14c-palaeolithic/) (2019).
+* [`get_c14data("medafricarbon")`](R/get_medafricarbon.R) [**MedAfriCarbon**](https://zenodo.org/record/3689716#.XnSHp4hKiUk): The MedAfriCarbon Radiocarbon Database and [Web Application](https://theia.arch.cam.ac.uk/MedAfriCarbon/). Archaeological Dynamics in Mediterranean Africa, ca. 9600–700 BC by [Giulio Lucarini, Toby Wilkinson, Enrico R. Crema, Augusto Palombini, Andrew Bevan and Cyprian Broodbank](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.60/) (2020).
+* [`get_c14data("jomon")`](R/get_jomon.R) [**jomon**](https://github.com/ercrema/jomonPhasesAndPopulation): A multi-proxy inference of Jōmon population dynamics using bayesian phase models, residential data, and summed probability distribution of 14C dates [Enrico R. Crema and Ken'ichi Kobayashi](https://www.sciencedirect.com/science/article/pii/S0305440320300583) (2020).
+
 
 ### Contributing
 
@@ -184,7 +199,7 @@ If you would like to contribute to this project, please start by reading our [Gu
 
 If you want to add another radiocarbon database to c14bazAAR (maybe from the list [here](https://github.com/ropensci/c14bazAAR/issues/2)) you can follow this checklist to apply all the necessary changes to the package:
 
-1. Add your database to the [variable_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv) and map the database variables to the variables of c14bazAAR and other databases.
+1. Add your database to the [variable_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv) and map the database variables to the variables of c14bazAAR and other databases. Please also add additional variables, which are not used in c14bazAAR but available in this database, below.
 2. Write the getter function `get_[The Database Name]` in an own script file: **get_[the database name].R**. For the script file names we used a lowercase version of the database name. The function name on the other hand can contain upper case letters. The getter functions have a standardized layout and always yield an object of the class `c14_date_list`. Please look at some of the available functions to get an idea how it is supposed to look like and which checks it has to include.
 3. Add the following roxygen2 tags above the function definition to include it in the package documentation.
 
@@ -195,26 +210,29 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 
 4. Update the package documentation with roxygen2.
 5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/url_reference.csv) to make sure that `get_db_url("[the database name]")` works. `get_db_url()` relies on the file version on the master branch, so maybe you have to find a temporary solution for this as long as you are working in another branch.
-6. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
-7. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
-8. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
-9. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
-10. Document the addition of the new function in the NEWS.md file.
+6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
+7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
+8. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
+9. Document the addition of the new function in the NEWS.md file.
+10. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
+11. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
 
 ### Citation
 
 Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14 dates from different source databases. Journal of Open Source Software, 4(43), 1914, https://doi.org/10.21105/joss.01914
 
 ```
-@article{Schmid2019,
-  title    = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
-  author   = "Schmid, Clemens and Seidensticker, Dirk and Hinz, Martin",
-  journal  = "Journal of Open Source Software",
-  volume   =  4,
-  number   =  43,
-  pages    = "1914",
-  month    =  nov,
-  year     =  2019
+@Article{Schmid2019,
+  title = {{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases},
+  author = {Clemens Schmid and Dirk Seidensticker and Martin Hinz},
+  journal = {Journal of Open Source Software},
+  volume = {4},
+  number = {43},
+  pages = {1914},
+  month = {nov},
+  year = {2019},
+  doi = {10.21105/joss.01914},
+  url = {https://doi.org/10.21105/joss.01914},
 }
 ```
 

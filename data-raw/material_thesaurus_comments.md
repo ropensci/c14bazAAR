@@ -141,6 +141,10 @@
 
 * added additional terms for the IRDD (Ireland) database
 
+# Changes (23.03.2020)
+
+* added additional terms from the MedAfriCarbon & Jomon database
+
 ## not yet defined, uncertain
 
 * "Ash and charcoal" as ?

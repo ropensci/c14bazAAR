@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Query different C14 date databases and apply basic data cleaning, merging and calibration steps.
+Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, austarch, calpal, context, eubar, euroevol, irdd, jomon, kiteeastafrica, medafricarbon, pacea, palmisano, radon, radonb.
 }
 \seealso{
 Useful links:

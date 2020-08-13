@@ -1,3 +1,17 @@
+# c14bazAAR 1.2.1
+
+## general changes
+- added a CITATION file (see citation("c14bazAAR"))
+
+## new getter functions
+- added getter function for PACEA database: `get_pacea`
+- added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic`
+- added getter function for MedAfriCarbon database: `get_medafricarbon`
+- added getter function for Jōmon population dynamics database: `get_jomon`
+
+## bugfixes
+- `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)
+
 # c14bazAAR 1.2.0
 
 ## general changes

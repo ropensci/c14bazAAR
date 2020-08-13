@@ -1,0 +1,22 @@
+citHeader("To cite c14bazAAR in publications use:")
+
+citEntry(
+  entry   = "Article",
+  title   = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
+  author  = personList(as.person("Clemens Schmid"), as.person("Dirk Seidensticker"), as.person("Martin Hinz")),
+  journal = "Journal of Open Source Software",
+  volume  = 4,
+  number  = 43,
+  pages   = 1914,
+  month   = "nov",
+  year    = 2019,
+  doi     = "10.21105/joss.01914",
+  url     = "https://doi.org/10.21105/joss.01914",
+  textVersion = paste(
+    "Schmid et al., (2019).",
+    "c14bazAAR: An R package for downloading and preparing C14",
+    "dates from different source databases.",
+    "Journal of Open Source Software, 4(43), 1914,",
+    "https://doi.org/10.21105/joss.01914"
+  )
+)
