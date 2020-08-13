@@ -24,7 +24,11 @@ library(magrittr)
 
 The basis for this example code is the [adrac data collection](https://github.com/dirkseidensticker/aDRAC) by Dirk Seidensticker. So let's download the data with the relevant c14bazAAR getter function: 
 
-```{r}
+```{r, include = FALSE}
+adrac <- get_c14data("adrac")
+```
+
+```{r, eval = FALSE}
 adrac <- get_c14data("adrac")
 ```
 
@@ -62,12 +66,12 @@ Batalimo_calibrated
 With `tidyr::unnest()` the list column can be dissolved ("unnested") and integrated into the initial `c14_date_list`. Of course the latter looses its original structure and meaning with this step. Each row now represents the probability for one date and year.
 
 ```{r}
-Batalimo_cal_dens <- Batalimo_calibrated %>% tidyr::unnest()
+Batalimo_cal_dens <- Batalimo_calibrated %>% tidyr::unnest(cols = c("calprobdistr"))
 ```
 
 A table like that can be used for plotting a ridgeplot. 
 
-```{r}
+```{r, warning=FALSE}
 Batalimo_cal_dens %>%
   ggplot() +
   # a special geom for ridgeplots is provided by the ggridges package
@@ -114,7 +118,7 @@ Batalimo_calibrated$calrange[1:3]
 The resulting table can also be unnested to make the list column content available in the main table.
 
 ```{r}
-Batalimo_cal_range <- Batalimo_calibrated %>% tidyr::unnest()
+Batalimo_cal_range <- Batalimo_calibrated %>% tidyr::unnest(cols = c("calrange"))
 ```
 
 Now we can plot the calibration curve and -- on top -- error bars with the `calrange` sequences.
@@ -162,7 +166,7 @@ It can be manipulated with the powerful dplyr functions. We `filter` out all dat
 Moga_spatial <- adrac_sf %>%
   dplyr::filter(grepl("Moga 2008", data.shortref)) %>%
   dplyr::group_by(data.site) %>%
-  dplyr::summarise()
+  dplyr::summarise(.groups = "drop")
 ```
 
 ### Interactive map view
@@ -170,7 +174,7 @@ Moga_spatial <- adrac_sf %>%
 The resulting `sf` object can be plotted interactively with the [mapview](https://CRAN.R-project.org/package=mapview) package. 
 
 ```{r}
-Moga_spatial %>% mapview::mapview()
+# Moga_spatial %>% mapview::mapview()
 ```
 
 ### Static map plot
