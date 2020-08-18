@@ -1,3 +1,8 @@
+# c14bazAAR 1.2.2
+
+## new getter functions
+- added getter function for emedyd database: `get_emedyd`
+
 # c14bazAAR 1.2.1
 
 ## general changes

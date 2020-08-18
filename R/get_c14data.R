@@ -132,6 +132,7 @@ get_all_parser_functions <- function() {
     "austarch" =  c14bazAAR::get_austarch,
     "calpal" = c14bazAAR::get_calpal,
     "context" = c14bazAAR::get_context,
+    "emedyd" = c14bazAAR::get_emedyd,
     "eubar" = c14bazAAR::get_eubar,
     "euroevol" = c14bazAAR::get_euroevol,
     "radon" = c14bazAAR::get_radon,
