@@ -9,6 +9,7 @@
 - added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic`
 - added getter function for MedAfriCarbon database: `get_medafricarbon`
 - added getter function for Jōmon population dynamics database: `get_jomon`
+- added getter function for emedyd database: `get_emedyd`
 
 ## bugfixes
 - `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)

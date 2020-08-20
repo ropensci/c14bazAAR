@@ -1,3 +1,7 @@
+# Changes (18.08.2020)
+
+- added values from emedyd
+
 # Changes (13.3.2018)
 
 - had to add all the values from 14SEA.
