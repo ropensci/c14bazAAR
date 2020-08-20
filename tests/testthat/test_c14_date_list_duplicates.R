@@ -9,74 +9,63 @@ option_test_input <- tibble::tribble(
   "B",       "lab-2", 2200,    20,
   "C",       "lab-3", 1300,    10
 ) %>%
-  as.c14_date_list() %>%
-  mark_duplicates()
+  as.c14_date_list()
 
-#### mark_duplicates ####
+#### remove_duplicates ####
 
-result <- mark_duplicates(option_test_input)
+result <- remove_duplicates(option_test_input)
 
-test_that("mark_duplicates gives back a c14_date_list", {
+test_that("remove_duplicates gives back a c14_date_list", {
   expect_s3_class(
     result,
     "c14_date_list"
   )
 })
 
-test_that("mark_duplicates gives back a c14_date_list with the additional
-          column duplicate_group", {
-  expect_true(
-    all(
-      c(colnames(option_test_input), "duplicate_group") %in%
-        colnames(result)
-    )
-  )
-})
+test_that("remove_duplicates gives back a c14_date_list with the additional
+          column duplicate_remove_log", {
+            expect_true(
+              all(
+                c("duplicate_remove_log") %in%
+                  colnames(result)
+              )
+            )
+          })
 
-test_that("mark_duplicates gives back a c14_date_list with the additional
-          column duplicate_group and this column is of type integer", {
-  expect_type(
-    result$duplicate_group,
-    "integer"
-  )
-})
+test_that("remove_duplicates gives back a c14_date_list with the additional
+          column duplicate_remove_log and this column is of type character", {
+            expect_type(
+              result$duplicate_remove_log,
+              "character"
+            )
+          })
 
-#### remove_duplicates ####
+#### remove_duplicates with mark_only = TRUE ####
 
-result2 <- remove_duplicates(result)
+result_mark_only <- remove_duplicates(option_test_input, mark_only = TRUE)
 
-test_that("remove_duplicates gives back a c14_date_list", {
+test_that("remove_duplicates with mark_only = TRUE gives back a c14_date_list", {
   expect_s3_class(
-    result2,
+    result_mark_only,
     "c14_date_list"
   )
 })
 
-test_that("remove_duplicates gives back a c14_date_list with the additional
-          column duplicate_remove_log", {
+test_that("remove_duplicates with mark_only = TRUE gives back a c14_date_list
+          with the additional column duplicate_group", {
   expect_true(
     all(
-      c("duplicate_remove_log") %in%
-        colnames(result2)
+      c(colnames(option_test_input), "duplicate_group") %in%
+        colnames(result_mark_only)
     )
   )
 })
 
-test_that("remove_duplicates gives back a c14_date_list with the additional
-          column duplicate_remove_log and this column is of type character", {
+test_that("remove_duplicates with mark_only = TRUE gives back a c14_date_list with
+          the additional column duplicate_group and this column is of type integer", {
   expect_type(
-    result2$duplicate_remove_log,
-    "character"
-  )
-})
-
-result3 <- remove_duplicates(option_test_input)
-
-test_that("remove_duplicates alone gives the same result as the other functions combined,
-          because it calls the other functions in case of missing variables.", {
-  expect_equal(
-    result2,
-    result3
+    result_mark_only$duplicate_group,
+    "integer"
   )
 })
 

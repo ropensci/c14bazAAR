@@ -64,7 +64,7 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
         dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
         dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
         dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
-        dplyr::mutate_if(colnames(.) %in% date_cols, as.Date)
+        dplyr::mutate_if(colnames(.) %in% date_cols, as_date_from_character)
       },
       warning = na_introduced_warning_handler
     )
@@ -73,7 +73,7 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
       dplyr::mutate_if(colnames(.) %in% chr_cols, as.character) %>%
       dplyr::mutate_if(colnames(.) %in% int_cols, as.integer) %>%
       dplyr::mutate_if(colnames(.) %in% dbl_cols, as.double) %>%
-      dplyr::mutate_if(colnames(.) %in% date_cols, as.Date)
+      dplyr::mutate_if(colnames(.) %in% date_cols, as_date_from_character)
   }
 
   return(x)
@@ -86,5 +86,15 @@ na_introduced_warning_handler <- function(x) {
     grepl("NAs introduced by coercion", x)
   )) {
     invokeRestart("muffleWarning")
+  }
+}
+
+as_date_from_character <- function(x) {
+  if (inherits(x, 'Date')) {
+    x
+  } else if (all(is.character(x))) {
+    as.Date(x)
+  } else {
+    rep(as.Date(NA), length(x))
   }
 }
