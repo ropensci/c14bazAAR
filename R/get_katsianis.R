@@ -13,9 +13,13 @@ get_katsianis <- function(db_url = get_db_url("katsianis")) {
                        mode="wb",
                        quiet = TRUE)
 
+  extr <- tempfile() # temp folde for extracted file
+
+  unzip(temp, files = "C14Samples.txt", exdir = extr) # unzip into new folder
+  file.lst <- list.files(extr, full.names = T) # set path
+
   katsianis <- data.table::fread(
-    unzip(temp,
-          files = "C14Samples.txt"),
+    file.lst,
     sep = "\t",
     drop = c(
       "DBID",
