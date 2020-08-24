@@ -28,4 +28,13 @@ coordinate_precision <- function(...) {
   )
 }
 
+#' @rdname deprecated_functions
+#' @export
+finalize_country_name <- function(...) {
+  stop(
+    "This function was removed from c14bazAAR without a replacement. ",
+    "It was a confusing wrapper that can be very easily reimplemented."
+  )
+}
+
 
