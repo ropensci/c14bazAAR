@@ -37,4 +37,11 @@ finalize_country_name <- function(...) {
   )
 }
 
+#' @rdname deprecated_functions
+#' @export
+standardize_country_name <- function(...) {
+  stop(
+    "This function was renamed to fix_database_country_name()"
+  )
+}
 

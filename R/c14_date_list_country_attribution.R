@@ -3,7 +3,7 @@
 #'
 #' @description \code{c14bazAAR} provides two functions to check and improve the
 #' spatial attribution of the individual dates in a \strong{c14_date_list} to a country. \cr \cr
-#' \code{c14bazAAR::standardize_country_name()} adds column \strong{country_thes} with
+#' \code{c14bazAAR::fix_database_country_name()} adds column \strong{country_thes} with
 #' standardized country names. Most source databases come with a column \strong{country}
 #' that contains a character name of the origin country for each date. Unfortunately the
 #' different source databases don't rely on a unified naming convention and therefore use
@@ -39,7 +39,7 @@
 #'   determine_country_by_coordinate()
 #'
 #' example_c14_date_list %>%
-#'   standardize_country_name()
+#'   fix_database_country_name()
 #'
 
 #### determine_country_by_coordinate ####
@@ -169,23 +169,23 @@ spatial_join_with_country_dataset <- function(x) {
     return()
 }
 
-#### standardize_country_name ####
+#### fix_database_country_name ####
 
 #' @export
 #' @rdname country_attribution
-standardize_country_name <- function(
+fix_database_country_name <- function(
   x,
   country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
   quiet = FALSE,
   ...
 ) {
-  UseMethod("standardize_country_name")
+  UseMethod("fix_database_country_name")
 }
 
 #' @rdname country_attribution
 #' @export
-standardize_country_name.default <- function(
+fix_database_country_name.default <- function(
   x,
   country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
@@ -197,7 +197,7 @@ standardize_country_name.default <- function(
 
 #' @rdname country_attribution
 #' @export
-standardize_country_name.c14_date_list <- function(
+fix_database_country_name.c14_date_list <- function(
   x,
   country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),

@@ -5,9 +5,9 @@
 \alias{determine_country_by_coordinate}
 \alias{determine_country_by_coordinate.default}
 \alias{determine_country_by_coordinate.c14_date_list}
-\alias{standardize_country_name}
-\alias{standardize_country_name.default}
-\alias{standardize_country_name.c14_date_list}
+\alias{fix_database_country_name}
+\alias{fix_database_country_name.default}
+\alias{fix_database_country_name.c14_date_list}
 \title{Functions to improve the country attribution in a \strong{c14_date_list}}
 \usage{
 determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
@@ -16,7 +16,7 @@ determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
 
 \method{determine_country_by_coordinate}{c14_date_list}(x, suppress_spatial_warnings = TRUE)
 
-standardize_country_name(
+fix_database_country_name(
   x,
   country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
@@ -24,7 +24,7 @@ standardize_country_name(
   ...
 )
 
-\method{standardize_country_name}{default}(
+\method{fix_database_country_name}{default}(
   x,
   country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
@@ -32,7 +32,7 @@ standardize_country_name(
   ...
 )
 
-\method{standardize_country_name}{c14_date_list}(
+\method{fix_database_country_name}{c14_date_list}(
   x,
   country_thesaurus = get_country_thesaurus(),
   codesets = c("country.name.de", "iso3c"),
@@ -63,7 +63,7 @@ an object of class c14_date_list with the additional columns \strong{country_the
 \description{
 \code{c14bazAAR} provides two functions to check and improve the
 spatial attribution of the individual dates in a \strong{c14_date_list} to a country. \cr \cr
-\code{c14bazAAR::standardize_country_name()} adds column \strong{country_thes} with
+\code{c14bazAAR::fix_database_country_name()} adds column \strong{country_thes} with
 standardized country names. Most source databases come with a column \strong{country}
 that contains a character name of the origin country for each date. Unfortunately the
 different source databases don't rely on a unified naming convention and therefore use
@@ -86,6 +86,6 @@ example_c14_date_list \%>\%
   determine_country_by_coordinate()
 
 example_c14_date_list \%>\%
-  standardize_country_name()
+  fix_database_country_name()
 
 }

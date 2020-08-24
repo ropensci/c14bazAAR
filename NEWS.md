@@ -4,6 +4,8 @@
 - added a CITATION file (see citation("c14bazAAR"))
 - deprecated `mark_duplicates` to get rid of this extra step. You can get the same result now with `remove_duplicates(mark_only = TRUE)` (#100)
 - deprecated `coordinate_precision`. The functionality was not essential and the calculated precision values probably frequently misleading. Beyond that the name was confusing (#96) (#106)
+- deprecated `finalize_country_name`. This wrapper function was rather confusing and the functionality can be very easily be reimplemented if necessary (#96) (#106)
+- renamed `standardize_country_name` to `fix_database_country_name` to make more clear what it does (#96) (#106)
 
 ## new getter functions
 - added getter function for PACEA database: `get_pacea` (#90)
@@ -14,6 +16,7 @@
 
 ## bugfixes
 - `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)
+- enabled UTF-8 characters in country thesaurus (#96) (#104)
 
 # c14bazAAR 1.2.0
 
