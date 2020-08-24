@@ -1,3 +1,8 @@
+# Changes (21.8.2020)
+
+- added additional terms from the Katsianis database
+ 
+
 # Changes (13.3.2018)
 
 - had to add all the values from 14SEA.

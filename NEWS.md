@@ -1,6 +1,7 @@
 # c14bazAAR 1.2.1
 
 ## new getter functions
+- added getter function for Katsianis et al. database: `get_katsianis`
 - added getter function for PACEA database: `get_pacea`
 - added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic`
 - added getter function for MedAfriCarbon database: `get_medafricarbon`
