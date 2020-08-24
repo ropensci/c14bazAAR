@@ -1,7 +1,8 @@
 #' @name deprecated_functions
 #' @title Deprecated functions
 #'
-#' Run them anyway to get some information about their replacements.
+#' @description Run them anyway to get some information about their replacements
+#' or why they were removed.
 #'
 #' @param ... ...
 #'
@@ -16,3 +17,15 @@ mark_duplicates <- function(...) {
     "Check '?duplicates' for more information."
   )
 }
+
+#' @rdname deprecated_functions
+#' @export
+coordinate_precision <- function(...) {
+  stop(
+    "This function was removed from c14bazAAR without a replacement. ",
+    "The functionality was not essential and the calculated precision values ",
+    "probably frequently misleading."
+  )
+}
+
+

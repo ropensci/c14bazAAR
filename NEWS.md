@@ -1,8 +1,9 @@
-# c14bazAAR 1.2.1
+# c14bazAAR 1.3.0
 
 ## general changes
 - added a CITATION file (see citation("c14bazAAR"))
 - deprecated `mark_duplicates` to get rid of this extra step. You can get the same result now with `remove_duplicates(mark_only = TRUE)` (#100)
+- deprecated `coordinate_precision`. The functionality was not essential and the calculated precision values probably frequently misleading. Beyond that the name was confusing (#96) (#106)
 
 ## new getter functions
 - added getter function for PACEA database: `get_pacea` (#90)

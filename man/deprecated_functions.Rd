@@ -3,17 +3,17 @@
 \name{deprecated_functions}
 \alias{deprecated_functions}
 \alias{mark_duplicates}
-\title{Deprecated functions
-
-Run them anyway to get some information about their replacements.}
+\alias{coordinate_precision}
+\title{Deprecated functions}
 \usage{
 mark_duplicates(...)
+
+coordinate_precision(...)
 }
 \arguments{
 \item{...}{...}
 }
 \description{
-Deprecated functions
-
-Run them anyway to get some information about their replacements.
+Run them anyway to get some information about their replacements
+or why they were removed.
 }
