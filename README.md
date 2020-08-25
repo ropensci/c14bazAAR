@@ -22,17 +22,19 @@ If you want to use data downloaded with c14bazAAR for your research, you have to
 
 ### Installation
 
-c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it directly from your R console. To do so, run the following line:
+We recommend to install the development version from github with the following command (in your R console):
+
+```
+if(!require('remotes')) install.packages('remotes')
+remotes::install_github("ropensci/c14bazAAR")
+```
+
+It is up-to-date and includes more databases and features compared to the CRAN version, though it might be a little bit more unstable. Installing the development version on Windows requires the toolchain bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+
+An older, stable version of c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it with:
 
 ```
 install.packages("c14bazAAR")
-```
-
-You can also get the development version from github:
-
-```
-if(!require('devtools')) install.packages('devtools')
-devtools::install_github("ropensci/c14bazAAR")
 ```
 
 The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to enable them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
