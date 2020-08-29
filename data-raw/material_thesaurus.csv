@@ -12,6 +12,8 @@ antler,"Red deer, antler"
 antler,Red deer antler tool
 antler,Deer antler
 bone,aegilops (saiga)
+bone,bone (charred)?
+bone,bone;wood
 bone,animal bone
 bone,Animal Bone
 bone,bone
@@ -425,6 +427,10 @@ charcoal,Charcoal/seeds
 charcoal,charcoal/wood (twig)
 charcoal,Madera carbonizada
 charcoal,Carbón
+charcoal,charcoal (roots)
+charcoal,charcoal (stake)
+charcoal,charcoal;mortar
+charcoal,charcoal;wood
 charcoal,charcoal (bark)
 charcoal,charcoal (branch)
 charcoal,charcoal (brushwood)
@@ -441,6 +447,7 @@ fabric,cloth
 fabric,fabric
 fabric,mat
 fabric,textile
+fabric,textile?
 fabric,thread
 fabric,wool
 food residues,bread
@@ -504,6 +511,7 @@ other,Coal
 other,Crustal salts
 other,Graphite
 other,insect remain
+other,insect
 other,Limestone flowstone
 other,Macrofossils
 other,Mactra abbreviata
@@ -592,6 +600,7 @@ plant remains,fabacae
 plant remains,figs
 plant remains,fruit
 plant remains,fruit/seeds
+plant remains,stone-fruit
 plant remains,gerste
 plant remains,Gilbertiodendron d.
 plant remains,grain
@@ -657,6 +666,7 @@ plant remains,Tannenreisig III
 plant remains,terrestrial plant macrofossils
 plant remains,triticum
 plant remains,"wheat, chickpeas"
+plant remains,wheat (charred)
 plant remains,Vegetable matter lining grave
 plant remains,Charred seed
 plant remains,Charred hazelnut shell
@@ -776,6 +786,7 @@ plant remains,Seed (?)
 plant remains,Charred grain (Triticum sp.)
 plant remains,Carbonised grain
 plant remains,Charred grain (mostly charcoal)
+plant remains,pollen
 plant remains,Pollen (<5 microns)
 plant remains,Pollen (10-25 microns)
 plant remains,Pollen (45-90 microns)
@@ -902,6 +913,7 @@ shell,shell (marine)
 shell,shell (terrestrial)
 shell,shells (undetermined)
 shell,shell (freshwater)
+shell,algae;seashell
 soil,Organic clay
 soil,Pit Sediment
 soil,gyttja
@@ -909,7 +921,9 @@ soil,Gyttja
 soil,humic
 soil,humus
 soil,organic sediment
-soil,Peat
+soil,Peat,
+soil,peat (dy)
+soil,peat (gyttja)
 soil,peat
 soil,pedogenic carbonate
 soil,pigment
@@ -1037,6 +1051,7 @@ wood,Holz
 wood,lieg.wood
 wood,Populus sp.
 wood,resin
+wood,resin (charred)
 wood,schors (verkoold)
 wood,tree
 wood,twig
@@ -1065,6 +1080,9 @@ wood,"Quercus, Fraxinus and Ulmus"
 wood,piece of wood
 wood,Madera
 wood,Charred Wood
+wood,wood (twig)
+wood,wood (waterlogged)
+wood,wood?
 wood,"wood (waterlogged,branch)"
 wood,"wood (waterlogged,branches)"
 other,amino acids
@@ -6921,7 +6939,7 @@ other,"from surface near art 188, Puenta"
 other,"associ‚ … une peinture rouge de caprid‚ (panneau Ne214-22, Bitrrangulares"
 other,"from surface near art  111-156,, Organos"
 other,Acid fraction from GifA-91319
-other, from trench III
+other,from trench III
 other,Unit 3b below level from which hand axes were probably dredged
 other,40Ar/39Ar from NOT 1-3 above archaeological level A
 other,"ESR from NOT 2-6, just below archaeological level  D"
@@ -7159,6 +7177,8 @@ other,clay above site
 other,coprolithe
 other,other (animal)
 other,other (unspecified)
+other,ash (volcanic)
+other,paper
 plant remains,indet. Coniferous
 plant remains,Pinus nigra-syk
 plant remains,Pinus nigra-sylvestris
@@ -7252,6 +7272,8 @@ plant remains,Larix type A-1907 from D1 middle
 plant remains,plant macro remains/grass
 plant remains,plant remain
 plant remains,plant ramins
+plant remains,plant matter (marine)
+plant remains,plant matter (short-lived)
 shell,marine schells from taglio  (layer 3)
 shell,marine schell (personal ornament)
 shell,mollusk
@@ -7403,6 +7425,11 @@ soil,charcoal from palaeosoil below level 3
 soil,"charcoal, soil"
 soil,non-carbonised plant remains from the top of the Lateglacial soil
 soil,non-carbonissed plant remains from the base of the Late glacial soil
+soil,sediment (organic-rich)
+soil,sediment (organic-rich. clay)
+soil,sediment (organic-rich. silt)
+soil,sediment?
+soil,silt (organic)
 teeth,EU ESR on Equus  enamel
 teeth,LU ESR on Equus enamel
 teeth,U/Th enamel cave bear ttoth

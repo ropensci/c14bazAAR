@@ -5,6 +5,7 @@
 - deprecated `mark_duplicates` to get rid of this extra step. You can get the same result now with `remove_duplicates(mark_only = TRUE)` (#100)
 
 ## new getter functions
+- added getter function for Katsianis et al. database: `get_katsianis` (#103)
 - added getter function for PACEA database: `get_pacea` (#90)
 - added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic` (#90)
 - added getter function for MedAfriCarbon database: `get_medafricarbon` (#95)

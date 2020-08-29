@@ -1,3 +1,7 @@
+# Changes (21.8.2020)
+
+- added additional terms from the Katsianis database
+ 
 # Changes (18.08.2020)
 
 - added values from emedyd
