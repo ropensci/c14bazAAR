@@ -1,48 +1,48 @@
-c14bazAAR,type,definition,source,14sea,adrac,austarch,calpal,context,eubar,euroevol,palmisano,radon,radonb,kiteeastafrica,irdd,pacea,14cpalaeolithic,medafricarbon,jomon,katsianis
+c14bazAAR,type,definition,source,14sea,adrac,austarch,calpal,context,emedyd,eubar,euroevol,palmisano,radon,radonb,kiteeastafrica,irdd,pacea,14cpalaeolithic,medafricarbon,jomon
 sourcedb,character,Source database name,c14bazAAR,,,,,,,,,,,,,,,,,
 sourcedb_version,character,Source database version,c14bazAAR,,,,,,,,,,,,,,,,,
-method,character,Radiocarbon date measurement method,databases,,,METHOD,METHOD,,,,,,,,,Date Type,method,Date_Method,,DateMethod
-labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],databases,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,Laboratorio,LabCode,LabID,LABNR,LABNR,Lab Number,Code,Code,labref,Lab_ID,LabCode,LabID
-c14age ,integer,14C age [uncalibrated age BP],databases,Date BP,C14AGE,AGE,C14AGE,C14AGE,Edad BP literatura,C14Age,CRA,C14AGE,C14AGE,Normalized Age,BP,Age,age,CRA,CRA,CRA
-c14std,integer,Standard deviation [1 sigma devitation range],databases,±,C14STD,ERROR,C14STD,C14STD,Desviación Típica,C14SD,Error,C14STD,C14STD,NA Sigma,SD,s.dev.,sigma.+/-,Error,Error,Error
+method,character,Radiocarbon date measurement method,databases,,,METHOD,METHOD,,,,,,,,,,Date Type,method,Date_Method,
+labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],databases,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,LabID,Laboratorio,LabCode,LabID,LABNR,LABNR,Lab Number,Code,Code,labref,Lab_ID,LabCode
+c14age ,integer,14C age [uncalibrated age BP],databases,Date BP,C14AGE,AGE,C14AGE,C14AGE,CRA,Edad BP literatura,C14Age,CRA,C14AGE,C14AGE,Normalized Age,BP,Age,age,CRA,CRA
+c14std,integer,Standard deviation [1 sigma devitation range],databases,±,C14STD,ERROR,C14STD,C14STD,Error,Desviación Típica,C14SD,Error,C14STD,C14STD,NA Sigma,SD,s.dev.,sigma.+/-,Error,Error
 calprobdistr,data.frame,Probability distribution of calibrated dates,c14bazAAR,,,,,,,,,,,,,,,,,
 calrange,data.frame,sigma ranges of calibrated dates,c14bazAAR,,,,,,,,,,,,,,,,,
 sigma,double,sigma value for the sigma ranges,c14bazAAR,,,,,,,,,,,,,,,,,
-c13val,double,Carbon-13 amount [ppm],databases,δ13C,C13,C13_AGE,C13,C13,,,,C13,C13,Delta 13C (per mil),,,,DC13,Delta13C,DC13
-site,character,Site name,databases,Site,SITE,SITE,SITE,SITE,Yacimiento,SiteName,SiteName,SITE,SITE,Site Identifier,Site,Site,sitename,Site_Name,Site_Name_JP,SiteName
-sitetype,character,Site type classification,databases,,,SITE_TYPE,,,Tipo de Yacimiento,Type,Type,FEATURETYPE,FEATURETYPE,,Site type etc.,Site Type,,Site_Type,Context_JP,SiteType
-feature,character,Name or description of the sample context within the site,databases,Provenance,FEATURE,CONTEXT,,,Procedencia,,,FEATURE,FEATURE,Site Name,,Site Function,,Site_Context,,SiteContext
-period,character,Historico-cultural period of sample context,databases,Period,PHASE,,PERIOD,PERIOD,,Period,Period,PERIOD,PERIOD,,,Cultural Attribution 1,cult stage,,PotteryPhase_JP,SitePhase
-culture,character,Archaeological culture of sample context,databases,,POTTERY,,CULTURE,CULTURE,,Culture,,CULTURE,CULTURE,,,Cultural Attribution 2,,culture,,CulturalPeriod
-material,character,Dated material,databases,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material Analizado,Material,Material,MATERIAL,MATERIAL,Material Dated,Material,Sample,sample,Material,MaterialType_En,Material
+c13val,double,Carbon-13 amount [ppm],databases,δ13C,C13,C13_AGE,C13,C13,,,,,C13,C13,Delta 13C (per mil),,,,DC13,Delta13C
+site,character,Site name,databases,Site,SITE,SITE,SITE,SITE,SiteName,Yacimiento,SiteName,SiteName,SITE,SITE,Site Identifier,Site,Site,sitename,Site_Name,Site_Name_JP
+sitetype,character,Site type classification,databases,,,SITE_TYPE,,,,Tipo de Yacimiento,Type,Type,FEATURETYPE,FEATURETYPE,,Site type etc.,Site Type,,Site_Type,Context_JP
+feature,character,Name or description of the sample context within the site,databases,Provenance,FEATURE,CONTEXT,,,,Procedencia,,,FEATURE,FEATURE,Site Name,,Site Function,,Site_Context,
+period,character,Historico-cultural period of sample context,databases,Period,PHASE,,PERIOD,PERIOD,,,Period,Period,PERIOD,PERIOD,,,Cultural Attribution 1,cult stage,,PotteryPhase_JP
+culture,character,Archaeological culture of sample context,databases,,POTTERY,,CULTURE,CULTURE,,,Culture,,CULTURE,CULTURE,,,Cultural Attribution 2,,culture,
+material,character,Dated material,databases,Material,MATERIAL,MATERIAL,MATERIAL,MATERIAL,Material,Material Analizado,Material,Material,MATERIAL,MATERIAL,Material Dated,Material,Sample,sample,Material,MaterialType_En
 material_thes,character,Dated material (result of thesaurification),c14bazAAR,,,,,,,,,,,,,,,,,
-species,character,Species of dated material,databases,,,,SPECIES,SPECIES,,MaterialSpecies,Species,SPECIES,SPECIES,Taxa Dated,,,,,,Species
-region,character,Geographical makro region,databases,Subregion,,IBRA_REGION,,REGION,Región,,,,,,,Region,,Admin_Region,Region,AdminRegion
-country,character,Country,databases,Country,COUNTRY,,COUNTRY,COUNTRY,País,Country,,COUNTRY,COUNTRY,,,Country,country,Country,,Country
+species,character,Species of dated material,databases,,,,SPECIES,SPECIES,Species,,MaterialSpecies,Species,SPECIES,SPECIES,Taxa Dated,,,,,
+region,character,Geographical makro region,databases,Subregion,,IBRA_REGION,,REGION,,Región,,,,,,,Region,,Admin_Region,Region
+country,character,Country,databases,Country,COUNTRY,,COUNTRY,COUNTRY,Country,País,Country,,COUNTRY,COUNTRY,,,Country,country,Country,
 country_coord,character,Country determined by coordinates,c14bazAAR,,,,,,,,,,,,,,,,,
 country_thes,character,Country as a result of thesaurification,c14bazAAR,,,,,,,,,,,,,,,,,
 country_final,character,Country  final decision (country_coord > country_thes > country),c14bazAAR,,,,,,,,,,,,,,,,,
-lat,double,Latitude of site position [decimal degrees],databases,,LAT,LATITUDE,LATITUDE,LATITUDE,y,Latitude,Latitude,LATITUDE,LATITUDE,Latitude,Latitude,Latitude,coord_lat,Decimal_Degrees_Lat,,Latitude
-lon,double,Longitude of site position [decimal degrees],databases,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,x,Longitude,Longitude,LONGITUDE,LONGITUDE,Longitude,Longitude,Longitude,coord_long,Decimal_Degrees_Long,,Longitude
+lat,double,Latitude of site position [decimal degrees],databases,,LAT,LATITUDE,LATITUDE,LATITUDE,Latitude,y,Latitude,Latitude,LATITUDE,LATITUDE,Latitude,Latitude,Latitude,coord_lat,Decimal_Degrees_Lat,
+lon,double,Longitude of site position [decimal degrees],databases,,LONG,LONGITUDE,LONGITUDE,LONGITUDE,Longitude,x,Longitude,Longitude,LONGITUDE,LONGITUDE,Longitude,Longitude,Longitude,coord_long,Decimal_Degrees_Long,
 coord_precision,double,Possible deviation of the sample coordinates [m],c14bazAAR,,,,,,,,,,,,,,,,,
-shortref,character,Literature source of the dataset information,databases,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,Bibliografía,,Source,REFERENCE,REFERENCE,References,Reference,Biblio,bibliogr_ref,shortref,Source,Source
-comment ,character,Free text with additional information,databases,Comment,,NOTES,NOTICE,NOTICE,,,,,,[Additional Information + Comments],Notes,Notes,,Notes,,Comments
+shortref,character,Literature source of the dataset information,databases,[Reference 1-4],SOURCE,SOURCE,REFERENCE,REFERENCE,,Bibliografía,,Source,REFERENCE,REFERENCE,References,Reference,Biblio,bibliogr_ref,shortref,Source
+comment ,character,Free text with additional information,databases,Comment,,NOTES,NOTICE,NOTICE,,,,,,,[Additional Information + Comments],Notes,Notes,,Notes,
 duplicate_group,integer,Number of duplicate group,c14bazAAR,,,,,,,,,,,,,,,,,
 duplicate_remove_log,character,Description of variable value variation in duplicate group,c14bazAAR,,,,,,,,,,,,,,,,,
-,,,,Subregion no.,FEATURE_DESC,ADSID,ID,ID,Municipio,C14ID,LocQual,ID,ID,Field Number,No.,,,Date_ID,SampleID,DBID
-,,,,calBC 1σ (from),ASSOCIATION,C13_ERROR,PHASE,PHASE,Provincia/Distrito,PhaseCode,StartDate,,,Locality,County,,,Other_Lab_ID,CombineGroup,OthLabID
-,,,,calBC 1σ (to),REL,MATERIAL_TOP_LEVEL,LOCUS,LOCUS,Comarca,Subculture,EndDate,,,Map Sheet,Cal date (2σ),,,Problems,SiteID,OthDateCode
-,,,,Level,,DEPTH_FROM_SURFACE_CM,CALAGE,GR,Región,,SizeHA,,,Elevation (m ASL),Cal date (1σ),,,DC13_Error,Site_Address_JP,Problems
-,,,,,,TECHNIQUE,CALSTD,MAR,Comunidad autónoma,,SizeQual,,,Submitter,Program,,,Calibration_Curve,MaterialType_JP,OthMeasures
-,,,,,,Data pertinent for time-series analysis or calibration,,SAMPLE,Departamento,,Source_id,,,Date Submitted,Curve,,,Local_Reservoire_14Cyr,Phase,
-,,,,,,Open or Closed Site,,calBC68,Cantón,,,,,Collector,Intercept (cal BC/AD),,,Local_Reservoire_14Cyr_Error,Phase_Details,
-,,,,,,Directly Related to occupation? Yes/Unknown,,calBC95,Región geográfica,,,,,Date Collected,intercept (cal BP),,,Species,PhaseAnalysis,
-,,,,,,RECORD_SOURCE,,INCONGR,Contexto Funcional,,,,,Updater,Mode (cal BC/AD),,,Site_ID,Delta13CError,
-,,,,,,DATE_ISSUES,,,Tipo de tumba,,,,,Date Updated,δ13C or 13C/12C ratio,,,Phase_ID,,
-,,,,,,AGE_NORM,,,Ritual funerario,,,,,Measured Age,Measured radiocarbon date,,,Phase_by_Excavator,,
-,,,,,,ADDITIONAL_DATA_ISSUES,,,,,,,,MA Sigma,1σ start,,,Sample_ID,,
-,,,,,,,,,,,,,,Delta 13C Source,1σ finish,,,Location_Quality,,
-,,,,,,,,,,,,,,Significance,2σ start,,,,,
-,,,,,,,,,,,,,,Stratigraphic Component,2σ finish,,,,,
-,,,,,,,,,,,,,,Context,"series order: 1, 3, 4, 2",,,,,
-,,,,,,,,,,,,,,Associated Taxa,Other References to look for,,,,,
+,,,,Subregion no.,FEATURE_DESC,ADSID,ID,ID,,Municipio,C14ID,LocQual,ID,ID,Field Number,No.,,,Date_ID,SampleID
+,,,,calBC 1σ (from),ASSOCIATION,C13_ERROR,PHASE,PHASE,,Provincia/Distrito,PhaseCode,StartDate,,,Locality,County,,,Other_Lab_ID,CombineGroup
+,,,,calBC 1σ (to),REL,MATERIAL_TOP_LEVEL,LOCUS,LOCUS,,Comarca,Subculture,EndDate,,,Map Sheet,Cal date (2σ),,,Problems,SiteID
+,,,,Level,,DEPTH_FROM_SURFACE_CM,CALAGE,GR,,Región,,SizeHA,,,Elevation (m ASL),Cal date (1σ),,,DC13_Error,Site_Address_JP
+,,,,,,TECHNIQUE,CALSTD,MAR,,Comunidad autónoma,,SizeQual,,,Submitter,Program,,,Calibration_Curve,MaterialType_JP
+,,,,,,Data pertinent for time-series analysis or calibration,,SAMPLE,,Departamento,,Source_id,,,Date Submitted,Curve,,,Local_Reservoire_14Cyr,Phase
+,,,,,,Open or Closed Site,,calBC68,,Cantón,,,,,Collector,Intercept (cal BC/AD),,,Local_Reservoire_14Cyr_Error,Phase_Details
+,,,,,,Directly Related to occupation? Yes/Unknown,,calBC95,,Región geográfica,,,,,Date Collected,intercept (cal BP),,,Species,PhaseAnalysis
+,,,,,,RECORD_SOURCE,,INCONGR,,Contexto Funcional,,,,,Updater,Mode (cal BC/AD),,,Site_ID,Delta13CError
+,,,,,,DATE_ISSUES,,,,Tipo de tumba,,,,,Date Updated,δ13C or 13C/12C ratio,,,Phase_ID,
+,,,,,,AGE_NORM,,,,Ritual funerario,,,,,Measured Age,Measured radiocarbon date,,,Phase_by_Excavator,
+,,,,,,ADDITIONAL_DATA_ISSUES,,,,,,,,,MA Sigma,1σ start,,,Sample_ID,
+,,,,,,,,,,,,,,,Delta 13C Source,1σ finish,,,Location_Quality,
+,,,,,,,,,,,,,,,Significance,2σ start,,,,
+,,,,,,,,,,,,,,,Stratigraphic Component,2σ finish,,,,
+,,,,,,,,,,,,,,,Context,"series order: 1, 3, 4, 2",,,,
+,,,,,,,,,,,,,,,Associated Taxa,Other References to look for,,,,

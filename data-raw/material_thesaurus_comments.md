@@ -2,6 +2,9 @@
 
 - added additional terms from the Katsianis database
  
+# Changes (18.08.2020)
+
+- added values from emedyd
 
 # Changes (13.3.2018)
 

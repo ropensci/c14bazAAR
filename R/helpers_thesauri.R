@@ -53,6 +53,7 @@ get_thesaurus <- function(url) {
       "cor" = "character",
       "var" = "character"
     ),
+    encoding = "UTF-8",
     showProgress = FALSE
   ) %>%
     tibble::as_tibble()

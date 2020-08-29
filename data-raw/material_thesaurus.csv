@@ -284,6 +284,9 @@ bone,bone (cremated)
 bone,Hueso humano
 bone,Hueso animal
 bone,Hueso
+bone,bone (charred)
+bone,bone (humic)
+bone,bone/tissue
 ceramics,ceramic
 ceramics,ceramics
 ceramics,organic temper
@@ -293,6 +296,7 @@ ceramics,Organic-tempered sherds
 ceramics,"Sherds, organic fraction"
 ceramics,"Pottery, organic temper"
 ceramics,Pottery carbon
+ceramics,ceramic (organic temper)
 charcoal,charcoak
 charcoal,charcoal
 charcoal,"charcoal, nut"
@@ -427,6 +431,18 @@ charcoal,charcoal (roots)
 charcoal,charcoal (stake)
 charcoal,charcoal;mortar
 charcoal,charcoal;wood
+charcoal,charcoal (bark)
+charcoal,charcoal (branch)
+charcoal,charcoal (brushwood)
+charcoal,"charcoal (bulk,ash)"
+charcoal,charcoal (short-lived)
+charcoal,charcoal (twig)
+charcoal,charcoal (twigs)
+charcoal,charcoal/mortar
+charcoal,charcoal/seed
+charcoal,charcoal/seeds
+charcoal,charcoal/shell
+charcoal,"charcoal/seeds (charred)"
 fabric,cloth
 fabric,fabric
 fabric,mat
@@ -785,6 +801,12 @@ plant remains,Semilla
 plant remains,Zarzamora
 plant remains,"seed, juniper"
 plant remains,plant matter (root)
+plant remains,fruitstone
+plant remains,nutshells
+plant remains,plant matter (charred)
+plant remains,plant matter (waterlogged)
+plant remains,seed (silicified)
+plant remains,seeds (calcified)
 shell,Freshwater mollusc shell
 shell,Freshwater mussel (Unio sp.)
 shell,Freshwater mussel (Velesunio ambiguus sp.)
@@ -1061,6 +1083,8 @@ wood,Charred Wood
 wood,wood (twig)
 wood,wood (waterlogged)
 wood,wood?
+wood,"wood (waterlogged,branch)"
+wood,"wood (waterlogged,branches)"
 other,amino acids
 antler,antler carbonate fraction
 antler,antler carbonate?

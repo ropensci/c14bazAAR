@@ -22,17 +22,19 @@ If you want to use data downloaded with c14bazAAR for your research, you have to
 
 ### Installation
 
-c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it directly from your R console. To do so, run the following line:
+We recommend to install the development version from github with the following command (in your R console):
+
+```
+if(!require('remotes')) install.packages('remotes')
+remotes::install_github("ropensci/c14bazAAR")
+```
+
+It is up-to-date and includes more databases and features compared to the CRAN version, though it might be a little bit more unstable. Installing the development version on Windows requires the toolchain bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+
+An older, stable version of c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it with:
 
 ```
 install.packages("c14bazAAR")
-```
-
-You can also get the development version from github:
-
-```
-if(!require('devtools')) install.packages('devtools')
-devtools::install_github("ropensci/c14bazAAR")
 ```
 
 The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to enable them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
@@ -48,8 +50,8 @@ library(c14bazAAR)
 library(magrittr)
 
 get_c14data("all") %>%
+  remove_duplicates() %>%
   calibrate() %>%
-  mark_duplicates() %>%
   classify_material() %>%
   finalize_country_name() %>%
   coordinate_precision()
@@ -106,15 +108,16 @@ x %>%
 
 #### Duplicates
 
-Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function [`mark_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_mark.R) adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard.
+Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. It's not trivial to find and deal with theses duplicates, because they are not exactly identical between databases: Sometimes they are linked to conflicting and mutually exclusive context information.
 
-For an automatic removal there's the function [`remove_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options how exactly duplicates should be treated.
+For an automatic search and removal based on identical lab numbers we wrote [`remove_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options on how exactly duplicates should be treated.
+
+If you call `remove_duplicates()` with the option `mark_only = TRUE` then no data is removed, but you can inspect the duplicate groups identified.
 
 See `?duplicates` for more information.
 
 ```
 x %>%
-  mark_duplicates() %>%
   remove_duplicates()
 ```
 
@@ -178,6 +181,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("austarch")`](R/get_austarch.R) [**austarch**](https://archaeologydataservice.ac.uk/archives/view/austarch_na_2014/): A Database of 14C and Luminescence Ages from Archaeological Sites in Australia by [Alan N. Williams, Sean Ulm, Mike Smith, Jill Reid](https://intarch.ac.uk/journal/issue36/6/williams.html).
 * [`get_c14data("calpal")`](R/get_calpal.R) [**calpal**](https://uni-koeln.academia.edu/BernhardWeninger/CalPal): Radiocarbon Database of the CalPal software package by Bernhard Weninger. See [nevrome/CalPal-Database](https://github.com/nevrome/CalPal-Database) for an interface.
 * [`get_c14data("context")`](R/get_context.R) [**context**](http://context-database.uni-koeln.de/): Collection of radiocarbon dates from sites in the Near East and neighboring regions (20.000 - 5.000 calBC) by Utz Böhner and Daniel Schyle.
+* [`get_c14data("emedyd")`](R/get_emedyd.R) [**emedyd**](https://discovery.ucl.ac.uk/id/eprint/1570274/): Radiocarbon dates from the Eastern Mediterranean and Southwest Asia, 16,000 – 9000 cal BP, compiled by Alessio Palmisano, Andrew Bevan, and Stephen Shennan (in [Roberts et al. 2017](https://doi.org/10.1016/j.quascirev.2017.09.011)).
 * [`get_c14data("eubar")`](R/get_eubar.R) [**eubar**](https://telearchaeology.org/eubar-c14-database/): A database of 14C measurements for the European Bronze Age by [Gacomo Capuzzo](https://telearchaeology.org/EUBAR/).
 * [`get_c14data("euroevol")`](R/get_euroevol.R) [**euroevol**](https://discovery.ucl.ac.uk/1469811/): Cultural Evolution of Neolithic Europe Dataset by [Katie Manning, Sue Colledge, Enrico Crema, Stephen Shennan and Adrian Timpson](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.40/).
 * [`get_c14data("irdd")`](R/get_irdd.R) [**irdd**](https://sites.google.com/site/chapplearchaeology/irish-radiocarbon-dendrochronological-dates): [Robert M Chapple](https://doi.org/10.5281/zenodo.3367518)'s Catalogue of Radiocarbon Determinations & Dendrochronology Dates is a free-to-download resource for Irish archaeology.
@@ -223,15 +227,17 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14 dates from different source databases. Journal of Open Source Software, 4(43), 1914, https://doi.org/10.21105/joss.01914
 
 ```
-@article{Schmid2019,
-  title    = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
-  author   = "Schmid, Clemens and Seidensticker, Dirk and Hinz, Martin",
-  journal  = "Journal of Open Source Software",
-  volume   =  4,
-  number   =  43,
-  pages    = "1914",
-  month    =  nov,
-  year     =  2019
+@Article{Schmid2019,
+  title = {{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases},
+  author = {Clemens Schmid and Dirk Seidensticker and Martin Hinz},
+  journal = {Journal of Open Source Software},
+  volume = {4},
+  number = {43},
+  pages = {1914},
+  month = {nov},
+  year = {2019},
+  doi = {10.21105/joss.01914},
+  url = {https://doi.org/10.21105/joss.01914},
 }
 ```
 
