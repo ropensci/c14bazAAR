@@ -5,18 +5,23 @@ get_katsianis <- function(db_url = get_db_url("katsianis")) {
 
   check_connection_to_url(db_url)
 
-  # read data
+  # download and unzip data
   temp <- tempfile(fileext = ".zip")
 
-  utils::download.file(db_url,
-                       temp,
-                       mode="wb",
-                       quiet = TRUE)
+  utils::download.file(
+    db_url,
+    temp,
+    mode="wb",
+    quiet = TRUE
+  )
 
+  unzip_path <- file.path(tempdir(), "c14bazAAR_get_katsianis")
   db_path <- utils::unzip(
     temp,
-    exdir = tempdir())
+    exdir = unzip_path
+  )
 
+  # read data
   katsianis <- data.table::fread(
     db_path[grepl("/C14Samples.txt", db_path)],
     sep = "\t",
@@ -74,6 +79,10 @@ get_katsianis <- function(db_url = get_db_url("katsianis")) {
       sourcedb_version = get_db_version("katsianis")
     ) %>%
     as.c14_date_list()
+
+  # remove files in file system
+  unlink(temp)
+  unlink(unzip_path, recursive = T)
 
   return(katsianis)
 }
