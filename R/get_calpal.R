@@ -1,16 +1,20 @@
 #' @rdname db_getter_backend
 #' @export
-get_calpal <- function(db_url = get_db_url("calpal")) {
+get_calpal <- function(db_url = "/home/clemens/agora/CalPal-Database/CalPal_2020_08_20.tsv") {#db_url = get_db_url("calpal")) {
 
   check_connection_to_url(db_url)
 
   # read data
   calpal <- db_url %>%
     data.table::fread(
+      sep = "\t",
+      na.strings = c("", "nd", "--", "n/a", "NoCountry"),
       drop = c(
         "ID",
         "PHASE",
-        "LOCUS"
+        "LOCUS",
+        "SUBPERIOD",
+        "SITEINFO"
       ),
       colClasses = c(
         "LABNR" = "character",
@@ -23,19 +27,14 @@ get_calpal <- function(db_url = get_db_url("calpal")) {
         "SITE" = "character",
         "PERIOD" = "character",
         "CULTURE" = "character",
+        "SITETYPE" = "character",
         "LATITUDE" = "character",
         "LONGITUDE" = "character",
         "METHOD" = "character",
-        "REFERENCE" = "character",
-        "NOTICE" = "character"
+        "REFERENCE" = "character"
       ),
       showProgress = FALSE
     ) %>%
-    base::replace(., . == "", NA) %>%
-    base::replace(., . == "nd", NA) %>%
-    base::replace(., . == "--", NA) %>%
-    base::replace(., . == "n/a", NA) %>%
-    base::replace(., . == "NoCountry", NA) %>%
     dplyr::transmute(
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
@@ -50,8 +49,7 @@ get_calpal <- function(db_url = get_db_url("calpal")) {
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
       method = .data[["METHOD"]],
-      shortref = .data[["REFERENCE"]],
-      comment = .data[["NOTICE"]]
+      shortref = .data[["REFERENCE"]]
     ) %>% dplyr::mutate(
       sourcedb = "calpal",
       sourcedb_version = get_db_version("calpal")
