@@ -5,7 +5,6 @@
 \alias{remove_duplicates}
 \alias{remove_duplicates.default}
 \alias{remove_duplicates.c14_date_list}
-\alias{mark_duplicates}
 \title{Remove duplicates in a \strong{c14_date_list}}
 \usage{
 remove_duplicates(
@@ -31,8 +30,6 @@ remove_duplicates(
   log = TRUE,
   mark_only = FALSE
 )
-
-mark_duplicates(x)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}

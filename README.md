@@ -12,7 +12,7 @@
 c14bazAAR is an R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. If you're not familiar with R other tools (such as [GoGet](https://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs.
 
 - [**Installation**](#installation)
-- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Coordinate precision](#coordinate-precision), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
+- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
 - [**Databases**](#databases)
 - [**Contributing**](#contributing) ([Adding database getter functions](#adding-database-getter-functions))
 - [**Citation**](#citation)
@@ -43,7 +43,7 @@ The package needs a lot of other packages -- many of them only necessary for spe
 
 The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around the [tibble](https://tibble.tidyverse.org/) class and provides specific class methods.
 
-One (almost) complete workflow to download and prepare all dates can be triggered like this:
+A workflow to download and prepare all dates could look like this:
 
 ```
 library(c14bazAAR)
@@ -53,8 +53,7 @@ get_c14data("all") %>%
   remove_duplicates() %>%
   calibrate() %>%
   classify_material() %>%
-  finalize_country_name() %>%
-  coordinate_precision()
+  determine_country_by_coordinate()
 ```
 
 It takes quite some time to run all of this and it's probably not necessary for your use case. Here's a list of the main tasks c14bazAAR can handle. That allows you to pick what you need:
@@ -91,19 +90,16 @@ x %>% classify_material()
 
 #### Country attribution
 
-Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`standardize_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_standardize_country_name.R) tries to unify the semantically equal terms by string comparison with the curated country name list [`countrycode::codelist`](https://github.com/vincentarelbundock/countrycode) and a [custom made thesaurus](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country.
+Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`fix_database_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_fix_database_country_name.R) tries to unify the semantically equal terms by string comparison with the curated country name list [`countrycode::codelist`](https://github.com/vincentarelbundock/countrycode) and a [custom made thesaurus](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country.
 
 That's what the function [`determine_country_by_coordinate()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_determine_country_by_coordinate.R) does. It joins the position with country polygons from [`rworldxtra::countriesHigh`](https://github.com/AndySouth/rworldxtra) to get reliable country attribution.
-
-The function [`finalize_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_finalize_country_name.R) finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final. If the necessary columns are missing, it calls the previous functions automatically.
 
 See `?country_attribution` for more information.
 
 ```
 x %>%
-  standardize_country_name() %>%
-  determine_country_by_coordinate() %>%
-  finalize_country_name()
+  fix_database_country_name() %>%
+  determine_country_by_coordinate()
 ```
 
 #### Duplicates
@@ -119,16 +115,6 @@ See `?duplicates` for more information.
 ```
 x %>%
   remove_duplicates()
-```
-
-#### Coordinate precision
-
-The function [`coordinate_precision()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_coordinate_precision.R) allows to calculate the precision of the coordinate information. It relies on the number of digits in the columns lat and lon. The mean of the inaccuracy on the x and y axis in meters is stored in the additional column coord_precision.
-
-See `?coordinate_precision` for more information.
-
-```
-x %>% coordinate_precision()
 ```
 
 #### Conversion
@@ -216,7 +202,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 4. Update the package documentation with roxygen2.
 5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/url_reference.csv) to make sure that `get_db_url("[the database name]")` works. `get_db_url()` relies on the file version on the master branch, so maybe you have to find a temporary solution for this as long as you are working in another branch.
 6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
-7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
+7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`fix_database_country_name()`).
 8. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
 9. Document the addition of the new function in the NEWS.md file.
 10. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.

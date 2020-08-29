@@ -257,17 +257,6 @@ remove_duplicates.c14_date_list <- function(
     return()
 }
 
-#' @rdname duplicates
-#' @export
-mark_duplicates <- function(x) {
-  stop(
-    "This function is deprecated. remove_duplicates() includes this functionality now. ",
-    "Please use remove_duplicates() with mark_only = TRUE if you only want to ",
-    "retrieve the duplicate_group column. ",
-    "Check '?duplicates' for more information."
-  )
-}
-
 #### helper functions ####
 
 #' @keywords internal
