@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_calpal <- function(db_url = "/home/clemens/agora/CalPal-Database/CalPal_2020_08_20.tsv") {#db_url = get_db_url("calpal")) {
+get_calpal <- function(db_url = get_db_url("calpal")) {
 
   check_connection_to_url(db_url)
 
