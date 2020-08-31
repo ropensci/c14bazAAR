@@ -61,8 +61,7 @@ classify_material.c14_date_list <- function(
   x %<>%
     dplyr::mutate(
       material_thes = lookup_in_thesaurus_table(.$material, material_thesaurus)
-    ) %>%
-    as.c14_date_list()
+    )
 
   if(!quiet) {
     print_lookup_decisions(x, "material", "material_thes", material_thesaurus)

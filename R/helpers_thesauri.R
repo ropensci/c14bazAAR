@@ -71,18 +71,17 @@ get_thesaurus <- function(url) {
 #' @keywords internal
 #' @noRd
 print_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
-  changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus)
-  message("The following decisions were made: \n")
+  changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus) %>%
+    dplyr::filter(!.data[["thesaurus"]])
+  if (nrow(changes) > 0) {
+    message("For the following values there was no relevant thesaurus entry: \n")
+  }
   for(i in 1:nrow(changes)) {
     message(
       ifelse(
-        changes$thesaurus[i],
-        crayon::green("thesaurus:   "),
-        ifelse(
-          changes$no_change[i],
-          crayon::red("no change:   "),
-          crayon::yellow("string match:")
-        )
+        changes$no_change[i],
+        crayon::red("no change:   "),
+        crayon::yellow("string match:")
       ),
       " ",
       changes[[variants_column]][i], " -> ", changes[[corrected_column]][i]
