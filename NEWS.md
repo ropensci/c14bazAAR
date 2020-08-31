@@ -15,6 +15,9 @@
 - added getter function for Jōmon population dynamics database: `get_jomon` (#95)
 - added getter function for emedyd database: `get_emedyd` (#102)
 
+## database updates
+- updated the CalPal database from version 2017_04_27 to 2020_08_20 (#108)
+
 ## bugfixes
 - `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)
 - enabled UTF-8 characters in country thesaurus (#96) (#104)
