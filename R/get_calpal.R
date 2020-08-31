@@ -9,6 +9,7 @@ get_calpal <- function(db_url = get_db_url("calpal")) {
     data.table::fread(
       sep = "\t",
       na.strings = c("", "nd", "--", "n/a", "NoCountry"),
+      encoding = "UTF-8",
       drop = c(
         "ID",
         "PHASE",
