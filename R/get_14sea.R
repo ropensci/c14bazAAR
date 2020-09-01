@@ -3,7 +3,7 @@
 #' @export
 get_14sea <- function(db_url = get_db_url("14sea")) {
 
-  check_if_packages_are_available("openxlsx")
+  check_if_packages_are_available("readxl")
 
   check_connection_to_url(db_url)
 
@@ -13,11 +13,8 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
 
   # read data
   SEA14 <- tempo %>%
-    openxlsx::read.xlsx(
-      na.strings = c("Combination fails", "nd", "-"),
-      startRow = 2,
-      colNames = FALSE,
-      rowNames = FALSE
+    readxl::read_excel(
+      na = c("Combination fails", "nd", "-"),
     ) %>%
     dplyr::mutate_if(
       sapply(., is.character),
@@ -31,7 +28,7 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
       material = .[[11]],
       country = .[[4]],
       region = .[[2]],
-      site = .[[1]],
+      site = .[["Site"]],
       lat = NA,
       lon = NA,
       period = .[[15]],

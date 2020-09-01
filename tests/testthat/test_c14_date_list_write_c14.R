@@ -21,7 +21,7 @@ test_that("list columns are correctly recognized and a message created", {
 })
 
 csv_read <- read.csv(csv_file, stringsAsFactors = F, row.names = 1)
-xlsx_read <- openxlsx::read.xlsx(xlsx_file)
+xlsx_read <- readxl::read_excel(xlsx_file)
 
 test_that("written files are generally fine", {
   # result dimensions

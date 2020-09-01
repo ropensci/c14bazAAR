@@ -11,9 +11,8 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   utils::download.file(url = db_url, destfile = temp, mode = "wb", quiet = TRUE)
 
   # read data
-  db_raw <- openxlsx::read.xlsx(
-    temp,
-    sheet = 1
+  db_raw <- readxl::read_excel(
+    temp, sheet = 1
   ) %>%
     dplyr::mutate_if(
       sapply(., is.character),
@@ -30,9 +29,9 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
       method = .data[["method"]],
       labnr = .data[["labref"]],
       c14age = .data[["age"]],
-      c14std = .data[["sigma.+/-"]],
+      c14std = .data[["sigma +/-"]],
       site = .data[["sitename"]],
-      period = .data[["cult.stage"]],
+      period = .data[["cult stage"]],
       material = .data[["sample"]],
       country = .data[["country"]],
       lat = .data[["coord_lat"]],

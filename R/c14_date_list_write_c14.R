@@ -6,7 +6,7 @@
 #' @param x an object of class c14_date_list
 #' @param format the output format: 'csv' (default) or 'xlsx'.
 #' 'csv' calls \code{utils::write.csv()},
-#' 'xlsx' calls \code{openxlsx::write.xlsx()}
+#' 'xlsx' calls \code{writexl::write_xlsx()}
 #' @param ... passed to the actual writing functions
 #'
 #' @examples
@@ -58,8 +58,8 @@ write_c14.c14_date_list <- function(x, format = c("csv"), ...) {
       utils::write.csv(x, ...)
     },
     xlsx = {
-      check_if_packages_are_available(c("openxlsx"))
-      openxlsx::write.xlsx(x, ...)
+      check_if_packages_are_available(c("writexl"))
+      writexl::write_xlsx(x, ...)
     }
   )
 

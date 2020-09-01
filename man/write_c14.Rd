@@ -17,7 +17,7 @@ write_c14(x, format = c("csv"), ...)
 
 \item{format}{the output format: 'csv' (default) or 'xlsx'.
 'csv' calls \code{utils::write.csv()},
-'xlsx' calls \code{openxlsx::write.xlsx()}}
+'xlsx' calls \code{writexl::write_xlsx()}}
 
 \item{...}{passed to the actual writing functions}
 }

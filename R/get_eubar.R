@@ -2,7 +2,7 @@
 #' @export
 get_eubar <- function(db_url = get_db_url("eubar")) {
 
-  check_if_packages_are_available("openxlsx")
+  check_if_packages_are_available("readxl")
 
   check_connection_to_url(db_url)
 
@@ -12,11 +12,8 @@ get_eubar <- function(db_url = get_db_url("eubar")) {
 
   # read data
   eubar <- tempo %>%
-    openxlsx::read.xlsx(
-      na.strings = c("Combination fails", "nd", "-"),
-      startRow = 2,
-      colNames = FALSE,
-      rowNames = FALSE
+    readxl::read_excel(
+      na = c("Combination fails", "nd", "-"),
     ) %>%
     dplyr::mutate_if(
       sapply(., is.character),
