@@ -80,17 +80,20 @@ classify_material.c14_date_list <- function(
 #' @keywords internal
 #' @noRd
 lookup_in_thesaurus_table <- function(x, thesaurus_df){
-  x_cleaned <- x
-  x_cleaned <- gsub("\"", "", x_cleaned)
-  x_cleaned <- gsub("[\r\n]", "", x_cleaned)
-  x_cleaned <- iconv(x_cleaned, "UTF-8", "UTF-8", sub = '')
-  thesaurus_df$var_cleaned <- thesaurus_df$var
-  thesaurus_df$var_cleaned <- gsub("\"", "", thesaurus_df$var_cleaned)
-  thesaurus_df$var_cleaned <- gsub("[\r\n]", "", thesaurus_df$var_cleaned)
+  x_cleaned <- clean_thesaurus_strings(x)
+  thesaurus_df$var_cleaned <- clean_thesaurus_strings(thesaurus_df$var)
   ifelse(
     x_cleaned %in% thesaurus_df$var_cleaned,
     thesaurus_df$cor[match(x, thesaurus_df$var_cleaned)],
     x
-  ) %>%
-    return()
+  )
+}
+
+#' @keywords internal
+#' @noRd
+clean_thesaurus_strings <- function(x) {
+  x <- gsub("\"", "", x)
+  x <- gsub("[\r\n]", "", x)
+  x <- iconv(x, "UTF-8", "UTF-8", sub = '')
+  return(x)
 }
