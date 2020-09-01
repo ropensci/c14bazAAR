@@ -75,17 +75,17 @@ print_lookup_decisions <- function(x, variants_column, corrected_column, thesaur
     dplyr::filter(!.data[["thesaurus"]] & !.data[["already_fine"]])
   if (nrow(changes) > 0) {
     message("For the following values there was no relevant thesaurus entry: \n")
-  }
-  for(i in 1:nrow(changes)) {
-    message(
-      ifelse(
-        changes$no_change[i],
-        crayon::magenta("no change:   "),
-        crayon::yellow("string match:")
-      ),
-      " ",
-      changes[[variants_column]][i], " -> ", changes[[corrected_column]][i]
-    )
+    for(i in 1:nrow(changes)) {
+      message(
+        ifelse(
+          changes$no_change[i],
+          crayon::magenta("no change:   "),
+          crayon::yellow("string match:")
+        ),
+        " ",
+        changes[[variants_column]][i], " -> ", changes[[corrected_column]][i]
+      )
+    }
   }
   message("\ ")
 }
