@@ -113,6 +113,7 @@ antler,"antler, wand"
 antler,"antler, worked"
 antler,"antler, worked shed specimen"
 antler,antlerflat point almost complete fom -2.46m
+antler,"Arcy R V Z8 754,, antler with groove"
 antler,"barbed point, presumably antler"
 antler,Baton perce of Rangifer tarandus antler
 antler,"Bign_njsb_waste, antler cervid manufact. Waste"
@@ -267,6 +268,7 @@ antler,reindeer-antler grooved and ochred 1912.79
 antler,same reindeer antler with groove traces
 antler,shed antler
 antler,"shed antler, reindeer, 46/1'. LL.7998"
+antler,"splinter with edges of grooves (GST), antler, Peg 162 c8b KS 2287"
 antler,Split based point MCL 06 reindeer antler Pre-treatment did include alkali step
 antler,"Split-based point (wing), antler, TMC #2"
 antler,"Split-based point (wing), antler, TMC #3"
@@ -291,10 +293,10 @@ antler,worked ivory rood
 antler,worked reindeer antler
 antler,Worked reindeer antler
 antler,worked shed reindeer antler 15018.H
-b,collagen extr[act]
-b,isolated metacarpal of Equus caballus  at depth of 7.2m with 20 lithics in feature
-b,saiga metatarsal diaphysis fragment with cutmarks and percussion mark
-b,Saiga radio-ulna diaphysis fragment L.
+bone,collagen extr[act]
+bone,isolated metacarpal of Equus caballus  at depth of 7.2m with 20 lithics in feature
+bone,saiga metatarsal diaphysis fragment with cutmarks and percussion mark
+bone,Saiga radio-ulna diaphysis fragment L.
 bone, Bone
 bone, Bone chisel OR-1998-2004
 bone, bone with anthropogenic modifications a&‚ 5Š(ø
@@ -331,6 +333,10 @@ bone,"13/ Sch.2/ bone, Capra ibex? Cutmarked? Radiocubitus"
 bone,"14/ Sch. 3/ 1972, bone, Equus cutmarked mandible"
 bone,"15/ Sch. 3/ 1972, bone, Rangifer humanly modified(?)"
 bone,17 Layer 9 Archaeological layer 1908?09 Vulpes/Alopex sp. Mandibula
+bone,"1977:7/B129 stray
+fi
+nd from
+dredging, human cranium"
 bone,"1977:7/B129 stray
 fi
 nd from
@@ -549,6 +555,9 @@ bone,Bison humerus
 bone,bison n°19
 bone,bison n°3
 bone,bison n°4
+bone,bison n19
+bone,bison n3
+bone,bison n4
 bone,bison nr 19
 bone,Bison pmriscus scapula
 bone,Bison priscus calcaneum
@@ -1667,6 +1676,7 @@ bone,"bone, lion's under jaw"
 bone,"bone, long bone, fresh break"
 bone,"bone, lynx, femur, modified"
 bone,"bone, mammoth"
+bone,"bone, mammoth "
 bone,"bone, mammoth, rib"
 bone,"bone, mammoth, rib, cutmarks"
 bone,"bone, mammoth, skull"
@@ -1742,7 +1752,9 @@ bone,"bone, red deer"
 bone,"bone, red deer, metapodial, cutmarks"
 bone,"bone, red deer, tibia, modified"
 bone,"bone, reindeer"
+bone,"bone, reindeer "
 bone,"bone, reindeer, femur?, fresh break"
+bone,"bone, reindeer, femur?, fresh break "
 bone,"bone, reindeer, humerus"
 bone,"bone, reindeer, humerus, impact"
 bone,"bone, reindeer, longbone, impact"
@@ -1758,6 +1770,7 @@ bone,"bone, reindeer, ulna and wolf, astragalus"
 bone,"bone, rhino (mammoth?), rib"
 bone,"bone, rhino, humerus"
 bone,"bone, rhinoceros"
+bone,"bone, rhinoceros "
 bone,"bone, rib"
 bone,"bone, rib w/ embedded projectile"
 bone,"bone, rib, cutmarks"
@@ -1765,6 +1778,7 @@ bone,"bone, rib, modified"
 bone,"bone, right distal humerus"
 bone,"bone, roe deer"
 bone,"bone, roe deer, metacarpial"
+bone,"bone, saga"
 bone,"bone, saïga"
 bone,"bone, saiga, calcaneum"
 bone,"bone, same sample as OxA-18698"
@@ -1799,6 +1813,7 @@ bone,"bone, Ursus arctos, humerus?"
 bone,"bone, Ursus sp., collagen, humerus dext., cutmarks"
 bone,"bone, Ursus spelaeus"
 bone,"bone, Ursus Spelaeus"
+bone,"bone, Ursus Spelaeus "
 bone,"bone, vertebra"
 bone,"bone, vertebra, cutmarks"
 bone,"bone, vertebra, ochre-stained"
@@ -1917,6 +1932,8 @@ bone,"Bos/Horse femur, fragment of medial shaft, retouchoir"
 bone,"Bos/Horse, long bone, fragment of schaft, cutmarks"
 bone,bouquetin n°56
 bone,bouquetin n°67 C8
+bone,bouquetin n56
+bone,bouquetin n67 C8
 bone,Bovid a ith faint curmark
 bone,Bovid aibular fragentwth cutmarks
 bone,Bovid bone
@@ -2247,6 +2264,10 @@ bone,cheval n°39
 bone,cheval n°56
 bone,cheval n°58
 bone,cheval n°63
+bone,cheval n39
+bone,cheval n56
+bone,cheval n58
+bone,cheval n63
 bone,cheval tibia droit
 bone,Chevreuil
 bone,Chevreuil ROC 4909
@@ -3833,6 +3854,8 @@ bone,U/Th on mammoth bone
 bone,"U/Th on mandible which was from layer  3b, below the Charentian"
 bone,"uhumanly
 modified cut-marked nidentified bone, duplicate sample with OxA-21826"
+bone,"uhumanly
+modified cut-marked nidentified bone, duplicate sample with OxA-21826"
 bone,"Ujnid. Mamm. Bone from 104 , zone IV, Z26C 72"
 bone,Ulna Chouette
 bone,Ulna Chouette harfang with human straitions
@@ -5117,6 +5140,7 @@ charcoal,dispersed charcoal from Drozdov excavation
 charcoal,dispersed charcoal from old excavation
 charcoal,Dispersed charcoall from angiosperm
 charcoal,DV 16 charcoal
+charcoal,Elaeis guineensis/Charcoal
 charcoal,ground charcoal below the black penguins
 charcoal,hearth 1 charcoal
 charcoal,"hearth 2, charcoal"
@@ -7213,6 +7237,7 @@ plant remains,Fossil Celtis endocarp
 plant remains,Fossil timber
 plant remains,Free-threshing wheat grain
 plant remains,fruit
+plant remains,fruit (charred)
 plant remains,fruit and cone scales
 plant remains,fruit and fruit scales
 plant remains,fruit/seed
@@ -7780,10 +7805,6 @@ soil,"soil from JM,"
 soil,"Soil material from III-24 upper part geological layer, CL-1 layer"
 soil,Soil mixed with pebbles and roots
 soil,soil oranic mattter MN3a
-bone,"1977:7/B129 stray
-fi
-nd from
-dredging, human cranium"
 soil,Soil organic matter
 soil,soil organics
 soil,soil organics with charcoal
@@ -7795,13 +7816,6 @@ soil,Ton
 soil,torv
 soil,tuf
 soil,veen
-bone,"uhumanly
-modified cut-marked nidentified bone, duplicate sample with OxA-21826"
-teeth,Ursus sp. Tooth collagen
-teeth,Ursus spelaeus M3 tooth
-teeth,Ursus tooth
-teeth,"Ursus tooth from sector CK, layer 3 (level III)"
-teeth,"wooly rhino, tooth dentin (root) from culture?"
 teeth,"?bovid teeth fragments, ESR EU"
 teeth,"?bovid teeth fragments, ESR LU"
 teeth,?teeth enamel
@@ -7810,7 +7824,9 @@ teeth,"?teeth, ESR"
 teeth,1 teeth juvenile DV33; 7 teeth child DV36 (or charcoal?)
 teeth,1 tooth juvenile DV33; 7 teeth child DV36 (or charcoal?)
 teeth,38 Archaeological layer 2016 Mammuthus primigenius teeth
+teeth,38 Archaeological layer 2016 Mammuthus primigenius Tooth
 teeth,A Archaeological layer 1963 Equus sp. Upper teeth
+teeth,A Archaeological layer 1963 Equus sp. Upper tooth
 teeth,AAR  five Equus chosaricus teeth
 teeth,AAR on teeth
 teeth,AAR teeth dentine Cervus Z304
@@ -7819,9 +7835,12 @@ teeth,"AAR teeth dentine, Capra pyrenaica mondible 262"
 teeth,"AAR teeth dentine, Equus, Z6"
 teeth,AARD hominid teeth (average date)
 teeth,"adult, teeth"
+teeth,"adult, tooth"
 teeth,Aminochronolgy on a molar
 teeth,Arcy 61 RXb/c C9 2618 fractures left lower cheek teeth
+teeth,Arcy 61 RXb/c C9 2618 fractures left lower cheek tooth
 teeth,"Artiodactyla indet., teeth fragment C5d/25 (D oben)"
+teeth,"Artiodactyla indet., tooth fragment C5d/25 (D oben)"
 teeth,"AT9602 sample, ungulate teeth,  ESR and U-series combined data"
 teeth,"AT9602 sample, ungulate teeth, ESR EU"
 teeth,"AT9602 sample, ungulate teeth, ESR LU"
@@ -7879,12 +7898,21 @@ teeth,bear teeth
 teeth,bear teeth from C1-6
 teeth,bear teeth from C1-8
 teeth,Bear teeth from K50-71
+teeth,bear tooth
+teeth,bear tooth from C1-6
+teeth,bear tooth from C1-8
+teeth,Bear tooth from K50-71
 teeth,beaver teeth from 35 cm below Ap
+teeth,beaver tooth from 35 cm below Ap
 teeth,bison teeth
+teeth,bison tooth
 teeth,boar teeth from spit &
 teeth,boar teeth from spit 2
+teeth,boar tooth from spit &
+teeth,boar tooth from spit 2
 teeth,"bone / teeth (M3 aurochs, molar horse)"
 teeth,"bone collagen, Arcy 61 RXb/c B10 2940 fractured left lower cheek teeth Equus ferus"
+teeth,"bone collagen, Arcy 61 RXb/c B10 2940 fractured left lower cheek tooth Equus ferus"
 teeth,"bone, teeth (Equus)"
 teeth,"Boqs primigenius teeth, ESR: LU"
 teeth,"Bos primigeniius teeth, ESR: EU"
@@ -7894,6 +7922,7 @@ teeth,"Bos primigenius teeth, ESR: LU"
 teeth,"Bos primigeniusteeth, ESR: LU"
 teeth,Bos sp (teeth enamel)   U/Th; low U content
 teeth,Bos teeth
+teeth,Bos tooth
 teeth,bovid teeth
 teeth,Bovid teeth
 teeth,bovid teeth belonging to layer 7?
@@ -7903,22 +7932,31 @@ teeth,"bovid teeth, ESR LU"
 teeth,"bovid teeth, ESR U"
 teeth,"bovid teeth, ESR: EU"
 teeth,"bovid teeth, ESR: LU"
+teeth,Bovid tooth
+teeth,bovid tooth belonging to layer 7?
 teeth,"bovid ttoh, ESR: EU"
 teeth,Bovidae teeth
+teeth,Bovidae tooth
 teeth,Broken horse teeth humanly fractured
+teeth,Broken horse tooth humanly fractured
 teeth,burnt teeth
+teeth,burnt tooth
 teeth,Canis familiaris teeth
+teeth,Canis familiaris tooth
 teeth,Caniss familiaris teeth upper I3
+teeth,Caniss familiaris tooth upper I3
 teeth,cave bear 3. incis. sup.
 teeth,Cave bear incisor
 teeth,Cave bear molar from Aurignacian
 teeth,Cave bear molar from gravettian
 teeth,Cave bear molar from Gravettian
 teeth,cave bear teeth
+teeth,cave bear tooth
 teeth,Cementum U-Th horse teeth
 teeth,"Cemmentum, ungulate teeth, U/Th, sample AT9604"
 teeth,cervus elaphus teeth
 teeth,"Cervus elaphus teeth, second hearth W2.2 115"
+teeth,"Cervus elaphus tooth, second hearth W2.2 115"
 teeth,Cervus elephus teeth
 teeth,"Cervus sp. teeth enamel   U/Th, low U content"
 teeth,cheval dent jugale inferieure from layer 13b& 13c
@@ -7936,6 +7974,7 @@ teeth,"combined ESR/U-series dating, RU , teeth"
 teeth,"combined ESR/U-series dating, RU, teeth"
 teeth,Combined US-ESR-age enamel horse FN0304
 teeth,Crocuta teeth CC6
+teeth,Crocuta tooth CC6
 teeth,CSUS ESR on dental enamel of MBA 5C
 teeth,CSUS ESR on MABA 5B dental enamel
 teeth,CSUS-ESR  on dental enamel MABA 1A
@@ -7962,23 +8001,33 @@ teeth,Enamel for enamel and dentine
 teeth,enamel teeth (AU-ESR)
 teeth,Equid teeth
 teeth,Equid teeth (bioapatite)
+teeth,Equid tooth
+teeth,Equid tooth (bioapatite)
 teeth,Equiid teeth
+teeth,Equiid tooth
 teeth,equus (teeth)
 teeth,"Equus caballus molar, dentine, Z6"
 teeth,"Equus ferus cheek teeth, cut-marked"
+teeth,"Equus ferus cheek tooth, cut-marked"
 teeth,"Equus ferus incisor from 8'0"""
 teeth,"Equus ferus, fractured right M1/M2 teeth, humanly smashed"
+teeth,"Equus ferus, fractured right M1/M2 tooth, humanly smashed"
 teeth,"Equus ferus, modified teeth, THRFA 766"
+teeth,"Equus ferus, modified tooth, THRFA 766"
 teeth,"Equus ferus, upper cheek unerupte teeth broken"
+teeth,"Equus ferus, upper cheek unerupte tooth broken"
 teeth,equus germanicus teeth
+teeth,equus germanicus tooth
 teeth,"Equus molar from -1.15 m, association with Auriganciannot sure"
 teeth,"Equus molar from -1.80m, association with Aurignacian not sure"
 teeth,Equus sp. teeth
 teeth,"Equus sp. teeth enamel, U/Th"
+teeth,Equus sp. Tooth
 teeth,Equus teeth
 teeth,Equus teeth
 teeth,Equus teeth enamel   ERS:LU
 teeth,"Equus teeth enamel, U-series"
+teeth,Equus tooth
 teeth,ERS/U-Th  teeth
 teeth,ERS/U-Th of teeth
 teeth,ESR  LU  average  from six subsamples Capra ibex molar
@@ -8128,12 +8177,19 @@ teeth,ESR/Us model on teeth
 teeth,EU ESR on Equus  enamel
 teeth,fox teeth pendant K17-01
 teeth,fox teeth pendant K2014/2
+teeth,fox tooth pendant K17-01
+teeth,fox tooth pendant K2014/2
 teeth,giant deer teeth dentin (root) Gravettian?
+teeth,giant deer tooth dentin (root) Gravettian?
 teeth,grey wolf teeth
 teeth,haeyna teeth
+teeth,haeyna tooth
 teeth,hhorse teeth
+teeth,hhorse tooth
 teeth,hominid teeth SID-19
 teeth,hominid teeth SID-21
+teeth,hominid tooth SID-19
+teeth,hominid tooth SID-21
 teeth,horse molar Equus ferus
 teeth,horse teeth
 teeth,Horse teeth
@@ -8143,31 +8199,48 @@ teeth,horse teeth from F22 450
 teeth,Horse teeth from K51-24
 teeth,"horse teeth, ESR EU"
 teeth,"horse teeth, ESR LU"
+teeth,horse tooth
+teeth,Horse tooth
+teeth,horse tooth fractured by human activity Upper cheek tooth from layer B
+teeth,horse tooth from 16.6 m
+teeth,horse tooth from F22 450
+teeth,Horse tooth from K51-24
 teeth,"human  teeth, upper molar F21170"
+teeth,"human  tooth, upper molar F21170"
 teeth,human lower molar 2 from backdirt screening
 teeth,"human lower premolar compled 2, immature"
 teeth,Human teeth
 teeth,human teeth Y11-210
 teeth,"human teeth, upper molar F21102"
 teeth,Human tooth
+teeth,"human tooth, upper molar F21102"
 teeth,hyaena teeth
+teeth,hyaena tooth
 teeth,Hyena teeth from Hyenas occupation
 teeth,Hyena teeth from I13-336
 teeth,Hyena teeth K53-3 from Hyenas occupation
+teeth,Hyena tooth from Hyenas occupation
+teeth,Hyena tooth from I13-336
+teeth,Hyena tooth K53-3 from Hyenas occupation
 teeth,ibex dentine
 teeth,ibex teeth
 teeth,ibex teeth enamel
 teeth,ibex teeth? 173g of bone fragments
 teeth,ibex teeth? 230g of bone fragments
+teeth,ibex tooth? 173g of bone fragments
+teeth,ibex tooth? 230g of bone fragments
 teeth,incisor
 teeth,Incisor
 teeth,Incisor Ursus cf arctos from layer 2g
 teeth,juvenile teeth
+teeth,juvenile tooth
 teeth,Laa2_4003_Ran Premolar teeth reindeer
+teeth,Laa2_4003_Ran Premolar tooth reindeer
 teeth,Layer 9 Archaeological layer 1908?09 Equus sp. Molar
 teeth,LU ESR on Equus enamel
 teeth,lUranium series laminar calcite teeth adult horses
 teeth,M3 teeth Bos primigenius
+teeth,M3 tooth Bos primigenius
 teeth,Macropod tooth enamel
 teeth,Mammal teeht ESR: LU
 teeth,mammal teeth
@@ -8175,6 +8248,7 @@ teeth,Mammal teeth
 teeth,"mammal teeth, ESR: LU"
 teeth,mammmoth molar
 teeth,Mammmoth teeth
+teeth,Mammmoth tooth
 teeth,Mammoth molar
 teeth,mammoth molar dentin (root) Gravettian?
 teeth,mammoth teeth
@@ -8187,6 +8261,15 @@ teeth,Mammoth teeth from pit 10 in habitation 1
 teeth,mammoth teeth from WS IV
 teeth,"Mammoth teeth fromsand above debris flaw sequence, probably redeposited"
 teeth,"Mammoth teeth, dwelling 1"
+teeth,mammoth tooth
+teeth,Mammoth tooth
+teeth,mammoth tooth (1953)
+teeth,mammoth tooth dentin (root) Aurignacian
+teeth,Mammoth tooth from escavation VII
+teeth,Mammoth tooth from pit 1
+teeth,mammoth tooth from WS IV
+teeth,"Mammoth tooth fromsand above debris flaw sequence, probably redeposited"
+teeth,"Mammoth tooth, dwelling 1"
 teeth,mammouth teeth
 teeth,Mammouth teeth
 teeth,mammouth teeth (1984)
@@ -8196,24 +8279,42 @@ teeth,mammouth teeth from excavation V
 teeth,Mammouth teeth from habitation 1
 teeth,"mammouth teeth, dwelling 3"
 teeth,"Mammouth teeth, storage-pit"
+teeth,mammouth tooth
+teeth,Mammouth tooth
+teeth,mammouth tooth (1984)
+teeth,mammouth tooth (DTA)
+teeth,mammouth tooth fragment
+teeth,mammouth tooth from excavation V
+teeth,Mammouth tooth from habitation 1
+teeth,"mammouth tooth, dwelling 3"
+teeth,"Mammouth tooth, storage-pit"
 teeth,mammouth ttoth
 teeth,mammouthteeth
+teeth,mammouthtooth
 teeth,Mamouth teeth
 teeth,mamouth teeth
+teeth,mamouth tooth
+teeth,Mamouth tooth
 teeth,Marmot teeth from L5 B1
+teeth,Marmot tooth from L5 B1
 teeth,Megaloceros molar  from -0.9 m
 teeth,Modlaire d'ours des cavernes from 1A-GK
 teeth,molaire de rhinoceros laineux de la coucdhe T-GV above the layer
 teeth,Molar
 teeth,molar fragment C. antiquitatiis
 teeth,molar teeth
+teeth,molar tooth
 teeth,Molar ursus spelaeus
 teeth,Palaeoloxodon teeth from Mousterian alpha
+teeth,Palaeoloxodon tooth from Mousterian alpha
 teeth,"partial horse teeth, 3H 57 IL 8b"
+teeth,"partial horse tooth, 3H 57 IL 8b"
 teeth,Pierced elk incisor pendant (Vienna NHM N0 72188) H.s.
 teeth,Pig tooth
 teeth,premolar teeth
+teeth,premolar tooth
 teeth,Rangifer tarandus teeth
+teeth,Rangifer tarandus tooth
 teeth,"Rangifer tarandus, left dentary"
 teeth,"Rangifer tarandus, right dentary"
 teeth,red deer lower Molar 3 L.
@@ -8227,11 +8328,16 @@ teeth,"red deer teeth, ESR:"
 teeth,"red deer teeth, ESR: EU"
 teeth,"red deer teeth, ESR:LU"
 teeth,Red deer tooth
+teeth,Red deer tooth from spit 3
+teeth,red deer tooth from spit 4
 teeth,reindeer teeth
 teeth,Reindeer teeth
+teeth,reindeer tooth
+teeth,Reindeer tooth
 teeth,"Rhino molar, association with Aurinacian not sure"
 teeth,Rhino teeth
 teeth,rhino teeth from 1-2 cm below Ap
+teeth,rhino tooth from 1-2 cm below Ap
 teeth,Roe deer molar
 teeth,RPE/U-Th on teeth and bones
 teeth,RSR EU Bison sp. Molar
@@ -8252,6 +8358,7 @@ teeth,Spy D2 Pal Plate 4 milk molar dentine Coelodonta antiquitatis
 teeth,Spy D3 19B121 1474 milk molar dentine Mammuthus primigenius
 teeth,"Spy II, left I1, Spy 92b,dentine"
 teeth,Stephanorhinus teeth from Mousterian alpha
+teeth,Stephanorhinus tooth from Mousterian alpha
 teeth,teeh  ESR LU
 teeth,teeh ESR LU
 teeth,teeth
@@ -8366,21 +8473,92 @@ teeth,Th/U teeth
 teeth,Th/U teeth enamel
 teeth,toorh IN-68 from trench II
 teeth,tooth
+teeth,Tooth
+teeth,"Tooth  alces alces , pendant"
+teeth,tooth  IN-53 from trench II
+teeth,tooth - good condition
 teeth,Tooth (horse)
 teeth,tooth (human)
+teeth,Tooth and mammoth rib from square D-45
+teeth,tooth apatite
+teeth,Tooth B26.3 niv 3
+teeth,tooth bouquetin
+teeth,tooth C. antiquitatis
+teeth,Tooth Capra pyrenaica
+teeth,Tooth Cervus elaphus
+teeth,tooth Cervus elaphus Peg 460 L5
+teeth,tooth collagen
+teeth,Tooth collagen (brown) from AMH right maxillary canine Mladec 9a
+teeth,tooth Crocuta crocuta right P3
 teeth,Tooth dentine
+teeth,tooth dentine Equus Z4
 teeth,Tooth enamel
+teeth,tooth enamel (apatite)
+teeth,Tooth Equus caballus  from D2
+teeth,Tooth Equus cf. hydruntinus from the East chamber
+teeth,Tooth Equus ferus
+teeth,tooth Equus ferus 72/79-18
+teeth,Tooth fragments
+teeth,tooth from a necklace from the infant
+teeth,tooth from Equus sp. From unit N19
+teeth,tooth from J6 at a depth of 204-211 cm.
+teeth,Tooth from Rangifer tarandus from B12-35 or D14
+teeth,tooth IN-01 from trench II
+teeth,tooth IN-05c from trench I
+teeth,tooth IN-08 from trench III
+teeth,tooth IN-16 from trech III
+teeth,tooth IN-18 from trench III
+teeth,tooth IN-34 from trench I
+teeth,tooth IN-35 from trench I
+teeth,tooth IN-36 from trench I
+teeth,tooth IN-37 from trench II
+teeth,tooth IN-38 from trench II
+teeth,tooth IN-50 from trench III
+teeth,tooth IN-51 from trnch III
+teeth,tooth IN-52 from trench II
+teeth,tooth IN-61 from trench III
+teeth,tooth IN-62 from trenvh III
+teeth,tooth IN-63 from trench III
+teeth,tooth IN-69 from trench III
+teeth,tooth IN-70 from trench III
+teeth,tooth IN-72 from trench III
+teeth,tooth IN-73 fereom trench III
+teeth,tooth IN-74 from trech I
+teeth,tooth IN-75 from trech I
+teeth,tooth IN-76 from trench II
+teeth,tooth IN-77b from trench II
+teeth,tooth IN-78 from trench V
+teeth,tooth IN65a from trench I
+teeth,tooth IN71a from trench III
+teeth,tooth IN71b from trench III
+teeth,tooth IN77a from trench ii
+teeth,tooth IV-06 from layer III
+teeth,tooth Mammuthus primigenius
+teeth,tooth pendant Alces alces from the East chamber
+teeth,tooth pendant Cervus sp.
+teeth,tooth pendant Crevus sp. from the East chamber
+teeth,"tooth Red deer molar, Espal_2_Cer"
+teeth,tooth SP¥02-18/07-J6-NXII  from a depth of 204-211 cm
+teeth,Tooth Ursus spelaeus
+teeth,Tooth Y31 niv.4L TAM
 teeth,"tooth, adult"
 teeth,"tooth, auroch, M3, horse, molar"
 teeth,"tooth, brown bear, canine, incised"
+teeth,"Tooth, E. ferus, Arcy 51 RVII C13 (90) fractured right upper M1/M2"
+teeth,"Tooth, E. ferus, Arcy 51 RVII C13 (90) fractured right upper M2"
+teeth,"Tooth, E. ferus, Arcy 58 RV1I1 0)12 (132) fractured upper right M2"
+teeth,"Tooth, E. ferus, Arcy 58 RVIII Bil (64) fractured right lower cheek tooth"
 teeth,"Tooth, female adult"
 teeth,"tooth, giant deer"
 teeth,"tooth, horse"
+teeth,"tooth, horse, UBOX 40- Montlleo 3 from sector B"
 teeth,"tooth, human"
 teeth,"tooth, ibex"
+teeth,"Tooth, id as Equus ferus, upper left P2"
 teeth,"tooth, incisor, cutmarks"
 teeth,"tooth, juvenile"
 teeth,"tooth, M1"
+teeth,"tooth, M1 from M5.2/14.0"
 teeth,"tooth, mammoth"
 teeth,"tooth, mammoth, burned"
 teeth,"tooth, mandibular M3"
@@ -8391,6 +8569,7 @@ teeth,"tooth, premolar"
 teeth,"tooth, reindeer"
 teeth,"tooth, rhinoceros"
 teeth,"tooth, upper molar"
+teeth,Tooth? Mammoth
 teeth,tooth/bone
 teeth,"tteth, ESR"
 teeth,U series TIMS (EU) teeth enamel Equus Z6
@@ -8484,9 +8663,13 @@ teeth,Uraniupm series on rodent teeth
 teeth,Urranium series laminar calcite teeth adult horses
 teeth,"Ursus arctos, left dentary"
 teeth,Ursus sp. teeth collagen
+teeth,Ursus sp. Tooth collagen
 teeth,Ursus spelaeus M3 teeth
+teeth,Ursus spelaeus M3 tooth
 teeth,Ursus teeth
 teeth,"Ursus teeth from sector CK, layer 3 (level III)"
+teeth,Ursus tooth
+teeth,"Ursus tooth from sector CK, layer 3 (level III)"
 teeth,US model for denamel and dentine
 teeth,US-ERS on dental enamel of MABA 5C
 teeth,US-ESR model on Mammal teeth enamel  from sand at -5 m vs Lettenbank
@@ -8500,6 +8683,7 @@ teeth,"USR linear uptake, mammoth teeth"
 teeth,USR/U-series on denamel dentine (In Peresani 2012 QI 247 sigma =5000)
 teeth,"wolf canine: HDHS, 1994, I14, 6b"
 teeth,"wooly rhino, teeth dentin (root) from culture?"
+teeth,"wooly rhino, tooth dentin (root) from culture?"
 wood,"adhesive material clinging to wood, contaminated by shell"
 wood,Alnus sp. Wood
 wood,Axtschaft
