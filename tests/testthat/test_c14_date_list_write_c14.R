@@ -9,7 +9,7 @@ test_that("writing to file works without errors", {
     write_c14(example_c14_date_list, file = csv_file, format = "csv")
   )
   expect_silent(
-    write_c14(example_c14_date_list, file = xlsx_file, format = "xlsx")
+    write_c14(example_c14_date_list, path = xlsx_file, format = "xlsx")
   )
 })
 
