@@ -25,10 +25,19 @@ write_c14(x, format = c("csv"), ...)
 write \strong{c14_date_list}s to files
 }
 \examples{
+csv_file <- tempfile(fileext = ".csv")
 write_c14(
   example_c14_date_list,
-  file = tempfile(),
-  format = "csv"
+  format = "csv",
+  file = csv_file
 )
+\donttest{
+xlsx_file <- tempfile(fileext = ".xlsx")
+write_c14(
+  example_c14_date_list,
+  format = "xlsx",
+  path = xlsx_file,
+)
+}
 
 }
