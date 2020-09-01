@@ -1,12 +1,26 @@
 cor,var
 Algeria,DZ
+Angola,AGO
+Belgium,Liege
+Bosnia & Herzegovina,Bosnia
+Bosnia & Herzegovina,Herzegovina
+Burundi,BDI
+Cameroon,CMR
+Central African Republic,CAF
+Central African Republic,CAR
+Chad,TCD
 Corsica,Corsica
 Crete,Crete
 Croatia,HR
 Czech Republic,Czech Republic
+Czechia,Moravia
+Czechia,Tsjech
 Democratic Republic of the Congo,COD
+Democratic Republic of the Congo,DRC
 Egypt,EG
+Equatorial Guinea,GNQ
 France,Francia
+Gabon,GAB
 Germany,Alemania
 Greece,GR
 Iraq,IQ
@@ -23,9 +37,17 @@ Jordan,JO
 Lebanon,LB
 Lybia,LY
 Mallorca,Mallorca
+Moldova,"Moldova, Republic Of"
 Morocco,MA
+North Macedonia,Republic of Macedonia
+other/unknown,?
+other/unknown,COFG
+other/unknown,Fdra
+other/unknown,Meri
+other/unknown,North Sea
 Palestine,PS
 Republic of the Congo,COG
+Rwanda,RWA
 Sardinia,Sardinia
 Serbia,Serbia and Montenegro
 Spain,ES
@@ -35,8 +57,14 @@ Syria,SY
 Tunesia,TN
 Turkey,TR
 Turkmenistan,Turkmenia
+Ukraine,Crimea
+Ukraine,Unkr
 United Arab Emirates,U.A.E.
+United Kingdom,England
 United Kingdom,England/Wales
 United Kingdom,Great Britain
+United Kingdom,N. Ireland
 United Kingdom,Scotland
+United Kingdom,UK
+United Kingdom,Wales
 Yugoslavia,SFRY
