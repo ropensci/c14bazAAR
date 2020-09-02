@@ -8,6 +8,7 @@
 - renamed `standardize_country_name` to `fix_database_country_name` to make more clear what it does (#96) (#106)
 
 ## new getter functions
+- added getter function for MesoRAD database: `get_mesorad` (#112)
 - added getter function for Katsianis et al. database: `get_katsianis` (#103)
 - added getter function for PACEA database: `get_pacea` (#90)
 - added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic` (#90)
