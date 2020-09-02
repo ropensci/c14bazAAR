@@ -22,6 +22,7 @@
 ## bugfixes
 - `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)
 - enabled UTF-8 characters in country thesaurus (#96) (#104)
+- `plot.c14_date_list` does not choke any more on c14_date_lists without coordinate columns (#112)
 
 # c14bazAAR 1.2.0
 

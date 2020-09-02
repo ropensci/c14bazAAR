@@ -127,7 +127,10 @@ plot.c14_date_list <- function(x, ...) {
     sub("\t", "", .) %>%
     sub("\t\t", "\t", .) %>%
     trimws
-  graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, 1), ylim = c(length(header) + 1, 0))
+  graphics::plot(
+    0, type = 'n', axes = FALSE, ann = FALSE,
+    xlim = c(0, 1), ylim = c(length(header) + 1, 0)
+  )
   for (i in 1:length(header)) {
     if (i == 1) {
       graphics::text(0, i, bquote(bold(.(header[i]))), adj = 0)
@@ -137,14 +140,22 @@ plot.c14_date_list <- function(x, ...) {
   }
 
   # plot 2: globe
-  graphics::par(mar = c(0, 0, 0, 0))
-  globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
-  globe::globepoints(
-    loc = x[,c("lon", "lat")],
-    col = "red",
-    cex = 0.01,
-    pch = 20
-  )
+  if (all(c("lon", "lat") %in% colnames(x))) {
+    graphics::par(mar = c(0, 0, 0, 0))
+    globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
+    globe::globepoints(
+      loc = x[,c("lon", "lat")],
+      col = "red",
+      cex = 0.01,
+      pch = 20
+    )
+  } else {
+    graphics::plot(
+      0, type = 'n', axes = FALSE, ann = FALSE,
+      xlim = c(0, 1), ylim = c(0, 1)
+    )
+    graphics::text(0.5, 0.5, "no coordinate columns", adj = 0)
+  }
 
   # plot 3: histogram
   graphics::par(mar = c(4.2, 4.2, 0, 0))
