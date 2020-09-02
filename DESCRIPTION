@@ -79,8 +79,8 @@ Suggests:
     knitr,
     lwgeom,
     mapview,
-    openxlsx,
     plyr,
+    readxl,
     rgeos,
     rmarkdown,
     rnaturalearth,
@@ -88,6 +88,7 @@ Suggests:
     rworldxtra,
     sf,
     stringdist,
-    testthat
+    testthat,
+    writexl
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr

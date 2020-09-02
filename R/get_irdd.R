@@ -2,7 +2,7 @@
 #' @export
 get_irdd <- function(db_url = get_db_url("irdd")) {
 
-  check_if_packages_are_available("openxlsx")
+  check_if_packages_are_available("readxl")
 
   check_connection_to_url(db_url)
 
@@ -12,12 +12,11 @@ get_irdd <- function(db_url = get_db_url("irdd")) {
 
   # read data
   irdd <- tempo %>%
-    openxlsx::read.xlsx(
+    readxl::read_excel(
       sheet = 3,
-      startRow = 2,
-      colNames = FALSE,
-      rowNames = FALSE,
-      na.strings = c("?")
+      na = c("?"),
+      skip = 1,
+      col_names =  FALSE
     ) %>%
     dplyr::mutate_if(
       sapply(., is.character),
