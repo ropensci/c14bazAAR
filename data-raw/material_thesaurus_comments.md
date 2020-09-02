@@ -1,3 +1,17 @@
+# Changes (30.08.2020)
+
+- added additional terms from the new calpal version
+- combined the categories NA, other and unknown to other/unknown - the distinction was not very clear
+- changed some individual attributions
+
+# Changes (21.8.2020)
+
+- added additional terms from the Katsianis database
+ 
+# Changes (18.08.2020)
+
+- added values from emedyd
+
 # Changes (13.3.2018)
 
 - had to add all the values from 14SEA.

@@ -7,51 +7,54 @@ get_calpal <- function(db_url = get_db_url("calpal")) {
   # read data
   calpal <- db_url %>%
     data.table::fread(
+      sep = "\t",
+      na.strings = c("", "nd", "--", "n/a", "NoCountry"),
+      encoding = "UTF-8",
       drop = c(
         "ID",
         "PHASE",
-        "LOCUS"
+        "LOCUS",
+        "CALAGE",
+        "CALSTD",
+        "SITEINFO",
+        "SUBPERIOD",
+        "TABLE"
       ),
       colClasses = c(
+        "METHOD" = "character",
         "LABNR" = "character",
         "C14AGE" = "character",
         "C14STD" = "character",
         "C13" = "character",
+        "SITE" = "character",
+        "SITETYPE" = "character",
+        "PERIOD" = "character",
+        "CULTURE" = "character",
         "MATERIAL" = "character",
         "SPECIES" = "character",
         "COUNTRY" = "character",
-        "SITE" = "character",
-        "PERIOD" = "character",
-        "CULTURE" = "character",
         "LATITUDE" = "character",
         "LONGITUDE" = "character",
-        "METHOD" = "character",
-        "REFERENCE" = "character",
-        "NOTICE" = "character"
+        "REFERENCE" = "character"
       ),
       showProgress = FALSE
     ) %>%
-    base::replace(., . == "", NA) %>%
-    base::replace(., . == "nd", NA) %>%
-    base::replace(., . == "--", NA) %>%
-    base::replace(., . == "n/a", NA) %>%
-    base::replace(., . == "NoCountry", NA) %>%
     dplyr::transmute(
+      method = .data[["METHOD"]],
       labnr = .data[["LABNR"]],
       c14age = .data[["C14AGE"]],
       c14std = .data[["C14STD"]],
       c13val = .data[["C13"]],
+      site = .data[["SITE"]],
+      sitetype = .data[["SITETYPE"]],
+      period = .data[["PERIOD"]],
+      culture = .data[["CULTURE"]],
       material = .data[["MATERIAL"]],
       species = .data[["SPECIES"]],
       country = .data[["COUNTRY"]],
-      site = .data[["SITE"]],
-      period = .data[["PERIOD"]],
-      culture = .data[["CULTURE"]],
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
-      method = .data[["METHOD"]],
-      shortref = .data[["REFERENCE"]],
-      comment = .data[["NOTICE"]]
+      shortref = .data[["REFERENCE"]]
     ) %>% dplyr::mutate(
       sourcedb = "calpal",
       sourcedb_version = get_db_version("calpal")

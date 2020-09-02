@@ -53,6 +53,7 @@ get_thesaurus <- function(url) {
       "cor" = "character",
       "var" = "character"
     ),
+    encoding = "UTF-8",
     showProgress = FALSE
   ) %>%
     tibble::as_tibble()
@@ -70,22 +71,21 @@ get_thesaurus <- function(url) {
 #' @keywords internal
 #' @noRd
 print_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
-  changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus)
-  message("The following decisions were made: \n")
-  for(i in 1:nrow(changes)) {
-    message(
-      ifelse(
-        changes$thesaurus[i],
-        crayon::green("thesaurus:   "),
+  changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus) %>%
+    dplyr::filter(!.data[["thesaurus"]] & !.data[["already_fine"]])
+  if (nrow(changes) > 0) {
+    message("For the following values there was no relevant thesaurus entry: \n")
+    for(i in 1:nrow(changes)) {
+      message(
         ifelse(
           changes$no_change[i],
-          crayon::red("no change:   "),
+          crayon::magenta("no change:   "),
           crayon::yellow("string match:")
-        )
-      ),
-      " ",
-      changes[[variants_column]][i], " -> ", changes[[corrected_column]][i]
-    )
+        ),
+        " ",
+        changes[[variants_column]][i], " -> ", changes[[corrected_column]][i]
+      )
+    }
   }
   message("\ ")
 }
@@ -110,6 +110,7 @@ find_lookup_decisions <- function(x, variants_column, corrected_column, thesauru
     dplyr::arrange(.data[[variants_column]]) %>%
     # check if decision was based on thesaurus entry
     dplyr::mutate(
+      already_fine = .data[[variants_column]] %in% unique(thesaurus$cor),
       thesaurus = .data[[variants_column]] %in% thesaurus$var,
       no_change = .data[[variants_column]] == .data[[corrected_column]]
     )

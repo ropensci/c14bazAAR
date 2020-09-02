@@ -12,7 +12,7 @@
 c14bazAAR is an R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. If you're not familiar with R other tools (such as [GoGet](https://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs.
 
 - [**Installation**](#installation)
-- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Coordinate precision](#coordinate-precision), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
+- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
 - [**Databases**](#databases)
 - [**Contributing**](#contributing) ([Adding database getter functions](#adding-database-getter-functions))
 - [**Citation**](#citation)
@@ -22,17 +22,19 @@ If you want to use data downloaded with c14bazAAR for your research, you have to
 
 ### Installation
 
-c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it directly from your R console. To do so, run the following line:
+We recommend to install the development version from github with the following command (in your R console):
+
+```
+if(!require('remotes')) install.packages('remotes')
+remotes::install_github("ropensci/c14bazAAR")
+```
+
+It is up-to-date and includes more databases and features compared to the CRAN version, though it might be a little bit more unstable. Installing the development version on Windows requires the toolchain bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+
+An older, stable version of c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it with:
 
 ```
 install.packages("c14bazAAR")
-```
-
-You can also get the development version from github:
-
-```
-if(!require('devtools')) install.packages('devtools')
-devtools::install_github("ropensci/c14bazAAR")
 ```
 
 The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to enable them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
@@ -41,18 +43,17 @@ The package needs a lot of other packages -- many of them only necessary for spe
 
 The package contains a set of getter functions (see below) to query the databases. Thereby not every available variable from every archive is downloaded. Instead c14bazAAR focuses on a [selection](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv) of the most important and most common variables to achieve a certain degree of standardization. The downloaded dates are stored in the custom S3 class `c14_date_list` which acts as a wrapper around the [tibble](https://tibble.tidyverse.org/) class and provides specific class methods.
 
-One (almost) complete workflow to download and prepare all dates can be triggered like this:
+A workflow to download and prepare all dates could look like this:
 
 ```
 library(c14bazAAR)
 library(magrittr)
 
 get_c14data("all") %>%
+  remove_duplicates() %>%
   calibrate() %>%
-  mark_duplicates() %>%
   classify_material() %>%
-  finalize_country_name() %>%
-  coordinate_precision()
+  determine_country_by_coordinate()
 ```
 
 It takes quite some time to run all of this and it's probably not necessary for your use case. Here's a list of the main tasks c14bazAAR can handle. That allows you to pick what you need:
@@ -89,43 +90,31 @@ x %>% classify_material()
 
 #### Country attribution
 
-Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`standardize_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_standardize_country_name.R) tries to unify the semantically equal terms by string comparison with the curated country name list [`countrycode::codelist`](https://github.com/vincentarelbundock/countrycode) and a [custom made thesaurus](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country.
+Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`fix_database_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_fix_database_country_name.R) tries to unify the semantically equal terms by string comparison with the curated country name list [`countrycode::codelist`](https://github.com/vincentarelbundock/countrycode) and a [custom made thesaurus](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country.
 
 That's what the function [`determine_country_by_coordinate()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_determine_country_by_coordinate.R) does. It joins the position with country polygons from [`rworldxtra::countriesHigh`](https://github.com/AndySouth/rworldxtra) to get reliable country attribution.
-
-The function [`finalize_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_finalize_country_name.R) finally combines the initial country information in the database and the results of the two previous functions to forge a single column country_final. If the necessary columns are missing, it calls the previous functions automatically.
 
 See `?country_attribution` for more information.
 
 ```
 x %>%
-  standardize_country_name() %>%
-  determine_country_by_coordinate() %>%
-  finalize_country_name()
+  fix_database_country_name() %>%
+  determine_country_by_coordinate()
 ```
 
 #### Duplicates
 
-Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. The function [`mark_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_mark.R) adds a column duplicate group to the c14_date_list, that assigns duplicates found by lab code comparison a common group number. This should allow you to make an educated decision, which dates to discard.
+Some of the source databases already contain duplicated dates and for sure you'll have some if you combine different databases. As a result of the long history of these archives, which includes even mutual absorption, duplicates make up a significant proportion of combined datasets. It's not trivial to find and deal with theses duplicates, because they are not exactly identical between databases: Sometimes they are linked to conflicting and mutually exclusive context information.
 
-For an automatic removal there's the function [`remove_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options how exactly duplicates should be treated.
+For an automatic search and removal based on identical lab numbers we wrote [`remove_duplicates()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_duplicates_remove.R). This functions offers several options on how exactly duplicates should be treated.
+
+If you call `remove_duplicates()` with the option `mark_only = TRUE` then no data is removed, but you can inspect the duplicate groups identified.
 
 See `?duplicates` for more information.
 
 ```
 x %>%
-  mark_duplicates() %>%
   remove_duplicates()
-```
-
-#### Coordinate precision
-
-The function [`coordinate_precision()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_coordinate_precision.R) allows to calculate the precision of the coordinate information. It relies on the number of digits in the columns lat and lon. The mean of the inaccuracy on the x and y axis in meters is stored in the additional column coord_precision.
-
-See `?coordinate_precision` for more information.
-
-```
-x %>% coordinate_precision()
 ```
 
 #### Conversion
@@ -178,6 +167,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("austarch")`](R/get_austarch.R) [**austarch**](https://archaeologydataservice.ac.uk/archives/view/austarch_na_2014/): A Database of 14C and Luminescence Ages from Archaeological Sites in Australia by [Alan N. Williams, Sean Ulm, Mike Smith, Jill Reid](https://intarch.ac.uk/journal/issue36/6/williams.html).
 * [`get_c14data("calpal")`](R/get_calpal.R) [**calpal**](https://uni-koeln.academia.edu/BernhardWeninger/CalPal): Radiocarbon Database of the CalPal software package by Bernhard Weninger. See [nevrome/CalPal-Database](https://github.com/nevrome/CalPal-Database) for an interface.
 * [`get_c14data("context")`](R/get_context.R) [**context**](http://context-database.uni-koeln.de/): Collection of radiocarbon dates from sites in the Near East and neighboring regions (20.000 - 5.000 calBC) by Utz Böhner and Daniel Schyle.
+* [`get_c14data("emedyd")`](R/get_emedyd.R) [**emedyd**](https://discovery.ucl.ac.uk/id/eprint/1570274/): Radiocarbon dates from the Eastern Mediterranean and Southwest Asia, 16,000 – 9000 cal BP, compiled by Alessio Palmisano, Andrew Bevan, and Stephen Shennan (in [Roberts et al. 2017](https://doi.org/10.1016/j.quascirev.2017.09.011)).
 * [`get_c14data("eubar")`](R/get_eubar.R) [**eubar**](https://telearchaeology.org/eubar-c14-database/): A database of 14C measurements for the European Bronze Age by [Gacomo Capuzzo](https://telearchaeology.org/EUBAR/).
 * [`get_c14data("euroevol")`](R/get_euroevol.R) [**euroevol**](https://discovery.ucl.ac.uk/1469811/): Cultural Evolution of Neolithic Europe Dataset by [Katie Manning, Sue Colledge, Enrico Crema, Stephen Shennan and Adrian Timpson](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.40/).
 * [`get_c14data("irdd")`](R/get_irdd.R) [**irdd**](https://sites.google.com/site/chapplearchaeology/irish-radiocarbon-dendrochronological-dates): [Robert M Chapple](https://doi.org/10.5281/zenodo.3367518)'s Catalogue of Radiocarbon Determinations & Dendrochronology Dates is a free-to-download resource for Irish archaeology.
@@ -189,6 +179,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("14cpalaeolithic")`](R/get_14cpalaeolithic.R) [**14cpalaeolithic**](https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx): Radiocarbon Palaolithic Europe Database V26, June 2019 by [Pierre M. Vermeersch](https://ees.kuleuven.be/geography/projects/14c-palaeolithic/) (2019).
 * [`get_c14data("medafricarbon")`](R/get_medafricarbon.R) [**MedAfriCarbon**](https://zenodo.org/record/3689716#.XnSHp4hKiUk): The MedAfriCarbon Radiocarbon Database and [Web Application](https://theia.arch.cam.ac.uk/MedAfriCarbon/). Archaeological Dynamics in Mediterranean Africa, ca. 9600–700 BC by [Giulio Lucarini, Toby Wilkinson, Enrico R. Crema, Augusto Palombini, Andrew Bevan and Cyprian Broodbank](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.60/) (2020).
 * [`get_c14data("jomon")`](R/get_jomon.R) [**jomon**](https://github.com/ercrema/jomonPhasesAndPopulation): A multi-proxy inference of Jōmon population dynamics using bayesian phase models, residential data, and summed probability distribution of 14C dates [Enrico R. Crema and Ken'ichi Kobayashi](https://www.sciencedirect.com/science/article/pii/S0305440320300583) (2020).
+* [`get_c14data("katsianis")`](R/get_katsianis.R) [**katsianis**](https://rdr.ucl.ac.uk/articles/Dataset_for_An_Aegean_history_and_archaeology_written_through_radiocarbon_dates/12489137/1): An Aegean History and Archaeology Written through Radiocarbon Dates [Markos Katsianis, Andrew Bevan, Giorgos Styliaras & Yannis Maniatis](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.65/) (2020).
 
 
 ### Contributing
@@ -200,7 +191,7 @@ If you would like to contribute to this project, please start by reading our [Gu
 If you want to add another radiocarbon database to c14bazAAR (maybe from the list [here](https://github.com/ropensci/c14bazAAR/issues/2)) you can follow this checklist to apply all the necessary changes to the package:
 
 1. Add your database to the [variable_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/variable_reference.csv) and map the database variables to the variables of c14bazAAR and other databases. Please also add additional variables, which are not used in c14bazAAR but available in this database, below.
-2. Write the getter function `get_[The Database Name]` in an own script file: **get_[the database name].R**. For the script file names we used a lowercase version of the database name. The function name on the other hand can contain upper case letters. The getter functions have a standardized layout and always yield an object of the class `c14_date_list`. Please look at some of the available functions to get an idea how it is supposed to look like and which checks it has to include.
+2. Write the getter function `get_[The Database Name]` in an own script file: **get_[the database name].R**. For the script file names we used a lowercase version of the database name. The function name on the other hand can contain upper case letters. The getter functions have a standardized layout and always yield an object of the class `c14_date_list`. Please look at some of the available functions to get an idea how it is supposed to look like and which checks it has to include. Make sure not to store data outside of `tempdir()`. Some databases include non-radiocarbon dates: Make sure to filter them out -- c14bazAAR so far only works with radiocarbon dates.
 3. Add the following roxygen2 tags above the function definition to include it in the package documentation.
 
 ```
@@ -211,7 +202,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 4. Update the package documentation with roxygen2.
 5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/url_reference.csv) to make sure that `get_db_url("[the database name]")` works. `get_db_url()` relies on the file version on the master branch, so maybe you have to find a temporary solution for this as long as you are working in another branch.
 6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
-7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`standardize_country_name()`).
+7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`fix_database_country_name()`).
 8. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
 9. Document the addition of the new function in the NEWS.md file.
 10. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
@@ -222,15 +213,17 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14 dates from different source databases. Journal of Open Source Software, 4(43), 1914, https://doi.org/10.21105/joss.01914
 
 ```
-@article{Schmid2019,
-  title    = "{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases",
-  author   = "Schmid, Clemens and Seidensticker, Dirk and Hinz, Martin",
-  journal  = "Journal of Open Source Software",
-  volume   =  4,
-  number   =  43,
-  pages    = "1914",
-  month    =  nov,
-  year     =  2019
+@Article{Schmid2019,
+  title = {{c14bazAAR}: An {R} package for downloading and preparing {C14} dates from different source databases},
+  author = {Clemens Schmid and Dirk Seidensticker and Martin Hinz},
+  journal = {Journal of Open Source Software},
+  volume = {4},
+  number = {43},
+  pages = {1914},
+  month = {nov},
+  year = {2019},
+  doi = {10.21105/joss.01914},
+  url = {https://doi.org/10.21105/joss.01914},
 }
 ```
 

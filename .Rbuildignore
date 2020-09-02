@@ -11,3 +11,4 @@
 ^CRAN-RELEASE$
 ^codemeta\.json$
 ^logo$
+^\.httr-oauth$
