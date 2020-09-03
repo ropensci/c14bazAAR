@@ -23,17 +23,14 @@ get_eubar <- function(db_url = get_db_url("eubar")) {
       labnr = .[[13]],
       c14age = .[[14]],
       c14std = .[[15]],
-      c13val = NA,
       material = .[[18]],
       country = .[[10]],
       region = .[[9]],
       site = .[[1]],
       lat = .[[12]],
       lon = .[[11]],
-      period = NA,
       feature = .[[19]],
-      shortref = .[[22]],
-      comment = NA
+      shortref = .[[22]]
     ) %>%
     dplyr::mutate(
       sourcedb = "eubar",
