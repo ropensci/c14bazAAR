@@ -14,11 +14,9 @@ get_eubar <- function(db_url = get_db_url("eubar")) {
   eubar <- tempo %>%
     readxl::read_excel(
       na = c("Combination fails", "nd", "-"),
+      col_types = "text"
     ) %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
-    ) %>%
+    as.data.table() %>%
     dplyr::transmute(
       labnr = .[[13]],
       c14age = .[[14]],
@@ -31,6 +29,10 @@ get_eubar <- function(db_url = get_db_url("eubar")) {
       lon = .[[11]],
       feature = .[[19]],
       shortref = .[[22]]
+    ) %>%
+    dplyr::mutate_if(
+      sapply(., is.character),
+      trimws
     ) %>%
     dplyr::mutate(
       sourcedb = "eubar",

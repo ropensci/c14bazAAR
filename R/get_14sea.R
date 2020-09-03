@@ -15,11 +15,9 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
   SEA14 <- tempo %>%
     readxl::read_excel(
       na = c("Combination fails", "nd", "-"),
+      col_types = "text"
     ) %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
-    ) %>%
+    as.data.table() %>%
     dplyr::transmute(
       labnr = .[[5]],
       c14age = .[[6]],
@@ -44,6 +42,10 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
         ifelse(nchar(combined_ref) == 0, NA, combined_ref)
       },
       comment = .[[14]]
+    ) %>%
+    dplyr::mutate_if(
+      sapply(., is.character),
+      trimws
     ) %>%
     dplyr::mutate(
       sourcedb = "14sea",

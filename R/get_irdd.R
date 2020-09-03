@@ -16,12 +16,10 @@ get_irdd <- function(db_url = get_db_url("irdd")) {
       sheet = 3,
       na = c("?"),
       skip = 1,
-      col_names =  FALSE
+      col_names =  FALSE,
+      col_types = "text"
     ) %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
-    ) %>%
+    as.data.table() %>%
     dplyr::transmute(
       labnr = .[[7]],
       c14age = .[[4]],
@@ -33,6 +31,10 @@ get_irdd <- function(db_url = get_db_url("irdd")) {
       lon = .[[20]],
       shortref = .[[15]],
       comment = .[[16]]
+    ) %>%
+    dplyr::mutate_if(
+      sapply(., is.character),
+      trimws
     ) %>%
     dplyr::mutate(
       sourcedb = "irdd",

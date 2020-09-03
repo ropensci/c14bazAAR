@@ -11,12 +11,10 @@ get_mesorad <- function(db_url = get_db_url("mesorad")) {
 
   mesorad <- temp %>%
     readxl::read_excel(
-      sheet = 1
+      sheet = 1,
+      col_types = "text"
     ) %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
-    ) %>%
+    as.data.table() %>%
     dplyr::transmute(
       labnr = .[["Lab No."]],
       c14age = .[["Conventional 14C age (BP)"]],
@@ -28,6 +26,10 @@ get_mesorad <- function(db_url = get_db_url("mesorad")) {
       feature = .[["Provenience"]],
       shortref = .[["Citation"]],
       comment = .[["Chronometric Hygiene/ Issues with Dates"]]
+    ) %>%
+    dplyr::mutate_if(
+      sapply(., is.character),
+      trimws
     ) %>%
     dplyr::mutate(
       sourcedb = "mesorad",

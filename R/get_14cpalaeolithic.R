@@ -2,8 +2,6 @@
 #' @export
 get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
-  # db_url <- "https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx"
-
   check_connection_to_url(db_url)
 
   # download data
@@ -11,9 +9,12 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   utils::download.file(url = db_url, destfile = temp, mode = "wb", quiet = TRUE)
 
   # read data
-  db_raw <- readxl::read_excel(
-    temp, sheet = 1
-  ) %>%
+  db_raw <- temp %>%
+    readxl::read_excel(
+      sheet = 1,
+      col_types = "text"
+    ) %>%
+    as.data.table() %>%
     dplyr::mutate_if(
       sapply(., is.character),
       trimws
