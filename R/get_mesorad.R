@@ -25,7 +25,7 @@ get_mesorad <- function(db_url = get_db_url("mesorad")) {
     dplyr::transmute(
       labnr = .[["Lab No."]],
       c14age = .[["Conventional 14C age (BP)"]],
-      c14std = .[["Error (±)"]],
+      c14std = .[[8]],
       method = .[["Dating Method"]],
       region = .[["Adaptive Region"]],
       site = .[["Site"]],
