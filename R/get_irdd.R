@@ -3,47 +3,46 @@
 get_irdd <- function(db_url = get_db_url("irdd")) {
 
   check_if_packages_are_available("readxl")
-
   check_connection_to_url(db_url)
 
-  # download data to temporary file
-  tempo <- tempfile()
-  utils::download.file(db_url, tempo, mode = "wb", quiet = TRUE)
+  # download data
+  temp <- tempfile(fileext = ".xlsx")
+  utils::download.file(db_url, temp, mode = "wb", quiet = TRUE)
 
   # read data
-  irdd <- tempo %>%
+  placeholder_column_names <- paste("col", 1:39, sep = "")
+  db_raw <- temp %>%
     readxl::read_excel(
       sheet = 3,
+      col_names =  FALSE,
+      col_types = "text",
       na = c("?"),
       skip = 1,
-      col_names =  FALSE,
-      col_types = "text"
-    ) %>%
-    as.data.table() %>%
-    dplyr::transmute(
+      trim_ws = TRUE,
+      .name_repair = ~placeholder_column_names
+    )
+
+  # delete temporary file
+  unlink(temp)
+
+  # final data preparation
+  irdd <- db_raw %>% dplyr::transmute(
       labnr = .[[7]],
       c14age = .[[4]],
       c14std = .[[6]],
       site = .[[2]],
-      sitetype = .[[14]],
-      material = .[[26]],
-      lat = .[[19]],
-      lon = .[[20]],
-      shortref = .[[15]],
-      comment = .[[16]]
-    ) %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
+      sitetype = .[[15]],
+      material = .[[28]],
+      lat = .[[20]],
+      lon = .[[21]],
+      shortref = .[[16]],
+      comment = .[[17]]
     ) %>%
     dplyr::mutate(
       sourcedb = "irdd",
       sourcedb_version = get_db_version("irdd")
     ) %>%
     as.c14_date_list()
-
-  # delete temporary file
-  unlink(tempo)
 
   return(irdd)
 }
