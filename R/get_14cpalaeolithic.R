@@ -12,12 +12,9 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   db_raw <- temp %>%
     readxl::read_excel(
       sheet = 1,
-      col_types = "text"
-    ) %>%
-    as.data.table() %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
+      col_types = "text",
+      na = "",
+      trim_ws = TRUE
     )
 
   # remove files in file system
@@ -25,7 +22,6 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
   # final data preparation
   c14palaeolithic <- db_raw %>%
-    base::replace(., . == "", NA) %>%
     dplyr::transmute(
       method = .data[["method"]],
       labnr = .data[["labref"]],
