@@ -1,4 +1,3 @@
-#' @name get_dates
 #' @rdname db_getter_backend
 #' @export
 get_mesorad <- function(db_url = get_db_url("mesorad")) {
