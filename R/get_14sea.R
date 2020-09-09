@@ -1,23 +1,28 @@
-#' @name get_dates
 #' @rdname db_getter_backend
 #' @export
 get_14sea <- function(db_url = get_db_url("14sea")) {
 
   check_if_packages_are_available("readxl")
-
   check_connection_to_url(db_url)
 
-  # download data to temporary file
-  tempo <- tempfile()
-  utils::download.file(db_url, tempo, mode = "wb", quiet = TRUE)
+  # download data
+  temp <- tempfile(fileext = ".xlsx")
+  utils::download.file(db_url, temp, mode = "wb", quiet = TRUE)
 
   # read data
-  SEA14 <- tempo %>%
+  db_raw <- temp %>%
     readxl::read_excel(
+      sheet = 1,
+      col_types = "text",
       na = c("Combination fails", "nd", "-"),
-      col_types = "text"
-    ) %>%
-    as.data.table() %>%
+      trim_ws = TRUE
+    )
+
+  # delete temporary file
+  unlink(temp)
+
+  # final data preparation
+  sea14 <- db_raw %>%
     dplyr::transmute(
       labnr = .[[5]],
       c14age = .[[6]],
@@ -26,7 +31,7 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
       material = .[[11]],
       country = .[[4]],
       region = .[[2]],
-      site = .[["Site"]],
+      site = .[[1]],
       period = .[[15]],
       feature = .[[13]],
       shortref = {
@@ -43,18 +48,11 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
       },
       comment = .[[14]]
     ) %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
-    ) %>%
     dplyr::mutate(
       sourcedb = "14sea",
       sourcedb_version = get_db_version("14sea")
     ) %>%
     as.c14_date_list()
 
-  # delete temporary file
-  unlink(tempo)
-
-  return(SEA14)
+  return(sea14)
 }

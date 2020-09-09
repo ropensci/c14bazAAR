@@ -2,30 +2,27 @@
 #' @export
 get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
+  check_if_packages_are_available("readxl")
   check_connection_to_url(db_url)
 
   # download data
   temp <- tempfile(fileext = ".xlsx")
-  utils::download.file(url = db_url, destfile = temp, mode = "wb", quiet = TRUE)
+  utils::download.file(db_url, destfile = temp, mode = "wb", quiet = TRUE)
 
   # read data
   db_raw <- temp %>%
     readxl::read_excel(
       sheet = 1,
-      col_types = "text"
-    ) %>%
-    as.data.table() %>%
-    dplyr::mutate_if(
-      sapply(., is.character),
-      trimws
+      col_types = "text",
+      na = "",
+      trim_ws = TRUE
     )
 
-  # remove files in file system
+  # delete temporary file
   unlink(temp)
 
   # final data preparation
   c14palaeolithic <- db_raw %>%
-    base::replace(., . == "", NA) %>%
     dplyr::transmute(
       method = .data[["method"]],
       labnr = .data[["labref"]],

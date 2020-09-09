@@ -7,7 +7,6 @@
 %   R/get_radon.R, R/get_radonb.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
-\alias{get_dates}
 \alias{get_14sea}
 \alias{get_adrac}
 \alias{get_austarch}
