@@ -8,6 +8,7 @@
 - renamed `standardize_country_name` to `fix_database_country_name` to make more clear what it does (#96) (#106)
 
 ## new getter functions
+- added getter function for MesoRAD database: `get_mesorad` (#112)
 - added getter function for Katsianis et al. database: `get_katsianis` (#103)
 - added getter function for PACEA database: `get_pacea` (#90)
 - added getter function for 14C-Palaeolithic database: `get_14cpalaeolithic` (#90)
@@ -21,6 +22,7 @@
 ## bugfixes
 - `lwgeom::st_make_valid` was replaced by `sf::st_make_valid` (#99)
 - enabled UTF-8 characters in country thesaurus (#96) (#104)
+- `plot.c14_date_list` does not choke any more on c14_date_lists without coordinate columns (#112)
 
 # c14bazAAR 1.2.0
 
