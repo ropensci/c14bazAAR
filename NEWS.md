@@ -6,6 +6,7 @@
 - deprecated `coordinate_precision`. The functionality was not essential and the calculated precision values probably frequently misleading. Beyond that the name was confusing (#96) (#106)
 - deprecated `finalize_country_name`. This wrapper function was rather confusing and the functionality can be very easily be reimplemented if necessary (#96) (#106)
 - renamed `standardize_country_name` to `fix_database_country_name` to make more clear what it does (#96) (#106)
+- switched from openxlsx to readxl & writexl for handling xlsx files (#105) (#111)
 
 ## new getter functions
 - added getter function for MesoRAD database: `get_mesorad` (#112)
