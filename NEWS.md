@@ -7,7 +7,7 @@
 - deprecated `finalize_country_name`. This wrapper function was rather confusing and the functionality can be very easily be reimplemented if necessary (#96) (#106)
 - renamed `standardize_country_name` to `fix_database_country_name` to make more clear what it does (#96) (#106)
 - switched from openxlsx to readxl & writexl for handling xlsx files (#105) (#111)
-- allowed for different calibration curves in calibrate (#118) (#119)
+- allowed for different calibration curves in calibrate (#118)
 
 ## new getter functions
 - added getter function for MesoRAD database: `get_mesorad` (#112)
