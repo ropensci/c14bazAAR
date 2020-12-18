@@ -22,7 +22,11 @@
 #' probability dataframe ('calprobdistr') or the sigma range ('calrange').
 #' Both arguments may be given at the same time.
 #' @param sigma the desired sigma value (1,2,3) for the calibrated sigma ranges
-#' @param ... passed to Bchron::BchronCalibrate()
+#' @param calCurves	a vector of values containing either intcal20, shcal20,
+#' marine20, or normal (older calibration curves are supposed such as intcal13).
+#' Should be the same length the number of ages supplied.
+#' See \link{Bchron::BchronCalibrate()} for more information
+#' @param ... passed to \link{Bchron::BchronCalibrate()}
 #'
 #' @return an object of class c14_date_list with the additional columns
 #' \strong{calprobdistr} or \strong{calrange} and \strong{sigma}
@@ -38,23 +42,28 @@
 #'
 #' @rdname calibrate
 #'
-calibrate <- function(x, choices = c("calrange"), sigma = 2, ...) {
+calibrate <- function(
+  x, choices = c("calrange"), sigma = 2, calCurves = rep("intcal20", nrow(x)), ...) {
   UseMethod("calibrate")
 }
 
 #' @rdname calibrate
 #' @export
-calibrate.default <- function(x, choices = c("calrange"), sigma = 2, ...) {
+calibrate.default <- function(
+  x, choices = c("calrange"), sigma = 2, calCurves = rep("intcal20", nrow(x)), ...) {
   stop("x is not an object of class c14_date_list")
 }
 
 #' @rdname calibrate
 #' @export
-calibrate.c14_date_list <- function(x, choices = c("calrange"), sigma = 2, ...) {
+calibrate.c14_date_list <- function(
+  x, choices = c("calrange"), sigma = 2, calCurves = rep("intcal20", nrow(x)), ...) {
 
-  choices <- match.arg(choices,
-                       c("calprobdistr", "calrange"),
-            several.ok = TRUE)
+  choices <- match.arg(
+    choices,
+    c("calprobdistr", "calrange"),
+    several.ok = TRUE
+  )
 
   check_if_packages_are_available(c("Bchron", "plyr"))
 
@@ -72,12 +81,13 @@ calibrate.c14_date_list <- function(x, choices = c("calrange"), sigma = 2, ...) 
   )
 
   # add empty column "calprobdistr"
-  x %<>% add_or_replace_column_in_df("calprobdistr",  replicate(nrow(x), data.frame()), .after = "c14std")
+  x %<>% add_or_replace_column_in_df("calprobdistr", replicate(nrow(x), data.frame()), .after = "c14std")
 
   # extract dates which are not out of range of calcurve
-  outofrange <- x %>% determine_dates_out_of_range_of_calcurve()
+  outofrange <- x %>% determine_dates_out_of_range_of_calcurve(calCurves)
   if(length(outofrange) > 0) {
     calibrateable <- x[-outofrange, ]
+    calCurves <- calCurves[-outofrange]
   } else {
     calibrateable <- x
   }
@@ -98,12 +108,13 @@ calibrate.c14_date_list <- function(x, choices = c("calrange"), sigma = 2, ...) 
 
     # define step sequence for this step
     step_seq <- (step_width * (i - 1) + 1):if (i == amount_of_iterations)
-    {nrow(calibrateable)} else {(step_width * i)}
+      {nrow(calibrateable)} else {(step_width * i)}
 
     # calibration in stacks of size step_width
     calibrateable_prodistr[step_seq] <- calibrate_to_probability_distribution(
       calibrateable[step_seq, ],
       eps = 1e-06,
+      calCurves = calCurves[step_seq],
       ...
     )
 
@@ -161,15 +172,16 @@ calibrate.c14_date_list <- function(x, choices = c("calrange"), sigma = 2, ...) 
 #'
 #' @keywords internal
 #' @noRd
-determine_dates_out_of_range_of_calcurve <- function(x) {
+determine_dates_out_of_range_of_calcurve <- function(x, calCurves) {
   # load intcal13 data from Bchron
-  intcal13 <- NA
-  utils::data("intcal13", package = "Bchron", envir = environment())
-  if(!is.data.frame(intcal13)) stop("Problems loading intcal13 dataset from package Bchron.")
+  cal_curve <- NA
+  cal_curve_string <- utils::data(list = calCurves[1], package = "Bchron", envir = environment())
+  cal_curve <- eval(as.name(cal_curve_string))
+  if(!is.data.frame(cal_curve)) stop("Problems loading intcal13 dataset from package Bchron.")
 
   toona <- which(is.na(x$c14age) | is.na(x$c14std))
-  toosmall <- which(x$c14age < min(intcal13[,2]))
-  toobig <- which(x$c14age > max(intcal13[,2]))
+  toosmall <- which(x$c14age < min(cal_curve[,2]))
+  toobig <- which(x$c14age > max(cal_curve[,2]))
   outofrange <- c(toona, toosmall, toobig) %>% unique
 
   return(outofrange)
@@ -184,11 +196,11 @@ determine_dates_out_of_range_of_calcurve <- function(x) {
 #'
 #' @keywords internal
 #' @noRd
-calibrate_to_probability_distribution <- function(x, ...) {
+calibrate_to_probability_distribution <- function(x, calCurves, ...) {
   Bchron::BchronCalibrate(
     ages      = x$c14age,
     ageSds    = x$c14std,
-    calCurves = rep("intcal13", nrow(x)),
+    calCurves = calCurves,
     ...
   ) %>%
     # extract probability distribution from BchronCalibrate output

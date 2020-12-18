@@ -6,11 +6,29 @@
 \alias{calibrate.c14_date_list}
 \title{Calibrate all valid dates in a \strong{c14_date_list}}
 \usage{
-calibrate(x, choices = c("calrange"), sigma = 2, ...)
+calibrate(
+  x,
+  choices = c("calrange"),
+  sigma = 2,
+  calCurves = rep("intcal20", nrow(x)),
+  ...
+)
 
-\method{calibrate}{default}(x, choices = c("calrange"), sigma = 2, ...)
+\method{calibrate}{default}(
+  x,
+  choices = c("calrange"),
+  sigma = 2,
+  calCurves = rep("intcal20", nrow(x)),
+  ...
+)
 
-\method{calibrate}{c14_date_list}(x, choices = c("calrange"), sigma = 2, ...)
+\method{calibrate}{c14_date_list}(
+  x,
+  choices = c("calrange"),
+  sigma = 2,
+  calCurves = rep("intcal20", nrow(x)),
+  ...
+)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
@@ -21,7 +39,12 @@ Both arguments may be given at the same time.}
 
 \item{sigma}{the desired sigma value (1,2,3) for the calibrated sigma ranges}
 
-\item{...}{passed to Bchron::BchronCalibrate()}
+\item{calCurves}{a vector of values containing either intcal20, shcal20,
+marine20, or normal (older calibration curves are supposed such as intcal13).
+Should be the same length the number of ages supplied.
+See \link{Bchron::BchronCalibrate()} for more information}
+
+\item{...}{passed to \link{Bchron::BchronCalibrate()}}
 }
 \value{
 an object of class c14_date_list with the additional columns
