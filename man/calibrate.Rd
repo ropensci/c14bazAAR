@@ -42,9 +42,9 @@ Both arguments may be given at the same time.}
 \item{calCurves}{a vector of values containing either intcal20, shcal20,
 marine20, or normal (older calibration curves are supposed such as intcal13).
 Should be the same length the number of ages supplied.
-See \link{Bchron::BchronCalibrate()} for more information}
+See \link[Bchron]{BchronCalibrate} for more information}
 
-\item{...}{passed to \link{Bchron::BchronCalibrate()}}
+\item{...}{passed to \link[Bchron]{BchronCalibrate}}
 }
 \value{
 an object of class c14_date_list with the additional columns

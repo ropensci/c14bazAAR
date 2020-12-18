@@ -25,8 +25,8 @@
 #' @param calCurves	a vector of values containing either intcal20, shcal20,
 #' marine20, or normal (older calibration curves are supposed such as intcal13).
 #' Should be the same length the number of ages supplied.
-#' See \link{Bchron::BchronCalibrate()} for more information
-#' @param ... passed to \link{Bchron::BchronCalibrate()}
+#' See \link[Bchron]{BchronCalibrate} for more information
+#' @param ... passed to \link[Bchron]{BchronCalibrate}
 #'
 #' @return an object of class c14_date_list with the additional columns
 #' \strong{calprobdistr} or \strong{calrange} and \strong{sigma}
