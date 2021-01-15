@@ -1,6 +1,6 @@
 db,version,url_num,url
 14sea,2017-01-29,1,http://www.14sea.org/img/14SEA_Full_Dataset_2017-01-29.xlsx
-adrac,today,1,https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/data/aDRAC.csv
+adrac,today,1,https://raw.githubusercontent.com/dirkseidensticker/aDRAC/master/aDRAC.csv
 austarch,2013-11-28,1,https://archaeologydataservice.ac.uk/catalogue/adsdata/arch-1661-1/dissemination/csv/Austarch_1-3_and_IDASQ_28Nov13-1.csv
 calpal,2020-08-20,1,https://raw.githubusercontent.com/nevrome/CalPal-Database/master/CalPal_2020_08_20.tsv
 context,2006-09-26,1,http://context-database.uni-koeln.de/download/Boehner_and_Schyle_Near_Eastern_radiocarbon_CONTEXT_database_2002-2006_doi10.1594GFZ.CONTEXT.Ed1csv.zip
