@@ -1,7 +1,7 @@
 c14bazAAR,type,definition,source,14sea,adrac,austarch,calpal,context,eubar,euroevol,palmisano,radon,radonb,kiteeastafrica,irdd,pacea,14cpalaeolithic,medafricarbon,jomon,katsianis,mesorad
 sourcedb,character,Source database name,c14bazAAR,,,,,,,,,,,,,,,,,,
 sourcedb_version,character,Source database version,c14bazAAR,,,,,,,,,,,,,,,,,,
-method,character,Radiocarbon date measurement method,databases,,,METHOD,METHOD,,,,,,,,,Date Type,method,Date_Method,,DateMethod,Dating Method
+method,character,Radiocarbon date measurement method,databases,,METHOD,METHOD,METHOD,,,,,,,,,Date Type,method,Date_Method,,DateMethod,Dating Method
 labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],databases,Lab. no.,LABNR,LAB_CODE,LABNR,LABNR,Laboratorio,LabCode,LabID,LABNR,LABNR,Lab Number,Code,Code,labref,Lab_ID,LabCode,LabID,Lab No.
 c14age ,integer,14C age [uncalibrated age BP],databases,Date BP,C14AGE,AGE,C14AGE,C14AGE,Edad BP literatura,C14Age,CRA,C14AGE,C14AGE,Normalized Age,BP,Age,age,CRA,CRA,CRA,Conventional 14C age (BP)
 c14std,integer,Standard deviation [1 sigma devitation range],databases,±,C14STD,ERROR,C14STD,C14STD,Desviación Típica,C14SD,Error,C14STD,C14STD,NA Sigma,SD,s.dev.,sigma.+/-,Error,Error,Error,Error (±)
@@ -30,12 +30,12 @@ comment ,character,Free text with additional information,databases,Comment,,NOTE
 duplicate_group,integer,Number of duplicate group,c14bazAAR,,,,,,,,,,,,,,,,,,
 duplicate_remove_log,character,Description of variable value variation in duplicate group,c14bazAAR,,,,,,,,,,,,,,,,,,
 ,,,,Subregion no.,FEATURE_DESC,ADSID,ID,ID,Municipio,C14ID,LocQual,ID,ID,Field Number,No.,,,Date_ID,SampleID,DBID,2-σ calibrated from
-,,,,calBC 1σ (from),ASSOCIATION,C13_ERROR,PHASE,PHASE,Provincia/Distrito,PhaseCode,StartDate,,,Locality,County,,,Other_Lab_ID,CombineGroup,OthLabID,2-σ calibrated to
-,,,,calBC 1σ (to),REL,MATERIAL_TOP_LEVEL,LOCUS,LOCUS,Comarca,Subculture,EndDate,,,Map Sheet,Cal date (2σ),,,Problems,SiteID,OthDateCode,Duplicate/Replicate
-,,,,Level,,DEPTH_FROM_SURFACE_CM,CALAGE,GR,Región,,SizeHA,,,Elevation (m ASL),Cal date (1σ),,,DC13_Error,Site_Address_JP,Problems,
-,,,,,,TECHNIQUE,CALSTD,MAR,Comunidad autónoma,,SizeQual,,,Submitter,Program,,,Calibration_Curve,MaterialType_JP,OthMeasures,
-,,,,,,Data pertinent for time-series analysis or calibration,,SAMPLE,Departamento,,Source_id,,,Date Submitted,Curve,,,Local_Reservoire_14Cyr,Phase,,
-,,,,,,Open or Closed Site,,calBC68,Cantón,,,,,Collector,Intercept (cal BC/AD),,,Local_Reservoire_14Cyr_Error,Phase_Details,,
+,,,,calBC 1σ (from),DEPTH,C13_ERROR,PHASE,PHASE,Provincia/Distrito,PhaseCode,StartDate,,,Locality,County,,,Other_Lab_ID,CombineGroup,OthLabID,2-σ calibrated to
+,,,,calBC 1σ (to),LITHICS,MATERIAL_TOP_LEVEL,LOCUS,LOCUS,Comarca,Subculture,EndDate,,,Map Sheet,Cal date (2σ),,,Problems,SiteID,OthDateCode,Duplicate/Replicate
+,,,,Level,POTTERY,DEPTH_FROM_SURFACE_CM,CALAGE,GR,Región,,SizeHA,,,Elevation (m ASL),Cal date (1σ),,,DC13_Error,Site_Address_JP,Problems,
+,,,,,IRON,TECHNIQUE,CALSTD,MAR,Comunidad autónoma,,SizeQual,,,Submitter,Program,,,Calibration_Curve,MaterialType_JP,OthMeasures,
+,,,,,FRUIT,Data pertinent for time-series analysis or calibration,,SAMPLE,Departamento,,Source_id,,,Date Submitted,Curve,,,Local_Reservoire_14Cyr,Phase,,
+,,,,,CLASS_DS.WH_etal_2021,Open or Closed Site,,calBC68,Cantón,,,,,Collector,Intercept (cal BC/AD),,,Local_Reservoire_14Cyr_Error,Phase_Details,,
 ,,,,,,Directly Related to occupation? Yes/Unknown,,calBC95,Región geográfica,,,,,Date Collected,intercept (cal BP),,,Species,PhaseAnalysis,,
 ,,,,,,RECORD_SOURCE,,INCONGR,Contexto Funcional,,,,,Updater,Mode (cal BC/AD),,,Site_ID,Delta13CError,,
 ,,,,,,DATE_ISSUES,,,Tipo de tumba,,,,,Date Updated,δ13C or 13C/12C ratio,,,Phase_ID,,,
