@@ -9,8 +9,11 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
     data.table::fread(
       drop = c(
         "FEATURE_DESC",
-        "ASSOCIATION",
-        "REL"
+        "LITHICS",
+        "POTTERY",
+        "IRON",
+        "FRUIT",
+        "CLASS_DS.WH_etal_2021"
       ),
       colClasses = c(
         "LABNR" = "character",
@@ -18,13 +21,14 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
         "C14STD" = "character",
         "C13" = "character",
         "MATERIAL" = "character",
+        "METHOD" = "character",
         "SITE" = "character",
         "COUNTRY" = "character",
         "FEATURE" = "character",
         "PHASE" = "character",
-        "POTTERY" = "character",
         "LAT" = "character",
         "LONG" = "character",
+        "REMARK" = "character",
         "SOURCE" = "character"
       ),
       showProgress = FALSE
@@ -36,13 +40,14 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
       c14std = .data[["C14STD"]],
       c13val = .data[["C13"]],
       material = .data[["MATERIAL"]],
+      method = .data[["METHOD"]],
       site = .data[["SITE"]],
       country = .data[["COUNTRY"]],
       feature = .data[["FEATURE"]],
       period = .data[["PHASE"]],
-      culture = .data[["POTTERY"]],
       lat = .data[["LAT"]],
       lon = .data[["LONG"]],
+      comment = .data[["REMARK"]],
       shortref = .data[["SOURCE"]]
     ) %>% dplyr::mutate(
       sourcedb = "adrac",
