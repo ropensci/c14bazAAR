@@ -22,20 +22,20 @@ If you want to use data downloaded with c14bazAAR for your research, you have to
 
 ### Installation
 
-We recommend to install the development version from github with the following command (in your R console):
+We recommend to install the stable version from the [R-universe](https://r-universe.dev/) repository of [rOpenSci](https://ropensci.org/) with the following command (in your R console):
+
+```
+install.packages("c14bazAAR", repos = c(ropensci = "https://ropensci.r-universe.dev"))
+```
+
+The development version can be installed from github with the following command (in your R console):
 
 ```
 if(!require('remotes')) install.packages('remotes')
 remotes::install_github("ropensci/c14bazAAR")
 ```
 
-It is up-to-date and includes more databases and features compared to the CRAN version, though it might be a little bit more unstable. Installing the development version on Windows requires the toolchain bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
-
-An older, stable version of c14bazAAR is on [CRAN](https://cran.r-project.org/) and you can install it with:
-
-```
-install.packages("c14bazAAR")
-```
+Both versions are up-to-date and include all databases and features. Installing the development version on Windows requires the toolchain bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
 
 The package needs a lot of other packages -- many of them only necessary for specific tasks. Functions that require certain packages you don't have installed yet will stop and ask you to enable them. Please do so with [`install.packages()`](https://www.r-bloggers.com/installing-r-packages/) to download and install the respective packages from CRAN.
 
@@ -207,6 +207,28 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 9. Document the addition of the new function in the NEWS.md file.
 10. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
 11. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
+
+#### Pre-submision testing
+
+Before submitting patches or new getter functions via a pull request, we ask you to check the following items:
+
+1. The package works and all functions are usable
+2. The package documentation is up-to-date and represents the functions correctly
+3. The test coverage of the package functions is sufficient
+4. `DESCRIPTION` is up-to-date with the latest version number and database list
+5. `README.md` is up-to-date
+6. `NEWS.md` is up-to-date and includes the latest changes
+7. **Package checks ran and did not yield any ERRORS, WARNINGS or NOTES (or at least the NOTES are addressed in the cran-comments.md)**
+	- **locally (`devtools::check()`)**
+	- rhub (`devtools::check_rhub(email = ...)`)
+	- winbuilder (`devtools::check_win_release(email = ....)` + `devtools::check_win_devel(email = ....)`)
+8. Spellcheck with `devtools::spell_check()` ran and did yield not only false-positives
+9. codemeta.json is up-to-date (can be updated with `codemetar::write_codemeta()`)
+10. `inst/CITATION` is up-to-date
+11. The package does not make external changes without explicit user permission. It does not write to the file system, change options, install packages, quit R, send information over the internet, open external software, etc.
+12. No reverse dependencies break because of the new package version (`devtools::revdep_check()`)
+
+Please make sure to run the tests listed above and pay special attention to the highlighted items.
 
 ### Citation
 
