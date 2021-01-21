@@ -14,7 +14,7 @@ c14bazAAR is an R package to query different openly accessible radiocarbon date 
 - [**Installation**](#installation)
 - [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
 - [**Databases**](#databases)
-- [**Contributing**](#contributing) ([Adding database getter functions](#adding-database-getter-functions))
+- [**Contributing**](#contributing) ([Adding database getter functions](#adding-database-getter-functions), [Pre-submision testing](#pre-submision-testing), [Versioning](#versioning))
 - [**Citation**](#citation)
 - [**License**](#license)
 
