@@ -49,7 +49,11 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
       lon = .data[["LONG"]],
       comment = .data[["REMARK"]],
       shortref = .data[["SOURCE"]]
-    ) %>% dplyr::mutate(
+    ) %>%
+    dplyr::filter(
+      is.na(.data[["method"]]) | .data[["method"]] != "TL"
+    ) %>%
+    dplyr::mutate(
       sourcedb = "adrac",
       sourcedb_version = get_db_version("adrac")
     ) %>%
