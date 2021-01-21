@@ -230,6 +230,14 @@ Before submitting patches or new getter functions via a pull request, we ask you
 
 Please make sure to run the tests listed above and pay special attention to the highlighted items.
 
+#### Versioning
+
+Version numbers (releases) follow the [semantic versioning schema](https://semver.org/) and consits of mayor and minor releases as well as patches.
+
+* **x**.y.z: a **mayor** release will be made once an existing funciton of removed and thus the API is changed.
+* x.**y**.z: a **minor** release contains new parsers and auxiliary funcitons.
+* x.y.**z**: a **patch** updates existing parsers and functions.
+
 ### Citation
 
 Schmid et al., (2019). c14bazAAR: An R package for downloading and preparing C14 dates from different source databases. Journal of Open Source Software, 4(43), 1914, https://doi.org/10.21105/joss.01914
