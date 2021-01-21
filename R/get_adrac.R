@@ -51,7 +51,7 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
       shortref = .data[["SOURCE"]]
     ) %>%
     dplyr::filter(
-      is.na(method) | method != "TL"
+      is.na(.data[["method"]]) | .data[["method"]] != "TL"
     ) %>%
     dplyr::mutate(
       sourcedb = "adrac",
