@@ -232,10 +232,10 @@ Please make sure to run the tests listed above and pay special attention to the 
 
 #### Versioning
 
-Version numbers (releases) follow the [semantic versioning schema](https://semver.org/) and consits of mayor and minor releases as well as patches.
+Version numbers (releases) follow the [semantic versioning schema](https://semver.org/) and consist of mayor and minor releases as well as patches.
 
-* **x**.y.z: a **mayor** release will be made once an existing funciton of removed and thus the API is changed.
-* x.**y**.z: a **minor** release contains new parsers and auxiliary funcitons.
+* **x**.y.z: a **mayor** release will be made once an existing function is radically changed or removed and thus the package API is changed.
+* x.**y**.z: a **minor** release contains new parsers and auxiliary functions.
 * x.y.**z**: a **patch** updates existing parsers and functions.
 
 ### Citation
