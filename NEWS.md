@@ -1,3 +1,7 @@
+# c14bazAAR 1.3.3
+
+- added a dev mode according to (#122)
+
 # c14bazAAR 1.3.2
 
 - added submission ToDo list to README (#124)

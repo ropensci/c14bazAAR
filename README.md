@@ -186,6 +186,10 @@ To suggest other archives to be queried you can join the discussion [here](https
 
 If you would like to contribute to this project, please start by reading our [Guide to Contributing](https://github.com/ropensci/c14bazAAR/blob/master/CONTRIBUTING.md). Please note that this project is released with a Contributor [Code of Conduct](https://github.com/ropensci/c14bazAAR/blob/master/CONDUCT.md). By participating in this project you agree to abide by its terms.
 
+#### Developer mode
+
+The lookup table files for database URLs, as well as country and material thesauri, are always downloaded from the `data_raw` directory on the master branch on Github. This makes is somewhat cumbersome to test changes to the respective files. With `options(c14bazAAR_dev_mode = TRUE)` a developer mode can be activated that does instead use the local versions of the files. Unfortunately this mode does not cover the test and check environments.
+
 #### Adding database getter functions
 
 If you want to add another radiocarbon database to c14bazAAR (maybe from the list [here](https://github.com/ropensci/c14bazAAR/issues/2)) you can follow this checklist to apply all the necessary changes to the package:
