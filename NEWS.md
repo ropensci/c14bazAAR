@@ -1,3 +1,12 @@
+# c14bazAAR 1.3.2
+
+- added submission ToDo list to README (#124)
+- defined version update schema in README (#124)
+
+# c14bazAAR 1.3.1
+
+- filtered out TL dates from aDRAC in parser function (#123)
+
 # c14bazAAR 1.3.0
 
 ## general changes
