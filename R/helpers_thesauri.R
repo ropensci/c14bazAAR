@@ -14,6 +14,12 @@ get_country_thesaurus <- function(
     "data-raw",
     "country_thesaurus.csv"
   ), collapse = "/")) {
+  # check if dev_mode is turned on and only local data is used
+  if (isTRUE(getOption("c14bazAAR_dev_mode"))) {
+    ref_url <- "data-raw/country_thesaurus.csv"
+  } else {
+    check_connection_to_url(ref_url)
+  }
   ref_url %>% get_thesaurus() %>% return()
 }
 
@@ -33,7 +39,13 @@ get_material_thesaurus <- function(
     "data-raw",
     "material_thesaurus.csv"
   ), collapse = "/")) {
-    ref_url %>% get_thesaurus() %>% return()
+  # check if dev_mode is turned on and only local data is used
+  if (isTRUE(getOption("c14bazAAR_dev_mode"))) {
+    ref_url <- "data-raw/material_thesaurus.csv"
+  } else {
+    check_connection_to_url(ref_url)
+  }
+  ref_url %>% get_thesaurus() %>% return()
   }
 
 #' get_thesaurus

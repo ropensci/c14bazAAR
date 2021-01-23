@@ -59,7 +59,12 @@ get_db_info <- function(
     "url_reference.csv"
   ), collapse = "/")) {
 
-  check_connection_to_url(ref_url)
+  # check if dev_mode is turned on and only local data is used
+  if (isTRUE(getOption("c14bazAAR_dev_mode"))) {
+    ref_url <- "data-raw/url_reference.csv"
+  } else {
+    check_connection_to_url(ref_url)
+  }
 
   if (length(db_name) > 1) {
     stop("get_db_info only works for one database at a time")
