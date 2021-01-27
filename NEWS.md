@@ -1,4 +1,13 @@
-# c14bazAAR 1.3.0
+# 1.3.2
+
+- added submission ToDo list to README (#124)
+- defined version update schema in README (#124)
+
+# 1.3.1
+
+- filtered out TL dates from aDRAC in parser function (#123)
+
+# 1.3.0
 
 ## general changes
 - added a CITATION file (see citation("c14bazAAR"))
@@ -27,7 +36,7 @@
 - `plot.c14_date_list` does not choke any more on c14_date_lists without coordinate columns (#112)
 - fixed some entries in the country thesaurus
 
-# c14bazAAR 1.2.0
+# 1.2.0
 
 ## general changes
 - unified database names in all functions, tables, variables and documentation (#86)
@@ -38,7 +47,7 @@
 - added a basic write function for c14_date_lists: `write_c14()` (#84)
 - added a version column that documents from which database version a certain date is pulled (#85)
 
-# c14bazAAR 1.1.0
+# 1.1.0
 
 ## general changes
 - [ROpenSci review](https://github.com/ropensci/software-review/issues/333)
@@ -54,7 +63,7 @@
 ## new getter functions
 - added getter function for irdd database: `get_irdd` (#79)
 
-# c14bazAAR 1.0.3
+# 1.0.3
 
 ## general changes
 - reformatted authors in DESCRIPTION and added ORCIDs (#72)
@@ -84,6 +93,6 @@
 - some helper functions have been made internal
 - .Rd files for unexported, internal objects have been removed (@noRd)
 
-# c14bazAAR 1.0.2
+# 1.0.2
 
 Release version
