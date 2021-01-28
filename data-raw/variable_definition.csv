@@ -1,0 +1,31 @@
+c14bazAAR_variable,type,definition,source
+sourcedb,character,Source database name,c14bazAAR
+sourcedb_version,character,Source database version,c14bazAAR
+method,character,Radiocarbon date measurement method,databases
+labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],databases
+c14age ,integer,14C age [uncalibrated age BP],databases
+c14std,integer,Standard deviation [1 sigma devitation range],databases
+calprobdistr,data.frame,Probability distribution of calibrated dates,c14bazAAR
+calrange,data.frame,sigma ranges of calibrated dates,c14bazAAR
+sigma,double,sigma value for the sigma ranges,c14bazAAR
+c13val,double,Carbon-13 amount [ppm],databases
+site,character,Site name,databases
+sitetype,character,Site type classification,databases
+feature,character,Name or description of the sample context within the site,databases
+period,character,Historico-cultural period of sample context,databases
+culture,character,Archaeological culture of sample context,databases
+material,character,Dated material,databases
+material_thes,character,Dated material (result of thesaurification),c14bazAAR
+species,character,Species of dated material,databases
+region,character,Geographical makro region,databases
+country,character,Country,databases
+country_coord,character,Country determined by coordinates,c14bazAAR
+country_thes,character,Country as a result of thesaurification,c14bazAAR
+country_final,character,Country  final decision (country_coord > country_thes > country),c14bazAAR
+lat,double,Latitude of site position [decimal degrees],databases
+lon,double,Longitude of site position [decimal degrees],databases
+coord_precision,double,Possible deviation of the sample coordinates [m],c14bazAAR
+shortref,character,Literature source of the dataset information,databases
+comment ,character,Free text with additional information,databases
+duplicate_group,integer,Number of duplicate group,c14bazAAR
+duplicate_remove_log,character,Description of variable value variation in duplicate group,c14bazAAR

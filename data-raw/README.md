@@ -12,12 +12,20 @@ A thesaurus for material classes. More info about the version history in materia
 - **cor**: fixed name
 - **var**: variations
 
-### variable_reference.csv
+### variable_definition.csv
 
-The parameter reference list of c14bazAAR: Which variables in a c14_date_list equal the ones in the source databases and what do they mean. Also contains a full list of the variables in the source databases.
+Definition of the variables in a c14_date_list
 
-- **c14bazAAR**: name of variable in c14bazAAR
+- **c14bazAAR_variable**: name of variable in c14bazAAR
 - **type**: data type of variable in R
 - **definition**: meaning of variable
 - **source**: is the variable imported (databases) or generated (c14bazAAR)
-- **...**: variables in source databases
+
+### variable_reference.csv
+
+Which variables in a c14_date_list equal the ones in the source databases?
+
+- **c14bazAAR_variable**: name of variable in c14bazAAR
+- **database**: source database
+- **database_variable**: name of variable in the respective source database
+
