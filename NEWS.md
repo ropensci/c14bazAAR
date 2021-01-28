@@ -1,3 +1,7 @@
+# 1.3.3
+
+- modified variable reference table layout (#126) 
+
 # 1.3.2
 
 - added submission ToDo list to README (#124)
