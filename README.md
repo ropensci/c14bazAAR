@@ -200,13 +200,14 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 ```
 
 4. Update the package documentation with roxygen2.
-5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/url_reference.csv) to make sure that `get_db_url("[the database name]")` works. `get_db_url()` relies on the file version on the master branch, so maybe you have to find a temporary solution for this as long as you are working in another branch.
-6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in the database you want to add and document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md). You can test this with `classify_material()`.
-7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (`fix_database_country_name()`).
-8. Add the function to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
-9. Document the addition of the new function in the NEWS.md file.
-10. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
-11. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
+5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/url_reference.csv) to make `get_db_url("[the database name]")` work.
+6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in your new database (for `classify_material()`). Document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md).
+7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (for `fix_database_country_name()`).
+8. Run the data-raw/data_prep.R script to update the data objects in the package. Only this enables the changes made in the steps 5, 6 and 7. You should test your changes now by running the respective lookup functions.
+9. Add the getter function your wrote in 2 to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
+10. Document the addition of the new function in the NEWS.md file.
+11. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
+12. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
 
 #### Pre-submision testing
 
