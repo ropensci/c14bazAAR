@@ -1,6 +1,6 @@
 library(magrittr)
 
-#### url reference ####
+#### general db info ####
 
 db_info_table <- data.table::fread(
   "data-raw/db_info_table.csv",
@@ -16,7 +16,6 @@ db_info_table <- data.table::fread(
 ) %>% tibble::tibble()
 
 usethis::use_data(db_info_table, overwrite = T)
-
 
 #### thesauri ####
 
@@ -36,6 +35,8 @@ get_thesaurus <- function(url) {
 country_thesaurus <- get_thesaurus("data-raw/country_thesaurus.csv")
 material_thesaurus <- get_thesaurus("data-raw/material_thesaurus.csv")
 
+usethis::use_data(country_thesaurus, overwrite = T)
+usethis::use_data(material_thesaurus, overwrite = T)
 
 #### example_c14_date_list ####
 

@@ -5,10 +5,8 @@
 #'
 #' @description Add column \strong{material_thes} with simplified and unified terms for
 #' material categories. The classification is manually curated and therefore maybe not
-#' up-to-date. It's stored in a
-#' \href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv}{material_thesaurus}
-#' list, and downloaded directly from github with \code{c14bazAAR::get_material_thesaurus()}.
-#' With this setup you can also easily apply own thesaurus tables.
+#' up-to-date. It's stored in \link{material_thesaurus}.
+#' You can also use custom thesaurus tables.
 #'
 #' @param x an object of class c14_date_list
 #' @param material_thesaurus a thesaurus table
@@ -28,7 +26,7 @@
 #'
 classify_material <- function(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  material_thesaurus = c14bazAAR::material_thesaurus,
   quiet = FALSE
 ) {
   UseMethod("classify_material")
@@ -38,7 +36,7 @@ classify_material <- function(
 #' @export
 classify_material.default <- function(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  material_thesaurus = c14bazAAR::material_thesaurus,
   quiet = FALSE
 ) {
   stop("x is not an object of class c14_date_list")
@@ -48,7 +46,7 @@ classify_material.default <- function(
 #' @export
 classify_material.c14_date_list <- function(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  material_thesaurus = c14bazAAR::material_thesaurus,
   quiet = FALSE
 ) {
 

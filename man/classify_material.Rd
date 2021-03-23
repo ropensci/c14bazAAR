@@ -8,19 +8,19 @@
 \usage{
 classify_material(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  material_thesaurus = c14bazAAR::material_thesaurus,
   quiet = FALSE
 )
 
 \method{classify_material}{default}(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  material_thesaurus = c14bazAAR::material_thesaurus,
   quiet = FALSE
 )
 
 \method{classify_material}{c14_date_list}(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
+  material_thesaurus = c14bazAAR::material_thesaurus,
   quiet = FALSE
 )
 }
@@ -37,10 +37,8 @@ an object of class c14_date_list with the additional column \strong{material_the
 \description{
 Add column \strong{material_thes} with simplified and unified terms for
 material categories. The classification is manually curated and therefore maybe not
-up-to-date. It's stored in a
-\href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv}{material_thesaurus}
-list, and downloaded directly from github with \code{c14bazAAR::get_material_thesaurus()}.
-With this setup you can also easily apply own thesaurus tables.
+up-to-date. It's stored in \link{material_thesaurus}.
+You can also use custom thesaurus tables.
 }
 \examples{
 classify_material(

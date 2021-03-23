@@ -37,6 +37,8 @@ get_db_version <- function(..., db_info_table = c14bazAAR::db_info_table) {
   ) %>% Reduce(c, .)
 }
 
+#' @keywords internal
+#' @noRd
 get_db_pos <- function(db_name, db_info_table){
   tibble::tibble(
     found = match(tolower(db_info_table$db), tolower(db_name)),
