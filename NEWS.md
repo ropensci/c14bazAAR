@@ -1,3 +1,8 @@
+# 2.0.0
+
+- the default lookup tables are now stored in the package and not downloaded from Github any more (#128)
+- some changes in the internal functioning of the lookup methods (#128)
+
 # 1.3.3
 
 - modified variable reference table layout (#126) 
