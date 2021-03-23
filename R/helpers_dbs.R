@@ -1,115 +1,55 @@
-#' get db url
+#' Get information for c14 databases
 #'
-#' Downloads information for c14 source databases from a reference table
-#' on github.
+#' Looks for information for the c14 source databases in \link{db_info_table}.
 #'
-#' @param db_name name of the database
-#' @param ref_url url of the relevant reference table
+#' @param ... names of the databases
+#' @param db_info_table db info reference table
 #'
+#' @rdname get_db_info
 #' @export
-get_db_url <- function(db_name, ref_url = paste(c(
-  "https://raw.githubusercontent.com",
-  "ropensci",
-  "c14bazAAR",
-  "master",
-  "data-raw",
-  "url_reference.csv"
-  ), collapse = "/")) {
-  get_db_info(db_name, "url", ref_url)
-}
-
-#' get db version
-#'
-#' Downloads information for c14 source databases from a reference table
-#' on github.
-#'
-#' @param db_name name of the database
-#' @param ref_url url of the relevant reference table
-#'
-#' @export
-get_db_version <- function(db_name, ref_url = paste(c(
-  "https://raw.githubusercontent.com",
-  "ropensci",
-  "c14bazAAR",
-  "master",
-  "data-raw",
-  "url_reference.csv"
-  ), collapse = "/")) {
-  get_db_info(db_name, "version", ref_url)
-}
-
-#' get db info
-#'
-#' Downloads information for c14 source databases from a reference table
-#' on github.
-#'
-#' @param db_name name of the database
-#' @param info_type type of information: "url", "version"
-#' @param ref_url info for the relevant reference table
-#'
-#' @keywords internal
-#' @noRd
-get_db_info <- function(
-  db_name, info_type = c("url", "version"), ref_url = paste(c(
-    "https://raw.githubusercontent.com",
-    "ropensci",
-    "c14bazAAR",
-    "master",
-    "data-raw",
-    "url_reference.csv"
-  ), collapse = "/")) {
-
-  check_connection_to_url(ref_url)
-
-  if (length(db_name) > 1) {
-    stop("get_db_info only works for one database at a time")
-  }
-  info_type <- match.arg(info_type, c("url", "version"), several.ok = FALSE)
-
-  # download current version of reference table
-  db_info_table <- data.table::fread(
-    ref_url,
-    colClasses = c(
-      "db" = "character",
-      "version" = "character",
-      "url_num" = "integer",
-      "url" = "character"
-    ),
-    showProgress = FALSE,
-    na.strings = c("datatable.na.strings", "", "NA")
+get_db_url <- function(..., db_info_table = c14bazAAR::db_info_table) {
+  db_name <- c(...)
+  db_pos_list <- get_db_pos(db_name, db_info_table)
+  val_list <- Map(
+    function(x) { db_info_table$url[x] },
+    db_pos_list
   )
-
-  # extract urls
-  if (info_type == "url") {
-    url_tab <- db_info_table %>%
-      dplyr::arrange(.data[["db"]], .data[["url_num"]]) %>%
-      dplyr::filter(
-        tolower(.data[["db"]]) == tolower(db_name)
-      )
-    url_vec <- url_tab[["url"]]
-
-    return(url_vec)
+  if (length(val_list) == 1) {
+    return(Reduce(c, val_list))
+  } else {
+    return(val_list)
   }
+}
 
-  # extract versions
-  if (info_type == "version") {
-    version_tab <- db_info_table %>%
-      dplyr::arrange(.data[["db"]], .data[["url_num"]]) %>%
-      dplyr::filter(
-        tolower(.data[["db"]]) %in% tolower(db_name)
-      ) %>%
-      dplyr::filter(!is.na(.data[["version"]]))
-    db_version <- version_tab[["version"]]
+#' @rdname get_db_info
+#' @export
+get_db_version <- function(..., db_info_table = c14bazAAR::db_info_table) {
+  db_name <- c(...)
+  db_pos_list <- get_db_pos(db_name, db_info_table)
+  Map(
+    function(x) {
+      v <- db_info_table$version[x]
+      v <- stats::na.omit(v)
+      v[v == "today"] <- format(Sys.time(), "%Y-%m-%d")
+      as.Date(v, format = "%Y-%m-%d")
+    },
+    db_pos_list
+  ) %>% Reduce(c, .)
+}
 
-    # replace today with current date
-    if (db_version == "today") {
-      db_version <- format(Sys.time(), "%Y-%m-%d")
-    }
-
-    # transform date string to class Date
-    db_version_date <- as.Date(db_version, format = "%Y-%m-%d")
-
-    return(db_version_date)
-  }
-
+get_db_pos <- function(db_name, db_info_table){
+  tibble::tibble(
+    found = match(tolower(db_info_table$db), tolower(db_name)),
+    pos = 1:nrow(db_info_table)
+  ) %>%
+    dplyr::filter(
+      !is.na(.data[["found"]])
+    ) %>%
+    dplyr::arrange(
+      .data[["found"]], .data[["pos"]]
+    ) %>%
+    dplyr::group_split(
+      .data[["found"]]
+    ) %>%
+    Map(function(x) { x$pos }, .)
 }

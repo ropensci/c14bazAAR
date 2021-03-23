@@ -4,10 +4,11 @@
 \alias{example_c14_date_list}
 \title{Example c14_date_list}
 \format{
-A c14_date_list. See data_raw/variable_definition.csv for an explanation of
+A c14_date_list.
+See data_raw/variable_definition.csv for an explanation of
 the variable meaning.
 }
 \description{
-c14_date_list with 1000 random dates for tests and example code.
+c14_date_list for tests and example code.
 }
 \concept{c14_date_lists}
