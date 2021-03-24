@@ -4,7 +4,11 @@
 \alias{material_thesaurus}
 \title{Material thesaurus}
 \format{
-...
+a data.frame. Columns:
+\itemize{
+ \item{cor: fixed name}
+ \item{var: variations}
+}
 }
 \description{
 Lookup table for material categories.

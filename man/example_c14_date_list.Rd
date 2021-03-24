@@ -4,7 +4,7 @@
 \alias{example_c14_date_list}
 \title{Example c14_date_list}
 \format{
-A c14_date_list.
+a c14_date_list.
 See data_raw/variable_definition.csv for an explanation of
 the variable meaning.
 }

@@ -4,7 +4,11 @@
 \alias{country_thesaurus}
 \title{Country thesaurus}
 \format{
-...
+a data.frame. Columns:
+\itemize{
+ \item{cor: fixed name}
+ \item{var: variations}
+}
 }
 \description{
 Lookup table for country names.

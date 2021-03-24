@@ -4,7 +4,13 @@
 \alias{db_info_table}
 \title{Database lookup table}
 \format{
-...
+a data.frame. Columns:
+\itemize{
+ \item{db: database name}
+ \item{version: database version}
+ \item{url_num: url number (some databases are spread over multiple files)}
+ \item{url: file url where the database can be downloaded}
+}
 }
 \description{
 Lookup table for general source database information.
