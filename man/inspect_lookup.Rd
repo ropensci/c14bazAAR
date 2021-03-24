@@ -17,7 +17,18 @@ or \link{classify_material}}
 \item{thesaurus}{see \link{fix_database_country_name} or \link{classify_material}}
 }
 \value{
-a data.frame with information about lookup decisions
+a data.frame with information about lookup decisions. Columns:
+\itemize{
+ \item{already_in_thesaurus: entry is already identical to the "correct" one in the thesaurus table}
+ \item{changed: entry was changed with \link{fix_database_country_name} or \link{classify_material}}
+ \item{changed_thesaurus: entry was changed with a lookup in the thesaurus}
+ \item{changed_not_thesaurus: entry was changed by lookup in another reference}
+ \item{not_changed_not_thesaurus: entry was not changed is not in the thesaurus}
+}
+For material classification this last column indicates
+values that should be added to the thesaurus, because
+they are missing there. For countries it often means
+that the entries were found in \link[countrycode]{codelist}.
 }
 \description{
 These functions allow to inspect the lookups done in \link{fix_database_country_name}
