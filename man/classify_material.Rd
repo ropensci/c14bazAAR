@@ -6,30 +6,16 @@
 \alias{classify_material.c14_date_list}
 \title{Apply material classification on a \strong{c14_date_list}}
 \usage{
-classify_material(
-  x,
-  material_thesaurus = c14bazAAR::material_thesaurus,
-  quiet = FALSE
-)
+classify_material(x, thesaurus = c14bazAAR::material_thesaurus)
 
-\method{classify_material}{default}(
-  x,
-  material_thesaurus = c14bazAAR::material_thesaurus,
-  quiet = FALSE
-)
+\method{classify_material}{default}(x, thesaurus = c14bazAAR::material_thesaurus)
 
-\method{classify_material}{c14_date_list}(
-  x,
-  material_thesaurus = c14bazAAR::material_thesaurus,
-  quiet = FALSE
-)
+\method{classify_material}{c14_date_list}(x, thesaurus = c14bazAAR::material_thesaurus)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
-\item{material_thesaurus}{a thesaurus table}
-
-\item{quiet}{suppress decision log output}
+\item{thesaurus}{a thesaurus table}
 }
 \value{
 an object of class c14_date_list with the additional column \strong{material_thes}
@@ -39,11 +25,9 @@ Add column \strong{material_thes} with simplified and unified terms for
 material categories. The classification is manually curated and therefore maybe not
 up-to-date. It's stored in \link{material_thesaurus}.
 You can also use custom thesaurus tables.
+See \link{inspect_lookup_material} to trace the lookup decisions.
 }
 \examples{
-classify_material(
-  example_c14_date_list,
-  quiet = TRUE
-)
+classify_material(example_c14_date_list)
 
 }

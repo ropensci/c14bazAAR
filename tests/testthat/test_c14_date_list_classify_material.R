@@ -2,10 +2,7 @@ context("classify material")
 
 #### output ####
 
-result <- classify_material(
-  example_c14_date_list,
-  quiet = TRUE
-)
+result <- classify_material(example_c14_date_list)
 
 test_that("classify_material gives back a c14_date_list", {
   expect_s3_class(
@@ -31,20 +28,3 @@ test_that("classify_material gives back a c14_date_list with the additional
     "character"
   )
 })
-
-#### messages ####
-
-test_that("classify_material has message output, if quiet == FALSE", {
-  expect_message(
-    classify_material(
-      example_c14_date_list,
-      quiet = FALSE
-    ),
-    NULL
-  )
-})
-
-
-
-
-
