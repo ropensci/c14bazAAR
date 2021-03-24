@@ -2,6 +2,7 @@
 
 - the default lookup tables are now stored in the package and not downloaded from Github any more (#128)
 - some changes in the internal functioning of the lookup methods (#128)
+- introduced `inspect_lookup_country` and `inspect_lookup_material` which replace the automatic printing in `fix_database_country_name` and `classify_material` (#128)
 
 # 1.3.3
 
