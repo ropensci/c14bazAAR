@@ -10,22 +10,21 @@
 #' various terms to represent the same country (for example: United Kingdom, Great Britain,
 #' GB, etc.). This function aims to standardize the country naming scheme. To achieve this,
 #' it compares the names to values in an external (\code{countrycode::codelist})
-#' and an internal
-#' \href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv}{country_thesaurus}
-#' reference list. The latter needs
-#' manual curation to catch semantic and spelling errors in the source databases. \cr \cr
+#' and an internal \link{country_thesaurus}. The latter relies on
+#' manual curation to catch semantic and spelling errors in the source databases.
+#' See \link{inspect_lookup_country} to trace the lookup decisions. \cr \cr
 #' \code{c14bazAAR::determine_country_by_coordinate()} adds the column \strong{country_coord}
 #' with standardized country attribution based on the coordinate information of the dates.
 #' Due to the inconsistencies in the \strong{country} column in many c14 source databases
 #' it's often necessary to rely on the coordinate position (\strong{lat} & \strong{lon})
-#' for reliable country attribution information.
+#' for country attribution information. Unfortunately not all source databases store
+#' coordinates.
 #'
 #' @param x an object of class c14_date_list
-#' @param country_thesaurus data.frame with correct and variants of country names
+#' @param thesaurus data.frame with "correct" country names and "wrong" variants
 #' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
 #' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
 #' @param suppress_spatial_warnings suppress some spatial data messages and warnings
-#' @param quiet suppress suppress decision log output
 #' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
 #' \code{stringdist()} is used for fuzzy string matching of the country names in
 #' \code{countrycode::codelist}
@@ -175,9 +174,8 @@ spatial_join_with_country_dataset <- function(x) {
 #' @rdname country_attribution
 fix_database_country_name <- function(
   x,
-  country_thesaurus = get_country_thesaurus(),
+  thesaurus = c14bazAAR::country_thesaurus,
   codesets = c("country.name.de", "iso3c"),
-  quiet = FALSE,
   ...
 ) {
   UseMethod("fix_database_country_name")
@@ -187,9 +185,8 @@ fix_database_country_name <- function(
 #' @export
 fix_database_country_name.default <- function(
   x,
-  country_thesaurus = get_country_thesaurus(),
+  thesaurus = c14bazAAR::country_thesaurus,
   codesets = c("country.name.de", "iso3c"),
-  quiet = FALSE,
   ...
 ) {
   stop("x is not an object of class c14_date_list")
@@ -199,9 +196,8 @@ fix_database_country_name.default <- function(
 #' @export
 fix_database_country_name.c14_date_list <- function(
   x,
-  country_thesaurus = get_country_thesaurus(),
+  thesaurus = c14bazAAR::country_thesaurus,
   codesets = c("country.name.de", "iso3c"),
-  quiet = FALSE,
   ...
 ) {
 
@@ -209,17 +205,16 @@ fix_database_country_name.c14_date_list <- function(
 
   x %<>% add_or_replace_column_in_df("country_thes", NA, .after = "country")
 
-  message(paste0("Standardizing country names... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
+  message(
+    paste0("Standardizing country names... ", {
+      if (nrow(x) > 10000) {"This may take several minutes."}}
+    )
+  )
 
   x %<>%
     dplyr::mutate(
-      country_thes = lookup_in_countrycode_codelist(.$country, country_thesaurus, codesets, ...)
-    ) %>%
-    as.c14_date_list()
-
-  if(!quiet) {
-    print_lookup_decisions(x, "country", "country_thes", country_thesaurus)
-  }
+      country_thes = lookup_in_countrycode_codelist(.$country, thesaurus, codesets, ...)
+    )
 
   return(x)
 }

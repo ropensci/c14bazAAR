@@ -5,22 +5,17 @@
 #'
 #' @description Add column \strong{material_thes} with simplified and unified terms for
 #' material categories. The classification is manually curated and therefore maybe not
-#' up-to-date. It's stored in a
-#' \href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv}{material_thesaurus}
-#' list, and downloaded directly from github with \code{c14bazAAR::get_material_thesaurus()}.
-#' With this setup you can also easily apply own thesaurus tables.
+#' up-to-date. It's stored in \link{material_thesaurus}.
+#' You can also use custom thesaurus tables.
+#' See \link{inspect_lookup_material} to trace the lookup decisions.
 #'
 #' @param x an object of class c14_date_list
-#' @param material_thesaurus a thesaurus table
-#' @param quiet suppress decision log output
+#' @param thesaurus a thesaurus table
 #'
 #' @return an object of class c14_date_list with the additional column \strong{material_thes}
 #'
 #' @examples
-#' classify_material(
-#'   example_c14_date_list,
-#'   quiet = TRUE
-#' )
+#' classify_material(example_c14_date_list)
 #'
 #' @export
 #'
@@ -28,8 +23,7 @@
 #'
 classify_material <- function(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
-  quiet = FALSE
+  thesaurus = c14bazAAR::material_thesaurus
 ) {
   UseMethod("classify_material")
 }
@@ -38,8 +32,7 @@ classify_material <- function(
 #' @export
 classify_material.default <- function(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
-  quiet = FALSE
+  thesaurus = c14bazAAR::material_thesaurus
 ) {
   stop("x is not an object of class c14_date_list")
 }
@@ -48,24 +41,24 @@ classify_material.default <- function(
 #' @export
 classify_material.c14_date_list <- function(
   x,
-  material_thesaurus = c14bazAAR::get_material_thesaurus(),
-  quiet = FALSE
+  thesaurus = c14bazAAR::material_thesaurus
 ) {
 
   x %>% check_if_columns_are_present("material")
 
   x %<>% add_or_replace_column_in_df("material_thes", NA_character_, .after = "material")
 
-  message(paste0("Classifying material... ", {if (nrow(x) > 10000) {"This may take several minutes."}}))
+  message(
+    paste0(
+      "Classifying material... ",
+      {if (nrow(x) > 10000) {"This may take several minutes."}}
+    )
+  )
 
   x %<>%
     dplyr::mutate(
-      material_thes = lookup_in_thesaurus_table(.$material, material_thesaurus)
+      material_thes = lookup_in_thesaurus_table(.$material, thesaurus)
     )
-
-  if(!quiet) {
-    print_lookup_decisions(x, "material", "material_thes", material_thesaurus)
-  }
 
   return(x)
 }

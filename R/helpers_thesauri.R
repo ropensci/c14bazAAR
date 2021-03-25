@@ -1,118 +1,77 @@
-#' get_country_thesaurus
+#' Get an overview of the lookup decisions
 #'
-#' Download thesaurus and provide it as tibble.
+#' These functions allow to inspect the lookups done in \link{fix_database_country_name}
+#' and \link{classify_material}. This can be useful to understand which values are not
+#' covered in the in the thesaurus tables.
 #'
-#' @param ref_url url of the relevant reference table
+#' @param x a c14_date_list with the columns country and country_thes or material
+#' and material_thes which went through either or both \link{fix_database_country_name}
+#' or \link{classify_material}
+#' @param thesaurus see \link{fix_database_country_name} or \link{classify_material}
 #'
+#' @return a data.frame with information about lookup decisions. Columns:
+#' \itemize{
+#'  \item{already_in_thesaurus: entry is already identical to the "correct" one in the thesaurus table}
+#'  \item{changed: entry was changed with \link{fix_database_country_name} or \link{classify_material}}
+#'  \item{changed_thesaurus: entry was changed with a lookup in the thesaurus}
+#'  \item{changed_not_thesaurus: entry was changed by lookup in another reference}
+#'  \item{not_changed_not_thesaurus: entry was not changed is not in the thesaurus}
+#' }
+#' For material classification this last column indicates
+#' values that should be added to the thesaurus, because
+#' they are missing there. For countries it often means
+#' that the entries were found in \link[countrycode]{codelist}.
+#'
+#' @rdname inspect_lookup
 #' @export
-get_country_thesaurus <- function(
-  ref_url = paste(c(
-    "https://raw.githubusercontent.com",
-    "ropensci",
-    "c14bazAAR",
-    "master",
-    "data-raw",
-    "country_thesaurus.csv"
-  ), collapse = "/")) {
-  ref_url %>% get_thesaurus() %>% return()
+inspect_lookup_country <- function(x, thesaurus = c14bazAAR::country_thesaurus) {
+  find_lookup_decisions(x, "country", "country_thes", thesaurus)
 }
 
-#' get_material_thesaurus
-#'
-#' Download thesaurus and provide it as tibble.
-#'
-#' @param ref_url url of the relevant reference table
-#'
+#' @rdname inspect_lookup
 #' @export
-get_material_thesaurus <- function(
-  ref_url = paste(c(
-    "https://raw.githubusercontent.com",
-    "ropensci",
-    "c14bazAAR",
-    "master",
-    "data-raw",
-    "material_thesaurus.csv"
-  ), collapse = "/")) {
-    ref_url %>% get_thesaurus() %>% return()
-  }
-
-#' get_thesaurus
-#'
-#' helper function to download thesaurus files
-#'
-#' @param url url of thesaurus csv file
-#'
-#' @return thesaurus data.frame
-#'
-#' @keywords internal
-#' @noRd
-get_thesaurus <- function(url) {
-  data.table::fread(
-    url,
-    colClasses = c(
-      "cor" = "character",
-      "var" = "character"
-    ),
-    encoding = "UTF-8",
-    showProgress = FALSE
-  ) %>%
-    tibble::as_tibble()
+inspect_lookup_material <- function(x, thesaurus = c14bazAAR::material_thesaurus) {
+  find_lookup_decisions(x, "material", "material_thes", thesaurus)
 }
 
-#' print_lookup_decisions
-#'
-#' @param x a c14_date_list with country and country_thes
-#' @param variants_column name of the column with heterogeneous values
-#' @param corrected_column name of the column with the corrected values
-#' @param thesaurus data.frame with correct and variants of country names
-#'
-#' @return NULL, called for the print side effect
-#'
-#' @keywords internal
-#' @noRd
-print_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
-  changes <- find_lookup_decisions(x, variants_column, corrected_column, thesaurus) %>%
-    dplyr::filter(!.data[["thesaurus"]] & !.data[["already_fine"]])
-  if (nrow(changes) > 0) {
-    message("For the following values there was no relevant thesaurus entry: \n")
-    for(i in 1:nrow(changes)) {
-      message(
-        ifelse(
-          changes$no_change[i],
-          crayon::magenta("no change:   "),
-          crayon::yellow("string match:")
-        ),
-        " ",
-        changes[[variants_column]][i], " -> ", changes[[corrected_column]][i]
-      )
-    }
-  }
-  message("\ ")
-}
-
-#' find_lookup_decisions
-#'
-#' @param x a c14_date_list
-#' @param variants_column name of the column with heterogeneous values
-#' @param corrected_column name of the column with the corrected values
-#' @param thesaurus data.frame with correct values (cor) and variants (var)
-#'
-#' @return a tibble with the country names and the new country_thes names
-#' found by \code{find_correct_name_by_stringdist_comparison()}
-#'
 #' @keywords internal
 #' @noRd
 find_lookup_decisions <- function(x, variants_column, corrected_column, thesaurus) {
-  x %>%
+  res <- x %>%
+    tibble::tibble() %>%
     dplyr::select(.data[[variants_column]], .data[[corrected_column]]) %>%
     dplyr::filter(!is.na(.data[[corrected_column]])) %>%
     unique %>%
     dplyr::arrange(.data[[variants_column]]) %>%
-    # check if decision was based on thesaurus entry
     dplyr::mutate(
-      already_fine = .data[[variants_column]] %in% unique(thesaurus$cor),
-      thesaurus = .data[[variants_column]] %in% thesaurus$var,
-      no_change = .data[[variants_column]] == .data[[corrected_column]]
+      already_in_thesaurus = .data[[variants_column]] %in% thesaurus$cor,
+      changed = .data[[variants_column]] != .data[[corrected_column]],
+      changed_thesaurus = .data[[variants_column]] %in% thesaurus$var,
+      changed_not_thesaurus = .data[["changed"]] & !.data[["changed_thesaurus"]],
+      not_changed_not_thesaurus = !.data[["changed"]] & !.data[["changed_thesaurus"]]
     )
+  message(
+    "Number of values that were already as in the thesaurus:  ",
+    sum(res$already_in_thesaurus, na.rm = T)
+  )
+  message(
+    "Number of values corrected by lookup in the thesaurus:   ",
+    sum(res$changed_thesaurus, na.rm = T)
+  )
+  message(
+    "Number of values corrected by lookup in other reference: ",
+    sum(res$changed_not_thesaurus, na.rm = T)
+  )
+  message(
+    "Number of values not corrected and not in the thesaurus: ",
+    sum(res$not_changed_not_thesaurus, na.rm = T)
+  )
+  message(paste(
+    "For material classification this last number usually indicates",
+    "values that should be added to the thesaurus.",
+    "For countries it often means that the entries were found in",
+    "countrycode::codelist."
+  ))
+  return(res)
 }
 

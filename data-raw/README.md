@@ -1,3 +1,12 @@
+### db_info_table.csv
+
+A database version and url lookup table.
+
+- **db**: database name
+- **version**: database version
+- **url_num**: url number (some databases are spread over multiple files)
+- **url**: file url where the database can be downloaded
+
 ### country_thesaurus.csv
 
 A thesaurus for country names.

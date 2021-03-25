@@ -18,25 +18,22 @@ determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
 
 fix_database_country_name(
   x,
-  country_thesaurus = get_country_thesaurus(),
+  thesaurus = c14bazAAR::country_thesaurus,
   codesets = c("country.name.de", "iso3c"),
-  quiet = FALSE,
   ...
 )
 
 \method{fix_database_country_name}{default}(
   x,
-  country_thesaurus = get_country_thesaurus(),
+  thesaurus = c14bazAAR::country_thesaurus,
   codesets = c("country.name.de", "iso3c"),
-  quiet = FALSE,
   ...
 )
 
 \method{fix_database_country_name}{c14_date_list}(
   x,
-  country_thesaurus = get_country_thesaurus(),
+  thesaurus = c14bazAAR::country_thesaurus,
   codesets = c("country.name.de", "iso3c"),
-  quiet = FALSE,
   ...
 )
 }
@@ -45,12 +42,10 @@ fix_database_country_name(
 
 \item{suppress_spatial_warnings}{suppress some spatial data messages and warnings}
 
-\item{country_thesaurus}{data.frame with correct and variants of country names}
+\item{thesaurus}{data.frame with "correct" country names and "wrong" variants}
 
 \item{codesets}{which country codesets should be searched for in \code{countrycode::codelist}
 beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information}
-
-\item{quiet}{suppress suppress decision log output}
 
 \item{...}{additional arguments are passed to \code{stringdist::stringdist()}.
 \code{stringdist()} is used for fuzzy string matching of the country names in
@@ -70,15 +65,15 @@ different source databases don't rely on a unified naming convention and therefo
 various terms to represent the same country (for example: United Kingdom, Great Britain,
 GB, etc.). This function aims to standardize the country naming scheme. To achieve this,
 it compares the names to values in an external (\code{countrycode::codelist})
-and an internal
-\href{https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv}{country_thesaurus}
-reference list. The latter needs
-manual curation to catch semantic and spelling errors in the source databases. \cr \cr
+and an internal \link{country_thesaurus}. The latter relies on
+manual curation to catch semantic and spelling errors in the source databases.
+See \link{inspect_lookup_country} to trace the lookup decisions. \cr \cr
 \code{c14bazAAR::determine_country_by_coordinate()} adds the column \strong{country_coord}
 with standardized country attribution based on the coordinate information of the dates.
 Due to the inconsistencies in the \strong{country} column in many c14 source databases
 it's often necessary to rely on the coordinate position (\strong{lat} & \strong{lon})
-for reliable country attribution information.
+for country attribution information. Unfortunately not all source databases store
+coordinates.
 }
 \examples{
 library(magrittr)

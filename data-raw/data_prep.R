@@ -1,3 +1,43 @@
+library(magrittr)
+
+#### general db info ####
+
+db_info_table <- data.table::fread(
+  "data-raw/db_info_table.csv",
+  colClasses = c(
+    "db" = "character",
+    "version" = "character",
+    "url_num" = "integer",
+    "url" = "character"
+  ),
+  encoding = "UTF-8",
+  showProgress = FALSE,
+  na.strings = c("datatable.na.strings", "", "NA")
+) %>% tibble::tibble()
+
+usethis::use_data(db_info_table, overwrite = T)
+
+#### thesauri ####
+
+get_thesaurus <- function(url) {
+  data.table::fread(
+    url,
+    colClasses = c(
+      "cor" = "character",
+      "var" = "character"
+    ),
+    encoding = "UTF-8",
+    showProgress = FALSE
+  ) %>%
+    tibble::as_tibble()
+}
+
+country_thesaurus <- get_thesaurus("data-raw/country_thesaurus.csv")
+material_thesaurus <- get_thesaurus("data-raw/material_thesaurus.csv")
+
+usethis::use_data(country_thesaurus, overwrite = T)
+usethis::use_data(material_thesaurus, overwrite = T)
+
 #### example_c14_date_list ####
 
 part_1 <- tibble::tribble(

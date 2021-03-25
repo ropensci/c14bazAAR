@@ -4,10 +4,7 @@ context("country attribution functions")
 
 # fix_database_country_name
 
-result <- fix_database_country_name(
-  example_c14_date_list,
-  quiet = TRUE
-)
+result <- fix_database_country_name(example_c14_date_list)
 
 test_that("fix_database_country_name gives back a c14_date_list", {
   expect_s3_class(
@@ -62,16 +59,3 @@ test_that("determine_country_by_coordinate gives back a c14_date_list with the a
     "character"
   )
 })
-
-#### messages ####
-
-test_that("fix_database_country_name has message output, if quiet == FALSE", {
-  expect_message(
-    fix_database_country_name(
-      example_c14_date_list,
-      quiet = FALSE
-    ),
-    NULL
-  )
-})
-
