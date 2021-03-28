@@ -48,6 +48,5 @@ get_bda <- function(db_url = get_db_url("bda")) {
       sourcedb_version = get_db_version("bda")
     ) %>%
     as.c14_date_list()
-
   return(bda)
 }
