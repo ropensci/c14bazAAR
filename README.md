@@ -200,7 +200,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 ```
 
 4. Update the package documentation with roxygen2.
-5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/url_reference.csv) to make `get_db_url("[the database name]")` work.
+5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/db_info_table.csv) to make `get_db_url("[the database name]")` work.
 6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in your new database (for `classify_material()`). Document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md).
 7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (for `fix_database_country_name()`).
 8. Run the data-raw/data_prep.R script to update the data objects in the package. Only this enables the changes made in the steps 5, 6 and 7. You should test your changes now by running the respective lookup functions.
