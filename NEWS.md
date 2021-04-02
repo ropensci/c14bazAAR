@@ -1,3 +1,7 @@
+# 2.0.1
+
+- added getter function for NERD database: `get_nerd`
+
 # 2.0.0
 
 - the default lookup tables are now stored in the package and not downloaded from Github any more (#128)
