@@ -145,7 +145,8 @@ get_all_parser_functions <- function() {
     "medafricarbon" = c14bazAAR::get_medafricarbon,
     "jomon" = c14bazAAR::get_jomon,
     "mesorad" = c14bazAAR::get_mesorad,
-    "katsianis" = c14bazAAR::get_katsianis
+    "katsianis" = c14bazAAR::get_katsianis,
+    "bda" = c14bazAAR::get_bda
   ))
 }
 
