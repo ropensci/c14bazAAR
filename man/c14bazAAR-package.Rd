@@ -30,6 +30,7 @@ Authors:
   \item David Matzig \email{matzigdavid@gmail.com} (\href{https://orcid.org/0000-0001-7349-5401}{ORCID})
   \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de} (\href{https://orcid.org/0000-0002-5943-5020}{ORCID})
   \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
+  \item Thomas Huet \email{thomashuet7@gmail.com} (\href{https://orcid.org/0000-0002-1112-6122}{ORCID})
 }
 
 Other contributors:
