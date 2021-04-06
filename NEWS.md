@@ -1,6 +1,7 @@
-# 2.0.1
+# 2.1.0
 
 - added getter function for NERD database: `get_nerd`
+- added getter function for BDA database: `get_bda`
 
 # 2.0.0
 
