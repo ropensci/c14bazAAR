@@ -39,7 +39,7 @@ Authors@R:
              email = "kschmuetz@ufg.uni-kiel.de"),
       person(given = "Thomas",
              family = "Huet",
-             role = "aut",
+             role = "ctb",
              email = "thomashuet7@gmail.com",
              comment = c(ORCID = "0000-0002-1112-6122")),
       person(given = "Nils",
