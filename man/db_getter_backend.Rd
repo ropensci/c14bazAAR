@@ -4,7 +4,8 @@
 %   R/get_calpal.R, R/get_context.R, R/get_emedyd.R, R/get_eubar.R,
 %   R/get_euroevol.R, R/get_irdd.R, R/get_jomon.R, R/get_katsianis.R,
 %   R/get_kiteeastafrica.R, R/get_medafricarbon.R, R/get_mesorad.R,
-%   R/get_pacea.R, R/get_palmisano.R, R/get_radon.R, R/get_radonb.R
+%   R/get_nerd.R, R/get_pacea.R, R/get_palmisano.R, R/get_radon.R,
+%   R/get_radonb.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -23,6 +24,7 @@
 \alias{get_kiteeastafrica}
 \alias{get_medafricarbon}
 \alias{get_mesorad}
+\alias{get_nerd}
 \alias{get_pacea}
 \alias{get_palmisano}
 \alias{get_radon}
@@ -62,6 +64,8 @@ get_kiteeastafrica(db_url = get_db_url("kiteeastafrica"))
 get_medafricarbon(db_url = get_db_url("medafricarbon"))
 
 get_mesorad(db_url = get_db_url("mesorad"))
+
+get_nerd(db_url = get_db_url("nerd"))
 
 get_pacea(db_url = get_db_url("pacea"))
 
