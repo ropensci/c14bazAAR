@@ -483,3 +483,17 @@ lat,bda,Latitude
 lon,bda,Longitude
 shortref,bda,Ref_biblio
 comment,bda,Fiabilité
+,rxpand,FullReference
+,rxpand,Exclude
+,rxpand,Class
+labnr,rxpand,LabCode
+c14age,rxpand,C14Age
+c14std,rxpand,C14SD
+material,rxpand,Material
+site,rxpand,Site
+feature,rxpand,Description
+culture,rxpand,Culture
+lat,rxpand,Latitude
+lon,rxpand,Longitude
+comment,rxpand,Comments
+shortref,rxpand,Reference
