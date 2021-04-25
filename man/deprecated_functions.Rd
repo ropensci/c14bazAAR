@@ -6,6 +6,7 @@
 \alias{coordinate_precision}
 \alias{finalize_country_name}
 \alias{standardize_country_name}
+\alias{get_emedyd}
 \title{Deprecated functions}
 \usage{
 mark_duplicates(...)
@@ -15,6 +16,8 @@ coordinate_precision(...)
 finalize_country_name(...)
 
 standardize_country_name(...)
+
+get_emedyd(...)
 }
 \arguments{
 \item{...}{...}

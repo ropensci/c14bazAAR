@@ -5,18 +5,18 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "c14bazAAR",
-  "description": "Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, austarch, calpal, context, emedyd, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, pacea, palmisano, radon, radonb.",
+  "description": "Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, austarch, bda, calpal, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, pacea, palmisano, radon, radonb.",
   "name": "c14bazAAR: Download and Prepare C14 Dates from Different Source Databases",
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.2.0.9000",
+  "version": "2.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.0.4 (2021-02-15)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -76,6 +76,13 @@
   "contributor": [
     {
       "@type": "Person",
+      "givenName": "Thomas",
+      "familyName": "Huet",
+      "email": "thomashuet7@gmail.com",
+      "@id": "https://orcid.org/0000-0002-1112-6122"
+    },
+    {
+      "@type": "Person",
       "givenName": "Nils",
       "familyName": "Mueller-Scheessel",
       "email": "nils.mueller-scheessel@ufg.uni-kiel.de",
@@ -129,14 +136,7 @@
     {
       "@type": "SoftwareApplication",
       "identifier": "dataverse",
-      "name": "dataverse",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=dataverse"
+      "name": "dataverse"
     },
     {
       "@type": "SoftwareApplication",
@@ -481,7 +481,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "10731.197KB",
+  "fileSize": "10834.692KB",
   "contIntegration": ["https://travis-ci.org/ropensci/c14bazAAR", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
   "keywords": [
     "radiocarbon-dates",

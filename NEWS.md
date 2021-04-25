@@ -1,3 +1,7 @@
+# 2.2.0
+
+- deprecated `get_emedyd`, because the emedyd database was superseded by the nerd database
+
 # 2.1.0
 
 - added getter function for NERD database: `get_nerd`
