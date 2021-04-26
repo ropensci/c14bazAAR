@@ -45,3 +45,12 @@ standardize_country_name <- function(...) {
   )
 }
 
+#' @rdname deprecated_functions
+#' @export
+get_emedyd <- function(...) {
+  stop(
+    "The emedyd database was removed from c14bazAAR, because it was ",
+    "superseded by the nerd database."
+  )
+}
+
