@@ -17,9 +17,9 @@ pacea,2020-01-22,1,http://www.paleoanthro.org/media/journal/content/PA20110001_S
 14cpalaeolithic,2020-01-23,1,https://ees.kuleuven.be/geography/projects/14c-palaeolithic/radiocarbon-palaeolithic-europe-database-v26-extract.xlsx
 medafricarbon,2020-03-20,1,https://zenodo.org/record/3689716/files/data_v1.0.3.zip
 jomon,2020-03-23,1,https://raw.githubusercontent.com/ercrema/jomonPhasesAndPopulation/master/data/c14dates.csv
-emedyd,2017,1,https://discovery.ucl.ac.uk/id/eprint/1570274/1/robertsetal17.zip
 katsianis,2020-08-20,1,https://rdr.ucl.ac.uk/ndownloader/files/23166314
 rapanui,2020-08-21,1,https://github.com/clipo/rapanui-radiocarbon/archive/master.zip
 mesorad,2020-09-01,1,https://github.com/eehh-stanford/price2020/raw/master/MesoRAD-v.1.1_FINAL_no_locations.xlsx
 bda,2020-03-29,1,https://api.nakala.fr/data/10.34847/nkl.dde9fnm8/189e04d917ffd68352a389006f357b58efda855e
 nerd,2021-03-31,1,https://raw.githubusercontent.com/apalmisano82/NERD/main/nerd.csv
+rxpand,2020-10-20,1,https://raw.githubusercontent.com/jgregoriods/rxpand/master/data/expand.csv

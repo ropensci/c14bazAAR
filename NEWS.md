@@ -1,6 +1,10 @@
-# 2.2.0
+# 2.3.0
 
 - deprecated `get_emedyd`, because the emedyd database was superseded by the nerd database
+
+# 2.2.0
+
+- added getter function for rxpand database: `get_rxpand`
 
 # 2.1.0
 
