@@ -1,3 +1,7 @@
+# Changes (25.04.2020)
+
+- added additional terms for the rxpand database
+
 # Changes (30.08.2020)
 
 - added additional terms from the new calpal version

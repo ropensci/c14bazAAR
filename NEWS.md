@@ -1,3 +1,7 @@
+# 2.2.0
+
+- added getter function for rxpand database: `get_rxpand`
+
 # 2.1.0
 
 - added getter function for NERD database: `get_nerd`
