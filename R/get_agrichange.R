@@ -15,69 +15,35 @@ get_agrichange <- function(db_url = get_db_url("agrichange")) {
       sheet = 1,
       col_names =  TRUE,
       col_types = "text",
-      na = c("<<notfound>>"),
+      na = c("<<notfound>>", "nd", "--", "---"),
       trim_ws = TRUE
     )
 
   # delete temporary file
   unlink(temp)
 
-
-  db_raw %>%
-    dplyr::select(
-      -c(
-        1,
-        2
-        )
-    )
-
-
-
   # final data preparation
   agrichange <- db_raw %>%
-    dplyr::select(
-      -c(
-        1, # ID
-        7, # cal 2sigma
-        8, # mean
-        10, # %C
-        11, # %N
-        12, # C/N
-        14, # BP-SD
-        15, # SoC,
-        16, # Reliability,
-        17, # ReliabilityWhy,
-        19, # CultI,
-        20,  # CultII,
-        22, # Provenance,
-        23, # Subfamily / Familiy
-        24, # Genus / specie
-        25, # Level,
-        26, # Struc,
-        27, # SU,
-        30, # Alt,
-        31, # Georegion,
-        32, # Municipality,
-        33, # Province,
-        34, # Region,
-        36, # Lat_muni,
-        37, # Lon_muni,
-        38, # Alt_muni,
-        40  # Database_reference
-      )
-    ) %>%
     dplyr::transmute(
       labnr = .data[["LabCode"]],
       c14age = .data[["BP"]],
       c14std = .data[["SD"]],
-      c13val = .[[7]], # d13
+      method = .data[["Method"]],
+      c13val = .[["δ13"]],
       method = .data[["Method"]],
       material = .data[["Sample"]],
+      species = .data[["Genus / specie"]],
       site = .data[["Site"]],
       country = .data[["Country"]],
       sitetype = .data[["TypeSite"]],
       lat = .data[["Lat"]],
       lon = .data[["Lon"]],
+      region = .data[["Georegion"]],
+      period = .data[["ChronoPhase"]],
+      culture = paste_ignore_na(
+        .data[["CultI"]], .data[["CultII"]],
+        sep = ";"
+      ),
       shortref = .data[["Date_reference"]],
       comment = .data[["Observations"]]
     ) %>%
