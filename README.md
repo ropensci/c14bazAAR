@@ -18,7 +18,7 @@ c14bazAAR is an R package to query different openly accessible radiocarbon date 
 - [**Citation**](#citation)
 - [**License**](#license)
 
-If you want to use data downloaded with c14bazAAR for your research, you have to cite the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
+If you want to use data downloaded with c14bazAAR for your research, you have to cite the respective source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [relevant homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
 
 ### Installation
 
