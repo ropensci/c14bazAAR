@@ -12,3 +12,4 @@
 ^codemeta\.json$
 ^logo$
 ^\.httr-oauth$
+^\.github$

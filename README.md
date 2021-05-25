@@ -3,8 +3,8 @@
 </p>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Travis-CI Build Status](https://travis-ci.org/ropensci/c14bazAAR.svg?branch=master)](https://travis-ci.org/ropensci/c14bazAAR) [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/c14bazAAR/master.svg)](https://codecov.io/github/ropensci/c14bazAAR?branch=master)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/c14bazAAR)](https://cran.r-project.org/package=c14bazAAR)
+[![R-CMD-check](https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml/badge.svg)](https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml)
+[![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/c14bazAAR/master.svg)](https://codecov.io/github/ropensci/c14bazAAR?branch=master)
 [![license](https://img.shields.io/badge/license-GPL%202-B50B82.svg)](https://www.r-project.org/Licenses/GPL-2)
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2F3DS6A-blue)](https://doi.org/10.17605/OSF.IO/3DS6A)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.01914/status.svg)](https://doi.org/10.21105/joss.01914)
@@ -18,7 +18,7 @@ c14bazAAR is an R package to query different openly accessible radiocarbon date 
 - [**Citation**](#citation)
 - [**License**](#license)
 
-If you want to use data downloaded with c14bazAAR for your research, you have to cite the source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [respective homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
+If you want to use data downloaded with c14bazAAR for your research, you have to cite the respective source databases. Most databases have a preferred way of citation that also may change over time with new versions and publications. Please check the [relevant homepages](#databases) to find out more. The output of c14bazAAR does not contain the full citations of the individual dates, but only a short reference tag. For further information you have to consult the source databases.
 
 ### Installation
 
