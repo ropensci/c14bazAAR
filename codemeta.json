@@ -16,7 +16,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.5 (2021-03-31)",
+  "runtimePlatform": "R version 4.1.0 (2021-05-18)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -132,11 +132,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=countrycode"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "dataverse",
-      "name": "dataverse"
     },
     {
       "@type": "SoftwareApplication",
@@ -352,19 +347,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "crayon",
-      "name": "crayon",
-      "version": ">= 1.3.4",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=crayon"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
       "version": ">= 1.11.4",
@@ -481,7 +463,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "1433.241KB",
+  "fileSize": "1433.21KB",
   "contIntegration": ["https://travis-ci.org/ropensci/c14bazAAR", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
   "keywords": [
     "radiocarbon-dates",
