@@ -15,7 +15,7 @@ name: R-CMD-check
 
 jobs:
   R-CMD-check:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     env:
       # use GITHUB_TOKEN from GitHub to workaround rate limits in {remotes}
