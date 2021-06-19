@@ -30,7 +30,6 @@ get_agrichange <- function(db_url = get_db_url("agrichange")) {
       c14std = .data[["SD"]],
       method = .data[["Method"]],
       c13val = .[["\u03B413"]],
-      method = .data[["Method"]],
       material = .data[["Sample"]],
       species = .data[["Genus / specie"]],
       site = .data[["Site"]],
