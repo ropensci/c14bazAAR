@@ -1,3 +1,7 @@
+# Changes (19.06.2021)
+
+- added additional terms for the agrichange database
+
 # Changes (25.04.2020)
 
 - added additional terms for the rxpand database
