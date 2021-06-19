@@ -10,7 +10,6 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
       drop = c(
         "UniqID",
         "Island",
-        "Region",
         "Subregion",
         "calCurves",
         "Material"
@@ -26,9 +25,25 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
         "Provenience" = "character",
         "Lat" = "character",
         "Lon" = "character",
+        "Region" = "character",
         "Reference" = "character"
       ),
+      encoding = "Latin-1",
       showProgress = FALSE
+    ) %>%
+    # na strings
+    dplyr::mutate(across(
+        .fns = function(x) {
+          dplyr::na_if(x, "\u2014")
+        }
+      )
+    ) %>%
+    # remove any other multibyte strings
+    dplyr::mutate(across(
+      .fns = function(x) {
+          iconv(x, "UTF-8", "UTF-8", sub = "")
+        }
+      )
     ) %>%
     dplyr::transmute(
       labnr = .data[["LabNo"]],
@@ -38,6 +53,7 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
       material = .data[["Type"]],
       site = .data[["SiteName"]],
       country = .data[["Country.Territory"]],
+      region = .data[["Region"]],
       feature = .data[["Provenience"]],
       lat = .data[["Lat"]],
       lon = .data[["Lon"]],

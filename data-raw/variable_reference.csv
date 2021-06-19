@@ -185,12 +185,12 @@ labnr,caribbean,LabNo
 lat,caribbean,Lat
 lon,caribbean,Lon
 material,caribbean,Type
+region,caribbean,"Region"""
 shortref,caribbean,Reference
 site,caribbean,SiteName
 ,caribbean,"calCurves"""
 ,caribbean,"Island"""
 ,caribbean,"Material"""
-,caribbean,"Region"""
 ,caribbean,"Subregion"""
 ,caribbean,"UniqID"""
 c13val,context,C13
