@@ -1,6 +1,7 @@
 # Changes (19.06.2021)
 
 - added additional terms for the agrichange database
+- added additional terms for the caribbean database
 
 # Changes (25.04.2020)
 

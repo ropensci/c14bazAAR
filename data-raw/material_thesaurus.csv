@@ -2791,6 +2791,7 @@ bone,human bone: humerus
 bone,human bone: tibia
 bone,human bone?
 bone,Human bone? Sur pointe barbelee
+bone,human bone/teeth
 bone,Human bones
 bone,human bones
 bone,human bones from burial DV43
@@ -4069,6 +4070,7 @@ ceramics,Pinus chazrcoal
 ceramics,Pottery
 ceramics,pottery
 ceramics,Pottery carbon
+ceramics,pottery organics
 ceramics,pottery temper from lower layer
 ceramics,"Pottery, organic temper"
 ceramics,sherds bulk organic content
@@ -4116,6 +4118,7 @@ charcoal,Bone and charcoal from Psbeta
 charcoal,bone charcoal
 charcoal,bone collagen/charcoal ?
 charcoal,bone? Charcoal?
+charcoal,bulk carbon
 charcoal,Bulked unidentified charcoal from hearth in square E4.4
 charcoal,"Burned bone, charcoal"
 charcoal,"burned bone, charcoal (?)"
@@ -5065,6 +5068,10 @@ charcoal,Charcoal: Pinus sylvestris from 6-IV
 charcoal,Charcoal: Prunus sp.
 charcoal,charcoal? Nø70
 charcoal,charcoal. Le charbon ‚tait coll‚ au bloc grav‚ (tˆte de cheval)
+charcoal,charcoal/charred
+charcoal,charcoal/charred material
+charcoal,Charcoal/charred material
+charcoal,charcoal/charred material 1
 charcoal,Charcoal/detritus
 charcoal,Charcoal/fossil humus?
 charcoal,charcoal/humus
@@ -5574,6 +5581,7 @@ other/unknown,bulk
 other/unknown,Bulk organic fraction
 other/unknown,bulk organic matter
 other/unknown,bulk organic mud
+other/unknown,bulk sample
 other/unknown,bunrt pebble
 other/unknown,burned bone?
 other/unknown,burned bone/charcoal
@@ -5977,6 +5985,7 @@ other/unknown,exterieur cavit‚ couche moyenne
 other/unknown,Fabaceae from EC-2
 other/unknown,facies micritique … microsturcture granulaire argile
 other/unknown,fading corrected age
+other/unknown,faunal material
 other/unknown,Feldspar
 other/unknown,feldspar grains from 2m below the site layer
 other/unknown,"feldspar IRSL CAM age model, non fading-corrected IRSL5O age"
@@ -6572,6 +6581,7 @@ other/unknown,"marine shell, Patella sp."
 other/unknown,massive-based (proximal fragment) point
 other/unknown,massive-based point (almost complete)
 other/unknown,massive-based point (promimal fragment) PZ-121
+other/unknown,material unknown
 other/unknown,Matériau à durée de vie courte Indet.
 other/unknown,matière organique
 other/unknown,Matière organique indéterminée
@@ -6667,6 +6677,7 @@ other/unknown,organic fraction
 other/unknown,Organic fraction
 other/unknown,organic fraction in chalk-gyttja obtained by acid treatment and dialyse (same as 118a)
 other/unknown,organic in charred sediment
+other/unknown,organic macrofossils
 other/unknown,organic Material
 other/unknown,organic material
 other/unknown,organic material
@@ -7440,6 +7451,7 @@ plant remains,plant macro remains
 plant remains,Plant macro remains
 plant remains,plant macro remains/grass
 plant remains,plant macrofossils
+plant remains,plant material
 plant remains,plant matter
 plant remains,plant matter (charred)
 plant remains,plant matter (marine)
@@ -7533,6 +7545,8 @@ plant remains,Wheat indeterminate grain
 plant remains,wheat indeterminate grain
 plant remains,"wheat, chickpeas"
 plant remains,Zarzamora
+shell,"(Cittarium pica and marine shell Level 3, .6-.7 m Stombus gigas)"
+shell,"(Cittarium pica Bois Charrite marine shell Level 3, .2-.3 m and Stombus gigas)"
 shell,"AAR gastropod shells C, nemoralis"
 shell,"AAR gastropod shells C, nemoralis #6415"
 shell,"AAR gastropod shells C, nemoralis 6416"
@@ -7720,6 +7734,7 @@ shell,Tectus pyramis shell
 shell,Telescopium telescopium shell
 shell,Terebralia palustris shell
 shell,Terebralia sp. shell
+shell,terrestrial shell
 shell,Trochus sp. Aragnoite
 shell,"trochus sp., aragnonite"
 shell,Turban sp. shell
