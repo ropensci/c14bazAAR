@@ -28,22 +28,9 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
         "Region" = "character",
         "Reference" = "character"
       ),
-      encoding = "Latin-1",
+      encoding = "UTF-8",
+      na.strings = c("", "—"),
       showProgress = FALSE
-    ) %>%
-    # na strings
-    dplyr::mutate(across(
-        .fns = function(x) {
-          dplyr::na_if(x, "\u2014")
-        }
-      )
-    ) %>%
-    # remove any other multibyte strings
-    dplyr::mutate(across(
-      .fns = function(x) {
-          iconv(x, "UTF-8", "UTF-8", sub = "")
-        }
-      )
     ) %>%
     dplyr::transmute(
       labnr = .data[["LabNo"]],
