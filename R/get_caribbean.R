@@ -29,7 +29,7 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
         "Reference" = "character"
       ),
       encoding = "UTF-8",
-      na.strings = c("", "—"),
+      na.strings = c("", "\u2014"),
       showProgress = FALSE
     ) %>%
     dplyr::transmute(
