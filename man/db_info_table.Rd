@@ -15,9 +15,4 @@ a data.frame. Columns:
 \description{
 Lookup table for general source database information.
 }
-\seealso{
-Other lookup_tables: 
-\code{\link{country_thesaurus}},
-\code{\link{material_thesaurus}}
-}
 \concept{lookup_tables}

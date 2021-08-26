@@ -7,13 +7,6 @@ A database version and url lookup table.
 - **url_num**: url number (some databases are spread over multiple files)
 - **url**: file url where the database can be downloaded
 
-### country_thesaurus.csv
-
-A thesaurus for country names.
-
-- **cor**: fixed name
-- **var**: variations
-
 ### material_thesaurus.csv
 
 A thesaurus for material classes. More info about the version history in material_thesaurus_comments.md.
