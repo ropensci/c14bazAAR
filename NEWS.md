@@ -1,6 +1,7 @@
 # 2.4.1
 
 - some tiny fixes
+- added an informative figure to the README
 
 # 2.4.0
 
