@@ -139,7 +139,7 @@ clean_labnr <- function(x) {
 #' @keywords internal
 #' @noRd
 check_connection_to_url <- function(db_url) {
-  if (httr::http_error(db_url)) {stop(paste(db_url, "is not available. No internet connection?"))}
+  if (httr::http_error(httr::GET(db_url))) {stop(paste(db_url, "is not available. No internet connection?"))}
 }
 
 #' paste_ignore_na
