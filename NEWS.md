@@ -1,3 +1,7 @@
+# 2.4.1
+
+- some tiny fixes
+
 # 2.4.0
 
 - added getter function for agrichange database: `get_agrichange`
