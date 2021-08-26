@@ -3,7 +3,6 @@
 library(c14bazAAR)
 library(cowplot)
 library(ggplot2)
-library(ggthemes)
 library(rnaturalearth)
 library(sf)
 library(tidyr)
