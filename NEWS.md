@@ -1,3 +1,12 @@
+# 2.4.1
+
+- some tiny fixes
+
+# 2.4.0
+
+- added getter function for agrichange database: `get_agrichange`
+- added getter function for caribbean database: `get_caribbean`
+
 # 2.3.0
 
 - deprecated `get_emedyd`, because the emedyd database was superseded by the nerd database
