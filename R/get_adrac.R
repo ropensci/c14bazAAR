@@ -12,8 +12,7 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
         "LITHICS",
         "POTTERY",
         "IRON",
-        "FRUIT",
-        "CLASS_DS.WH_etal_2021"
+        "FRUIT"
       ),
       colClasses = c(
         "LABNR" = "character",
