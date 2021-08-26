@@ -7,6 +7,8 @@
 \alias{finalize_country_name}
 \alias{standardize_country_name}
 \alias{get_emedyd}
+\alias{fix_database_country_name}
+\alias{classify_material}
 \title{Deprecated functions}
 \usage{
 mark_duplicates(...)
@@ -18,6 +20,10 @@ finalize_country_name(...)
 standardize_country_name(...)
 
 get_emedyd(...)
+
+fix_database_country_name(...)
+
+classify_material(...)
 }
 \arguments{
 \item{...}{...}

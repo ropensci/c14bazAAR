@@ -1,3 +1,8 @@
+# 3.0.0
+
+- deprecated `classify_material`
+- deprecated `fix_database_country_name`
+
 # 2.4.1
 
 - some tiny fixes

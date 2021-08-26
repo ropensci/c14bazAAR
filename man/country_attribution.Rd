@@ -5,71 +5,26 @@
 \alias{determine_country_by_coordinate}
 \alias{determine_country_by_coordinate.default}
 \alias{determine_country_by_coordinate.c14_date_list}
-\alias{fix_database_country_name}
-\alias{fix_database_country_name.default}
-\alias{fix_database_country_name.c14_date_list}
-\title{Functions to improve the country attribution in a \strong{c14_date_list}}
+\title{Determine the country of all dates in a \strong{c14_date_list} from their coordinates}
 \usage{
 determine_country_by_coordinate(x, suppress_spatial_warnings = TRUE)
 
 \method{determine_country_by_coordinate}{default}(x, suppress_spatial_warnings = TRUE)
 
 \method{determine_country_by_coordinate}{c14_date_list}(x, suppress_spatial_warnings = TRUE)
-
-fix_database_country_name(
-  x,
-  thesaurus = c14bazAAR::country_thesaurus,
-  codesets = c("country.name.de", "iso3c"),
-  ...
-)
-
-\method{fix_database_country_name}{default}(
-  x,
-  thesaurus = c14bazAAR::country_thesaurus,
-  codesets = c("country.name.de", "iso3c"),
-  ...
-)
-
-\method{fix_database_country_name}{c14_date_list}(
-  x,
-  thesaurus = c14bazAAR::country_thesaurus,
-  codesets = c("country.name.de", "iso3c"),
-  ...
-)
 }
 \arguments{
 \item{x}{an object of class c14_date_list}
 
 \item{suppress_spatial_warnings}{suppress some spatial data messages and warnings}
-
-\item{thesaurus}{data.frame with "correct" country names and "wrong" variants}
-
-\item{codesets}{which country codesets should be searched for in \code{countrycode::codelist}
-beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information}
-
-\item{...}{additional arguments are passed to \code{stringdist::stringdist()}.
-\code{stringdist()} is used for fuzzy string matching of the country names in
-\code{countrycode::codelist}}
 }
 \value{
-an object of class c14_date_list with the additional columns \strong{country_thes},
-\strong{country_coord} and/or \strong{country_final}
+an object of class c14_date_list with the additional column \strong{country_coord}
 }
 \description{
-\code{c14bazAAR} provides two functions to check and improve the
-spatial attribution of the individual dates in a \strong{c14_date_list} to a country. \cr \cr
-\code{c14bazAAR::fix_database_country_name()} adds column \strong{country_thes} with
-standardized country names. Most source databases come with a column \strong{country}
-that contains a character name of the origin country for each date. Unfortunately the
-different source databases don't rely on a unified naming convention and therefore use
-various terms to represent the same country (for example: United Kingdom, Great Britain,
-GB, etc.). This function aims to standardize the country naming scheme. To achieve this,
-it compares the names to values in an external (\code{countrycode::codelist})
-and an internal \link{country_thesaurus}. The latter relies on
-manual curation to catch semantic and spelling errors in the source databases.
-See \link{inspect_lookup_country} to trace the lookup decisions. \cr \cr
-\code{c14bazAAR::determine_country_by_coordinate()} adds the column \strong{country_coord}
-with standardized country attribution based on the coordinate information of the dates.
+\code{c14bazAAR::determine_country_by_coordinate()} adds the column
+\strong{country_coord} with standardized country attribution based on the coordinate
+information for the dates.
 Due to the inconsistencies in the \strong{country} column in many c14 source databases
 it's often necessary to rely on the coordinate position (\strong{lat} & \strong{lon})
 for country attribution information. Unfortunately not all source databases store
@@ -79,8 +34,5 @@ coordinates.
 library(magrittr)
 example_c14_date_list \%>\%
   determine_country_by_coordinate()
-
-example_c14_date_list \%>\%
-  fix_database_country_name()
 
 }

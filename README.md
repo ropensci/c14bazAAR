@@ -12,7 +12,7 @@
 c14bazAAR is an R package to query different openly accessible radiocarbon date databases. It allows basic data cleaning, calibration and merging. If you're not familiar with R other tools (such as [GoGet](https://www.ibercrono.org/goget/index.php)) to search for radiocarbon dates might be better suited for your needs.
 
 - [**Installation**](#installation)
-- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Material classification](#material-classification), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
+- [**How to use**](#how-to-use) ([Download](#download), [Calibration](#calibration), [Country attribution](#country-attribution), [Duplicates](#duplicates), [Conversion](#conversion), [Technical functions](#technical-functions), [Plotting and visualization](#plotting-radiocarbon-data), [Interaction with other radiocarbon data packages](#other-radiocarbon-packages))
 - [**Databases**](#databases)
 - [**Contributing**](#contributing) ([Adding database getter functions](#adding-database-getter-functions), [Pre-submision testing](#pre-submision-testing), [Versioning](#versioning))
 - [**Citation**](#citation)
@@ -52,7 +52,6 @@ library(magrittr)
 get_c14data("all") %>%
   remove_duplicates() %>%
   calibrate() %>%
-  classify_material() %>%
   determine_country_by_coordinate()
 ```
 
@@ -78,28 +77,14 @@ See `?calibrate` for more information.
 x %>% calibrate()
 ```
 
-#### Material classification
-
-Most 14C databases provide some information about the material sampled for the individual date. Unfortunately this information is often very specific and makes filtering operations difficult for large datasets. The function [`classify_material()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_classify_material.R) relies on a [custom made classification](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) to simplify this data.
-
-See `?classify_material` for more information and look [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md) for a change log of the thesaurus.
-
-```
-x %>% classify_material()
-```
-
 #### Country attribution
 
-Filtering 14C dates by country is useful for a first spatial limitation and especially important, if no coordinates are documented. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`fix_database_country_name()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_fix_database_country_name.R) tries to unify the semantically equal terms by string comparison with the curated country name list [`countrycode::codelist`](https://github.com/vincentarelbundock/countrycode) and a [custom made thesaurus](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv). Beyond that it turned out to be much more reliable to look at the coordinates to determine the country.
-
-That's what the function [`determine_country_by_coordinate()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_determine_country_by_coordinate.R) does. It joins the position with country polygons from [`rworldxtra::countriesHigh`](https://github.com/AndySouth/rworldxtra) to get reliable country attribution.
+Filtering 14C dates by country is useful for spatial filtering. Most databases provide the variable country, but they don't rely on a unified naming convention and therefore use various terms to represent the same entity. The function [`determine_country_by_coordinate()`](https://github.com/ropensci/c14bazAAR/blob/master/R/c14_date_list_spatial_determine_country_by_coordinate.R) determines the country a date is coming from by intersecting its spatial coordinates with polygons from [`rworldxtra::countriesHigh`](https://github.com/AndySouth/rworldxtra).
 
 See `?country_attribution` for more information.
 
 ```
-x %>%
-  fix_database_country_name() %>%
-  determine_country_by_coordinate()
+x %>% determine_country_by_coordinate()
 ```
 
 #### Duplicates
@@ -113,8 +98,7 @@ If you call `remove_duplicates()` with the option `mark_only = TRUE` then no dat
 See `?duplicates` for more information.
 
 ```
-x %>%
-  remove_duplicates()
+x %>% remove_duplicates()
 ```
 
 #### Conversion
@@ -204,13 +188,11 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 
 4. Update the package documentation with roxygen2.
 5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/db_info_table.csv) to make `get_db_url("[the database name]")` work.
-6. Update the [material_thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv) with all the new material names in your new database (for `classify_material()`). Document the changes [here](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus_comments.md).
-7. Do the same for the [country thesaurus table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/country_thesaurus.csv) if necessary (for `fix_database_country_name()`).
-8. Run the data-raw/data_prep.R script to update the data objects in the package. Only this enables the changes made in the steps 5, 6 and 7. You should test your changes now by running the respective lookup functions.
-9. Add the getter function your wrote in 2 to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
-10. Document the addition of the new function in the NEWS.md file.
-11. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
-12. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
+6. Run the data-raw/data_prep.R script to update the data objects in the package. Only this enables the changes made in step 5. You should test your changes now by running the respective getter function.
+7. Add the getter function your wrote in 2 to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
+8. Document the addition of the new function in the NEWS.md file.
+9. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
+10. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
 
 #### Pre-submision testing
 
