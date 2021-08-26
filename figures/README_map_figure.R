@@ -16,9 +16,8 @@ c14.n <- as.data.frame(table(c14.data$sourcedb))
 c14.n$lab <- paste0(c14.n$Var1,"\n(", c14.n$Freq, " dates)")
 c14.lab <- c14.n$lab
 names(c14.lab) <- c14.n$Var1
-land <- ne_download(scale = "medium", type = 'land', category = 'physical', returnclass = "sf")
+land <- ne_download(scale = "small", type = 'land', category = 'physical', returnclass = "sf")
 
-#```{r figure, echo=FALSE, fig.align='center', dpi=300, out.width='100%', warning=FALSE}
 # map
 c14.map <- ggplot(land) +
   geom_sf(fill = "lightgrey", color = NA) +
@@ -27,13 +26,11 @@ c14.map <- ggplot(land) +
           color = "white") +
   facet_wrap(~ sourcedb,
              ncol = 4) +
-  #coord_sf() +
   coord_sf(crs = st_crs('+proj=moll')) +
-  theme_light() +
+  theme_bw() +
   theme(legend.position = "none",
         panel.border = element_blank(),
-        strip.background = element_rect(fill="white"),
-        strip.text = element_text(color = "black"))
+        strip.background = element_rect(fill="white"))
 
 # historgram
 c14.hist <- ggplot(data = c14.data,
@@ -48,20 +45,18 @@ c14.hist <- ggplot(data = c14.data,
   scale_x_reverse("uncal BP", limits = c(40000, 0),
                   expand = c(0,0)) +
   scale_y_continuous("", expand = c(0,0)) +
-  #theme_bw() +
-  theme_minimal() +
+  theme_bw() +
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
-        axis.text.x = element_text(size = 5),
-        axis.title.x = element_text(size = 5),
         panel.grid.major.y = element_blank(),
         panel.grid.minor.y = element_blank(),
         legend.position = "none",
-        strip.text.y = element_text(size = 5, angle = 0))
+        strip.background = element_rect(fill="white"),
+        strip.text.y = element_text(angle = 0))
 
 p <- plot_grid(c14.map, c14.hist,
-               labels = "AUTO",
+               labels = "",
                align = "h",
-               rel_widths = c(2, 1.5))
+               rel_widths = c(3, 1.3))
 
-ggsave("figures/figure.png", p, width = 12, height = 8)
+ggsave("man/figures/README_map_figure.jpeg", p, width = 12, height = 8)

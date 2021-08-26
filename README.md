@@ -161,7 +161,7 @@ rcarbon::calibrate(x = x$c14age, error = x$c14std)
 ### Databases
 
 <p align="center">
-  <img src="figures/figure.png" width = 100%>
+  <img src="man/figures/README_map_figure.jpeg" width = 100%>
 </p>
 
 To suggest other archives to be queried you can join the discussion [here](https://github.com/ropensci/c14bazAAR/issues/2).
@@ -215,6 +215,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 10. Document the addition of the new function in the NEWS.md file.
 11. Add the new database to the list of *Currently available databases* in the DESCRIPTION file.
 12. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
+13. Update the README map figure by running the script [README_map_figure.R](https://github.com/ropensci/c14bazAAR/blob/master/figures/README_map_figure.R).
 
 #### Pre-submision testing
 
