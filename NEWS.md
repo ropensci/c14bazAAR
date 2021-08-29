@@ -3,6 +3,10 @@
 - deprecated `classify_material`
 - deprecated `fix_database_country_name`
 
+# 2.4.2
+
+- fixed an encoding issue in `get_pacea`
+
 # 2.4.1
 
 - some tiny fixes
