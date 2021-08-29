@@ -17,7 +17,7 @@ get_pacea <- function(db_url = get_db_url("pacea")) {
   db_raw <- data.table::fread(
     db_path,
     sep = "\t",
-    encoding = "UTF-8",
+    encoding = "Latin-1",
     skip = 1,
     colClasses = "character",
     showProgress = FALSE
