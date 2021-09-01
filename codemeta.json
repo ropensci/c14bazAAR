@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "2.4.2",
+  "version": "3.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -462,7 +462,8 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
-  "fileSize": "1078.152KB",
+  "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
+  "fileSize": "1002.566KB",
   "contIntegration": ["https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
   "keywords": [
     "radiocarbon-dates",
