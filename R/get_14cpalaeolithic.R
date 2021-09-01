@@ -46,7 +46,7 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
     ) %>%
     as.c14_date_list() %>%
     # remove non-radiocarbon dates
-    dplyr::filter(c14age <= 70000)
+    dplyr::filter(.data$c14age <= 70000)
 
   return(c14palaeolithic)
 }
