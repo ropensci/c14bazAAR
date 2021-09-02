@@ -8,6 +8,7 @@ library(sf)
 library(tidyr)
 
 c14.data <- c14bazAAR::get_c14data(databases = "all")
+c14.data$sourcedb <- stats::reorder(c14.data$sourcedb, c14.data$c14age, function(x) {median(x, na.rm = T)})
 
 c14.sf <- st_as_sf(c14.data, coords = c("lon", "lat"), crs = 4326, na.fail = FALSE)
 # lables for facet plot
@@ -15,11 +16,12 @@ c14.n <- as.data.frame(table(c14.data$sourcedb))
 c14.n$lab <- paste0(c14.n$Var1,"\n(", c14.n$Freq, " dates)")
 c14.lab <- c14.n$lab
 names(c14.lab) <- c14.n$Var1
+
 land <- sf::st_as_sf(rnaturalearthdata::coastline110)
 
 # map
 c14.map <- ggplot(land) +
-  geom_sf(color = "darkgrey") +
+  geom_sf(color = "grey50") +
   geom_sf(data = c14.sf, aes(fill = sourcedb),
           shape = 21,
           color = "black") +
@@ -31,7 +33,7 @@ c14.map <- ggplot(land) +
     legend.position = "none",
     panel.border = element_blank(),
     strip.background = element_rect(fill="white"),
-    panel.grid.major = element_line(color="lightgrey")
+    panel.grid.major = element_line(color="grey90")
   )
 
 # historgram
@@ -44,7 +46,7 @@ c14.hist <- ggplot(data = c14.data,
   facet_grid(sourcedb ~ .,
              scales = "free_y",
              labeller = labeller(sourcedb = c14.lab)) +
-  scale_x_reverse("uncal BP", limits = c(40000, 0),
+  scale_x_reverse("years uncal BP", limits = c(40000, 0),
                   expand = c(0,0)) +
   scale_y_continuous("", expand = c(0,0)) +
   theme_bw() +
