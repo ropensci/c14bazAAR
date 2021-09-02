@@ -15,21 +15,24 @@ c14.n <- as.data.frame(table(c14.data$sourcedb))
 c14.n$lab <- paste0(c14.n$Var1,"\n(", c14.n$Freq, " dates)")
 c14.lab <- c14.n$lab
 names(c14.lab) <- c14.n$Var1
-land <- ne_download(scale = "small", type = 'land', category = 'physical', returnclass = "sf")
+land <- sf::st_as_sf(rnaturalearthdata::coastline110)
 
 # map
 c14.map <- ggplot(land) +
-  geom_sf(fill = "lightgrey", color = NA) +
+  geom_sf(color = "darkgrey") +
   geom_sf(data = c14.sf, aes(fill = sourcedb),
           shape = 21,
-          color = "white") +
+          color = "black") +
   facet_wrap(~ sourcedb,
              ncol = 4) +
   coord_sf(crs = st_crs('+proj=moll')) +
   theme_bw() +
-  theme(legend.position = "none",
-        panel.border = element_blank(),
-        strip.background = element_rect(fill="white"))
+  theme(
+    legend.position = "none",
+    panel.border = element_blank(),
+    strip.background = element_rect(fill="white"),
+    panel.grid.major = element_line(color="lightgrey")
+  )
 
 # historgram
 c14.hist <- ggplot(data = c14.data,
