@@ -130,6 +130,7 @@ get_all_parser_functions <- function() {
     "14sea" = c14bazAAR::get_14sea,
     "adrac" = c14bazAAR::get_adrac,
     "agrichange" = c14bazAAR::get_agrichange,
+    "aida" = c14bazAAR::get_aida,
     "austarch" =  c14bazAAR::get_austarch,
     "calpal" = c14bazAAR::get_calpal,
     "caribbean" = c14bazAAR::get_caribbean,
@@ -159,7 +160,7 @@ get_all_parser_functions <- function() {
 #' for a more simple interface and further information.
 #'
 #' @param db_url Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}
-#' fetches the URL from a reference list on github
+#' fetches the URL from a reference list
 #'
 #' @rdname db_getter_backend
 #' @export

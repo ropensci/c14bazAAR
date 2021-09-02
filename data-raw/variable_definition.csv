@@ -15,13 +15,10 @@ feature,character,Name or description of the sample context within the site,data
 period,character,Historico-cultural period of sample context,databases
 culture,character,Archaeological culture of sample context,databases
 material,character,Dated material,databases
-material_thes,character,Dated material (result of thesaurification),c14bazAAR
 species,character,Species of dated material,databases
 region,character,Geographical makro region,databases
 country,character,Country,databases
 country_coord,character,Country determined by coordinates,c14bazAAR
-country_thes,character,Country as a result of thesaurification,c14bazAAR
-country_final,character,Country  final decision (country_coord > country_thes > country),c14bazAAR
 lat,double,Latitude of site position [decimal degrees],databases
 lon,double,Longitude of site position [decimal degrees],databases
 coord_precision,double,Possible deviation of the sample coordinates [m],c14bazAAR

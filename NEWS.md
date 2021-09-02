@@ -1,3 +1,17 @@
+# 3.1.0
+
+- added getter function for aida database: `get_aida`
+- adjusted getter function for the nerd database (`get_nerd`)
+
+# 3.0.1
+
+- updated `get_14cpalaeolithic` to be compatible with the latest respective database version v.28
+
+# 3.0.0
+
+- deprecated `classify_material`
+- deprecated `fix_database_country_name`
+
 # 2.4.2
 
 - fixed an encoding issue in `get_pacea`

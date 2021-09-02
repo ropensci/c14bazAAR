@@ -1,44 +1,23 @@
 #' @name country_attribution
-#' @title Functions to improve the country attribution in a \strong{c14_date_list}
+#' @title Determine the country of all dates in a \strong{c14_date_list} from their coordinates
 #'
-#' @description \code{c14bazAAR} provides two functions to check and improve the
-#' spatial attribution of the individual dates in a \strong{c14_date_list} to a country. \cr \cr
-#' \code{c14bazAAR::fix_database_country_name()} adds column \strong{country_thes} with
-#' standardized country names. Most source databases come with a column \strong{country}
-#' that contains a character name of the origin country for each date. Unfortunately the
-#' different source databases don't rely on a unified naming convention and therefore use
-#' various terms to represent the same country (for example: United Kingdom, Great Britain,
-#' GB, etc.). This function aims to standardize the country naming scheme. To achieve this,
-#' it compares the names to values in an external (\code{countrycode::codelist})
-#' and an internal \link{country_thesaurus}. The latter relies on
-#' manual curation to catch semantic and spelling errors in the source databases.
-#' See \link{inspect_lookup_country} to trace the lookup decisions. \cr \cr
-#' \code{c14bazAAR::determine_country_by_coordinate()} adds the column \strong{country_coord}
-#' with standardized country attribution based on the coordinate information of the dates.
+#' @description \code{c14bazAAR::determine_country_by_coordinate()} adds the column
+#' \strong{country_coord} with standardized country attribution based on the coordinate
+#' information for the dates.
 #' Due to the inconsistencies in the \strong{country} column in many c14 source databases
 #' it's often necessary to rely on the coordinate position (\strong{lat} & \strong{lon})
 #' for country attribution information. Unfortunately not all source databases store
 #' coordinates.
 #'
 #' @param x an object of class c14_date_list
-#' @param thesaurus data.frame with "correct" country names and "wrong" variants
-#' @param codesets which country codesets should be searched for in \code{countrycode::codelist}
-#' beyond \strong{country.name.en}? See \code{?countrycode::codelist} for more information
 #' @param suppress_spatial_warnings suppress some spatial data messages and warnings
-#' @param ... additional arguments are passed to \code{stringdist::stringdist()}.
-#' \code{stringdist()} is used for fuzzy string matching of the country names in
-#' \code{countrycode::codelist}
 #'
-#' @return an object of class c14_date_list with the additional columns \strong{country_thes},
-#' \strong{country_coord} and/or \strong{country_final}
+#' @return an object of class c14_date_list with the additional column \strong{country_coord}
 #'
 #' @examples
 #' library(magrittr)
 #' example_c14_date_list %>%
 #'   determine_country_by_coordinate()
-#'
-#' example_c14_date_list %>%
-#'   fix_database_country_name()
 #'
 
 #### determine_country_by_coordinate ####
@@ -167,121 +146,3 @@ spatial_join_with_country_dataset <- function(x) {
     dplyr::select(-.data$geometry) %>%
     return()
 }
-
-#### fix_database_country_name ####
-
-#' @export
-#' @rdname country_attribution
-fix_database_country_name <- function(
-  x,
-  thesaurus = c14bazAAR::country_thesaurus,
-  codesets = c("country.name.de", "iso3c"),
-  ...
-) {
-  UseMethod("fix_database_country_name")
-}
-
-#' @rdname country_attribution
-#' @export
-fix_database_country_name.default <- function(
-  x,
-  thesaurus = c14bazAAR::country_thesaurus,
-  codesets = c("country.name.de", "iso3c"),
-  ...
-) {
-  stop("x is not an object of class c14_date_list")
-}
-
-#' @rdname country_attribution
-#' @export
-fix_database_country_name.c14_date_list <- function(
-  x,
-  thesaurus = c14bazAAR::country_thesaurus,
-  codesets = c("country.name.de", "iso3c"),
-  ...
-) {
-
-  x %>% check_if_columns_are_present("country")
-
-  x %<>% add_or_replace_column_in_df("country_thes", NA, .after = "country")
-
-  message(
-    paste0("Standardizing country names... ", {
-      if (nrow(x) > 10000) {"This may take several minutes."}}
-    )
-  )
-
-  x %<>%
-    dplyr::mutate(
-      country_thes = lookup_in_countrycode_codelist(.$country, thesaurus, codesets, ...)
-    )
-
-  return(x)
-}
-
-#### helper functions ####
-
-#' lookup_in_countrycode_codelist
-#'
-#' @param x vector of country codes to look up in countrycode codelist
-#' @param country_thesaurus data.frame with correct and variants of country names
-#' @param codesets which country codesets should be searched beyond "country.name.en"
-#' @param ... additional arguments are passed to stringdist::stringdist()
-#'
-#' @return a vector with the correct english country names
-#'
-#' @keywords internal
-#' @noRd
-lookup_in_countrycode_codelist <- function(x, country_thesaurus, codesets, ...){
-
-  check_if_packages_are_available(c("countrycode", "stringdist"))
-
-  codes <- unique(c("country.name.en", codesets))
-  country_df <- countrycode::codelist[, codes]
-
-  x %>% pbapply::pbsapply(
-    FUN = function(db_word) {
-      # if a manual attribution is supplied then use this
-      if (db_word %in% country_thesaurus$var) {
-        country_thesaurus$cor[db_word == country_thesaurus$var]
-        # if country name is NA or already the correct english term then use that
-      } else if(db_word %in% c(NA, country_df$country.name.en)) {
-        db_word
-        # else determine correct english term based on stringdist
-      } else {
-        find_correct_name_by_stringdist_comparison(db_word, country_df, codes, ...)
-      }
-    }
-  ) %>% unname
-
-}
-
-#' find_correct_name_by_stringdist_comparison
-#'
-#' @param db_word individual term for which to find a better name
-#' @param country_df reference table
-#' @param codes which country codesets are included in country_df
-#' @param ... additional arguments are passed to stringdist::stringdist()
-#'
-#' @return a correct english country name
-#'
-#' @keywords internal
-#' @noRd
-find_correct_name_by_stringdist_comparison <- function(db_word, country_df, codes, ...) {
-
-  db_word_dist <- function(x) { stringdist::stringdist(db_word, x, ...) }
-
-  country_df %>%
-    dplyr::mutate_all(list(stringdist = ~db_word_dist(.))) %>%
-    tidyr::gather(
-      key = "code_type",
-      value = "dist",
-      -codes
-    ) %>%
-    dplyr::slice(
-      which.min(.data$dist)
-    ) %>%
-    magrittr::extract2("country.name.en") %>%
-    magrittr::extract2(1)
-}
-

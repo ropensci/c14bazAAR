@@ -54,3 +54,23 @@ get_emedyd <- function(...) {
   )
 }
 
+#' @rdname deprecated_functions
+#' @export
+fix_database_country_name <- function(...) {
+  stop(
+    "This function was removed from c14bazAAR v.3.0 without a replacement. ",
+    "It was a secondary feature difficult to maintain."
+  )
+}
+
+#' @rdname deprecated_functions
+#' @export
+classify_material <- function(...) {
+  stop(
+    "This function was removed from c14bazAAR v.3.0 without a replacement. ",
+    "Maintaining the material table and keeping it up-to-date was too tedious. ",
+    "The extensive lookup-table is still available and we welcome derived ",
+    "applications built on it: ",
+    "https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv"
+  )
+}
