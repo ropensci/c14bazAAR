@@ -61,4 +61,4 @@ p <- plot_grid(c14.map, c14.hist,
                align = "h",
                rel_widths = c(3, 1.3))
 
-ggsave("man/figures/README_map_figure.jpeg", p, width = 12, height = 8)
+ggsave("man/figures/README_map_figure.jpeg", p, width = 12, height = 8, bg = "white")
