@@ -160,6 +160,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("calpal")`](R/get_calpal.R) [**calpal**](https://uni-koeln.academia.edu/BernhardWeninger/CalPal): Radiocarbon Database of the CalPal software package by Bernhard Weninger. See [nevrome/CalPal-Database](https://github.com/nevrome/CalPal-Database) for an interface.
 * [`get_c14data("caribbean")`](R/get_caribbean.R) [**caribbean**](https://github.com/philriris/caribbean-14C/): A compilation of 2147 anthropogenic radiocarbon (14C) dates for the Caribbean region from 504 sites across 57 islands by **Phil Riris** (2021).
 * [`get_c14data("context")`](R/get_context.R) [**context**](http://context-database.uni-koeln.de/): Collection of radiocarbon dates from sites in the Near East and neighboring regions (20.000 - 5.000 calBC) by Utz Böhner and Daniel Schyle.
+* [`get_c14data("egyptdb")`](R/get_intchron.R) [**egyptdb**](https://github.com/jgregoriods/rxpand): Egyptian Radiocarbon Database hosted by ORAU.
 * [`get_c14data("eubar")`](R/get_eubar.R) [**eubar**](https://telearchaeology.org/eubar-c14-database/): A database of 14C measurements for the European Bronze Age by [Gacomo Capuzzo](https://telearchaeology.org/EUBAR/).
 * [`get_c14data("euroevol")`](R/get_euroevol.R) [**euroevol**](https://discovery.ucl.ac.uk/1469811/): Cultural Evolution of Neolithic Europe Dataset by [Katie Manning, Sue Colledge, Enrico Crema, Stephen Shennan and Adrian Timpson](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.40/).
 * [`get_c14data("irdd")`](R/get_irdd.R) [**irdd**](https://sites.google.com/site/chapplearchaeology/irish-radiocarbon-dendrochronological-dates): [Robert M Chapple](https://doi.org/10.5281/zenodo.3367518)'s Catalogue of Radiocarbon Determinations & Dendrochronology Dates is a free-to-download resource for Irish archaeology.
@@ -173,6 +174,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("radon")`](R/get_radon.R) [**radon**](https://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](https://www.jna.uni-kiel.de/index.php/jna/article/view/65).
 * [`get_c14data("radonb")`](R/get_radonb.R) [**radonb**](https://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
 * [`get_c14data("rxpand")`](R/get_rxpand.R) [**rxpand**](https://github.com/jgregoriods/rxpand): Radiocarbon dates for the spread of farming and ceramics in tropical South America by **Jonas Gregorio de Souza**.
+* [`get_c14data("sadb")`](R/get_intchron.R) [**sadb**](https://github.com/jgregoriods/rxpand): An archaeological radiocarbon database for southern Africa by [Emma Loftus, Peter J. Mitchell & Christopher Bronk Ramsey](https://www.cambridge.org/core/journals/antiquity/article/abs/an-archaeological-radiocarbon-database-for-southern-africa/26FE99E995C4507015704D552CB0C196) and hosted by ORAU.
 
 ### Contributing
 

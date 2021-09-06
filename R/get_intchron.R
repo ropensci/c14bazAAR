@@ -1,11 +1,24 @@
 #' @rdname db_getter_backend
 #' @export
 
-library(rintchron)
+#library(rintchron)
 
-get_intchron <- function(){
+get_intchron <- function(db_name){
 
-  sadb <- intchron(c("sadb")) %>%
+  # DATABASES:
+  # sadb: works
+  # - also has: subperiod
+  # egyptdb: works
+  # - also has: dynasty, reign
+  # intimate: errors
+  # nrcf: errors
+  # oxa: errors
+  #
+  # sadb <- rintchron::intchron("sadb")
+  # egyptdb <- rintchron::intchron("egyptdb")
+  # setdiff(names(egyptdb), names(sadb))
+
+  intchron <- rintchron::intchron(c(db_name)) %>%
     dplyr::transmute(
       method =,
       labnr = .data[["labcode"]],
@@ -15,7 +28,7 @@ get_intchron <- function(){
       site = .data[["site"]],
       feature = .data[["context"]],
       period = .data[["period"]],
-      culture = .data[["subperiod"]],
+      #culture = .data[["subperiod"]],
       material = .data[["material"]],
       species = .data[["species"]],
       region = .data[["region"]],
@@ -26,7 +39,6 @@ get_intchron <- function(){
     ) %>%
     as.c14_date_list()
 
-  return(sadb)
-
+  return(intchron)
 }
 

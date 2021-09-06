@@ -85,6 +85,7 @@ Suggests:
     plyr,
     readxl,
     rgeos,
+    rintchron,
     rmarkdown,
     rnaturalearth,
     rworldmap,

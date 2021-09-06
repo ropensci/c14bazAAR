@@ -150,7 +150,9 @@ get_all_parser_functions <- function() {
     "katsianis" = c14bazAAR::get_katsianis,
     "nerd" = c14bazAAR::get_nerd,
     "bda" = c14bazAAR::get_bda,
-    "rxpand" = c14bazAAR::get_rxpand
+    "rxpand" = c14bazAAR::get_rxpand,
+    "sadb" = c14bazAAR::get_intchron,
+    "egyptdb" = c14bazAAR::get_intchron
   ))
 }
 
