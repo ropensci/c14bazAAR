@@ -173,6 +173,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("radon")`](R/get_radon.R) [**radon**](https://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](https://www.jna.uni-kiel.de/index.php/jna/article/view/65).
 * [`get_c14data("radonb")`](R/get_radonb.R) [**radonb**](https://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
 * [`get_c14data("rxpand")`](R/get_rxpand.R) [**rxpand**](https://github.com/jgregoriods/rxpand): Radiocarbon dates for the spread of farming and ceramics in tropical South America by Jonas Gregorio de Souza.
+* [`get_c14data("xronos")`](R/get_xronos.R) [**XRONOS**](https://xronos.ch): Open Access Database for absolute chronological archaeological information by Martin Hinz, Joe Roe and Clemens Schmid.
 
 ### Contributing
 
