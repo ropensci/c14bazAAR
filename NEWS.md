@@ -1,3 +1,7 @@
+# 3.2.0
+
+- added getter function for xronos database: `get_xronos`
+
 # 3.1.0
 
 - added getter function for aida database: `get_aida`

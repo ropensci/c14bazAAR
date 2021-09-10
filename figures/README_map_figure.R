@@ -35,7 +35,7 @@ c14.map <- ggplot() +
     color = "black"
   ) +
   facet_wrap(~ sourcedb, ncol = 4) +
-  coord_sf(crs = st_crs('+proj=moll')) +
+  coord_sf(crs = sf::st_crs('+proj=moll')) +
   theme_bw() +
   theme(
     legend.position = "none",
