@@ -31,9 +31,6 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
-      - name: Install spatial libraries
-        run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev
-
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: |
