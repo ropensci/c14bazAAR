@@ -1,3 +1,7 @@
+# 3.2.0
+
+- added getter function for sard database: `get_sard`
+
 # 3.1.0
 
 - added getter function for aida database: `get_aida`

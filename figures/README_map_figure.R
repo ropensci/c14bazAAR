@@ -2,6 +2,7 @@
 
 library(ggplot2)
 library(magrittr)
+library(sf)
 
 # download data
 c14.data <- c14bazAAR::get_c14data(databases = "all")
