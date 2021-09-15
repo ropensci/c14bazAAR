@@ -582,8 +582,8 @@ method,sard,Dating technique
 site,sard,Site
 country,sard,Country
 feature,sard,Stratigraphic context
-culture,sard,Archaeological Period
-period,sard,Archaeological Sub-chronology
+culture,sard,Archaeological Sub-chronology
+period,sard,Archaeological Period
 lat,sard,DecdegS
 lon,sard,DecdegE
 comment,sard,Notes

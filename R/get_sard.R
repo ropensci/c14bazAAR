@@ -5,25 +5,7 @@ get_sard <- function(db_url = get_db_url("sard")) {
   # read data
   sard <- db_url %>%
     data.table::fread(
-      drop = c(),
-      colClasses = c(
-        "Lab ID" = "character",
-        "Date" = "character",
-        "Uncertainty" = "character",
-        "delta 13" = "character",
-        "Species" = "character",
-        "Material dated" = "character",
-        "Dating technique" = "character",
-        "Site" = "character",
-        "Country" = "character",
-        "Stratigraphic context" = "character",
-        "Archaeological Period" = "character",
-        "Archaeological Sub-chronology" = "character",
-        "DecdegS" = "character",
-        "DecdegE" = "character",
-        "Notes" = "character",
-        "refcode" = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     ) %>%
     dplyr::transmute(
@@ -37,8 +19,8 @@ get_sard <- function(db_url = get_db_url("sard")) {
       site = .data[["Site"]],
       country = .data[["Country"]],
       feature = .data[["Stratigraphic context"]],
-      culture = .data[["Archaeological Period"]],
-      period = .data[["Archaeological Sub-chronology"]],
+      culture = .data[["Archaeological Sub-chronology"]],
+      period = .data[["Archaeological Period"]],
       lat = .data[["DecdegS"]],
       lon = .data[["DecdegE"]],
       comment = .data[["Notes"]],
