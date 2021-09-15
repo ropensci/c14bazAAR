@@ -31,18 +31,7 @@ get_palmisano <- function(db_url = get_db_url("palmisano")) {
       "DateID",
       "LocQual"
     ),
-    colClasses = c(
-      "LabID" = "character",
-      "CRA" = "character",
-      "Error" = "character",
-      "Material" = "character",
-      "Species" = "character",
-      "SiteID" = "character",
-      "SiteName" = "character",
-      "Longitude" = "character",
-      "Latitude" = "character",
-      "Source" = "character"
-    ),
+    colClasses = "character",
     showProgress = FALSE
   )
 
@@ -60,13 +49,7 @@ get_palmisano <- function(db_url = get_db_url("palmisano")) {
       "Source",
       "Source_id"
     ),
-    colClasses = c(
-      "Id" = "character",
-      "Type" = "character",
-      "Period" = "character",
-      "StartDate" = "character",
-      "EndDate" = "character"
-    ),
+    colClasses = "character",
     showProgress = FALSE
   )
 

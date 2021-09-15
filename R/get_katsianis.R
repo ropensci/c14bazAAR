@@ -32,26 +32,7 @@ get_katsianis <- function(db_url = get_db_url("katsianis")) {
       "Problems",
       "OthMeasures"
     ),
-    colClasses = c(
-      "DateMethod" = "character",
-      "LabID" = "character",
-      "CRA" = "character",
-      "Error" = "character",
-      "DC13" = "character",
-      "SiteName" = "character",
-      "SiteType" = "character",
-      "SiteContext" = "character",
-      "SitePhase" = "character",
-      "CulturalPeriod" = "character",
-      "Material" = "character",
-      "Species" = "character",
-      "AdminRegion" = "character",
-      "Country" = "character",
-      "Latitude" = "character",
-      "Longitude" = "character",
-      "Source" = "character",
-      "Comments" = "character"
-    ),
+    colClasses = "character",
     showProgress = FALSE
   ) %>%
     base::replace(., . == "", NA) %>%

@@ -1,3 +1,7 @@
+# 3.2.1
+
+- simplified many getter functions by replacing the explicit column classes definition with a general `colClasses = "character"`, which should do exactly the same (#153)
+
 # 3.2.0
 
 - added getter function for sard database: `get_sard`

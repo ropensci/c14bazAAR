@@ -11,19 +11,7 @@ get_rxpand <- function(db_url = get_db_url("rxpand")) {
         "Exclude",
         "Class"
       ),
-      colClasses = c(
-        "Site" = "character",
-        "C14Age" = "character",
-        "C14SD" = "character",
-        "LabCode" = "character",
-        "Material" = "character",
-        "Culture" = "character",
-        "Latitude" = "character",
-        "Longitude" = "character",
-        "Description" = "character",
-        "Comments" = "character",
-        "Reference" = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE,
       encoding = "UTF-8"
     ) %>%

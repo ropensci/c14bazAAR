@@ -18,21 +18,24 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
     db_path[grepl("/dateTable.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8"
+    encoding = "UTF-8",
+    colClasses = "character"
   )
 
   db_sites <- data.table::fread(
     db_path[grepl("/siteTable.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8"
+    encoding = "UTF-8",
+    colClasses = "character"
   )
 
   db_culturelink <- data.table::fread(
     db_path[grepl("/cultureLink.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8"
+    encoding = "UTF-8",
+    colClasses = "character"
   )
 
   # build chain of cultural attributions
@@ -47,7 +50,8 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
     db_path[grepl("/dateRefLink.csv", db_path)],
     sep = ",",
     na.strings = "NULL",
-    encoding = "UTF-8"
+    encoding = "UTF-8",
+    colClasses = "character"
   )
 
   # build chain of reflinks for shortref field

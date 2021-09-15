@@ -21,22 +21,7 @@ get_austarch <- function(db_url = get_db_url("austarch")) {
       "AGE_NORM",
       "ADDITIONAL_DATA_ISSUES"
     ),
-    colClasses = c(
-      "IBRA_REGION" = "character",
-      "LONGITUDE" = "character",
-      "LATITUDE" = "character",
-      "SITE" = "character",
-      "SITE_TYPE" = "character",
-      "LAB_CODE" = "character",
-      "AGE" = "character",
-      "ERROR" = "character",
-      "C13_AGE" = "character",
-      "MATERIAL" = "character",
-      "CONTEXT" = "character",
-      "METHOD" = "character",
-      "SOURCE" = "character",
-      "NOTES" = "character"
-    ),
+    colClasses = "character",
     showProgress = FALSE
   ) %>%
     base::replace(., . == "", NA) %>%
