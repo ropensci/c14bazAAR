@@ -89,7 +89,7 @@ p <- cowplot::plot_grid(
   c14.map, c14.hist,
   labels = "",
   align = "h",
-  rel_widths = c(3, 1.3)
+  rel_widths = c(3, 1.4)
 )
 
-ggsave("man/figures/README_map_figure.jpeg", p, width = 12, height = 8, bg = "white")
+ggsave("man/figures/README_map_figure.jpeg", p, width = 12, height = 9.2, bg = "white")
