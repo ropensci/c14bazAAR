@@ -119,27 +119,53 @@ plot.c14_date_list <- function(x, ...) {
   old.par <- graphics::par(no.readonly = TRUE)
 
   # set plot layout
-  graphics::layout(matrix(c(1,2,3,3), 2, 2, byrow = TRUE))
+  graphics::layout(
+    matrix(c(1,2,4,3,3,4,5,5,5), 3, 3, byrow = TRUE),
+    widths = c(1,0.5,1.5), heights = c(0.7,0.8,1)
+  )
 
   # plot 1: text
-  header <- as.character(format(x)) %>%
-    strsplit("\n") %>% unlist %>%
-    sub("\t", "", .) %>%
-    sub("\t\t", "\t", .) %>%
-    trimws
-  graphics::plot(
-    0, type = 'n', axes = FALSE, ann = FALSE,
-    xlim = c(0, 1), ylim = c(length(header) + 1, 0)
+  graphics::par(mar = c(0, 0, 0, 0))
+  graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE)
+  graphics::legend(
+    "topleft",
+    format(x) %>% gsub("\t", "", .),
+    bty = "n",
+    cex = 1.7
   )
-  for (i in 1:length(header)) {
-    if (i == 1) {
-      graphics::text(0, i, bquote(bold(.(header[i]))), adj = 0)
-    } else {
-      graphics::text(0, i, header[i], adj = 0)
-    }
+
+  # plot 2: small globe
+  if (all(c("lon", "lat") %in% colnames(x))) {
+    graphics::par(mar = c(0, 0, 0, 0))
+    globe::globeearth(eye = list(
+        -(180-mean(x[["lon"]], na.rm = T)),
+        -mean(x[["lat"]], na.rm = T)
+    ))
+    globe::globepoints(
+      loc = x[,c("lon", "lat")],
+      col = "red",
+      cex = 0.01,
+      pch = 20
+    )
+  } else {
+    graphics::par(mar = c(0, 0, 0, 0))
+    graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE)
   }
 
-  # plot 2: globe
+  # plot 3: std histogram
+  graphics::par(mar = c(4.2, 4.2, 0, 0))
+  graphics::hist(
+    x[["c14std"]],
+    breaks = 50,
+    col = NULL,
+    main = NULL,
+    xlab = "Uncalibrated Age Std in years (c14std)",
+    ylab = "Amount of dates",
+    cex.axis = 1.5,
+    cex.lab = 1.5
+  )
+
+  # plot 4: big globe
   if (all(c("lon", "lat") %in% colnames(x))) {
     graphics::par(mar = c(0, 0, 0, 0))
     globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
@@ -150,24 +176,29 @@ plot.c14_date_list <- function(x, ...) {
       pch = 20
     )
   } else {
-    graphics::plot(
-      0, type = 'n', axes = FALSE, ann = FALSE,
-      xlim = c(0, 1), ylim = c(0, 1)
+    graphics::par(mar = c(0, 0, 0, 0))
+    graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE)
+    graphics::legend(
+      "center",
+      "no coordinate columns",
+      bty = "n",
+      cex = 1.7
     )
-    graphics::text(0.5, 0.5, "no coordinate columns", adj = 0)
   }
 
-  # plot 3: histogram
+  # plot 5: age histogram
   graphics::par(mar = c(4.2, 4.2, 0, 0))
   graphics::hist(
     x[["c14age"]],
     breaks = 100,
+    col = NULL,
     main = NULL,
     xlim = rev(range(x[["c14age"]], na.rm = T)),
     xlab = "Uncalibrated Age BP in years (c14age)",
-    ylab = "Amount of dates"
+    ylab = "Amount of dates",
+    cex.axis = 1.5,
+    cex.lab = 1.5
   )
-
 
   # reset par setting on exit
   on.exit(graphics::par(old.par))
