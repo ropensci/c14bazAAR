@@ -1,3 +1,7 @@
+# 3.3.0
+
+- made the default plot function a bit more powerful (#154)
+
 # 3.2.1
 
 - simplified many getter functions by replacing the explicit column classes definition with a general `colClasses = "character"`, which should do exactly the same (#153)
