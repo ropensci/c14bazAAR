@@ -121,7 +121,7 @@ plot.c14_date_list <- function(x, ...) {
   # set plot layout
   graphics::layout(
     matrix(c(1,2,4,3,3,4,5,5,5), 3, 3, byrow = TRUE),
-    widths = c(1,0.5,1.5), heights = c(0.7,0.8,1)
+    widths = c(1,0.5,1.5), heights = c(0.7,0.55,1)
   )
 
   # plot 1: text
@@ -134,12 +134,22 @@ plot.c14_date_list <- function(x, ...) {
     cex = 1.7
   )
 
-  # plot 2: small globe
+  # prepare data for mapping
+  mean_lon <- mean(x[["lon"]], na.rm = T)
+  x_west <- x[x[["lon"]] < mean_lon,]
+  x_east <- x[x[["lon"]] >= mean_lon,]
+
+  # plot 2: small globe: "western side of the distribution"
   if (all(c("lon", "lat") %in% colnames(x))) {
     graphics::par(mar = c(0, 0, 0, 0))
+    # opposite side of the globe
+    # globe::globeearth(eye = list(
+    #     -(180-mean(x[["lon"]], na.rm = T)),
+    #     -mean(x[["lat"]], na.rm = T)
+    # ))
     globe::globeearth(eye = list(
-        -(180-mean(x[["lon"]], na.rm = T)),
-        -mean(x[["lat"]], na.rm = T)
+      mean(x_west[["lon"]], na.rm = T),
+      mean(x_west[["lat"]], na.rm = T)
     ))
     globe::globepoints(
       loc = x[,c("lon", "lat")],
@@ -153,22 +163,28 @@ plot.c14_date_list <- function(x, ...) {
   }
 
   # plot 3: std histogram
+  ste <- x[["c14std"]]
   graphics::par(mar = c(4.2, 4.2, 0, 0))
-  graphics::hist(
-    x[["c14std"]],
-    breaks = 50,
+  graphics::boxplot(
+    ste[!is.na(ste) & ste > 0],
+    log = "x",
     col = NULL,
     main = NULL,
-    xlab = "Uncalibrated Age Std in years (c14std)",
-    ylab = "Amount of dates",
+    frame.plot = FALSE,
+    xlab = "Log std error (c14std)",
     cex.axis = 1.5,
-    cex.lab = 1.5
+    cex.lab = 1.5,
+    horizontal = TRUE,
+    bg = "transparent"
   )
 
-  # plot 4: big globe
+  # plot 4: big globe: "eastern side of the distribution"
   if (all(c("lon", "lat") %in% colnames(x))) {
     graphics::par(mar = c(0, 0, 0, 0))
-    globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
+    globe::globeearth(eye = list(
+      mean(x_east[["lon"]], na.rm = T),
+      mean(x_east[["lat"]], na.rm = T)
+    ))
     globe::globepoints(
       loc = x[,c("lon", "lat")],
       col = "red",
