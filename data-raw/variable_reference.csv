@@ -610,5 +610,4 @@ site,p3k14c,SiteName
 country,p3k14c,Country
 ,p3k14c,Province
 region,p3k14c,Continent
-,p3k14c,Source
-shortref,p3k14c,Reference
+shortref,p3k14c,Reference;Source

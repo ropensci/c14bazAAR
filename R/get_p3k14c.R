@@ -5,14 +5,16 @@ get_p3k14c <- function(db_url = get_db_url("p3k14c")) {
   check_connection_to_url(db_url)
 
   # download and unzip data
-  temp <- tempfile()
-  utils::download.file(db_url, temp, quiet = TRUE)
-  load(temp)
-
-  p3k14c_data$d13C[p3k14c_data$d13C == 0.0] <- NA
-  suppressWarnings(p3k14c_data$d13C <- as.numeric(p3k14c_data$d13C))
-
-  p3k14c <- p3k14c_data %>%
+  p3k14c <- db_url %>%
+    data.table::fread(
+      colClasses = "character",
+      showProgress = FALSE,
+      na.strings = ""
+    ) %>%
+    dplyr::mutate(
+      d13C = suppressWarnings(as.numeric(.data[["d13C"]])),
+      d13C = ifelse(.data[["d13C"]] == 0, NA, .data[["d13C"]])
+    ) %>%
     dplyr::transmute(
       labnr = .data[["LabID"]],
       c14age = .data[["Age"]],
@@ -27,7 +29,7 @@ get_p3k14c <- function(db_url = get_db_url("p3k14c")) {
       country = .data[["Country"]],
       lat = .data[["Lat"]],
       lon = .data[["Long"]],
-      shortref = .data[["Reference"]]
+      shortref = ifelse(is.na(.data[["Reference"]]), .data[["Source"]], .data[["Reference"]])
     ) %>%
     dplyr::mutate(
       sourcedb = "p3k14c",
