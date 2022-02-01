@@ -66,11 +66,11 @@ species,adrac,
 c13val,aida,DC13
 c14age,aida,CRA
 c14std,aida,Error
-comment,aida,Problems
+comment,aida,Problems;Comments
 country,aida,
 culture,aida,
 feature,aida,SiteContext
-labnr,aida,LabID
+labnr,aida,LabID;OthLabID
 lat,aida,Latitude
 lon,aida,Longitude
 material,aida,Material
@@ -462,10 +462,10 @@ species,mesorad,
 c13val,nerd,DC13
 c14age,nerd,CRA
 c14std,nerd,Error
-comment,nerd,Problems
+comment,nerd,Problems;Comments
 country,nerd,Country
 feature,nerd,SiteContext
-labnr,nerd,LabID
+labnr,nerd,LabID;OthLabID
 lat,nerd,Latitude
 lon,nerd,Longitude
 material,nerd,Material
