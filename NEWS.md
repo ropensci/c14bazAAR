@@ -1,3 +1,7 @@
+# 3.2.0
+
+- added getter function for p3k14c database: `get_p3k14c`
+
 # 3.1.0
 
 - added getter function for aida database: `get_aida`
