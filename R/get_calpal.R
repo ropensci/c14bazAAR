@@ -20,23 +20,7 @@ get_calpal <- function(db_url = get_db_url("calpal")) {
         "SUBPERIOD",
         "TABLE"
       ),
-      colClasses = c(
-        "METHOD" = "character",
-        "LABNR" = "character",
-        "C14AGE" = "character",
-        "C14STD" = "character",
-        "C13" = "character",
-        "SITE" = "character",
-        "SITETYPE" = "character",
-        "PERIOD" = "character",
-        "CULTURE" = "character",
-        "MATERIAL" = "character",
-        "SPECIES" = "character",
-        "COUNTRY" = "character",
-        "LATITUDE" = "character",
-        "LONGITUDE" = "character",
-        "REFERENCE" = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     ) %>%
     dplyr::transmute(

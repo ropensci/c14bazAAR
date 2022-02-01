@@ -572,21 +572,43 @@ site,rxpand,Site
 ,rxpand,Class
 ,rxpand,Exclude
 ,rxpand,FullReference
+labnr,sard,Lab ID
+c14age,sard,Date
+c14std,sard,Uncertainty
+c13val,sard,delta 13
+species,sard,Species
+material,sard,Material dated
+method,sard,Dating technique
+site,sard,Site
+country,sard,Country
+feature,sard,Stratigraphic context
+culture,sard,Archaeological Sub-chronology
+period,sard,Archaeological Period
+lat,sard,DecdegS
+lon,sard,DecdegE
+comment,sard,Notes
+shortref,sard,refcode
+,sard,Site code
+,sard,Province or district
+,sard,RFZ
+,sard,Biom
+,sard,Sample context
+,sard,Site Type
 labnr,p3k14c,LabID
 c14age,p3k14c,Age
 c14std,p3k14c,Error
 material,p3k14c,Material
 species,p3k14c,Taxa
 c13val,p3k14c,d13C
-,p3k14c,Method
+method,p3k14c,Method
 lon,p3k14c,Long
 lat,p3k14c,Lat
 ,p3k14c,LocAccuracy
-,p3k14c,Period
+period,p3k14c,Period
 ,p3k14c,SiteID
 site,p3k14c,SiteName
 country,p3k14c,Country
 ,p3k14c,Province
-,p3k14c,Continent
+region,p3k14c,Continent
 ,p3k14c,Source
 shortref,p3k14c,Reference

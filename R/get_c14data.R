@@ -151,6 +151,7 @@ get_all_parser_functions <- function() {
     "nerd" = c14bazAAR::get_nerd,
     "bda" = c14bazAAR::get_bda,
     "rxpand" = c14bazAAR::get_rxpand,
+    "sard" = c14bazAAR::get_sard,
     "p3k14c" = c14bazAAR::get_p3k14c
   ))
 }

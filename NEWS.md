@@ -1,6 +1,18 @@
-# 3.2.0
+# 3.4.0
 
 - added getter function for p3k14c database: `get_p3k14c`
+
+# 3.3.0
+
+- made the default plot function a bit more powerful (#154)
+
+# 3.2.1
+
+- simplified many getter functions by replacing the explicit column classes definition with a general `colClasses = "character"`, which should do exactly the same (#153)
+
+# 3.2.0
+
+- added getter function for sard database: `get_sard`
 
 # 3.1.0
 

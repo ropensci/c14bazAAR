@@ -6,7 +6,7 @@
 %   R/get_jomon.R, R/get_katsianis.R, R/get_kiteeastafrica.R,
 %   R/get_medafricarbon.R, R/get_mesorad.R, R/get_nerd.R, R/get_p3k14c.R,
 %   R/get_pacea.R, R/get_palmisano.R, R/get_radon.R, R/get_radonb.R,
-%   R/get_rxpand.R
+%   R/get_rxpand.R, R/get_sard.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -34,6 +34,7 @@
 \alias{get_radon}
 \alias{get_radonb}
 \alias{get_rxpand}
+\alias{get_sard}
 \title{Backend functions for data download}
 \usage{
 get_14cpalaeolithic(db_url = get_db_url("14cpalaeolithic"))
@@ -87,6 +88,8 @@ get_radon(db_url = get_db_url("radon"))
 get_radonb(db_url = get_db_url("radonb"))
 
 get_rxpand(db_url = get_db_url("rxpand"))
+
+get_sard(db_url = get_db_url("sard"))
 }
 \arguments{
 \item{db_url}{Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}

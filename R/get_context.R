@@ -30,23 +30,7 @@ get_context <- function(db_url = get_db_url("context")) {
       "INCONGR",
       "ID"
     ),
-    colClasses = c(
-      "LABNR" = "character",
-      "C14AGE" = "character",
-      "C14STD" = "character",
-      "C13" = "character",
-      "COUNTRY" = "character",
-      "SITE" = "character",
-      "MATERIAL" = "character",
-      "SPECIES" = "character",
-      "CULTURE" = "character",
-      "PERIOD" = "character",
-      "REGION" = "character",
-      "LATITUDE" = "character",
-      "LONGITUDE" = "character",
-      "NOTICE" = "character",
-      "REFERENCE" = "character"
-    ),
+    colClasses = "character",
     showProgress = FALSE
   )
   unlink(temp)

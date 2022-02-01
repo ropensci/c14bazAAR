@@ -8,24 +8,7 @@ get_radon <- function(db_url = get_db_url("radon")) {
   radon <- db_url %>%
     data.table::fread(
       quote = "",
-      colClasses = c(
-        ID = "character",
-        LABNR = "character",
-        C14AGE = "character",
-        C14STD = "character",
-        C13 = "character",
-        MATERIAL = "character",
-        SPECIES = "character",
-        COUNTRY = "character",
-        SITE = "character",
-        PERIOD = "character",
-        CULTURE = "character",
-        FEATURETYPE = "character",
-        FEATURE = "character",
-        LATITUDE = "character",
-        LONGITUDE = "character",
-        REFERENCE = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     ) %>%
     base::replace(., . == "", NA) %>%

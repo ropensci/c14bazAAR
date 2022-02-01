@@ -10,7 +10,7 @@ get_p3k14c <- function(db_url = get_db_url("p3k14c")) {
   load(temp)
 
   p3k14c_data$d13C[p3k14c_data$d13C == 0.0] <- NA
-  p3k14c_data$d13C <- as.numeric(p3k14c_data$d13C)
+  suppressWarnings(p3k14c_data$d13C <- as.numeric(p3k14c_data$d13C))
 
   p3k14c <- p3k14c_data %>%
     dplyr::transmute(

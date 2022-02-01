@@ -14,22 +14,7 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
         "IRON",
         "FRUIT"
       ),
-      colClasses = c(
-        "LABNR" = "character",
-        "C14AGE" = "character",
-        "C14STD" = "character",
-        "C13" = "character",
-        "MATERIAL" = "character",
-        "METHOD" = "character",
-        "SITE" = "character",
-        "COUNTRY" = "character",
-        "FEATURE" = "character",
-        "PHASE" = "character",
-        "LAT" = "character",
-        "LONG" = "character",
-        "REMARK" = "character",
-        "SOURCE" = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     ) %>%
     base::replace(., . == "", NA) %>%
