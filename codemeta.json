@@ -1,28 +1,20 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "c14bazAAR",
   "description": "Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, pacea, palmisano, radon, radonb, rxpand, sard.",
   "name": "c14bazAAR: Download and Prepare C14 Dates from Different Source Databases",
+  "relatedLink": "https://docs.ropensci.org/c14bazAAR",
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.1 (2021-08-10)",
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
-  },
+  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
   "author": [
     {
       "@type": "Person",
@@ -98,7 +90,6 @@
       "@id": "https://orcid.org/0000-0003-3448-5715"
     }
   ],
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -338,14 +329,14 @@
       "sameAs": "https://CRAN.R-project.org/package=writexl"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
       "version": ">= 3.4.0"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
@@ -358,7 +349,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -371,12 +362,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "graphics",
       "name": "graphics"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
@@ -389,7 +380,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httr"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -402,7 +393,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "pbapply",
       "name": "pbapply",
@@ -415,7 +406,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=pbapply"
     },
-    {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -428,13 +419,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats",
       "version": ">= 3.4.0"
     },
-    {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -447,7 +438,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -459,22 +450,10 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
-    }
-  ],
-  "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "fileSize": "1715.062KB",
-  "contIntegration": "https://codecov.io/github/ropensci/c14bazAAR?branch=master",
-  "keywords": [
-    "radiocarbon-dates",
-    "archaeology",
-    "r"
-  ],
-  "relatedLink": [
-    "https://CRAN.R-project.org/package=c14bazAAR",
-    "https://docs.ropensci.org/c14bazAAR"
-  ],
-  "developmentStatus": "https://www.repostatus.org/#active",
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "1269.267KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -513,5 +492,10 @@
         }
       }
     }
-  ]
+  ],
+  "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
+  "contIntegration": ["https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "keywords": ["radiocarbon-dates", "archaeology", "r"]
 }
