@@ -1,3 +1,7 @@
+# 3.4.0
+
+- added getter function for p3k14c database: `get_p3k14c`
+
 # 3.3.0
 
 - made the default plot function a bit more powerful (#154)

@@ -2,13 +2,13 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "c14bazAAR",
-  "description": "Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, pacea, palmisano, radon, radonb, rxpand, sard.",
+  "description": "Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, p3k14c, pacea, palmisano, radon, radonb, rxpand, sard.",
   "name": "c14bazAAR: Download and Prepare C14 Dates from Different Source Databases",
   "relatedLink": "https://docs.ropensci.org/c14bazAAR",
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -453,7 +453,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1269.267KB",
+  "fileSize": "1136.508KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -492,10 +492,5 @@
         }
       }
     }
-  ],
-  "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
-  "contIntegration": ["https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["radiocarbon-dates", "archaeology", "r"]
+  ]
 }

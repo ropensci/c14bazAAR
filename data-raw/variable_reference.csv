@@ -594,3 +594,20 @@ shortref,sard,refcode
 ,sard,Biom
 ,sard,Sample context
 ,sard,Site Type
+labnr,p3k14c,LabID
+c14age,p3k14c,Age
+c14std,p3k14c,Error
+material,p3k14c,Material
+species,p3k14c,Taxa
+c13val,p3k14c,d13C
+method,p3k14c,Method
+lon,p3k14c,Long
+lat,p3k14c,Lat
+,p3k14c,LocAccuracy
+period,p3k14c,Period
+,p3k14c,SiteID
+site,p3k14c,SiteName
+country,p3k14c,Country
+,p3k14c,Province
+region,p3k14c,Continent
+shortref,p3k14c,Reference;Source
