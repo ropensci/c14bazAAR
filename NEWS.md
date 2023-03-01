@@ -1,3 +1,7 @@
+# 3.4.1
+
+- updated `get_14cpalaeolithic` to use v29 of the source database
+
 # 3.4.0
 
 - added getter function for p3k14c database: `get_p3k14c`
