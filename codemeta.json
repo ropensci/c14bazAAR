@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
