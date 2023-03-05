@@ -1,6 +1,8 @@
 # 3.4.1
 
 - updated `get_14cpalaeolithic` to use v29 of the source database
+- added an additional message to `get_c14data` on how to prevent download timeouts
+- minor refactoring
 
 # 3.4.0
 

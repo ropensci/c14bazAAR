@@ -84,6 +84,7 @@ get_c14data <- function(databases = c()) {
         "There were errors:\n\n",
         paste(sapply(errors, function(x) { paste0(x$name, " --> ", x$e$message) }), collapse = "\n"),
         "\n\nNot all data might have been downloaded accurately!",
+        "\nIn case of a timout try increasing the download time with options(timeout=300).",
         sep = ""
       )
     )
