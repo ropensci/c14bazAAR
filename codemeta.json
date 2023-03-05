@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -318,6 +318,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "tidyr",
+      "name": "tidyr",
+      "version": ">= 0.6.3",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "writexl",
       "name": "writexl",
       "provider": {
@@ -438,22 +451,9 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "11": {
-      "@type": "SoftwareApplication",
-      "identifier": "tidyr",
-      "name": "tidyr",
-      "version": ">= 0.6.3",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tidyr"
-    },
     "SystemRequirements": null
   },
-  "fileSize": "1136.508KB",
+  "fileSize": "1319.2KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -492,5 +492,9 @@
         }
       }
     }
-  ]
+  ],
+  "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
+  "contIntegration": ["https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "keywords": ["radiocarbon-dates", "archaeology", "r"]
 }
