@@ -362,7 +362,7 @@ compare_and_combine_data_frame_values <- function(x) {
     return(y[1])
   # else return NA
   } else {
-    if(class(y) == "character") {
+    if(is.character(y)) {
       return(NA_character_)
     } else {
       return(NA)
@@ -375,7 +375,7 @@ compare_and_combine_data_frame_values <- function(x) {
 supermerge_data_frame_values <- function(x, order_vector) {
   # if all values are NA, than return NA
   if (all(is.na(x))) {
-    if(class(x) == "character") {
+    if(is.character(x)) {
       return(NA_character_)
     } else {
       return(NA)
