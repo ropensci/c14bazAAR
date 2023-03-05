@@ -36,6 +36,7 @@ Other contributors:
 \itemize{
   \item Thomas Huet \email{thomashuet7@gmail.com} (\href{https://orcid.org/0000-0002-1112-6122}{ORCID}) [contributor]
   \item Nils Mueller-Scheessel \email{nils.mueller-scheessel@ufg.uni-kiel.de} (\href{https://orcid.org/0000-0001-7992-8722}{ORCID}) [contributor]
+  \item Joe Roe \email{joe@joeroe.io} (\href{https://orcid.org/0000-0002-1011-1244}{ORCID}) [contributor]
   \item Ben Marwick (\href{https://orcid.org/0000-0001-7879-4531}{ORCID}) [reviewer]
   \item Enrico R. Crema (\href{https://orcid.org/0000-0001-6727-5138}{ORCID}) [reviewer]
 }

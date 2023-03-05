@@ -79,6 +79,13 @@
       "familyName": "Mueller-Scheessel",
       "email": "nils.mueller-scheessel@ufg.uni-kiel.de",
       "@id": "https://orcid.org/0000-0001-7992-8722"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Joe",
+      "familyName": "Roe",
+      "email": "joe@joeroe.io",
+      "@id": "https://orcid.org/0000-0002-1011-1244"
     }
   ],
   "copyrightHolder": [
@@ -453,7 +460,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1319.2KB",
+  "fileSize": "1319.489KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
