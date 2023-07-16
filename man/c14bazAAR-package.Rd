@@ -6,7 +6,7 @@
 \alias{c14bazAAR-package}
 \title{c14bazAAR: Download and Prepare C14 Dates from Different Source Databases}
 \description{
-\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, p3k14c, pacea, palmisano, radon, radonb, rxpand, sard.
 }
