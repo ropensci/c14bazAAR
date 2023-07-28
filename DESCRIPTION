@@ -34,7 +34,7 @@ Authors@R:
              email = "hamer@geographie.uni-kiel.de",
              comment = c(ORCID = "0000-0002-5943-5020")),
       person(given = "Kay",
-             family = "Schmütz",
+             family = "Schmuetz",
              role = "aut",
              email = "kschmuetz@ufg.uni-kiel.de"),
       person(given = "Thomas",

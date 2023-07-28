@@ -29,7 +29,7 @@ Authors:
   \item Martin Hinz \email{martin.hinz@iaw.unibe.ch} (\href{https://orcid.org/0000-0002-9904-6548}{ORCID})
   \item David Matzig \email{matzigdavid@gmail.com} (\href{https://orcid.org/0000-0001-7349-5401}{ORCID})
   \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de} (\href{https://orcid.org/0000-0002-5943-5020}{ORCID})
-  \item Kay SchmÃ¼tz \email{kschmuetz@ufg.uni-kiel.de}
+  \item Kay Schmuetz \email{kschmuetz@ufg.uni-kiel.de}
 }
 
 Other contributors:
