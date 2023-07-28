@@ -611,3 +611,21 @@ country,p3k14c,Country
 ,p3k14c,Province
 region,p3k14c,Continent
 shortref,p3k14c,Reference;Source
+c13val,neonet,
+c14age,neonet,C14Age
+c14std,neonet,C14SD
+comment,neonet,
+country,neonet,Country
+culture,neonet,
+feature,neonet,Phase Code
+labnr,neonet,Lab Code
+lat,neonet,Latitude
+lon,neonet,Longitude
+material,neonet,Material
+method,neonet,
+period,neonet,Period
+region,neonet,
+shortref,neonet,bib
+site,neonet,Site Name
+sitetype,neonet,
+species,neonet,Material Species

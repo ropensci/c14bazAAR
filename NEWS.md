@@ -1,3 +1,7 @@
+# 3.4.2
+
+- added getter function for get_neonet database: `get_neonet`
+
 # 3.4.1
 
 - updated `get_14cpalaeolithic` to use v29 of the source database
