@@ -210,33 +210,6 @@ site,caribbean,SiteName
 ,caribbean,"Material"""
 ,caribbean,"Subregion"""
 ,caribbean,"UniqID"""
-c13val,context,C13
-c14age,context,C14AGE
-c14std,context,C14STD
-comment,context,NOTICE
-country,context,COUNTRY
-culture,context,CULTURE
-feature,context,
-labnr,context,LABNR
-lat,context,LATITUDE
-lon,context,LONGITUDE
-material,context,MATERIAL
-method,context,
-period,context,PERIOD
-region,context,REGION
-shortref,context,REFERENCE
-site,context,SITE
-sitetype,context,
-species,context,SPECIES
-,context,calBC68
-,context,calBC95
-,context,GR
-,context,ID
-,context,INCONGR
-,context,LOCUS
-,context,MAR
-,context,PHASE
-,context,SAMPLE
 c13val,eubar,
 c14age,eubar,Edad BP literatura
 c14std,eubar,Desviación Típica

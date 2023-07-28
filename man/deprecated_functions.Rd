@@ -9,6 +9,7 @@
 \alias{get_emedyd}
 \alias{fix_database_country_name}
 \alias{classify_material}
+\alias{get_context}
 \title{Deprecated functions}
 \usage{
 mark_duplicates(...)
@@ -24,6 +25,8 @@ get_emedyd(...)
 fix_database_country_name(...)
 
 classify_material(...)
+
+get_context(...)
 }
 \arguments{
 \item{...}{...}
