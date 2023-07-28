@@ -195,7 +195,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 ```
 
 4. Update the package documentation with roxygen2.
-5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/db_info_table.csv) to make `get_db_url("[the database name]")` work.
+5. Add the database url(s) to the [db_info table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/db_info_table.csv) to make `get_db_url("[the database name]")` work.
 6. Run the data-raw/data_prep.R script to update the data objects in the package. Only this enables the changes made in step 5. You should test your changes now by running the respective getter function.
 7. Add the getter function your wrote in 2 to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
 8. Document the addition of the new function in the NEWS.md file.
@@ -203,7 +203,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 10. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
 11. Update the README map figure by running the script [README_map_figure.R](https://github.com/ropensci/c14bazAAR/blob/master/figures/README_map_figure.R).
 
-#### Pre-submision testing
+#### Pre-submission testing
 
 Before submitting patches or new getter functions via a pull request, we ask you to check the following items:
 
@@ -213,17 +213,12 @@ Before submitting patches or new getter functions via a pull request, we ask you
 4. `DESCRIPTION` is up-to-date with the latest version number and database list
 5. `README.md` is up-to-date
 6. `NEWS.md` is up-to-date and includes the latest changes
-7. **Package checks ran and did not yield any ERRORS, WARNINGS or NOTES (or at least the NOTES are addressed in the cran-comments.md)**
-	- **locally (`devtools::check()`)**
-	- rhub (`devtools::check_rhub(email = ...)`)
-	- winbuilder (`devtools::check_win_release(email = ....)` + `devtools::check_win_devel(email = ....)`)
+7. **Package checks ran and did not yield any ERRORS, WARNINGS or NOTES**
 8. Spellcheck with `devtools::spell_check()` ran and did yield not only false-positives
 9. codemeta.json is up-to-date (can be updated with `codemetar::write_codemeta()`)
 10. `inst/CITATION` is up-to-date
 11. The package does not make external changes without explicit user permission. It does not write to the file system, change options, install packages, quit R, send information over the internet, open external software, etc.
 12. No reverse dependencies break because of the new package version (`devtools::revdep_check()`)
-
-Please make sure to run the tests listed above and pay special attention to the highlighted items.
 
 #### Versioning
 
