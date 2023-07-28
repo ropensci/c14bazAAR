@@ -4,7 +4,7 @@ get_neonet <- function(db_url = get_db_url("neonet")) {
 
   check_connection_to_url(db_url)
 
-  c14dates <- data.table::fread(db_url)
+  c14dates <- data.table::fread(db_url, na.strings = c("n/d", "n/a"))
 
   neonet <- c14dates %>%
     dplyr::transmute(
