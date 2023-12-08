@@ -167,8 +167,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 * [`get_c14data("katsianis")`](R/get_katsianis.R) [**katsianis**](https://rdr.ucl.ac.uk/articles/Dataset_for_An_Aegean_history_and_archaeology_written_through_radiocarbon_dates/12489137/1): An Aegean History and Archaeology Written through Radiocarbon Dates [Markos Katsianis, Andrew Bevan, Giorgos Styliaras & Yannis Maniatis](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.65/) (2020).
 * [`get_c14data("kiteeastafrica")`](R/get_kiteeastafrica.R) [**kiteeastafrica**](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJLNRJ): Radiocarbon dates from eastern Africa in the CARD2.0 format by [Colin Courtney Mustaphi, Rob Marchant](https://www.openquaternary.com/articles/10.5334/oq.22/).
 * [`get_c14data("medafricarbon")`](R/get_medafricarbon.R) [**MedAfriCarbon**](https://zenodo.org/record/3689716#.XnSHp4hKiUk): The MedAfriCarbon Radiocarbon Database and [Web Application](https://theia.arch.cam.ac.uk/MedAfriCarbon/). Archaeological Dynamics in Mediterranean Africa, ca. 9600–700 BC by [Giulio Lucarini, Toby Wilkinson, Enrico R. Crema, Augusto Palombini, Andrew Bevan and Cyprian Broodbank](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.60/) (2020).
-* [`get_c14data("neonet")`](R/neonet.R) [**neonet**](https://github.com/zoometh/neonet): NeoNet Med. Radiocarbon Dates for the Late Mesolithic/Early Neolithic Transition in the North Central-Western Mediterranean Basin by [Thomas Huet, Miriam Cubas, Juan F. Gibaja, F. Xavier Oms, Niccolò Mazzucco](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.87).
-* [`get_c14data("neonetb")`](R/neonetb.R) [**neonetb**](https://github.com/zoometh/neonet): NeoNet Atlantic. Radiocarbon Dates for the Late Mesolithic/Early Neolithic Transition in the Southern European Atlantic Coast by [Thomas Huet, Ana Catarina Basílio, António Faustino Carvalho, Miriam Cubas, Juan F. Gibaja, Elías López-Romero, F. Xavier Oms, Niccolò Mazzucco]().
+* [`get_c14data("neonet")`](R/neonet.R) [**NeoNet**](https://github.com/zoometh/neonet): The NeoNet app is an online open source interactive and user-friendly R Shiny application for mapping radiocarbon dates from the Late Mesolithic / Early Neolithic transition in the European river basins of the north-central Mediterranean by [Thomas Huet, Niccolò Mazzucco, Miriam Cubas Morera, Juan Gibaja, F. Xavier Oms, António Faustino Carvalho, Ana Catarina Basilio, Elías López-Romero](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.87).
 * [`get_c14data("nerd")`](R/get_nerd.R) [**NERD**](https://github.com/apalmisano82/NERD): Near East Radiocarbon Dates Alessio Palmisano, Andrew Bevan, Dan Lawrence & Stephen Shennan (2021).
 * [`get_c14data("pacea")`](R/get_pacea.R) [**pacea**](http://www.paleoanthro.org/media/journal/content/PA20110001_S01.zip): PACEA Geo-Referenced Radiocarbon Database for the late Middle Paleolithic, Upper Paleolithic, and initial Holocene in Europe by [Francesco D'Errico, William E. Banks, Marian Vanhaeren, Véronique Laroulandie and Mathieu Langlais](http://www.paleoanthro.org/media/journal/content/PA20110001.pdf) (2011). 
 * [`get_c14data("palmisano")`](R/get_palmisano.R) [**palmisano**](https://dx.doi.org/10.14324/000.ds.1575442): Regional Demographic Trends and Settlement Patterns in Central Italy: Archaeological Sites and Radiocarbon Dates by [Alessio Palmisano, Andrew Bevan and Stephen Shennan](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.43/) (2018).
@@ -196,7 +195,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 ```
 
 4. Update the package documentation with roxygen2.
-5. Add the database url(s) to the [url_reference table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/db_info_table.csv) to make `get_db_url("[the database name]")` work.
+5. Add the database url(s) to the [db_info table](https://github.com/ropensci/c14bazAAR/blob/master/data-raw/db_info_table.csv) to make `get_db_url("[the database name]")` work.
 6. Run the data-raw/data_prep.R script to update the data objects in the package. Only this enables the changes made in step 5. You should test your changes now by running the respective getter function.
 7. Add the getter function your wrote in 2 to the functions vector in [`get_all_parser_functions()`](https://github.com/ropensci/c14bazAAR/blob/master/R/get_c14data.R#L128).
 8. Document the addition of the new function in the NEWS.md file.
@@ -204,7 +203,7 @@ If you want to add another radiocarbon database to c14bazAAR (maybe from the lis
 10. Add your function to the database list in the README file [here](https://github.com/ropensci/c14bazAAR#databases).
 11. Update the README map figure by running the script [README_map_figure.R](https://github.com/ropensci/c14bazAAR/blob/master/figures/README_map_figure.R).
 
-#### Pre-submision testing
+#### Pre-submission testing
 
 Before submitting patches or new getter functions via a pull request, we ask you to check the following items:
 
@@ -214,17 +213,12 @@ Before submitting patches or new getter functions via a pull request, we ask you
 4. `DESCRIPTION` is up-to-date with the latest version number and database list
 5. `README.md` is up-to-date
 6. `NEWS.md` is up-to-date and includes the latest changes
-7. **Package checks ran and did not yield any ERRORS, WARNINGS or NOTES (or at least the NOTES are addressed in the cran-comments.md)**
-	- **locally (`devtools::check()`)**
-	- rhub (`devtools::check_rhub(email = ...)`)
-	- winbuilder (`devtools::check_win_release(email = ....)` + `devtools::check_win_devel(email = ....)`)
+7. **Package checks ran and did not yield any ERRORS, WARNINGS or NOTES**
 8. Spellcheck with `devtools::spell_check()` ran and did yield not only false-positives
 9. codemeta.json is up-to-date (can be updated with `codemetar::write_codemeta()`)
 10. `inst/CITATION` is up-to-date
 11. The package does not make external changes without explicit user permission. It does not write to the file system, change options, install packages, quit R, send information over the internet, open external software, etc.
 12. No reverse dependencies break because of the new package version (`devtools::revdep_check()`)
-
-Please make sure to run the tests listed above and pay special attention to the highlighted items.
 
 #### Versioning
 

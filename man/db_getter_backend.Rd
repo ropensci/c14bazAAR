@@ -2,11 +2,11 @@
 % Please edit documentation in R/get_14cpalaeolithic.R, R/get_14sea.R,
 %   R/get_adrac.R, R/get_agrichange.R, R/get_aida.R, R/get_austarch.R,
 %   R/get_bda.R, R/get_c14data.R, R/get_calpal.R, R/get_caribbean.R,
-%   R/get_context.R, R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R,
-%   R/get_jomon.R, R/get_katsianis.R, R/get_kiteeastafrica.R,
-%   R/get_medafricarbon.R, R/get_mesorad.R, R/get_neonet.R, R/get_nerd.R,
-%   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_radon.R,
-%   R/get_radonb.R, R/get_rxpand.R, R/get_sard.R
+%   R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R, R/get_jomon.R,
+%   R/get_katsianis.R, R/get_kiteeastafrica.R, R/get_medafricarbon.R,
+%   R/get_mesorad.R, R/get_neonet.R, R/get_nerd.R, R/get_p3k14c.R,
+%   R/get_pacea.R, R/get_palmisano.R, R/get_radon.R, R/get_radonb.R,
+%   R/get_rxpand.R, R/get_sard.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -18,7 +18,6 @@
 \alias{get_all_dates}
 \alias{get_calpal}
 \alias{get_caribbean}
-\alias{get_context}
 \alias{get_eubar}
 \alias{get_euroevol}
 \alias{get_irdd}
@@ -57,8 +56,6 @@ get_all_dates()
 get_calpal(db_url = get_db_url("calpal"))
 
 get_caribbean(db_url = get_db_url("caribbean"))
-
-get_context(db_url = get_db_url("context"))
 
 get_eubar(db_url = get_db_url("eubar"))
 
