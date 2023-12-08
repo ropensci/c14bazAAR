@@ -1,3 +1,10 @@
+# 4.0.0
+
+- deprecated `get_context` - this database is not available any more online
+- slightly reorganized the raw data storage to make it more clear which information is still relevant
+- defined some NA strings for `get_neonet`
+- reformatted the database list in the README; it now includes the database version available through c14bazAAR
+
 # 3.4.2
 
 - added getter function for get_neonet database: `get_neonet`
