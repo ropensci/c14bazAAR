@@ -629,3 +629,21 @@ shortref,neonet,bib
 site,neonet,Site Name
 sitetype,neonet,
 species,neonet,Material Species
+c13val,neonetb,
+c14age,neonetb,C14Age
+c14std,neonetb,C14SD
+comment,neonetb,
+country,neonetb,Country
+culture,neonetb,
+feature,neonetb,Phase Code
+labnr,neonetb,Lab Code
+lat,neonetb,Latitude
+lon,neonetb,Longitude
+material,neonetb,Material
+method,neonetb,
+period,neonetb,Period
+region,neonetb,
+shortref,neonetb,bib
+site,neonetb,Site Name
+sitetype,neonetb,
+species,neonetb,Material Species

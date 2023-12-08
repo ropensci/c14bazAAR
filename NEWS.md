@@ -1,3 +1,7 @@
+# 3.4.3
+
+- added getter function for get_neonet database: `get_neonetb`
+
 # 3.4.2
 
 - added getter function for get_neonet database: `get_neonet`
