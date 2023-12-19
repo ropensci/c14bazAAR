@@ -27,4 +27,5 @@ caribbean,2021-05-21,1,https://raw.githubusercontent.com/philriris/caribbean-14C
 aida,today,1,https://raw.githubusercontent.com/apalmisano82/AIDA/main/dates.csv
 sard,2021-03-01,1,https://raw.githubusercontent.com/emmaloftus/Southern-African-Radiocarbon-Database/main/SARD_Mar2021_14C.csv
 p3k14c,2021-08-03,1,https://raw.githubusercontent.com/people3k/p3k14c/1.0.0/inst/p3k14c_scrubbed_fuzzed.csv
-neonet,2023-07-15,1,http://mappaproject.arch.unipi.it/mod/files/140_140_id00140_doc_elencoc14.tsv
+neonet,2023-12-08,2,https://digitallib.unipi.it/fedora/objects/mag:2814/datastreams/MMb714bbfacf4af2ce1fd7025e3789a99b/content
+neonetb,2023-12-08,1,https://digitallib.unipi.it/fedora/objects/mag:2627/datastreams/MM54ff3698c0ea78b77469ce6462c2ca36/content
