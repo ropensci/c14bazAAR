@@ -1,6 +1,6 @@
 #' @rdname db_getter_backend
 #' @export
-get_neonetb <- function(db_url = get_db_url("neonetb")) {
+get_neonetatl <- function(db_url = get_db_url("neonetatl")) {
 
   check_connection_to_url(db_url)
 
@@ -11,7 +11,7 @@ get_neonetb <- function(db_url = get_db_url("neonetb")) {
     showProgress = FALSE
   )
 
-  neonetb <- c14dates %>%
+  neonetatl <- c14dates %>%
     dplyr::transmute(
       labnr = .data[["LabCode"]],
       c14age = .data[["C14Age"]],
@@ -26,10 +26,10 @@ get_neonetb <- function(db_url = get_db_url("neonetb")) {
       lon = .data[["Longitude"]],
       shortref = .data[["bib"]],
     ) %>% dplyr::mutate(
-      sourcedb = "neonetb",
-      sourcedb_version = get_db_version("neonetb")
+      sourcedb = "neonetatl",
+      sourcedb_version = get_db_version("neonetatl")
     ) %>%
     as.c14_date_list()
 
-  return(neonetb)
+  return(neonetatl)
 }

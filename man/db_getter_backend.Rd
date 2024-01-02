@@ -27,7 +27,7 @@
 \alias{get_medafricarbon}
 \alias{get_mesorad}
 \alias{get_neonet}
-\alias{get_neonetb}
+\alias{get_neonetatl}
 \alias{get_nerd}
 \alias{get_p3k14c}
 \alias{get_pacea}
@@ -76,7 +76,7 @@ get_mesorad(db_url = get_db_url("mesorad"))
 
 get_neonet(db_url = get_db_url("neonet"))
 
-get_neonetb(db_url = get_db_url("neonetb"))
+get_neonetatl(db_url = get_db_url("neonetatl"))
 
 get_nerd(db_url = get_db_url("nerd"))
 

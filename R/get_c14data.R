@@ -154,7 +154,7 @@ get_all_parser_functions <- function() {
     "sard" = c14bazAAR::get_sard,
     "p3k14c" = c14bazAAR::get_p3k14c,
     "neonet" = c14bazAAR::get_neonet,
-    "neonet" = c14bazAAR::get_neonetb
+    "neonet" = c14bazAAR::get_neonetatl
   ))
 }
 
