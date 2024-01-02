@@ -1,3 +1,9 @@
+# 4.1.0
+
+- added getter function for neonetatl database: `get_neonetatl`
+- small improvements to `get_neonet`
+- removed unnecessary `Suggests:` dependencies lwgeom and rgeos
+
 # 4.0.0
 
 - deprecated `get_context` - this database is not available any more online
@@ -7,7 +13,7 @@
 
 # 3.4.2
 
-- added getter function for get_neonet database: `get_neonet`
+- added getter function for neonet database: `get_neonet`
 
 # 3.4.1
 
