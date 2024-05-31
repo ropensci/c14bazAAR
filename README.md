@@ -181,8 +181,10 @@ To suggest other archives to be queried you can join the discussion [here](https
 
 #### Deprecated databases
 
-These databases have been removed from c14bazAAR, because they are not openly online available any more:
+These databases have been removed from c14bazAAR, because they have been replaced by newer projects, were discontinued or are just not openly available any more:
 
+* [**radon**](https://radon.ufg.uni-kiel.de/): Central European and Scandinavian database of 14C dates for the Neolithic and Early Bronze Age by [Dirk Raetzel-Fabian, Martin Furholt, Martin Hinz, Johannes Müller, Christoph Rinne, Karl-Göran Sjögren und Hans-Peter Wotzka](https://www.jna.uni-kiel.de/index.php/jna/article/view/65).
+* [**radonb**](https://radon-b.ufg.uni-kiel.de/): Database for European 14C dates for the Bronze and Early Iron Age by Jutta Kneisel, Martin Hinz, Christoph Rinne.
 * [**context**](http://context-database.uni-koeln.de/): Collection of radiocarbon dates from sites in the Near East and neighboring regions (20.000 - 5.000 calBC) by Utz Böhner and Daniel Schyle.
 
 ### Contributing
