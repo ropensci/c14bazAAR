@@ -3,6 +3,7 @@
 - removed the databases radon and radon-b and replaced it with the new, merged database rado.nb
   - deprecated `get_radon` and `get_radonb`
   - added a new function `get_rado.nb`
+- updated 14cpalaeolithic to the new version v31
 
 # 4.1.0
 

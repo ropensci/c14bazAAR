@@ -1,20 +1,20 @@
 c14bazAAR_variable,database,database_variable
-c13val,14cpalaeolithic,delta13c
-c14age,14cpalaeolithic,c14_age BP
-c14std,14cpalaeolithic,±
-comment,14cpalaeolithic,
-country,14cpalaeolithic,Ccountry
-culture,14cpalaeolithic,Cult
-feature,14cpalaeolithic,Arch Layer
-labnr,14cpalaeolithic,Lab
-lat,14cpalaeolithic,Lat
-lon,14cpalaeolithic,Long
-material,14cpalaeolithic,Sample
-method,14cpalaeolithic,Method
-period,14cpalaeolithic,
-region,14cpalaeolithic,Province
+c13val,14cpalaeolithic,
+c14age,14cpalaeolithic,ch_c14_age
+c14std,14cpalaeolithic,ch_c14_pm
+comment,14cpalaeolithic,ch_c14_result_unreliable
+country,14cpalaeolithic,country
+culture,14cpalaeolithic,
+feature,14cpalaeolithic,ayer_id
+labnr,14cpalaeolithic,ch_c14_labref
+lat,14cpalaeolithic,oord_lat
+lon,14cpalaeolithic,coord_long
+material,14cpalaeolithic,ch_c14_sample
+method,14cpalaeolithic,method
+period,14cpalaeolithic,cul stage
+region,14cpalaeolithic,
 shortref,14cpalaeolithic,bi_bibliogr_ref
-site,14cpalaeolithic,Site
+site,14cpalaeolithic,itename
 sitetype,14cpalaeolithic,
 species,14cpalaeolithic,
 c13val,14sea,δ13C

@@ -23,25 +23,24 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
   # remove non-radiocarbon dates
   db_raw_c14 <- db_raw %>%
-    dplyr::filter(.data[["Method"]] %in% c("AMS", "Con 14C"))
+    dplyr::filter(.data[["method"]] %in% c("AMS", "Conv 14C"))
 
   # final data preparation
   c14palaeolithic <- db_raw_c14 %>%
     dplyr::transmute(
-      c13val   = .data[["delta13c"]],
-      c14age   = .data[["c14_age BP"]],
-      c14std   = .data[["\u00B1"]],
-      country  = .data[["Ccountry"]],
-      culture  = .data[["Cult"]],
-      feature  = .data[["Arch Layer"]],
-      labnr    = .data[["Lab"]],
-      lat      = .data[["Lat"]],
-      lon      = .data[["Long"]],
-      material = .data[["Sample"]],
-      method   = .data[["Method"]],
-      region   = .data[["Province"]],
+      c14age   = .data[["ch_c14_age"]],
+      c14std   = .data[["ch_c14_pm"]],
+      country  = .data[["country"]],
+      feature  = .data[["ayer_id"]],
+      labnr    = .data[["ch_c14_labref"]],
+      lat      = .data[["oord_lat"]],
+      lon      = .data[["coord_long"]],
+      material = .data[["ch_c14_sample"]],
+      method   = .data[["method"]],
+      period   = .data[["cul stage"]],
       shortref = .data[["bi_bibliogr_ref"]],
-      site     = .data[["Site"]]
+      site     = .data[["itename"]],
+      comment  = .data[["ch_c14_result_unreliable"]]
     ) %>% dplyr::mutate(
       sourcedb = "14cpalaeolithic",
       sourcedb_version = get_db_version("14cpalaeolithic")
