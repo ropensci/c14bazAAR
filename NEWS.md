@@ -4,6 +4,7 @@
   - deprecated `get_radon` and `get_radonb`
   - added a new function `get_rado.nb`
 - updated 14cpalaeolithic to the new version v31
+- fixed an issue with a unicode character in the format function that was called in the plot function and failed in R v4.4.0; just replaced the longer dash \u2015 with `-`
 
 # 4.1.0
 
