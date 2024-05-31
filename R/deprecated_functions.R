@@ -83,3 +83,21 @@ get_context <- function(...) {
     "website can not be reached any more (as of July 2023)."
   )
 }
+
+#' @rdname deprecated_functions
+#' @export
+get_radon <- function(...) {
+  stop(
+    "The radon database was removed from c14bazAAR v5.0.0, because it ",
+    "was retired in favour of rado.nb (as of June 2024)."
+  )
+}
+
+#' @rdname deprecated_functions
+#' @export
+get_radonb <- function(...) {
+  stop(
+    "The radon-b database was removed from c14bazAAR v5.0.0, because it ",
+    "was retired in favour of rado.nb (as of June 2024)."
+  )
+}

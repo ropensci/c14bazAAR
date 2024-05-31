@@ -5,8 +5,8 @@
 %   R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R, R/get_jomon.R,
 %   R/get_katsianis.R, R/get_kiteeastafrica.R, R/get_medafricarbon.R,
 %   R/get_mesorad.R, R/get_neonet.R, R/get_neonetatl.R, R/get_nerd.R,
-%   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_radon.R,
-%   R/get_radonb.R, R/get_rxpand.R, R/get_sard.R
+%   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_rado.nb.R,
+%   R/get_rxpand.R, R/get_sard.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -32,8 +32,7 @@
 \alias{get_p3k14c}
 \alias{get_pacea}
 \alias{get_palmisano}
-\alias{get_radon}
-\alias{get_radonb}
+\alias{get_rado.nb}
 \alias{get_rxpand}
 \alias{get_sard}
 \title{Backend functions for data download}
@@ -86,9 +85,7 @@ get_pacea(db_url = get_db_url("pacea"))
 
 get_palmisano(db_url = get_db_url("palmisano"))
 
-get_radon(db_url = get_db_url("radon"))
-
-get_radonb(db_url = get_db_url("radonb"))
+get_rado.nb(db_url = get_db_url("rado.nb"))
 
 get_rxpand(db_url = get_db_url("rxpand"))
 

@@ -10,6 +10,8 @@
 \alias{fix_database_country_name}
 \alias{classify_material}
 \alias{get_context}
+\alias{get_radon}
+\alias{get_radonb}
 \title{Deprecated functions}
 \usage{
 mark_duplicates(...)
@@ -27,6 +29,10 @@ fix_database_country_name(...)
 classify_material(...)
 
 get_context(...)
+
+get_radon(...)
+
+get_radonb(...)
 }
 \arguments{
 \item{...}{...}
