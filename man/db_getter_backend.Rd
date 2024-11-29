@@ -2,19 +2,11 @@
 % Please edit documentation in R/get_14cpalaeolithic.R, R/get_14sea.R,
 %   R/get_adrac.R, R/get_agrichange.R, R/get_aida.R, R/get_austarch.R,
 %   R/get_bda.R, R/get_c14data.R, R/get_calpal.R, R/get_caribbean.R,
-<<<<<<< HEAD
-%   R/get_context.R, R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R,
-%   R/get_jomon.R, R/get_katsianis.R, R/get_kiteeastafrica.R,
-%   R/get_medafricarbon.R, R/get_mesorad.R, R/get_nerd.R, R/get_pacea.R,
-%   R/get_palmisano.R, R/get_radon.R, R/get_radonb.R, R/get_rxpand.R,
-%   R/get_xronos.R
-=======
 %   R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R, R/get_jomon.R,
 %   R/get_katsianis.R, R/get_kiteeastafrica.R, R/get_medafricarbon.R,
 %   R/get_mesorad.R, R/get_neonet.R, R/get_neonetatl.R, R/get_nerd.R,
 %   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_rado.nb.R,
-%   R/get_rxpand.R, R/get_sard.R
->>>>>>> master
+%   R/get_rxpand.R, R/get_sard.R, R/get_xronos.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -42,11 +34,8 @@
 \alias{get_palmisano}
 \alias{get_rado.nb}
 \alias{get_rxpand}
-<<<<<<< HEAD
-\alias{get_xronos}
-=======
 \alias{get_sard}
->>>>>>> master
+\alias{get_xronos}
 \title{Backend functions for data download}
 \usage{
 get_14cpalaeolithic(db_url = get_db_url("14cpalaeolithic"))
@@ -101,11 +90,9 @@ get_rado.nb(db_url = get_db_url("rado.nb"))
 
 get_rxpand(db_url = get_db_url("rxpand"))
 
-<<<<<<< HEAD
-get_xronos(db_url = get_db_url("xronos"))
-=======
 get_sard(db_url = get_db_url("sard"))
->>>>>>> master
+
+get_xronos(db_url = get_db_url("xronos"))
 }
 \arguments{
 \item{db_url}{Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}
