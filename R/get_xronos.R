@@ -6,11 +6,7 @@ get_xronos <- function(db_url = get_db_url("xronos")) {
 
   resp<-httr::GET(db_url)
 
-  jsonRespParsed<-httr::content(resp,as="parsed")
-
-  xronos_data <- jsonRespParsed %>% tidyr::tibble() %>%
-    tidyr::unnest_wider(1) %>%
-    tidyr::unnest_wider(measurement)
+  xronos_data <- httr::content(resp,as="parsed") %>% unique() %>% tidyr::tibble()
 
   xronos <- xronos_data %>%
     dplyr::transmute(
