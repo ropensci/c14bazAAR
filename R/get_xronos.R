@@ -2,7 +2,7 @@
 #' @export
 get_xronos <- function(db_url = get_db_url("xronos")) {
 
-  check_connection_to_url(db_url)
+  check_connection_to_url("https://www.xronos.ch")
 
   resp<-httr::GET(db_url)
 
