@@ -157,15 +157,15 @@ adrac_sf <- adrac %>% as.sf()
 This tabular data structure contains the spatial point information for each date in a column *geom*, but also the initial columns of the input dataset: *data.\**
 
 ```{r, echo=FALSE}
-adrac_sf %>% dplyr::select(data.labnr, data.c14age, data.c14std, geom)
+adrac_sf %>% dplyr::select(labnr, c14age, c14std, geom)
 ```
 
 It can be manipulated with the powerful dplyr functions. We `filter` out all dates from one particular publication (*Moga 2008*), `group` the dates `by` *site* and apply the `summarise` command to keep only one value per group. As we do not define an operation to fold the other variables in the input table, they are removed. Only the geometry column remains.
 
 ```{r}  
 Moga_spatial <- adrac_sf %>%
-  dplyr::filter(grepl("Moga 2008", data.shortref)) %>%
-  dplyr::group_by(data.site) %>%
+  dplyr::filter(grepl("Moga 2008", shortref)) %>%
+  dplyr::group_by(site) %>%
   dplyr::summarise(.groups = "drop")
 ```
 
