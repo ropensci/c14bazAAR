@@ -150,14 +150,11 @@ get_all_parser_functions <- function() {
     "nerd" = c14bazAAR::get_nerd,
     "bda" = c14bazAAR::get_bda,
     "rxpand" = c14bazAAR::get_rxpand,
-<<<<<<< HEAD
-    "xronos" = c14bazAAR::get_xronos
-=======
     "sard" = c14bazAAR::get_sard,
     "p3k14c" = c14bazAAR::get_p3k14c,
     "neonet" = c14bazAAR::get_neonet,
-    "neonet" = c14bazAAR::get_neonetatl
->>>>>>> master
+    "neonet" = c14bazAAR::get_neonetatl,
+    "xronos" = c14bazAAR::get_xronos
   ))
 }
 
