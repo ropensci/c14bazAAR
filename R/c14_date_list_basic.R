@@ -83,13 +83,13 @@ format.c14_date_list <- function(x, ...) {
   if("c14age" %in% colnames(x)) {
     out_str$range_uncal <- paste0(
       "\t", "uncalBP: ",
-      round(max(x[["c14age"]], na.rm = TRUE), -2), " \u2015 ", round(min(x[["c14age"]], na.rm = TRUE), -2)
+      round(max(x[["c14age"]], na.rm = TRUE), -2), " - ", round(min(x[["c14age"]], na.rm = TRUE), -2)
     )
   }
   if("calage" %in% colnames(x)) {
     out_str$range_cal <- paste0(
       "\t", "calBP: ",
-      round(max(x[["calage"]], na.rm = TRUE), -2), " \u2015 ", round(min(x[["calage"]], na.rm = TRUE), -2)
+      round(max(x[["calage"]], na.rm = TRUE), -2), " - ", round(min(x[["calage"]], na.rm = TRUE), -2)
     )
   }
   return_value <- paste(out_str, collapse = "\n", sep = "")
@@ -119,30 +119,38 @@ plot.c14_date_list <- function(x, ...) {
   old.par <- graphics::par(no.readonly = TRUE)
 
   # set plot layout
-  graphics::layout(matrix(c(1,2,3,3), 2, 2, byrow = TRUE))
+  graphics::layout(
+    matrix(c(1,2,4,3,3,4,5,5,5), 3, 3, byrow = TRUE),
+    widths = c(1,0.5,1.5), heights = c(0.7,0.55,1)
+  )
 
   # plot 1: text
-  header <- as.character(format(x)) %>%
-    strsplit("\n") %>% unlist %>%
-    sub("\t", "", .) %>%
-    sub("\t\t", "\t", .) %>%
-    trimws
-  graphics::plot(
-    0, type = 'n', axes = FALSE, ann = FALSE,
-    xlim = c(0, 1), ylim = c(length(header) + 1, 0)
+  graphics::par(mar = c(0, 0, 0, 0))
+  graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE)
+  graphics::legend(
+    "topleft",
+    format(x) %>% gsub("\t", "", .),
+    bty = "n",
+    cex = 1.7
   )
-  for (i in 1:length(header)) {
-    if (i == 1) {
-      graphics::text(0, i, bquote(bold(.(header[i]))), adj = 0)
-    } else {
-      graphics::text(0, i, header[i], adj = 0)
-    }
-  }
 
-  # plot 2: globe
+  # prepare data for mapping
+  mean_lon <- mean(x[["lon"]], na.rm = T)
+  x_west <- x[x[["lon"]] < mean_lon,]
+  x_east <- x[x[["lon"]] >= mean_lon,]
+
+  # plot 2: small globe: "western side of the distribution"
   if (all(c("lon", "lat") %in% colnames(x))) {
     graphics::par(mar = c(0, 0, 0, 0))
-    globe::globeearth(eye = list(mean(x[["lon"]], na.rm = T), mean(x[["lat"]], na.rm = T)))
+    # opposite side of the globe
+    # globe::globeearth(eye = list(
+    #     -(180-mean(x[["lon"]], na.rm = T)),
+    #     -mean(x[["lat"]], na.rm = T)
+    # ))
+    globe::globeearth(eye = list(
+      mean(x_west[["lon"]], na.rm = T),
+      mean(x_west[["lat"]], na.rm = T)
+    ))
     globe::globepoints(
       loc = x[,c("lon", "lat")],
       col = "red",
@@ -150,24 +158,63 @@ plot.c14_date_list <- function(x, ...) {
       pch = 20
     )
   } else {
-    graphics::plot(
-      0, type = 'n', axes = FALSE, ann = FALSE,
-      xlim = c(0, 1), ylim = c(0, 1)
-    )
-    graphics::text(0.5, 0.5, "no coordinate columns", adj = 0)
+    graphics::par(mar = c(0, 0, 0, 0))
+    graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE)
   }
 
-  # plot 3: histogram
+  # plot 3: std histogram
+  ste <- x[["c14std"]]
+  graphics::par(mar = c(4.2, 4.2, 0, 0))
+  graphics::boxplot(
+    ste[!is.na(ste) & ste > 0],
+    log = "x",
+    col = NULL,
+    main = NULL,
+    frame.plot = FALSE,
+    xlab = "Log std error (c14std)",
+    cex.axis = 1.5,
+    cex.lab = 1.5,
+    horizontal = TRUE,
+    bg = "transparent"
+  )
+
+  # plot 4: big globe: "eastern side of the distribution"
+  if (all(c("lon", "lat") %in% colnames(x))) {
+    graphics::par(mar = c(0, 0, 0, 0))
+    globe::globeearth(eye = list(
+      mean(x_east[["lon"]], na.rm = T),
+      mean(x_east[["lat"]], na.rm = T)
+    ))
+    globe::globepoints(
+      loc = x[,c("lon", "lat")],
+      col = "red",
+      cex = 0.01,
+      pch = 20
+    )
+  } else {
+    graphics::par(mar = c(0, 0, 0, 0))
+    graphics::plot(0, type = 'n', axes = FALSE, ann = FALSE)
+    graphics::legend(
+      "center",
+      "no coordinate columns",
+      bty = "n",
+      cex = 1.7
+    )
+  }
+
+  # plot 5: age histogram
   graphics::par(mar = c(4.2, 4.2, 0, 0))
   graphics::hist(
     x[["c14age"]],
     breaks = 100,
+    col = NULL,
     main = NULL,
     xlim = rev(range(x[["c14age"]], na.rm = T)),
     xlab = "Uncalibrated Age BP in years (c14age)",
-    ylab = "Amount of dates"
+    ylab = "Amount of dates",
+    cex.axis = 1.5,
+    cex.lab = 1.5
   )
-
 
   # reset par setting on exit
   on.exit(graphics::par(old.par))

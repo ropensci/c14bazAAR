@@ -1,6 +1,54 @@
-# 3.2.0
+# 5.1.0
 
 - added getter function for xronos database: `get_xronos`
+
+# 5.0.0
+
+- removed the databases radon and radon-b and replaced it with the new, merged database rado.nb
+  - deprecated `get_radon` and `get_radonb`
+  - added a new function `get_rado.nb`
+- updated 14cpalaeolithic to the new version v31
+- fixed an issue with a unicode character in the format function that was called in the plot function and failed in R v4.4.0; just replaced the longer dash \u2015 with `-`
+
+# 4.1.0
+
+- added getter function for neonetatl database: `get_neonetatl`
+- small improvements to `get_neonet`
+- removed unnecessary `Suggests:` dependencies lwgeom and rgeos
+
+# 4.0.0
+
+- deprecated `get_context` - this database is not available any more online
+- slightly reorganized the raw data storage to make it more clear which information is still relevant
+- defined some NA strings for `get_neonet`
+- reformatted the database list in the README; it now includes the database version available through c14bazAAR
+
+# 3.4.2
+
+- added getter function for neonet database: `get_neonet`
+
+# 3.4.1
+
+- updated `get_14cpalaeolithic` to use v29 of the source database
+- added an additional message to `get_c14data` on how to prevent download timeouts
+- minor refactoring
+
+# 3.4.0
+
+- added getter function for p3k14c database: `get_p3k14c`
+
+# 3.3.0
+
+- made the default plot function a bit more powerful (#154)
+
+# 3.2.1
+
+- simplified many getter functions by replacing the explicit column classes definition with a general `colClasses = "character"`, which should do exactly the same (#153)
+
+# 3.2.0
+
+- added getter function for sard database: `get_sard`
+>>>>>>> master
 
 # 3.1.0
 

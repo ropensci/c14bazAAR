@@ -1,7 +1,7 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
-Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, pacea, palmisano, radon, radonb, rxpand, xronos.
-Version: 3.1.0
+Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, neonet, neonetatl, nerd, p3k14c, pacea, palmisano, rado.nb, rxpand, sard.
+Version: 5.1.0
 Authors@R: 
     c(person(given = "Clemens",
              family = "Schmid",
@@ -34,7 +34,7 @@ Authors@R:
              email = "hamer@geographie.uni-kiel.de",
              comment = c(ORCID = "0000-0002-5943-5020")),
       person(given = "Kay",
-             family = "Schmütz",
+             family = "Schmuetz",
              role = "aut",
              email = "kschmuetz@ufg.uni-kiel.de"),
       person(given = "Thomas",
@@ -47,6 +47,11 @@ Authors@R:
              role = "ctb",
              email = "nils.mueller-scheessel@ufg.uni-kiel.de",
              comment = c(ORCID = "0000-0001-7992-8722")),
+      person(given = "Joe",
+             family = "Roe",
+             email = "joe@joeroe.io",
+             role = c("ctb"),
+             comment = c(ORCID = "0000-0002-1011-1244")),
       person(given = "Ben",
              family = "Marwick",
              role = "rev",
@@ -71,8 +76,7 @@ Imports:
     pbapply (>= 1.3-3),
     rlang (>= 0.1.1),
     stats (>= 3.4.0),
-    tibble (>= 1.3.3),
-    tidyr (>= 0.6.3)
+    tibble (>= 1.3.3)
 Suggests:
     Bchron,
     countrycode,
@@ -80,11 +84,9 @@ Suggests:
     ggridges,
     globe,
     knitr,
-    lwgeom,
     mapview,
     plyr,
     readxl,
-    rgeos,
     rmarkdown,
     rnaturalearth,
     rworldmap,
@@ -92,6 +94,7 @@ Suggests:
     sf,
     stringdist,
     testthat,
+    tidyr (>= 0.6.3),
     writexl
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr

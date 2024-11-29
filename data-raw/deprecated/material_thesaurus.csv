@@ -2717,6 +2717,7 @@ bone,Hueso animal
 bone,Hueso humano
 bone,hum—an bones from burial DV42
 bone,human
+bone,human and animal bone
 bone,human  H. neandertalensis (identified by CAT scan) temporal bone
 bone,Human (cranial) bone
 bone,human 3rd metacarpal
@@ -5348,6 +5349,7 @@ food residues,food residue
 food residues,Honey
 food residues,Speisereste
 food residues,voedselrest
+other/unknown,wood charcoal or plant seeds
 other/unknown,134
 other/unknown, 0-80  U-series disequilibrium minimum age
 other/unknown, average age
@@ -6635,6 +6637,7 @@ other/unknown,n.d
 other/unknown,n.d –
 other/unknown,n.d.
 other/unknown,n.d.
+other/unknown,n/d
 other/unknown,n/a
 other/unknown,NA
 other/unknown,NaOH soluble fraction

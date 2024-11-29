@@ -13,17 +13,7 @@ get_euroevol <- function(db_url = get_db_url("euroevol")) {
   # read dates data
   dates <- db_url1 %>%
     data.table::fread(
-      colClasses = c(
-        C14ID = "character",
-        Period = "character",
-        C14Age = "character",
-        C14SD = "character",
-        LabCode = "character",
-        PhaseCode = "character",
-        SiteID = "character",
-        Material = "character",
-        MaterialSpecies = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     )
 
@@ -31,13 +21,7 @@ get_euroevol <- function(db_url = get_db_url("euroevol")) {
   sites <- db_url2 %>%
     data.table::fread(
       sep = ",",
-      colClasses = c(
-        Country = "character",
-        Latitude = "character",
-        Longitude = "character",
-        SiteID = "character",
-        SiteName = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     )
 
@@ -47,13 +31,7 @@ get_euroevol <- function(db_url = get_db_url("euroevol")) {
       drop = c(
         "Subculture"
       ),
-      colClasses = c(
-        Culture = "character",
-        Period = "character",
-        PhaseCode = "character",
-        SiteID = "character",
-        Type = "character"
-      ),
+      colClasses = "character",
       showProgress = FALSE
     ) %>%
     dplyr::select(-.data[["Period"]], -.data[["SiteID"]])

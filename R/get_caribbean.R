@@ -14,20 +14,7 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
         "calCurves",
         "Material"
       ),
-      colClasses = c(
-        "LabNo" = "character",
-        "Age" = "character",
-        "Error" = "character",
-        "d13C" = "character",
-        "Type" = "character",
-        "SiteName" = "character",
-        "Country.Territory" = "character",
-        "Provenience" = "character",
-        "Lat" = "character",
-        "Lon" = "character",
-        "Region" = "character",
-        "Reference" = "character"
-      ),
+      colClasses = "character",
       encoding = "UTF-8",
       na.strings = c("", "\u2014"),
       showProgress = FALSE

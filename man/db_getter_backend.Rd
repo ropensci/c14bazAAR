@@ -2,11 +2,19 @@
 % Please edit documentation in R/get_14cpalaeolithic.R, R/get_14sea.R,
 %   R/get_adrac.R, R/get_agrichange.R, R/get_aida.R, R/get_austarch.R,
 %   R/get_bda.R, R/get_c14data.R, R/get_calpal.R, R/get_caribbean.R,
+<<<<<<< HEAD
 %   R/get_context.R, R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R,
 %   R/get_jomon.R, R/get_katsianis.R, R/get_kiteeastafrica.R,
 %   R/get_medafricarbon.R, R/get_mesorad.R, R/get_nerd.R, R/get_pacea.R,
 %   R/get_palmisano.R, R/get_radon.R, R/get_radonb.R, R/get_rxpand.R,
 %   R/get_xronos.R
+=======
+%   R/get_eubar.R, R/get_euroevol.R, R/get_irdd.R, R/get_jomon.R,
+%   R/get_katsianis.R, R/get_kiteeastafrica.R, R/get_medafricarbon.R,
+%   R/get_mesorad.R, R/get_neonet.R, R/get_neonetatl.R, R/get_nerd.R,
+%   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_rado.nb.R,
+%   R/get_rxpand.R, R/get_sard.R
+>>>>>>> master
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -18,7 +26,6 @@
 \alias{get_all_dates}
 \alias{get_calpal}
 \alias{get_caribbean}
-\alias{get_context}
 \alias{get_eubar}
 \alias{get_euroevol}
 \alias{get_irdd}
@@ -27,13 +34,19 @@
 \alias{get_kiteeastafrica}
 \alias{get_medafricarbon}
 \alias{get_mesorad}
+\alias{get_neonet}
+\alias{get_neonetatl}
 \alias{get_nerd}
+\alias{get_p3k14c}
 \alias{get_pacea}
 \alias{get_palmisano}
-\alias{get_radon}
-\alias{get_radonb}
+\alias{get_rado.nb}
 \alias{get_rxpand}
+<<<<<<< HEAD
 \alias{get_xronos}
+=======
+\alias{get_sard}
+>>>>>>> master
 \title{Backend functions for data download}
 \usage{
 get_14cpalaeolithic(db_url = get_db_url("14cpalaeolithic"))
@@ -56,8 +69,6 @@ get_calpal(db_url = get_db_url("calpal"))
 
 get_caribbean(db_url = get_db_url("caribbean"))
 
-get_context(db_url = get_db_url("context"))
-
 get_eubar(db_url = get_db_url("eubar"))
 
 get_euroevol(db_url = get_db_url("euroevol"))
@@ -74,19 +85,27 @@ get_medafricarbon(db_url = get_db_url("medafricarbon"))
 
 get_mesorad(db_url = get_db_url("mesorad"))
 
+get_neonet(db_url = get_db_url("neonet"))
+
+get_neonetatl(db_url = get_db_url("neonetatl"))
+
 get_nerd(db_url = get_db_url("nerd"))
+
+get_p3k14c(db_url = get_db_url("p3k14c"))
 
 get_pacea(db_url = get_db_url("pacea"))
 
 get_palmisano(db_url = get_db_url("palmisano"))
 
-get_radon(db_url = get_db_url("radon"))
-
-get_radonb(db_url = get_db_url("radonb"))
+get_rado.nb(db_url = get_db_url("rado.nb"))
 
 get_rxpand(db_url = get_db_url("rxpand"))
 
+<<<<<<< HEAD
 get_xronos(db_url = get_db_url("xronos"))
+=======
+get_sard(db_url = get_db_url("sard"))
+>>>>>>> master
 }
 \arguments{
 \item{db_url}{Character. URL that points to the c14 archive file. \code{c14bazAAR::get_db_url()}

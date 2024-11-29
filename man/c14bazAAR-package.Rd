@@ -6,9 +6,13 @@
 \alias{c14bazAAR-package}
 \title{c14bazAAR: Download and Prepare C14 Dates from Different Source Databases}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
+<<<<<<< HEAD
 Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, context, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, nerd, pacea, palmisano, radon, radonb, rxpand, xronos.
+=======
+Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, neonet, neonetatl, nerd, p3k14c, pacea, palmisano, rado.nb, rxpand, sard.
+>>>>>>> master
 }
 \seealso{
 Useful links:
@@ -29,13 +33,14 @@ Authors:
   \item Martin Hinz \email{martin.hinz@iaw.unibe.ch} (\href{https://orcid.org/0000-0002-9904-6548}{ORCID})
   \item David Matzig \email{matzigdavid@gmail.com} (\href{https://orcid.org/0000-0001-7349-5401}{ORCID})
   \item Wolfgang Hamer \email{hamer@geographie.uni-kiel.de} (\href{https://orcid.org/0000-0002-5943-5020}{ORCID})
-  \item Kay Schmütz \email{kschmuetz@ufg.uni-kiel.de}
+  \item Kay Schmuetz \email{kschmuetz@ufg.uni-kiel.de}
 }
 
 Other contributors:
 \itemize{
   \item Thomas Huet \email{thomashuet7@gmail.com} (\href{https://orcid.org/0000-0002-1112-6122}{ORCID}) [contributor]
   \item Nils Mueller-Scheessel \email{nils.mueller-scheessel@ufg.uni-kiel.de} (\href{https://orcid.org/0000-0001-7992-8722}{ORCID}) [contributor]
+  \item Joe Roe \email{joe@joeroe.io} (\href{https://orcid.org/0000-0002-1011-1244}{ORCID}) [contributor]
   \item Ben Marwick (\href{https://orcid.org/0000-0001-7879-4531}{ORCID}) [reviewer]
   \item Enrico R. Crema (\href{https://orcid.org/0000-0001-6727-5138}{ORCID}) [reviewer]
 }

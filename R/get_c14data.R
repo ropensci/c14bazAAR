@@ -84,6 +84,7 @@ get_c14data <- function(databases = c()) {
         "There were errors:\n\n",
         paste(sapply(errors, function(x) { paste0(x$name, " --> ", x$e$message) }), collapse = "\n"),
         "\n\nNot all data might have been downloaded accurately!",
+        "\nIn case of a timout try increasing the download time with options(timeout=300).",
         sep = ""
       )
     )
@@ -134,11 +135,9 @@ get_all_parser_functions <- function() {
     "austarch" =  c14bazAAR::get_austarch,
     "calpal" = c14bazAAR::get_calpal,
     "caribbean" = c14bazAAR::get_caribbean,
-    "context" = c14bazAAR::get_context,
     "eubar" = c14bazAAR::get_eubar,
     "euroevol" = c14bazAAR::get_euroevol,
-    "radon" = c14bazAAR::get_radon,
-    "radonb" = c14bazAAR::get_radonb,
+    "rado.nb" = c14bazAAR::get_rado.nb,
     "kiteeastafrica" = c14bazAAR::get_kiteeastafrica,
     "palmisano" = c14bazAAR::get_palmisano,
     "irdd" = c14bazAAR::get_irdd,
@@ -151,7 +150,14 @@ get_all_parser_functions <- function() {
     "nerd" = c14bazAAR::get_nerd,
     "bda" = c14bazAAR::get_bda,
     "rxpand" = c14bazAAR::get_rxpand,
+<<<<<<< HEAD
     "xronos" = c14bazAAR::get_xronos
+=======
+    "sard" = c14bazAAR::get_sard,
+    "p3k14c" = c14bazAAR::get_p3k14c,
+    "neonet" = c14bazAAR::get_neonet,
+    "neonet" = c14bazAAR::get_neonetatl
+>>>>>>> master
   ))
 }
 

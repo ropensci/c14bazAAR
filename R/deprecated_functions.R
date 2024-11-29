@@ -74,3 +74,30 @@ classify_material <- function(...) {
     "https://github.com/ropensci/c14bazAAR/blob/master/data-raw/material_thesaurus.csv"
   )
 }
+
+#' @rdname deprecated_functions
+#' @export
+get_context <- function(...) {
+  stop(
+    "The CONTEXT database was removed from c14bazAAR v4.0.0, because its ",
+    "website can not be reached any more (as of July 2023)."
+  )
+}
+
+#' @rdname deprecated_functions
+#' @export
+get_radon <- function(...) {
+  stop(
+    "The radon database was removed from c14bazAAR v5.0.0, because it ",
+    "was retired in favour of rado.nb (as of June 2024)."
+  )
+}
+
+#' @rdname deprecated_functions
+#' @export
+get_radonb <- function(...) {
+  stop(
+    "The radon-b database was removed from c14bazAAR v5.0.0, because it ",
+    "was retired in favour of rado.nb (as of June 2024)."
+  )
+}

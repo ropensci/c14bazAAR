@@ -4,12 +4,7 @@ library(magrittr)
 
 db_info_table <- data.table::fread(
   "data-raw/db_info_table.csv",
-  colClasses = c(
-    "db" = "character",
-    "version" = "character",
-    "url_num" = "integer",
-    "url" = "character"
-  ),
+  colClasses = "character",
   encoding = "UTF-8",
   showProgress = FALSE,
   na.strings = c("datatable.na.strings", "", "NA")
