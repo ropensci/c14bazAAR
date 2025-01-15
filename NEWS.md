@@ -48,7 +48,6 @@
 # 3.2.0
 
 - added getter function for sard database: `get_sard`
->>>>>>> master
 
 # 3.1.0
 
