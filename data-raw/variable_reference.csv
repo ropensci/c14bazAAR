@@ -611,7 +611,7 @@ c14std,xronos,std
 site,xronos,site
 ,xronos,site_phase
 feature,xronos,feature
-,xronos,period
+period,xronos,periods
 ,xronos,typochronological_unit
 ,xronos,ecochronological_unit
 material,xronos,material
@@ -621,3 +621,4 @@ lat,xronos,lat
 lon,xronos,lng
 sitetype,xronos,site_type
 species,xronos,species
+shortref,xronos,reference
