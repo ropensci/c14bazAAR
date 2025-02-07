@@ -34,9 +34,18 @@ get_bda <- function(db_url = get_db_url("bda")) {
   names(c14occupa) <- gsub("\u00E9", "e", names(c14occupa))
   names(c14sites) <- gsub("\u00E9", "e", names(c14sites))
 
-  bda <- c14dates %>%
-    dplyr::left_join(c14sites, by = c("id_site_associe" = "id_sites")) %>%
-    dplyr::left_join(c14occupa, by = c("id_occupation_liee" = "id_occupations_2019")) %>%
+  c14merged <- c14dates %>%
+    dplyr::left_join(
+      c14sites, by = c("id_site_associe" = "id_sites")
+    ) %>%
+    dplyr::left_join(
+      c14occupa, by = c("id_occupation_liee" = "id_occupations_2019"),
+      na_matches = "never"
+    )
+
+  # sum(duplicated(c14merged$Code_labo))
+
+  bda <- c14merged %>%
     dplyr::transmute(
       method = .data[["Methode"]],
       labnr = .data[["Code_labo"]],
@@ -61,6 +70,14 @@ get_bda <- function(db_url = get_db_url("bda")) {
       sourcedb_version = get_db_version("bda")
     ) %>%
     as.c14_date_list()
+
+  # sum(duplicated(bda$labnr))
+
+  # the duplicates come from a cleaning of labnrs in as.c14_date_list()
+  # bda %>%
+  #   dplyr::mutate(labnr_old = c14merged$Code_labo, .after = "labnr") %>%
+  #   dplyr::arrange(labnr) %>% dplyr::group_by(labnr) %>%
+  #   dplyr::filter(dplyr::n() > 1) %>% View()
 
   return(bda)
 }
