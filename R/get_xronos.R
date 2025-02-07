@@ -2,11 +2,14 @@
 #' @export
 get_xronos <- function(db_url = get_db_url("xronos")) {
 
-  check_connection_to_url("https://www.xronos.ch")
+  check_connection_to_url(db_url)
 
   resp <- httr::GET(db_url)
 
-  xronos_data <- httr::content(resp, as = "parsed") %>% unique() %>% tidyr::tibble()
+  xronos_data <- httr::content(
+    resp, as = "parsed",
+    show_col_types = FALSE
+  ) %>% unique()
 
   periods_parsed <- parse_json_lists(xronos_data[["periods"]])
   reference_parsed <- parse_json_lists(xronos_data[["reference"]])
@@ -38,14 +41,10 @@ get_xronos <- function(db_url = get_db_url("xronos")) {
 
 # helper function to parse JSON to a ;-separated string list
 parse_json_lists <- function(y) {
-  purrr::map_chr(y,
-    \(x) {
-      if (x != "[]") {
-        jsonlite::fromJSON(x, simplifyDataFrame = FALSE) %>%
-          purrr::map(\(x) ifelse(x == "", NA_character_, x)) %>%
-          purrr::reduce(\(x,y) { stringr::str_flatten(c(x,y), collapse = ";", na.rm = T)}) %>%
-          unlist()
-      } else ""
-    }
-  )
+  parsed <- y %>%
+    paste(collapse = ",") %>%
+    paste("[", ., "]") %>%
+    yyjsonr::read_json_str(opts = yyjsonr::opts_read_json(arr_of_objs_to_df = FALSE))
+  rendered <- purrr::map( parsed, \(x) { paste(unlist(x), collapse = ";") } )
+  return(rendered)
 }
