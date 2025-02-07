@@ -61,7 +61,7 @@ determine_country_by_coordinate.c14_date_list <- function(x, suppress_spatial_wa
     dplyr::filter(is.na(.data$lat) | .data$lon == 0 | .data$lat == 0) %>%
     dplyr::bind_rows(., sf_x) %>%
     dplyr::arrange(.data$ID) %>%
-    dplyr::select(-.data$ID) %>%
+    dplyr::select(-"ID") %>%
     as.c14_date_list()
 
   return(sf_x)
@@ -143,6 +143,6 @@ spatial_join_with_country_dataset <- function(x) {
 
   x_sf %>%
     tibble::as_tibble() %>%
-    dplyr::select(-.data$geometry) %>%
+    dplyr::select(-"geometry") %>%
     return()
 }

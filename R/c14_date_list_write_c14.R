@@ -57,7 +57,7 @@ write_c14.c14_date_list <- function(x, format = c("csv"), ...) {
       paste(list_columns, collapse = ", "),
       ". Unnest them to keep them in the output table."
     )
-    x <- x %>% dplyr::select(-list_columns)
+    x <- x %>% dplyr::select(-tidyselect::all_of(list_columns))
   }
 
   # write

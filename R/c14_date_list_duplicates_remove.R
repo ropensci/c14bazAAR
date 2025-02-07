@@ -193,7 +193,7 @@ remove_duplicates.c14_date_list <- function(
       dplyr::arrange(.data$sourcedb_factor) %>%
       dplyr::filter(dplyr::row_number() == 1) %>%
       dplyr::ungroup() %>%
-      dplyr::select(-.data$sourcedb_factor) %>%
+      dplyr::select(-"sourcedb_factor") %>%
       dplyr::arrange(.data$duplicate_group)
   }
 
@@ -215,12 +215,12 @@ remove_duplicates.c14_date_list <- function(
       ) %>%
       do.call(rbind, .) %>%
       dplyr::select(
-        -.data$sourcedb_order,
-        -.data$sourcedb
+        -"sourcedb_order",
+        -"sourcedb"
       ) %>%
       dplyr::arrange(.data$duplicate_group)
 
-    not_duplicates <- not_duplicates %>% dplyr::select(-.data$sourcedb)
+    not_duplicates <- not_duplicates %>% dplyr::select(-"sourcedb")
   }
 
   # optional: add log string
@@ -250,9 +250,7 @@ remove_duplicates.c14_date_list <- function(
     rbind(summarised_duplicates %>% as.c14_date_list())
 
   final_without_duplicates %>%
-    dplyr::select(
-      -.data$duplicate_group
-    ) %>%
+    dplyr::select(-"duplicate_group") %>%
     as.c14_date_list() %>%
     return()
 }

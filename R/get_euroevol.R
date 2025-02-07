@@ -34,7 +34,7 @@ get_euroevol <- function(db_url = get_db_url("euroevol")) {
       colClasses = "character",
       showProgress = FALSE
     ) %>%
-    dplyr::select(-.data[["Period"]], -.data[["SiteID"]])
+    dplyr::select(-"Period", -"SiteID")
 
   # merge and prepare
   euroevol <- dates %>%

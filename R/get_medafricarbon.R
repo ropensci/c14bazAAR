@@ -40,7 +40,7 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
 
   # build chain of cultural attributions
   db_culture <- db_culturelink %>%
-    dplyr::select(.data[["Culture_ID"]], .data[["Date_ID"]]) %>%
+    dplyr::select("Culture_ID", "Date_ID") %>%
       dplyr::group_by(.data[["Date_ID"]]) %>%
       dplyr::summarise(
         culture = paste(.data[["Culture_ID"]], collapse = ", ")
@@ -56,7 +56,7 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
 
   # build chain of reflinks for shortref field
   db_ref <- db_reflinks %>%
-    dplyr::select(.data[["BibTexKey"]], .data[["Date_ID"]]) %>%
+    dplyr::select("BibTexKey", "Date_ID") %>%
     dplyr::group_by(.data[["Date_ID"]]) %>%
     dplyr::summarise(
       shortref = paste(.data[["BibTexKey"]], collapse = ", ")
