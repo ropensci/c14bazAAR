@@ -1,6 +1,8 @@
 # 5.1.0
 
 - added getter function for xronos database: `get_xronos`
+- applied various technical changes to avoid warnings about deprecated functionality in dependencies
+- small changes in the data processing of `get_palmisano` and `get_bda`, specifically in joins across source tables - causes minimal changes to the result of these functions
 
 # 5.0.0
 
