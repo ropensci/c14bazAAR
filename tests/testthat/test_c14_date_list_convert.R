@@ -22,7 +22,7 @@ test_that("as.sf gives back a sf object with the correct columns", {
   expect_equal(
     colnames(result),
     c(
-      paste0("data.", colnames(example_c14_date_list)),
+      paste0(colnames(example_c14_date_list)),
       "geom"
     )
   )

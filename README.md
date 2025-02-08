@@ -178,6 +178,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 | [**rado.nb**](https://radonb.ufg.uni-kiel.de) <br> latest <br> [`get_c14data("rado.nb")`](R/get_rado.nb.R) | Database for European 14C dates for the Neolithic, the Bronze Age and the Early Iron Age. [Christoph Rinne, Jutta Kneisel, Martin Hinz, Martin Furholt, Nina Krischke, Johannes Müller, Dirk Raetzel-Fabian, Marcel Rodens, Karl-Göran Sjögren, Helle Vandkilde and Hans-Peter Wotzka](https://radonb.ufg.uni-kiel.de). |
 | [**rxpand**](https://github.com/jgregoriods/rxpand) <br> 2020-10-20 <br> [`get_c14data("rxpand")`](R/get_rxpand.R) | Radiocarbon dates for the spread of farming and ceramics in tropical South America by Jonas Gregorio de Souza. |
 | [**sard**](https://github.com/emmaloftus/Southern-African-Radiocarbon-Database) <br> 2021-03-01 <br> [`get_c14data("sard")`](R/get_sard.R) | Southern-African-Radiocarbon-Database by [Emma Loftus, Peter J. Mitchell & Christopher Bronk Ramsey](https://www.cambridge.org/core/journals/antiquity/article/abs/an-archaeological-radiocarbon-database-for-southern-africa/26FE99E995C4507015704D552CB0C196). |
+| [**XRONOS**](https://xronos.ch) <br> latest <br> [`get_c14data("xronos")`](R/get_xronos.R)  | Open Access Database for absolute chronological archaeological information by Martin Hinz, Joe Roe and Clemens Schmid.
 
 #### Deprecated databases
 

@@ -601,3 +601,24 @@ shortref,neonetatl,bib
 site,neonetatl,Site Name
 sitetype,neonetatl,
 species,neonetatl,Material Species
+,xronos,id
+labnr,xronos,labnr
+,xronos,source_database
+c14age,xronos,bp
+c14std,xronos,std
+,xronos,cal_bp
+,xronos,cal_std
+site,xronos,site
+,xronos,site_phase
+feature,xronos,feature
+period,xronos,periods
+,xronos,typochronological_unit
+,xronos,ecochronological_unit
+material,xronos,material
+country,xronos,country
+c13val,xronos,delta_c13
+lat,xronos,lat
+lon,xronos,lng
+sitetype,xronos,site_type
+species,xronos,species
+shortref,xronos,reference

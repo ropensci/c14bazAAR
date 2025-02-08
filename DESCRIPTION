@@ -1,7 +1,7 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
-Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, neonet, neonetatl, nerd, p3k14c, pacea, palmisano, rado.nb, rxpand, sard.
-Version: 5.0.0
+Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, neonet, neonetatl, nerd, p3k14c, pacea, palmisano, rado.nb, rxpand, sard, xronos.
+Version: 5.1.0
 Authors@R: 
     c(person(given = "Clemens",
              family = "Schmid",
@@ -76,7 +76,8 @@ Imports:
     pbapply (>= 1.3-3),
     rlang (>= 0.1.1),
     stats (>= 3.4.0),
-    tibble (>= 1.3.3)
+    tibble (>= 1.3.3),
+    yyjsonr (>= 0.1.20)
 Suggests:
     Bchron,
     countrycode,
@@ -96,5 +97,5 @@ Suggests:
     testthat,
     tidyr (>= 0.6.3),
     writexl
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr

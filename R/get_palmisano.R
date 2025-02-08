@@ -58,11 +58,14 @@ get_palmisano <- function(db_url = get_db_url("palmisano")) {
   file.remove(radiocarbon_path)
   file.remove(sites_path)
 
-  # merge data
+  # merge site data
   radiocarbon_additional_info <- radiocarbon_raw %>%
     dplyr::left_join(
       sites_raw,
-      by = c("SiteID" = "Id")
+      by = c("SiteID" = "Id"),
+      # note that the site ids are in the sites table multiple times,
+      # because one site may be used for multiple time periods
+      relationship = "many-to-many"
     ) %>%
     dplyr::mutate(
       CRA_bc = 1950 - as.numeric(.data[["CRA"]]),
@@ -72,6 +75,9 @@ get_palmisano <- function(db_url = get_db_url("palmisano")) {
     dplyr::filter(
       .data[["CRA_bc"]] >= .data[["StartDate"]] & .data[["CRA_bc"]] < .data[["EndDate"]]
     )
+
+  # any(duplicated(radiocarbon_additional_info$LabID))
+  # length(intersect(sites_raw$Id, radiocarbon_raw$SiteID))
 
   palmisano_raw <- radiocarbon_raw %>%
     dplyr::left_join(
