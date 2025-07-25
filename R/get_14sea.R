@@ -48,10 +48,7 @@ get_14sea <- function(db_url = get_db_url("14sea")) {
       },
       comment = .[[14]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "14sea",
-      sourcedb_version = get_db_version("14sea")
-    ) %>%
+    add_sourcedb_columns("14sea") %>%
     as.c14_date_list()
 
   return(sea14)

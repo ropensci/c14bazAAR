@@ -25,10 +25,8 @@ get_neonetatl <- function(db_url = get_db_url("neonetatl")) {
       lat = .data[["Latitude"]],
       lon = .data[["Longitude"]],
       shortref = .data[["bib"]],
-    ) %>% dplyr::mutate(
-      sourcedb = "neonetatl",
-      sourcedb_version = get_db_version("neonetatl")
     ) %>%
+    add_sourcedb_columns("neonetatl") %>%
     as.c14_date_list()
 
   return(neonetatl)

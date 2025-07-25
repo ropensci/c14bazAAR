@@ -34,10 +34,7 @@ get_jomon <- function(db_url = get_db_url("jomon")) {
       period = .data[["PotteryPhase_JP"]],
       shortref = .data[["Source"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "jomon",
-      sourcedb_version = get_db_version("jomon")
-    ) %>%
+    add_sourcedb_columns("jomon") %>%
     as.c14_date_list()
 
   return(jomon)

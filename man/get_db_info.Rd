@@ -3,11 +3,14 @@
 \name{get_db_url}
 \alias{get_db_url}
 \alias{get_db_version}
+\alias{get_db_version_number}
 \title{Get information for c14 databases}
 \usage{
 get_db_url(..., db_info_table = c14bazAAR::db_info_table)
 
 get_db_version(..., db_info_table = c14bazAAR::db_info_table)
+
+get_db_version_number(..., db_info_table = c14bazAAR::db_info_table)
 }
 \arguments{
 \item{...}{names of the databases}

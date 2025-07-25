@@ -38,10 +38,7 @@ get_irdd <- function(db_url = get_db_url("irdd")) {
       shortref = .[[16]],
       comment = .[[17]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "irdd",
-      sourcedb_version = get_db_version("irdd")
-    ) %>%
+    add_sourcedb_columns("irdd") %>%
     as.c14_date_list()
 
   return(irdd)

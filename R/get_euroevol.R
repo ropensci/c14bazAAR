@@ -56,10 +56,8 @@ get_euroevol <- function(db_url = get_db_url("euroevol")) {
       period = .data[["Period"]],
       culture = .data[["Culture"]],
       sitetype = .data[["Type"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "euroevol",
-      sourcedb_version = get_db_version("euroevol")
     ) %>%
+    add_sourcedb_columns("euroevol") %>%
     as.c14_date_list()
 
   return(euroevol)

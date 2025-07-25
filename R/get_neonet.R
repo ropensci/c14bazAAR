@@ -25,10 +25,8 @@ get_neonet <- function(db_url = get_db_url("neonet")) {
       lat = .data[["Latitude"]],
       lon = .data[["Longitude"]],
       shortref = .data[["bib"]],
-    ) %>% dplyr::mutate(
-      sourcedb = "neonet",
-      sourcedb_version = get_db_version("neonet")
     ) %>%
+    add_sourcedb_columns("neonet") %>%
     as.c14_date_list()
 
   return(neonet)

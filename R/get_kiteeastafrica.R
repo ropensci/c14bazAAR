@@ -46,10 +46,8 @@ get_kiteeastafrica <- function(db_url = get_db_url("kiteeastafrica")) {
       shortref = .data[["References"]],
       feature = .data[["Site Name"]],
       comment = gsub("^, $", NA, paste0(.data[["Comments"]], .data[["Additional Information"]], sep = ", "))
-    ) %>% dplyr::mutate(
-      sourcedb = "kiteeastafrica",
-      sourcedb_version = get_db_version("kiteeastafrica")
     ) %>%
+    add_sourcedb_columns("kiteeastafrica") %>%
     as.c14_date_list()
 
   return(kiteeastafrica)

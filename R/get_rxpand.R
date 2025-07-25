@@ -29,10 +29,7 @@ get_rxpand <- function(db_url = get_db_url("rxpand")) {
       comment = .data[["Comments"]],
       shortref = .data[["Reference"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "rxpand",
-      sourcedb_version = get_db_version("rxpand")
-    ) %>%
+    add_sourcedb_columns("rxpand") %>%
     as.c14_date_list()
 
   return(rxpand)

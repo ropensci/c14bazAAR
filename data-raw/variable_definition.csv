@@ -1,6 +1,7 @@
 c14bazAAR_variable,type,definition,source
 sourcedb,character,Source database name,c14bazAAR
-sourcedb_version,character,Source database version,c14bazAAR
+sourcedb_version,character,Source database version date,c14bazAAR
+sourcedb_version_number,character,Source database version number,c14bazAAR
 method,character,Radiocarbon date measurement method,databases
 labnr,character,Laboratory number [composed string with laboratory ID and number separated by “-”],databases
 c14age ,integer,14C age [uncalibrated age BP],databases

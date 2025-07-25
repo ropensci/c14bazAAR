@@ -41,10 +41,8 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
       shortref = .data[["bi_bibliogr_ref"]],
       site     = .data[["itename"]],
       comment  = .data[["ch_c14_result_unreliable"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "14cpalaeolithic",
-      sourcedb_version = get_db_version("14cpalaeolithic")
     ) %>%
+    add_sourcedb_columns("14cpalaeolithic") %>%
     as.c14_date_list()
 
   return(c14palaeolithic)

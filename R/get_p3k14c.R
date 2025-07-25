@@ -31,10 +31,7 @@ get_p3k14c <- function(db_url = get_db_url("p3k14c")) {
       lon = .data[["Long"]],
       shortref = ifelse(is.na(.data[["Reference"]]), .data[["Source"]], .data[["Reference"]])
     ) %>%
-    dplyr::mutate(
-      sourcedb = "p3k14c",
-      sourcedb_version = get_db_version("p3k14c")
-    ) %>%
+    add_sourcedb_columns("p3k14c") %>%
     as.c14_date_list()
 
   return(p3k14c)

@@ -37,10 +37,7 @@ get_adrac <- function(db_url = get_db_url("adrac")) {
     dplyr::filter(
       is.na(.data[["method"]]) | .data[["method"]] != "TL"
     ) %>%
-    dplyr::mutate(
-      sourcedb = "adrac",
-      sourcedb_version = get_db_version("adrac")
-    ) %>%
+    add_sourcedb_columns("adrac") %>%
     as.c14_date_list()
 
   return(adrac)
