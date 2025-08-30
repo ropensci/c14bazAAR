@@ -43,6 +43,6 @@ parse_json_lists <- function(y) {
     paste(collapse = ",") %>%
     paste("[", ., "]") %>%
     yyjsonr::read_json_str(opts = yyjsonr::opts_read_json(arr_of_objs_to_df = FALSE))
-  rendered <- Map( \(x) { paste(unlist(x), collapse = ";") }, parsed )
+  rendered <- Map( function(x) { paste(unlist(x), collapse = ";") }, parsed )
   return(rendered)
 }
