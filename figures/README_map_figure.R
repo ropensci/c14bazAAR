@@ -15,7 +15,7 @@ c14.sf <- sf::st_as_sf(c14.data, coords = c("lon", "lat"), crs = 4326, na.fail =
 
 # labels for histogram plot
 c14.n <- as.data.frame(table(c14.data$sourcedb))
-c14.n$lab <- paste0(c14.n$Var1,"\n(", c14.n$Freq, " dates)")
+c14.n$lab <- paste0(c14.n$Var1,"\n(", format(c14.n$Freq, big.mark = ","), " dates)")
 c14.lab <- c14.n$lab
 names(c14.lab) <- c14.n$Var1
 # prepare histogram annotation
@@ -24,13 +24,34 @@ arrowanno <- c14.data %>%
   dplyr::group_by(sourcedb) %>%
   dplyr::summarise(sum = dplyr::n())
 
-land <- sf::st_as_sf(rnaturalearthdata::coastline110)
+# prepare world land area
+land <- rnaturalearthdata::countries110
+land_moll <- land %>%
+  sf::st_break_antimeridian() %>%
+  sf::st_transform('+proj=moll') %>%
+  sf::st_make_valid() %>%
+  sf::st_union()
+
+# prepare world outline
+make_bbox_polygon <- function(bbox, n = 200, crs_from = 4326) {
+  xmin <- -180; xmax <- 180-0.00001
+  ymin <- bbox[["ymin"]]; ymax <- bbox[["ymax"]]
+  bottom <- cbind(seq(xmin, xmax, length.out = n), rep(ymin, n))
+  right  <- cbind(rep(xmax, n), seq(ymin, ymax, length.out = n))
+  top    <- cbind(seq(xmax, xmin, length.out = n), rep(ymax, n))
+  left   <- cbind(rep(xmin, n), seq(ymax, ymin, length.out = n))
+  coords <- rbind(bottom, right[-1, ], top[-1, ], left[-c(1, n), ], bottom[1, ])
+  sf::st_polygon(list(coords)) %>% sf::st_sfc(crs = crs_from)
+}
+world_box_moll <- make_bbox_polygon(sf::st_bbox(land), n = 200, crs_from = 4326) %>%
+  sf::st_transform('+proj=moll')
 
 # map
 c14.map <- ggplot() +
-  geom_sf(data = land, color = "grey60") +
+  geom_sf(data = land_moll, linewidth = 0.3) +
+  geom_sf(data = world_box_moll, linewidth = 0.3, fill = NA) +
   geom_sf(
-    data = c14.sf,
+    data = c14.sf,# %>% dplyr::filter(sourcedb == "14sea"),
     aes(fill = sourcedb),
     shape = 21,
     color = "black"
