@@ -12,7 +12,7 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   # read data
   db_raw <- temp %>%
     readxl::read_excel(
-      sheet = 1,
+      sheet = 6,
       col_types = "text",
       na = "",
       trim_ws = TRUE
@@ -23,24 +23,24 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
 
   # remove non-radiocarbon dates
   db_raw_c14 <- db_raw %>%
-    dplyr::filter(.data[["method"]] %in% c("AMS", "Conv 14C"))
+    dplyr::filter(.data[["Method"]] %in% c("AMS", "14C"))
 
   # final data preparation
   c14palaeolithic <- db_raw_c14 %>%
     dplyr::transmute(
-      c14age   = .data[["ch_c14_age"]],
-      c14std   = .data[["ch_c14_pm"]],
+      c14age   = .data[["Age"]],
+      c14std   = .data[["sigma"]],
       country  = .data[["country"]],
-      feature  = .data[["ayer_id"]],
-      labnr    = .data[["ch_c14_labref"]],
-      lat      = .data[["oord_lat"]],
+      feature  = .data[["layer"]],
+      labnr    = .data[["Labref"]],
+      lat      = .data[["coord_lat"]],
       lon      = .data[["coord_long"]],
-      material = .data[["ch_c14_sample"]],
-      method   = .data[["method"]],
-      period   = .data[["cul stage"]],
-      shortref = .data[["bi_bibliogr_ref"]],
-      site     = .data[["itename"]],
-      comment  = .data[["ch_c14_result_unreliable"]]
+      material = .data[["sample"]],
+      method   = .data[["Method"]],
+      period   = .data[["Cult stage"]],
+      shortref = .data[["bibliogr_ref"]],
+      site     = .data[["sitename"]],
+      comment  = .data[["reliability"]]
     ) %>%
     add_sourcedb_columns("14cpalaeolithic") %>%
     as.c14_date_list()

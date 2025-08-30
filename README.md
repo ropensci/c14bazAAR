@@ -152,7 +152,7 @@ To suggest other archives to be queried you can join the discussion [here](https
 
 | Database | Description |
 |----------|-------------|
-| [**14cpalaeolithic**](https://ees.kuleuven.be/geography/projects/14c-palaeolithic) <br> 2024-05-15 (V31) <br> [`get_c14data("14cpalaeolithic")`](R/get_14cpalaeolithic.R) | Radiocarbon Palaeolithic Europe Database. |
+| [**14cpalaeolithic**](https://ees.kuleuven.be/geography/projects/14c-palaeolithic) <br> 2025-03-19 (V32) <br> [`get_c14data("14cpalaeolithic")`](R/get_14cpalaeolithic.R) | Radiocarbon Palaeolithic Europe Database. |
 | [**14sea**](http://www.14sea.org/) <br> 2017-01-29 <br> [`get_c14data("14sea")`](R/get_14sea.R) | 14C database for Southeast Europe and Anatolia (10,000–3000 calBC). |
 |  [**adrac**](https://github.com/dirkseidensticker/aDRAC) <br> latest <br> [`get_c14data("adrac")`](R/get_adrac.R) | Archives des datations radiocarbone d'Afrique centrale by Dirk Seidensticker. |
 | [**agrichange**](https://zenodo.org/record/4541470) <br> 2021-05-21 <br> [`get_c14data("agrichange")`](R/get_agrichange.R) | Radiocarbon dates associated to Neolithic contexts (ca. 5900 – 2000 cal BC) from the northwestern Mediterranean Arch to the High Rhine area by [Héctor Martínez-Grau, Berta Morell-Rovira & Ferran Antolín](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.72/) (2021). |
