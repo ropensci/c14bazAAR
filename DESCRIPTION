@@ -64,7 +64,7 @@ URL: https://docs.ropensci.org/c14bazAAR, https://github.com/ropensci/c14bazAAR
 BugReports: https://github.com/ropensci/c14bazAAR/issues
 Depends: 
     R (>= 3.5)
-Language: en_GB
+Language: en
 License: GPL-2 | file LICENSE
 Encoding: UTF-8
 LazyData: true
