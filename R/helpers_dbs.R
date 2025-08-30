@@ -34,7 +34,7 @@ get_db_version <- function(..., db_info_table = c14bazAAR::db_info_table) {
       as.Date(v, format = "%Y-%m-%d")
     },
     db_pos_list
-  ) %>% Reduce(c, .)
+  ) %>% Reduce(c, .) %>% magrittr::extract(1)
 }
 
 #' @rdname get_db_info
@@ -45,7 +45,7 @@ get_db_version_number <- function(..., db_info_table = c14bazAAR::db_info_table)
   Map(
     function(x) { db_info_table$version_number[x] },
     db_pos_list
-  ) %>% Reduce(c, .)
+  ) %>% Reduce(c, .) %>% magrittr::extract(1)
 }
 
 #' @keywords internal
