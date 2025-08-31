@@ -65,10 +65,8 @@ get_bda <- function(db_url = get_db_url("bda")) {
       lon = .data[["Longitude"]],
       shortref = .data[["Ref_biblio"]],
       comment = .data[["Fiabilite.x"]],
-    ) %>% dplyr::mutate(
-      sourcedb = "bda",
-      sourcedb_version = get_db_version("bda")
     ) %>%
+    add_sourcedb_columns("bda") %>%
     as.c14_date_list()
 
   # sum(duplicated(bda$labnr))

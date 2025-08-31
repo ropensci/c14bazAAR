@@ -40,10 +40,8 @@ get_austarch <- function(db_url = get_db_url("austarch")) {
       sitetype = .data[["SITE_TYPE"]],
       method = .data[["METHOD"]],
       comment = .data[["NOTES"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "austarch",
-      sourcedb_version = get_db_version("austarch")
     ) %>%
+    add_sourcedb_columns("austarch") %>%
     # austarch also contains dates from other dating
     # methods (OSL, TL, U-Series, etc.)
     dplyr::filter(

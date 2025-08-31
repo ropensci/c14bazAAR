@@ -47,10 +47,8 @@ get_pacea <- function(db_url = get_db_url("pacea")) {
       lon = .data[["Longitude"]],
       shortref = .data[["Biblio"]],
       comment = .data[["Notes"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "pacea",
-      sourcedb_version = get_db_version("pacea")
     ) %>%
+    add_sourcedb_columns("pacea") %>%
     as.c14_date_list()
 
   return(pacea)

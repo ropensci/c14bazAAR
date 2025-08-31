@@ -29,10 +29,7 @@ get_sard <- function(db_url = get_db_url("sard")) {
     dplyr::filter(
       .data$c14age != ''
     ) %>%
-    dplyr::mutate(
-      sourcedb = "sard",
-      sourcedb_version = get_db_version("sard")
-    ) %>%
+    add_sourcedb_columns("sard") %>%
     as.c14_date_list()
 
   return(sard)

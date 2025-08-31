@@ -31,10 +31,7 @@ get_nerd <- function(db_url = get_db_url("nerd")) {
       comment = paste_ignore_na(.data[["Problems"]], .data[["Comments"]], sep = " "),
       shortref = .data[["Source"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "nerd",
-      sourcedb_version = get_db_version("nerd")
-    ) %>%
+    add_sourcedb_columns("nerd") %>%
     as.c14_date_list()
 
   return(nerd)

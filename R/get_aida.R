@@ -31,10 +31,7 @@ get_aida <- function(db_url = get_db_url("aida")) {
       comment = paste_ignore_na(.data[["Problems"]], .data[["Comments"]], sep = " "),
       shortref = .data[["Source"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "aida",
-      sourcedb_version = get_db_version("aida")
-    ) %>%
+    add_sourcedb_columns("aida") %>%
     as.c14_date_list()
 
   return(aida)

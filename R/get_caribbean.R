@@ -33,10 +33,7 @@ get_caribbean <- function(db_url = get_db_url("caribbean")) {
       lon = .data[["Lon"]],
       shortref = .data[["Reference"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "caribbean",
-      sourcedb_version = get_db_version("caribbean")
-    ) %>%
+    add_sourcedb_columns("caribbean") %>%
     as.c14_date_list()
 
   return(caribbean)

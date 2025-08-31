@@ -36,10 +36,7 @@ get_eubar <- function(db_url = get_db_url("eubar")) {
       feature = .[[19]],
       shortref = .[[22]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "eubar",
-      sourcedb_version = get_db_version("eubar")
-    ) %>%
+    add_sourcedb_columns("eubar") %>%
     as.c14_date_list()
 
   return(eubar)

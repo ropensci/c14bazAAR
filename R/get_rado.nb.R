@@ -31,10 +31,7 @@ get_rado.nb <- function(db_url = get_db_url("rado.nb")) {
       lon = .data[["LONGITUDE"]],
       shortref = .data[["REFERENCE"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "rado.nb",
-      sourcedb_version = get_db_version("rado.nb")
-    ) %>%
+    add_sourcedb_columns("rado.nb") %>%
     as.c14_date_list()
 
   return(rado.nb)

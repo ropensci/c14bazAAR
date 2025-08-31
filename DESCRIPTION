@@ -1,7 +1,7 @@
 Package: c14bazAAR
 Title: Download and Prepare C14 Dates from Different Source Databases
 Description: Query different C14 date databases and apply basic data cleaning, merging and calibration steps. Currently available databases: 14cpalaeolithic, 14sea, adrac, agrichange, aida, austarch, bda, calpal, caribbean, eubar, euroevol, irdd, jomon, katsianis, kiteeastafrica, medafricarbon, mesorad, neonet, neonetatl, nerd, p3k14c, pacea, palmisano, rado.nb, rxpand, sard, xronos.
-Version: 5.1.0
+Version: 5.2.0
 Authors@R: 
     c(person(given = "Clemens",
              family = "Schmid",
@@ -62,8 +62,9 @@ Authors@R:
              comment = c(ORCID = "0000-0001-6727-5138")))
 URL: https://docs.ropensci.org/c14bazAAR, https://github.com/ropensci/c14bazAAR
 BugReports: https://github.com/ropensci/c14bazAAR/issues
-Depends: R (>= 3.4.0)
-Language: en_GB
+Depends: 
+    R (>= 3.5)
+Language: en
 License: GPL-2 | file LICENSE
 Encoding: UTF-8
 LazyData: true

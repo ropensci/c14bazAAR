@@ -48,7 +48,8 @@ enforce_types.c14_date_list <- function(x, suppress_na_introduced_warnings = TRU
 
   # define variable type lists
   chr_cols <- c(
-    "sourcedb", "method", "labnr", "site", "sitetype", "feature", "period",
+    "sourcedb", "sourcedb_version_number",
+    "method", "labnr", "site", "sitetype", "feature", "period",
     "culture", "material", "material_the", "species", "region", "country",
     "country_coord", "country_thes", "country_final", "shortref",
     "comment", "duplicate_remove_log"

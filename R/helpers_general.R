@@ -139,7 +139,21 @@ clean_labnr <- function(x) {
 #' @keywords internal
 #' @noRd
 check_connection_to_url <- function(db_url) {
-  if (httr::http_error(httr::GET(db_url))) {stop(paste(db_url, "is not available. No internet connection?"))}
+  if (
+    httr::http_error(
+      httr::GET(
+        db_url,
+        config = httr::add_headers(
+          # https://techblog.willshouse.com/2012/01/03/most-common-user-agents/
+          `user-agent` = paste(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "AppleWebKit/537.36 (KHTML, like Gecko)",
+            "Chrome/139.0.0.0 Safari/537.36"
+          )
+        )
+      )
+    )
+  ) {stop(paste(db_url, "is not available. No internet connection?"))}
 }
 
 #' paste_ignore_na

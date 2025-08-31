@@ -39,10 +39,8 @@ get_calpal <- function(db_url = get_db_url("calpal")) {
       lat = .data[["LATITUDE"]],
       lon = .data[["LONGITUDE"]],
       shortref = .data[["REFERENCE"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "calpal",
-      sourcedb_version = get_db_version("calpal")
     ) %>%
+    add_sourcedb_columns("calpal") %>%
     as.c14_date_list()
 
   return(calpal)

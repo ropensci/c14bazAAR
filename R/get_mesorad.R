@@ -34,10 +34,7 @@ get_mesorad <- function(db_url = get_db_url("mesorad")) {
       shortref = .[["Citation"]],
       comment = .[["Chronometric Hygiene/ Issues with Dates"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "mesorad",
-      sourcedb_version = get_db_version("mesorad")
-    ) %>%
+    add_sourcedb_columns("mesorad") %>%
     as.c14_date_list()
 
   return(mesorad)

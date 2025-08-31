@@ -55,10 +55,8 @@ get_katsianis <- function(db_url = get_db_url("katsianis")) {
       lon = .data[["Longitude"]],
       shortref = .data[["Source"]],
       comment = .data[["Comments"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "katsianis",
-      sourcedb_version = get_db_version("katsianis")
     ) %>%
+    add_sourcedb_columns("katsianis") %>%
     as.c14_date_list()
 
   # remove files in file system

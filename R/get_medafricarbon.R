@@ -89,10 +89,8 @@ get_medafricarbon <- function(db_url = get_db_url("medafricarbon")) {
       lon = .data[["Decimal_Degrees_Long"]],
       shortref = .data[["shortref"]],
       comment = .data[["Notes"]]
-    ) %>% dplyr::mutate(
-      sourcedb = "medafricarbon",
-      sourcedb_version = get_db_version("medafricarbon")
     ) %>%
+    add_sourcedb_columns("medafricarbon") %>%
     as.c14_date_list()
 
   return(medafricarbon)

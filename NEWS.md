@@ -1,3 +1,11 @@
+# 5.2.0
+
+- specified a new c14bazAAR column `sourcedb_version_number` for the version number of each database in their own respective versioning schemes - previously we only had `sourcedb_version` with a date entry
+- updated `get_14cpalaeolithic` to use v32 of the source database 14cpalaeolithic
+- updated `get_p3k14c` to use v2022.06 of the source database p3k14c
+- slightly adjusted the version handling for the rxpand database
+- applied some minor technical changes and fixes
+
 # 5.1.0
 
 - added getter function for xronos database: `get_xronos`

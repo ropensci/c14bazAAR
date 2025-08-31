@@ -29,11 +29,9 @@ get_xronos <- function(db_url = get_db_url("xronos")) {
       period = periods_parsed,
       shortref = reference_parsed,
       lat = .data[["lat"]],
-      lon = .data[["lng"]]) %>%
-    dplyr::mutate(
-      sourcedb = "xronos",
-      sourcedb_version = get_db_version("xronos")
+      lon = .data[["lng"]]
     ) %>%
+    add_sourcedb_columns("xronos") %>%
     c14bazAAR::as.c14_date_list()
 
   return(xronos)
@@ -45,6 +43,6 @@ parse_json_lists <- function(y) {
     paste(collapse = ",") %>%
     paste("[", ., "]") %>%
     yyjsonr::read_json_str(opts = yyjsonr::opts_read_json(arr_of_objs_to_df = FALSE))
-  rendered <- Map( \(x) { paste(unlist(x), collapse = ";") }, parsed )
+  rendered <- Map( function(x) { paste(unlist(x), collapse = ";") }, parsed )
   return(rendered)
 }

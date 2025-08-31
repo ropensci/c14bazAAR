@@ -46,10 +46,7 @@ get_agrichange <- function(db_url = get_db_url("agrichange")) {
       shortref = .data[["Date_reference"]],
       comment = .data[["Observations"]]
     ) %>%
-    dplyr::mutate(
-      sourcedb = "agrichange",
-      sourcedb_version = get_db_version("agrichange")
-    ) %>%
+    add_sourcedb_columns("agrichange") %>%
     as.c14_date_list()
 
   return(agrichange)

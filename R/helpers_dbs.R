@@ -34,7 +34,29 @@ get_db_version <- function(..., db_info_table = c14bazAAR::db_info_table) {
       as.Date(v, format = "%Y-%m-%d")
     },
     db_pos_list
-  ) %>% Reduce(c, .)
+  ) %>% Reduce(c, .) %>% magrittr::extract(1)
+}
+
+#' @rdname get_db_info
+#' @export
+get_db_version_number <- function(..., db_info_table = c14bazAAR::db_info_table) {
+  db_name <- c(...)
+  db_pos_list <- get_db_pos(db_name, db_info_table)
+  Map(
+    function(x) { db_info_table$version_number[x] },
+    db_pos_list
+  ) %>% Reduce(c, .) %>% magrittr::extract(1)
+}
+
+#' @keywords internal
+#' @noRd
+add_sourcedb_columns <- function(x, sourcedb_name, db_info_table = c14bazAAR::db_info_table) {
+  dplyr::mutate(
+    x,
+    sourcedb = sourcedb_name,
+    sourcedb_version = get_db_version(.data[["sourcedb"]], db_info_table),
+    sourcedb_version_number = get_db_version_number(.data[["sourcedb"]], db_info_table)
+  )
 }
 
 #' @keywords internal
