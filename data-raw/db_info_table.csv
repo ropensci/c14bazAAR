@@ -28,4 +28,5 @@ rado.nb,today,latest,1,https://radonb.ufg.uni-kiel.de/radondaily.txt
 rapanui,2020-08-21,,1,https://github.com/clipo/rapanui-radiocarbon/archive/master.zip
 rxpand,today,latest,1,https://raw.githubusercontent.com/jgregoriods/rxpand/master/data/expand.csv
 sard,2021-03-01,,1,https://raw.githubusercontent.com/emmaloftus/Southern-African-Radiocarbon-Database/main/SARD_Mar2021_14C.csv
+tegiszhol,2026-08-02,1.1,1,https://zenodo.org/records/21756393/files/tegiszhol_c14bazaar.csv?download=1
 xronos,today,latest,1,https://xronos.ch/data.csv

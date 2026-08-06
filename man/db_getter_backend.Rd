@@ -35,6 +35,7 @@
 \alias{get_rado.nb}
 \alias{get_rxpand}
 \alias{get_sard}
+\alias{get_tegiszhol}
 \alias{get_xronos}
 \title{Backend functions for data download}
 \usage{
@@ -91,6 +92,8 @@ get_rado.nb(db_url = get_db_url("rado.nb"))
 get_rxpand(db_url = get_db_url("rxpand"))
 
 get_sard(db_url = get_db_url("sard"))
+
+get_tegiszhol(db_url = get_db_url("tegiszhol"))
 
 get_xronos(db_url = get_db_url("xronos"))
 }
