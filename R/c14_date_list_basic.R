@@ -113,7 +113,7 @@ print.c14_date_list <- function(x, ...) {
 #' @export
 plot.c14_date_list <- function(x, ...) {
 
-  check_if_packages_are_available("globe")
+  rlang::check_installed("globe")
 
   # store par settings
   old.par <- graphics::par(no.readonly = TRUE)

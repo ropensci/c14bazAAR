@@ -2,7 +2,7 @@
 #' @export
 get_irdd <- function(db_url = get_db_url("irdd")) {
 
-  check_if_packages_are_available("readxl")
+  rlang::check_installed("readxl")
   check_connection_to_url(db_url)
 
   # download data

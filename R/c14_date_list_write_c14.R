@@ -67,7 +67,7 @@ write_c14.c14_date_list <- function(x, format = c("csv"), ...) {
       utils::write.csv(x, ...)
     },
     xlsx = {
-      check_if_packages_are_available(c("writexl"))
+      rlang::check_installed(c("writexl"))
       writexl::write_xlsx(x, ...)
     }
   )

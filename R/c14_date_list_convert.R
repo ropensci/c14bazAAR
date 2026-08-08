@@ -40,7 +40,7 @@ as.sf.default <- function(x, quiet = FALSE) {
 #' @export
 as.sf.c14_date_list <- function(x, quiet = FALSE) {
 
-  check_if_packages_are_available("sf")
+  rlang::check_installed("sf")
 
   x %>% check_if_columns_are_present(c("lat", "lon"))
 

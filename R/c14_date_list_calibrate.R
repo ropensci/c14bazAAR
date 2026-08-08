@@ -65,7 +65,7 @@ calibrate.c14_date_list <- function(
     several.ok = TRUE
   )
 
-  check_if_packages_are_available(c("Bchron", "plyr"))
+  rlang::check_installed(c("Bchron", "plyr"))
 
   x %>% check_if_columns_are_present(c("c14age", "c14std"))
 
