@@ -122,7 +122,8 @@ check_connection_to_url <- function(db_url) {
           `user-agent` = paste(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "AppleWebKit/537.36 (KHTML, like Gecko)",
-            "Chrome/139.0.0.0 Safari/537.36"
+            "Chrome/150.0.0.0",
+            "Safari/537.36"
           )
         )
       )
