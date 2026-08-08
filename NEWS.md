@@ -1,3 +1,7 @@
+# 5.3.0
+
+- added getter function for tegiszhol database: `get_tegiszhol`
+
 # 5.2.0
 
 - specified a new c14bazAAR column `sourcedb_version_number` for the version number of each database in their own respective versioning schemes - previously we only had `sourcedb_version` with a date entry
