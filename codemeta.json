@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/ropensci/c14bazAAR",
   "issueTracker": "https://github.com/ropensci/c14bazAAR/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -449,7 +449,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3579.264KB",
+  "fileSize": "3463.286KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
