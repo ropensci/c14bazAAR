@@ -12,7 +12,8 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   # read data
   db_raw <- temp %>%
     readxl::read_excel(
-      sheet = 6,
+      sheet = 1,
+      skip = 1,
       col_types = "text",
       na = "",
       trim_ws = TRUE
@@ -29,21 +30,36 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   c14palaeolithic <- db_raw_c14 %>%
     dplyr::transmute(
       c14age   = .data[["Age"]],
-      c14std   = .data[["sigma"]],
+      c14std   = .data[["pm"]],
       country  = .data[["country"]],
-      feature  = .data[["layer"]],
-      labnr    = .data[["Labref"]],
-      lat      = .data[["coord_lat"]],
-      lon      = .data[["coord_long"]],
+      feature  = .data[["ayer_id"]],
+      labnr    = .data[["labref"]],
+      lat      = .data[["Lat"]],
+      lon      = .data[["Long"]],
       material = .data[["sample"]],
       method   = .data[["Method"]],
       period   = .data[["Cult stage"]],
-      shortref = .data[["bibliogr_ref"]],
+      shortref = .data[["bi_bibliogr_ref"]],
       site     = .data[["sitename"]],
-      comment  = .data[["reliability"]]
+      comment  = .data[["reliabilithy"]]
     ) %>%
     add_sourcedb_columns("14cpalaeolithic") %>%
     as.c14_date_list()
 
-  return(c14palaeolithic)
+  # patch obvious data entry mistakes
+  c14palaeolithic_patched <- c14palaeolithic %>%
+    dplyr::mutate(
+      c14age = dplyr::case_when(
+        labnr == "UCIAMS-286509" ~ 40900,
+        labnr == "VERA-8488" ~ 42081,
+        .default = c14age
+      ),
+      c14std = dplyr::case_when(
+        labnr == "UCIAMS-286509" ~ 1400,
+        labnr == "VERA-8488" ~ 984,
+        .default = c14std
+      )
+    )
+
+  return(c14palaeolithic_patched)
 }

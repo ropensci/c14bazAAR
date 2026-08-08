@@ -1,19 +1,19 @@
 c14bazAAR_variable,database,database_variable
 c13val,14cpalaeolithic,
 c14age,14cpalaeolithic,Age
-c14std,14cpalaeolithic,sigma
-comment,14cpalaeolithic,reliability
+c14std,14cpalaeolithic,pm
+comment,14cpalaeolithic,reliabilithy
 country,14cpalaeolithic,country
 culture,14cpalaeolithic,
-feature,14cpalaeolithic,layer
-labnr,14cpalaeolithic,Labref
-lat,14cpalaeolithic,coord_lat
-lon,14cpalaeolithic,coord_long
+feature,14cpalaeolithic,ayer_id
+labnr,14cpalaeolithic,labref
+lat,14cpalaeolithic,Lat
+lon,14cpalaeolithic,Long
 material,14cpalaeolithic,sample
 method,14cpalaeolithic,Method
 period,14cpalaeolithic,Cult stage
 region,14cpalaeolithic,
-shortref,14cpalaeolithic,bibliogr_ref
+shortref,14cpalaeolithic,bi_bibliogr_ref
 site,14cpalaeolithic,sitename
 sitetype,14cpalaeolithic,
 species,14cpalaeolithic,

@@ -1,6 +1,7 @@
 # 5.3.0
 
 - added getter function for tegiszhol database: `get_tegiszhol`
+- updated `get_14cpalaeolithic` to use v33 of the source database 14cpalaeolithic
 - replaced custom `check_if_packages_are_available()` with `rlang::check_installed()`
 - replaced the source URL for the katsianis database with a more stable link to the figshare API
 
