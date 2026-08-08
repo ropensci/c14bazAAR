@@ -50,14 +50,14 @@ get_14cpalaeolithic <- function(db_url = get_db_url("14cpalaeolithic")) {
   c14palaeolithic_patched <- c14palaeolithic %>%
     dplyr::mutate(
       c14age = dplyr::case_when(
-        labnr == "UCIAMS-286509" ~ 40900,
-        labnr == "VERA-8488" ~ 42081,
-        .default = c14age
+        .data[["labnr"]] == "UCIAMS-286509" ~ 40900,
+        .data[["labnr"]] == "VERA-8488" ~ 42081,
+        .default = .data[["c14age"]]
       ),
       c14std = dplyr::case_when(
-        labnr == "UCIAMS-286509" ~ 1400,
-        labnr == "VERA-8488" ~ 984,
-        .default = c14std
+        .data[["labnr"]] == "UCIAMS-286509" ~ 1400,
+        .data[["labnr"]] == "VERA-8488" ~ 984,
+        .default = .data[["c14std"]]
       )
     )
 
