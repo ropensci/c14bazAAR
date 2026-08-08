@@ -1,6 +1,8 @@
 # 5.3.0
 
 - added getter function for tegiszhol database: `get_tegiszhol`
+- replaced custom `check_if_packages_are_available()` with `rlang::check_installed()`
+- replaced the source URL for the katsianis database with a more stable link to the figshare API
 
 # 5.2.0
 
