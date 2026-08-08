@@ -5,6 +5,7 @@ library(magrittr)
 library(sf)
 
 # download data
+options(timeout = 1000)
 c14.data <- c14bazAAR::get_c14data(databases = "all")
 
 # order according to median ages
@@ -15,7 +16,7 @@ c14.sf <- sf::st_as_sf(c14.data, coords = c("lon", "lat"), crs = 4326, na.fail =
 
 # labels for histogram plot
 c14.n <- as.data.frame(table(c14.data$sourcedb))
-c14.n$lab <- paste0(c14.n$Var1,"\n(", format(c14.n$Freq, big.mark = ","), " dates)")
+c14.n$lab <- paste0(c14.n$Var1,"\n", format(c14.n$Freq, big.mark = ","), " dates")
 c14.lab <- c14.n$lab
 names(c14.lab) <- c14.n$Var1
 # prepare histogram annotation
@@ -56,14 +57,17 @@ c14.map <- ggplot() +
     shape = 21,
     color = "black"
   ) +
-  facet_wrap(~ sourcedb, ncol = 4) +
+  facet_wrap(~ sourcedb, ncol = 3) +
   coord_sf(crs = sf::st_crs('+proj=moll')) +
   theme_bw() +
   theme(
     legend.position = "none",
     panel.border = element_blank(),
     strip.background = element_rect(fill="white"),
-    panel.grid.major = element_line(color="grey90")
+    strip.text = element_text(margin = margin(0.1,0,0.1,0, "cm")),
+    panel.grid.major = element_line(color="grey90"),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
   )
 
 # historgram
@@ -109,8 +113,8 @@ c14.hist <- ggplot() +
 p <- cowplot::plot_grid(
   c14.map, c14.hist,
   labels = "",
-  align = "h",
-  rel_widths = c(3, 1.4)
+  align = "h", axis = "lr",
+  rel_widths = c(3, 1.7)
 )
 
-ggsave("man/figures/README_map_figure.jpeg", p, width = 12, height = 9.2, bg = "white")
+ggsave("man/figures/README_map_figure.jpeg", p, width = 9, height = 12, bg = "white")
