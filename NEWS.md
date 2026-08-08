@@ -3,7 +3,8 @@
 - added getter function for tegiszhol database: `get_tegiszhol`
 - updated `get_14cpalaeolithic` to use v33 of the source database 14cpalaeolithic
 - replaced custom `check_if_packages_are_available()` with `rlang::check_installed()`
-- replaced the source URL for the katsianis database with a more stable link to the figshare API
+- replaced the source URL for the katsianis dataset with a more stable link to the figshare API
+- updated the version number for the p3k14c dataset to v2025.07: while the data does not seem to have changed, this is more consistent with the versioning scheme at the source
 
 # 5.2.0
 
