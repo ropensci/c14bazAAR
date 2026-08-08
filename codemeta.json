@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 (2025-06-13)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24)",
   "author": [
     {
       "@type": "Person",
@@ -449,7 +449,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3577.341KB",
+  "fileSize": "3579.264KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -489,7 +489,7 @@
       }
     }
   ],
-  "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/master/NEWS.md",
+  "releaseNotes": "https://github.com/ropensci/c14bazAAR/blob/main/NEWS.md",
   "readme": "https://github.com/ropensci/c14bazAAR/blob/master/README.md",
   "contIntegration": ["https://github.com/ropensci/c14bazAAR/actions/workflows/check-release.yaml", "https://codecov.io/github/ropensci/c14bazAAR?branch=master"],
   "developmentStatus": "https://www.repostatus.org/#active",

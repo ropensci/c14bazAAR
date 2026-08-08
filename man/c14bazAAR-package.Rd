@@ -24,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Clemens Schmid \email{clemens@nevrome.de} (\href{https://orcid.org/0000-0003-3448-5715}{ORCID}) [copyright holder]
   \item Dirk Seidensticker \email{dirk.seidensticker@gmail.com} (\href{https://orcid.org/0000-0002-8155-7702}{ORCID})
   \item Daniel Knitter \email{knitter@geographie.uni-kiel.de} (\href{https://orcid.org/0000-0003-3014-4497}{ORCID})
   \item Martin Hinz \email{martin.hinz@iaw.unibe.ch} (\href{https://orcid.org/0000-0002-9904-6548}{ORCID})

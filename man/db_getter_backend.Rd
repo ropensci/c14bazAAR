@@ -6,7 +6,7 @@
 %   R/get_katsianis.R, R/get_kiteeastafrica.R, R/get_medafricarbon.R,
 %   R/get_mesorad.R, R/get_neonet.R, R/get_neonetatl.R, R/get_nerd.R,
 %   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_rado.nb.R,
-%   R/get_rxpand.R, R/get_sard.R, R/get_xronos.R
+%   R/get_rxpand.R, R/get_sard.R, R/get_tegiszhol.R, R/get_xronos.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
