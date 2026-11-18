@@ -6,7 +6,8 @@
 %   R/get_katsianis.R, R/get_kiteeastafrica.R, R/get_medafricarbon.R,
 %   R/get_mesorad.R, R/get_neonet.R, R/get_neonetatl.R, R/get_nerd.R,
 %   R/get_p3k14c.R, R/get_pacea.R, R/get_palmisano.R, R/get_rado.nb.R,
-%   R/get_rxpand.R, R/get_sard.R, R/get_tegiszhol.R, R/get_xronos.R
+%   R/get_rxpand.R, R/get_sard.R, R/get_struckec14sweden.R, R/get_tegiszhol.R,
+%   R/get_xronos.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -35,6 +36,7 @@
 \alias{get_rado.nb}
 \alias{get_rxpand}
 \alias{get_sard}
+\alias{get_struckec14sweden}
 \alias{get_tegiszhol}
 \alias{get_xronos}
 \title{Backend functions for data download}
@@ -92,6 +94,8 @@ get_rado.nb(db_url = get_db_url("rado.nb"))
 get_rxpand(db_url = get_db_url("rxpand"))
 
 get_sard(db_url = get_db_url("sard"))
+
+get_struckec14sweden(db_url = get_db_url("struckec14sweden"))
 
 get_tegiszhol(db_url = get_db_url("tegiszhol"))
 

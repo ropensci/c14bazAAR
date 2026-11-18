@@ -640,3 +640,15 @@ culture,tegiszhol,culture
 shortref,tegiszhol,shortref
 comment,tegiszhol,comment
 method,tegiszhol,method
+lab_id,struckec14sweden,labnr
+c14_age_bp,struckec14sweden,c14age
+c14_error,struckec14sweden,c14std
+d13C,struckec14sweden,c13val
+place_name,struckec14sweden,site
+site_type,struckec14sweden,sitetype
+material,struckec14sweden,material
+species,struckec14sweden,species
+landskap,struckec14sweden,region
+latitude,struckec14sweden,lat
+longitude,struckec14sweden,lon
+comment,struckec14sweden,comment
