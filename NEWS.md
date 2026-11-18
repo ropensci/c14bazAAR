@@ -1,4 +1,8 @@
-# 5.3.0 (2026-08-08)
+# 5.4.0 (2026-11-18)
+
+- added getter function for struckec14sweden database: `get_struckec14sweden`
+
+# 5.3.0
 
 - added getter function for tegiszhol database: `get_tegiszhol`
 - updated `get_14cpalaeolithic` to use v33 of the source database 14cpalaeolithic

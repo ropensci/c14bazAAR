@@ -155,7 +155,8 @@ get_all_parser_functions <- function() {
     "neonet" = c14bazAAR::get_neonet,
     "neonet" = c14bazAAR::get_neonetatl,
     "xronos" = c14bazAAR::get_xronos,
-    "tegiszhol" = c14bazAAR::get_tegiszhol
+    "tegiszhol" = c14bazAAR::get_tegiszhol,
+    "struckec14sweden" = c14bazAAR::get_struckec14sweden
   ))
 }
 
